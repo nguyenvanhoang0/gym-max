@@ -1,0 +1,98 @@
+.head{
+    width: 100%;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+    font-size: 1rem;
+    background-color: #fff;
+    /* background-color: rgb(158, 158, 158); */
+    /* background-image: url(../../../assets/img/city.jpg); */
+}
+
+ul{
+    justify-content: end;
+}
+
+ul li{
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    color: #393939;
+    position: relative;
+}
+
+ul li:hover{
+    color: rgb(61, 191, 119);
+
+}
+
+.menu > li:first-child{
+    display: none;
+    
+}
+
+.menu > li:first-child:hover .app {
+    display: block;
+  }
+
+.menu > li:first-child:hover .menu > li:first-child{
+    display: none;
+}
+
+.menu > li:first-child:hover .menu li .item{
+    display: none;
+}
+
+.menu > li:first-child .menu li:hover .item{
+    display: block;
+}
+
+
+.item{
+    display: none;
+    background-color: #fff;
+    /* display: block; */
+    position: fixed ;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 32px;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+    
+}
+
+.item li {
+    padding: 15px 35px 15px 25px;
+    width: auto;
+    background-color:#f0f0f0;
+    border-radius: 12px;
+    margin-top: 15px;
+    justify-content:start;
+}
+
+.item img{
+    padding: 0px 12px 0px 0px;
+}
+
+.item li:first-child {
+    margin-top: 0px;
+}
+
+ul li:hover .item{
+    display: block;
+}
+
+
+
+@media screen and (max-width: 800px) { 
+    .menu > li:first-child{
+        display: flex;
+    }
+
+    .menu > li:nth-child(n+2){
+        display: none;
+    }
+
+    /* .menu > li:not(:first-child):hover .menu{
+        display: block;
+      } */
+
+  }
+  
