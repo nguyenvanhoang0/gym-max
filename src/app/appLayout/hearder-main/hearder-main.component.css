@@ -1,15 +1,47 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
 .head{
-    width: 100%;
+    /* width: 100%; */
     box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
     font-size: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     background-color: #fff;
     /* background-color: rgb(158, 158, 158); */
     /* background-image: url(../../../assets/img/city.jpg); */
 }
 
-ul{
-    justify-content: end;
+
+.hear i {
+    font-family: Font Awesome 6 Free;
+    font-weight: 700;
+
 }
+
+.hear .menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+
+}
+
+.icon{
+    padding: 15px;
+}
+
+#toggle,
+.hear label {
+    display: none;
+}
+
 
 ul li{
     display: flex;
@@ -21,9 +53,18 @@ ul li{
 
 ul li:hover{
     color: rgb(61, 191, 119);
-
 }
 
+.nav-logo {
+    margin-right: 50px;
+}
+
+#toggle, .head label {
+
+    display: none;
+
+}
+/* 
 .menu > li:first-child{
     display: none;
     
@@ -43,7 +84,7 @@ ul li:hover{
 
 .menu > li:first-child .menu li:hover .item{
     display: block;
-}
+} */
 
 
 .item{
@@ -55,7 +96,7 @@ ul li:hover{
     border-radius: 12px;
     margin-top: 32px;
     box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
-    
+    z-index: 999;
 }
 
 .item li {
@@ -79,20 +120,30 @@ ul li:hover .item{
     display: block;
 }
 
+@media screen and (max-width: 800px) {
+    .list {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
 
+    .menu {
+        flex-direction: column;
+        /* align-items: center; */
+        padding: 20px;
+    }
 
-@media screen and (max-width: 800px) { 
-    .menu > li:first-child{
+    .head label {
         display: flex;
+        /* align-items: center; */
+        cursor: pointer;
     }
 
-    .menu > li:nth-child(n+2){
-        display: none;
+    #toggle:checked~.list {
+        max-height: 100%;
     }
+}
 
-    /* .menu > li:not(:first-child):hover .menu{
-        display: block;
-      } */
 
-  }
+  
   
