@@ -9,11 +9,9 @@
             <li routerLink="/main/intro">Intro</li>
             <li>Exercise
                 <ul class="item">
-                    <li><img src="../../../assets/svg/book.svg" alt=""> Exercise</li>
-                    <li><img src="../../../assets/svg/create_new_books.svg" alt="">Create Exercise</li>
-                    <li><img src="../../../assets/svg/book_pins.svg" alt="">Exercises of the day</li>
-                    <li><img src="../../../assets/svg/Instruction_book.svg" alt="">Instruct</li>
-                    <li><img src="../../../assets/svg/book.svg" alt="">Exercise library</li>
+                    <li *ngFor="let item of menuItems" (click)="redirectToPage(item.route)">
+                        <img src="{{ item.img }}" alt="">{{ item.label }}
+                    </li>
                 </ul>
             </li>
             <li routerLink="/main/news">News</li>
