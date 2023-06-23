@@ -1,0 +1,138 @@
+.conveyor-belt {
+  /* margin-top: 20px; */
+  display: flex;
+  overflow: hidden;
+  min-height: 200px;
+  height: 20vh;
+  /* width:100vw; */
+}
+
+.conveyor-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: inline-block;
+  animation: conveyorBeltAnimation 12s linear infinite;
+  width: 100vw;
+
+}
+
+.conten{
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  left: 12vw;
+  top: 20px;
+}
+
+
+.conveyor-item > .img {
+  width: 100vw;
+}
+
+.conveyor-item p {
+  font-size: 4em;
+  -webkit-text-stroke: 1px #03a9f4;
+  color: #ffffff00;
+  max-width: 900px;
+  /* font-size: 18px; */
+}
+
+.conveyor-item button {
+  padding: 10px 20px;
+  color: #FFF;
+  font-size: 18px;
+  /* border: none; */
+  background-color: rgba(191, 0, 0, 0);
+  border-radius: 12px;
+}
+
+.conveyor-item:nth-child(1) button {
+  /* background-color: rgba(192, 255, 195, 0.861); */
+  border: 1px solid rgb(94, 239, 74);
+}
+
+.conveyor-item:nth-child(2) button {
+  /* background-color: rgba(255, 192, 203, 0.495); */
+  border: 1px solid pink;
+}
+
+.conveyor-item:nth-child(3) button {
+  /* background-color: rgba(192, 255, 195, 0.495); */
+  border: 1px solid rgb(94, 239, 74);
+}
+
+.conveyor-item:nth-child(4) button {
+  /* background-color: rgba(231, 168, 10, 0.747); */
+  border: 1px solid rgb(255, 200, 0);
+}
+  /* 
+  .conveyor-item:nth-child(4) .conten{
+    display: flex;
+  } */
+
+.conten img {
+  height: 15vh;
+  width: auto;
+  margin-top: 2vh;
+  margin-left: 10px;
+}
+
+
+@keyframes conveyorBeltAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  45% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-200%);
+  }
+
+  70% {
+    transform: translateX(-200%);
+  }
+
+  75% {
+    transform: translateX(-300%);
+  }
+
+  95% {
+    transform: translateX(-300%);
+  }
+
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .conveyor-item p {
+    font-size: 3em;
+    max-width: 600px;
+  
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .conveyor-item p {
+    font-size: 2em;
+    max-width: 400px;
+  
+  }
+}

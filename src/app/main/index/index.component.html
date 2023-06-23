@@ -1,1 +1,27 @@
-<p>index works!</p>
+<div class="conveyor-belt">
+  <div class="conveyor-item" *ngFor="let item of items; let i = index">
+    <!-- <img src="{{item.image}}" alt="Item Image" /> -->
+    <div class="img"></div>
+    <div class="conten">
+      <div *ngIf="i > 0">
+        <p>{{ item.text }} </p>
+        <button>{{ item.button }}</button>
+      </div>
+      <div *ngIf="i === 0" class="flex">
+        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+      </div>
+      <div *ngIf="i === 1 " class="flex">
+        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+      </div>
+      <div *ngIf="i === 2" class="flex">
+        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+      </div>
+      <div *ngIf="i === 3" class="flex">
+        <img *ngFor="let img of img3" src="{{img.image}}" alt="Item Image" />
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+
+</div>
