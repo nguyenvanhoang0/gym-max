@@ -3,25 +3,50 @@
     <!-- <img src="{{item.image}}" alt="Item Image" /> -->
     <div class="img"></div>
     <div class="conten">
-      <div *ngIf="i > 0">
+      <div *ngIf="i >= 0">
         <p>{{ item.text }} </p>
         <button>{{ item.button }}</button>
       </div>
-      <div *ngIf="i === 0" class="flex">
-        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+      <!-- <div *ngIf="i === 0" class="flex">
+        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" class="list_img"/>
       </div>
-      <div *ngIf="i === 1 " class="flex">
-        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+      <div *ngIf="i === 1 " class=" shared">
+        <img *ngFor="let img of img1" src="{{img.image}}" alt="Item Image" class="shared_img" />
       </div>
       <div *ngIf="i === 2" class="flex">
-        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" />
+        <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" class="list_img"/>
       </div>
       <div *ngIf="i === 3" class="flex">
         <img *ngFor="let img of img3" src="{{img.image}}" alt="Item Image" />
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
-<div>
-
+<div class="container ">
+  <div class="package" >
+    <div class="package_item" *ngFor="let package of packages ; let i = index ">
+      <div class="square1"></div>
+      <div class="square">
+        <p>{{package.name}} <br><div>{{package.text}} </div></p>
+        
+        <div class="price"></div>
+        <div class="package_content">
+          <p   *ngFor="let GymStart of GymStarts ; let i = index ">{{GymStart.text}}</p>
+        </div>
+        <img src="{{package.image}}" alt="Item Image" />
+      </div>
+      <div class="square2">
+        <p> {{package.expiry}} month </p>
+        <p>+ {{package.promotion}} day</p>
+      </div>
+      <div class="package_end">
+        <div>
+        see more
+      </div>
+      <div>
+        Register now
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
