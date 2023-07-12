@@ -1,0 +1,170 @@
+.health_card {
+    display: grid;
+    position: relative;
+    width: 100%;
+}
+
+.tile {
+    width: 100vw;
+    height: 30vh;
+    background-color: aquamarine;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+
+}
+
+.form {
+    border-radius: 12px;
+    border: 1px solid #ffbcbc;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+    width: 45vw;
+    /* height: 3000px; */
+    background-color: rgb(255, 127, 127);
+    z-index: 2;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+}
+
+.user {
+    display: flex;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(70, 70, 70, 0.7);
+    border-radius: 12px;
+}
+
+.avata {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    background-color: aqua;
+    border: white 4px solid;
+}
+
+.basic_information,
+.details {
+    padding: 20px 4vw;
+}
+
+.basic_information input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.basic_information input:nth-child(1) {
+    height: 5vh;
+    width: 70%;
+    font-size: 3vh;
+}
+
+.basic_information input:nth-child(2) {
+    height: 4vh;
+    width: 70%;
+    font-size: 2vh;
+}
+
+.list {
+    border-left: 6px solid palegreen;
+    position: relative;
+}
+
+
+
+.inputItems >label{
+    /* padding: 10px; */
+}
+
+.list input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 46%;
+    height:25px ;
+    border: 1px solid #4533d2;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 2%;
+    outline: none;
+}
+
+.list .basic {
+    margin-top: 15px;
+}
+
+.list .basic label{
+    padding: 0px 15px;
+    width: 100px;
+}
+
+.checkbox_input{
+    display: flex;
+    font-size: 1.3em;
+}
+
+.checkbox_input input{
+    margin: 0px 15px;
+    
+}
+
+.icon_tile {
+    width: 30px;
+    height: 30px;
+    margin: 0px 30px 0px 0px;
+    position: absolute;
+    left: -18px;
+  
+    border: rgb(255, 127, 127) 5px solid;
+    transform:rotate(45deg);
+    background-color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_square{
+    width: 15px;
+    height: 15px;
+    border: rgb(255, 127, 127) 3px solid;
+    background-color: chartreuse;
+}
+
+
+/* 
+hr {
+    margin-top: 0rem;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 2px solid rgba(0,0,0,.1);
+}
+
+.tyles {
+    display: flex;
+    height: 40px;
+    color: #ffbcbc;
+
+}
+
+.tyle {
+    height: 35px;
+    background: aquamarine;
+}
+
+.texts {
+    margin: 5px;
+    margin-left: 5px;
+}
+
+.hinh_binh_hanh {
+    width: 0;
+    height: 0;
+    border-top: 25px solid aquamarine;
+    border-right: 32px solid transparent;
+}
+
+.head1 {
+    height: 1px;
+    background: aquamarine;
+    width: 100%;
+} */

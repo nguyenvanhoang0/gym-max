@@ -5,18 +5,28 @@
     outline: none;
 }
 
-.head{
+.head {
     /* width: 100%; */
     box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
     font-size: 1rem;
-    background-color: #fff;
+    background-color: #ffffffa8;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
+    position: absolute;
     /* background-color: rgb(158, 158, 158); */
     /* background-image: url(../../../assets/img/city.jpg); */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.head:hover{
+    background-color: #fff;
 }
 
 
@@ -33,7 +43,7 @@
 
 }
 
-.icon{
+.icon {
     padding: 15px;
 }
 
@@ -43,7 +53,7 @@
 }
 
 
-ul li{
+ul li {
     display: flex;
     justify-content: center;
     padding: 15px 25px;
@@ -51,19 +61,21 @@ ul li{
     position: relative;
 }
 
-ul li:hover{
-    color: rgb(61, 191, 119);
+ul li:hover {
+    color: rgb(61, 222, 133);
 }
 
 .nav-logo {
     margin-right: 50px;
 }
 
-#toggle, .head label {
+#toggle,
+.head label {
 
     display: none;
 
 }
+
 /* 
 .menu > li:first-child{
     display: none;
@@ -87,11 +99,11 @@ ul li:hover{
 } */
 
 
-.item{
+.item {
     display: none;
     background-color: #fff;
     /* display: block; */
-    position: fixed ;
+    position: fixed;
     padding: 15px;
     border-radius: 12px;
     margin-top: 32px;
@@ -99,16 +111,21 @@ ul li:hover{
     z-index: 999;
 }
 
+.item li:hover{
+
+    background-color: #fff;
+}
+
 .item li {
     padding: 15px 35px 15px 25px;
     width: auto;
-    background-color:#f0f0f0;
+    background-color: #f0f0f0;
     border-radius: 12px;
     margin-top: 15px;
-    justify-content:start;
+    justify-content: start;
 }
 
-.item img{
+.item img {
     padding: 0px 12px 0px 0px;
 }
 
@@ -116,7 +133,7 @@ ul li:hover{
     margin-top: 0px;
 }
 
-ul li:hover .item{
+ul li:hover .item {
     display: block;
 }
 
@@ -143,7 +160,3 @@ ul li:hover .item{
         max-height: 100%;
     }
 }
-
-
-  
-  

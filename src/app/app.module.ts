@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { IntroComponent } from './main/intro/intro.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { TipsComponent } from './main/tips/tips.component';
 import { NewsComponent } from './main/news/news.component';
+import { HealthCardComponent } from './main/health-card/health-card.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,14 @@ import { NewsComponent } from './main/news/news.component';
     IntroComponent,
     ProfileComponent,
     TipsComponent,
-    NewsComponent
+    NewsComponent,
+    HealthCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

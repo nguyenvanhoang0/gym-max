@@ -1,6 +1,17 @@
 body{
 	color: #ffeba7;
 }
+
+.from{
+  width: 100vw;
+  overflow: hidden;
+}
+
+.container{
+  width:100vw;
+  /* display: inline-block; */
+}
+
 a:hover {
 	text-decoration: none;
 }
@@ -88,7 +99,7 @@ display: none;
   width: 100%;
   height: 100%;
   background-color: #fff;
-  background-image: url('/img/pattern_japanese-pattern-2_1_2_0-0_0_1__ffffff00_000000.png');
+  /* background-image: url('/img/pattern_japanese-pattern-2_1_2_0-0_0_1_x _ffffff00_000000.png'); */
   position: absolute;
   border-radius: 6px;
  transform-style: preserve-3d;
@@ -126,7 +137,7 @@ display: none;
   line-height: 22px;
   letter-spacing: 0.5px;
   outline: none;
-  color: #c4c3ca;
+  /* color: #c4c3ca; */
   background-color: #ffffff;
   border: none;
   -webkit-transition: all 200ms linear;
@@ -172,4 +183,38 @@ display: none;
   background-color: #000000;
   color: rgb(61, 191, 119);
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+
+button.active {
+  animation: conveyorBeltAnimation 2s linear infinite;
+}
+
+button.active.reverse {
+  animation: conveyorBeltAnimationReverse 2s linear infinite;
+}
+
+@keyframes conveyorBeltAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes conveyorBeltAnimationReverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

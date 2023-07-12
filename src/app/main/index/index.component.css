@@ -3,7 +3,7 @@
   display: flex;
   overflow: hidden;
   /* min-height: 200px; */
-  height: 400px;
+  /* height: 400px; */
   box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
 
   /* width:100vw; */
@@ -24,21 +24,41 @@
   display: flex;
   position: absolute;
   z-index: 3;
-  left: 12vw;
-  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  /* top: 20px; */
+  justify-content: center;
+  align-items: center;
 }
 
+.conten .list_img {
+  height: 15vh;
+  width: auto;
+  margin-top: 2vh;
+  margin-left: 10px;
+}
 
-.conveyor-item>.img {
+.conveyor-item >.img {
   width: 100vw;
 }
 
-.conveyor-item p {
+.conten > div >p {
+  text-align: center;
   font-size: 4em;
-  -webkit-text-stroke: 1px #03a9f4;
+  -webkit-text-stroke: 1px #ffffff;
   color: #ffffff00;
   max-width: 900px;
   /* font-size: 18px; */
+}
+
+.conten .text p {
+  text-align: center;
+  /* font-size: 4em; */
+  /* -webkit-text-stroke: 1px #ffffff; */
+  color: #ffffff;
+  /* max-width: 900px; */
+  font-size: 18px;
 }
 
 .conveyor-item button {
@@ -78,8 +98,6 @@
 
 
 .shared_img {
-  /* grid-row: 1/span 3; */
-  /* grid-column: 1; */
   width: 15vw;
 }
 
@@ -91,25 +109,35 @@
 
 .shared_img:nth-child(2) {
   height: 10vh;
-  /* width:auto; */
 }
 
 .shared_img:nth-child(3) {
   height: 10vh;
-  /* width:auto; */
-
 }
 
 
-.conten .list_img {
-  height: 15vh;
-  width: auto;
-  margin-top: 2vh;
-  margin-left: 10px;
-}
 
 .container {
   padding: 20px 50px;
+  font-size: 15px;
+}
+
+.tile{
+  text-align: center;
+}
+
+.tile h2{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+/* .tile p */
+
+.tile h2 p{
+  margin-right: 5px;
+  color: #656dee;
+  margin-bottom: 0;
 }
 
 .package {
@@ -119,46 +147,24 @@
 }
 
 .package_item {
-  /* border: 1px solid #d9a5ff; */
-  /* background-color: #faf3ff; */
-
-
-
   position: relative;
-  /* width: 200px; */
-  height: 650px;
+  height: 700px;
   overflow: hidden;
 }
 
-.package_item:nth-child(2) .square{
-  /* background-color: #fff4ea; */
-  border: solid 1px #24c19b;
+.package_end {
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+  right: 0px;
 }
 
-.package_item:nth-child(3) .square{
-  border: solid 1px #656dee;
+.package_end div {
+  width: 100%;
+  height: 7vh;
+  display: grid;
+  place-items: center;
 }
-
-.package_item:nth-child(2) .square1{
-  background-color: #277c7c;
-}
-
-.package_item:nth-child(3) .square1{
-  background-color: #37277f;
-}
-
-.package_item:nth-child(2) .square2,.package_end div{
-  background: linear-gradient(-45deg,#23c19a , #74ecab);
-}
-
-.package_item:nth-child(3) .square2,.package_end div{
-  background: linear-gradient(-45deg,#6346ee , #5995ee);
-}
-
-
-
-
-
 
 .square {
   border-radius: 12px;
@@ -168,8 +174,89 @@
   width: 95%;
   top: 10px;
   right: 10px;
+  cursor: pointer;
   border: solid 1px #f49020;
   overflow: hidden;
+}
+
+.package_item:nth-child(2) .square>p {
+  color: #24c19b;
+}
+
+.package_item:nth-child(3) .square>p {
+  color: #656dee;
+}
+
+.package_content {
+  padding: 20px;
+}
+
+.package_content p {
+  line-height: 24px;
+  border-bottom: dotted 1px #ccc;
+}
+
+.package_item .package_end {
+  background: linear-gradient(-45deg, #ff8c00, #ffaf2d);
+}
+
+.package_item .package_end div:nth-child(1) {
+  background: #fde7d2;
+}
+
+.package_item:nth-child(2) .square {
+  border: solid 1px #24c19b;
+}
+
+.package_item:nth-child(3) .square {
+  border: solid 1px #656dee;
+}
+
+.package_item:nth-child(2) .square1 {
+  background-color: #277c7c;
+}
+
+.package_item:nth-child(3) .square1 {
+  background-color: #37277f;
+}
+
+.package_item:nth-child(2) .square2,
+.package_item:nth-child(2) .package_end {
+  background: linear-gradient(-45deg, #23c19a, #74ecab);
+}
+
+.package_item:nth-child(3) .square2,
+.package_item:nth-child(3) .package_end {
+  background: linear-gradient(-45deg, #6346ee, #5995ee);
+}
+
+.package_item:nth-child(2) .package_end div:nth-child(1) {
+  background: #d3f3eb;
+}
+
+.package_item:nth-child(3) .package_end div:nth-child(1) {
+  background: #e0e2fc;
+}
+
+.package_item:nth-child(1) .package_content p:hover{
+  color: #f49020;;
+  border-bottom: dotted 1px #f49020;;
+}
+
+.package_item:nth-child(2) .package_content p:hover{
+  color: #24c19b;
+  border-bottom: dotted 1px #24c19b;
+}
+
+.package_item:nth-child(3) .package_content p:hover{
+  color: #656dee;
+  border-bottom: dotted 1px #656dee;
+}
+
+/* .square:hover {} */
+
+.package_end:hover {
+  top: 0px;
 }
 
 .square1 {
@@ -184,7 +271,8 @@
 .square1::before {
   content: "";
   display: block;
-  padding-top: 100%; /* Tạo tỷ lệ chiều cao bằng 100% width */
+  padding-top: 100%;
+  /* Tạo tỷ lệ chiều cao bằng 100% width */
 }
 
 .square2 {
@@ -194,58 +282,32 @@
   width: 55%;
   height: 120px;
   padding-bottom: 55%;
-  background: linear-gradient(-45deg,#ff8c00 , #ffaf2d);
+  background: linear-gradient(-45deg, #ff8c00, #ffaf2d);
   transform: translate(-50%, -50%) rotate(45deg);
   /* content: "vip1"; */
 }
 
 .square2::before {
-  
+
   display: block;
-  padding-top: 100%; /* Tạo tỷ lệ chiều cao bằng 100% width */
+  padding-top: 100%;
+  /* Tạo tỷ lệ chiều cao bằng 100% width */
 
 }
 
-.square > p{
+.square>p {
   color: #f49020;
   font-size: 32px;
-  padding: 20px 30px;
+  padding: 20px 30px 0px 30px;
 }
-.square p div{
+
+.square p div {
   color: #000000;
   font-size: 15px;
-  
 }
 
 
-.package_item:nth-child(2) .square > p{
-  color: #24c19b;
-}
 
-.package_item:nth-child(3) .square > p{
-  color: #656dee;
-}
-
-.package_content{
-  padding: 20px;
-}
-
-.package_content p{
-  font-size: 15px;
-  line-height: 24px;
-  border-bottom: dotted 1px #ccc;
-}
-
-.package_end{
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-}
-
-.package_end div{
-  width: 100%;
-  height: 25px;
-}
 
 
 .square2 p {
@@ -257,7 +319,7 @@
   margin-bottom: 0rem;
 }
 
-.square2 p:nth-child(2)  {
+.square2 p:nth-child(2) {
   margin-top: 0%;
   margin-bottom: 0rem;
   font-size: 20px;
@@ -304,12 +366,16 @@
   }
 }
 
-
 @media screen and (max-width: 1200px) {
   .conveyor-item p {
     font-size: 3em;
     max-width: 600px;
+  }
 
+  .package {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 40px;
   }
 }
 
@@ -318,6 +384,9 @@
   .conveyor-item p {
     font-size: 2em;
     max-width: 400px;
+  }
 
+  .package {
+    grid-template-columns: auto;
   }
 }

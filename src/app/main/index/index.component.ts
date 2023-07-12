@@ -22,10 +22,10 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class IndexComponent {
   items: any[] = [
-    { image: '../../../assets/img/img_anime1.jpg', text: "Let's start creating your own exercises", button: "creating", route: '/main/home' },
-    { image: '../../../assets/img/img_anime2.jpg', text: 'library with 200+ effective exercise templates', button: "library", route: '/main/home' },
-    { image: '../../../assets/img/img_anime3.jpg', text: 'Workout with professional fitness experts', button: "See more", route: '/main/home' },
-    { image: '../../../assets/img/img_anime2.jpg', text: 'Register to become a member with many other benefits', button: "Register", route: '/main/home' }
+    { image: '../../../assets/jpg/sky.jpg', tile: "let's begin", text: "Start creating your own workouts for strength and fitness, and add fun and variety to your daily workout routine.", button: "creating", route: '/main/home' },
+    { image: '../../../assets/jpg/sky4.jpg', tile: "resource diversity", text: 'Library with more than 200 effective exercise templates, bringing variety and richness to your training program.', button: "library", route: '/main/home' },
+    { image: '../../../assets/jpg/sky5.jpg', tile: "Professional practice.", text: 'Workout with professional fitness experts who will support and advise you throughout your workout, helping you achieve your best results and make tangible progress in improving your health and fitness. ', button: "See more", route: '/main/home' },
+    { image: '../../../assets/jpg/sky.jpg', tile: "sign up", text: 'Signing up to become a member not only allows you to enjoy many benefits, but also participates in a community full of support and sharing about health and fitness.', button: "Register", route: '/main/home' }
     // Thêm các item khác tương tự
   ];
 
@@ -52,9 +52,9 @@ export class IndexComponent {
 
 
   packages: any[] = [
-    { name: "Gym Start", price: "13", expiry: '3',promotion: '7', text: "Get started with creating your own workouts.", image: '../../../assets/img/popup1.png', },
-    { name: "Gym Pro", price: "24", expiry: '6',promotion: '15', text: "Expansion and rapid growth.", image: '../../../assets/img/popup2.png', },
-    { name: "Gym Max", price: "42", expiry: '12',promotion: '30', text: "become a professional !", image: '../../../assets/img/popup3.png', },
+    { name: "Gym Start", price: "13", expiry: '3', promotion: '7', text: "Get started with creating your own workouts.", image: '../../../assets/img/popup1.png', },
+    { name: "Gym Pro", price: "24", expiry: '6', promotion: '15', text: "Expansion and rapid growth.", image: '../../../assets/img/popup2.png', },
+    { name: "Gym Max", price: "42", expiry: '12', promotion: '30', text: "become a professional !", image: '../../../assets/img/popup3.png', },
   ];
 
   GymStarts: any[] = [

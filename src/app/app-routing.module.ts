@@ -8,6 +8,8 @@ import { IntroComponent } from './main/intro/intro.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { TipsComponent } from './main/tips/tips.component';
 import { NewsComponent } from './main/news/news.component';
+import { HealthCardComponent } from './main/health-card/health-card.component';
+
 const routes: Routes = [
   {
     path: 'admin',
@@ -25,6 +27,7 @@ const routes: Routes = [
       { path: 'news', component: NewsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'tips', component: TipsComponent },
+      { path: 'HealthCard', component: HealthCardComponent },
     ]
   }
 ];

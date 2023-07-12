@@ -1,0 +1,62 @@
+<div class="health_card ">
+    <div class="tile">
+
+    </div>
+    <div class="form">
+        <form action="">
+            <div class="user">
+                <div class="avata">
+
+                </div>
+                <div class="basic_information">
+                    <input type="text" value="nguyễn văn hoàng">
+                    <input type="text" value="123456789@gmail.com">
+                </div>
+
+            </div>
+            <div class="details ">
+                <div class="list">
+                    <div class="details  form_main flex" *ngFor="let item of inputItems">
+                        <div class="icon_tile">
+                            <!-- <img src="../../../assets/img/864763.png" alt=""> -->
+                            <span class=" icon_square ">
+
+                            </span>
+                        </div>
+                        <div class="">
+                            <h3 >{{ item.tile }}</h3>
+                            <div *ngFor="let content of item.contents" class="inputItems">
+                                <div class="basic">
+                                  
+                                    <label *ngIf="item.tile !== 'health condition' && content.label.length > 0 && content.label.length == 1 " >{{
+                                        content.label[0]}}</label>
+                                    <input
+                                        *ngIf="content.type === 'number' || content.type === 'text' || content.type === 'date' "
+                                        type="{{ content.type }}" [placeholder]="content.placeholder"
+                                        [name]="content.name" [id]="content.id" [class]="content.class">
+                                </div>
+
+                                <div *ngIf="content.type === 'radio'">
+                                    <label *ngFor="let option of content.value">
+                                        <input type="radio" [value]="option" [name]="content.name">
+                                        {{ option }}
+                                    </label>
+                                </div>
+
+                                <div *ngIf="content.type === 'checkbox'">
+                                    <label *ngFor="let option of content.label" [class]="item.class">
+                                        <input type="checkbox" [value]="option" >
+                                       {{ option }}
+                                    </label>
+                               </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

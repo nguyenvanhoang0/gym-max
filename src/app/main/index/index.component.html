@@ -1,11 +1,14 @@
 <div class="conveyor-belt">
   <div class="conveyor-item" *ngFor="let item of items; let i = index">
-    <!-- <img src="{{item.image}}" alt="Item Image" /> -->
+    <img src="{{item.image}}" alt="Item Image" class="img" />
     <div class="img"></div>
     <div class="conten">
       <div *ngIf="i >= 0">
-        <p>{{ item.text }} </p>
+        <p>{{ item.tile }} </p>
+        <div class="text">
+          <p>{{ item.text }} </p>
         <button>{{ item.button }}</button>
+        </div>
       </div>
       <!-- <div *ngIf="i === 0" class="flex">
         <img *ngFor="let img of imgs" src="{{img.image}}" alt="Item Image" class="list_img"/>
@@ -23,30 +26,36 @@
   </div>
 </div>
 <div class="container ">
+<div class="tile">
+  <h2><p>Gymmax </p> packages</h2>
+  <p>Choose a workout package that suits your needs.</p>
+</div>
+
   <div class="package" >
     <div class="package_item" *ngFor="let package of packages ; let i = index ">
       <div class="square1"></div>
       <div class="square">
-        <p>{{package.name}} <br><div>{{package.text}} </div></p>
+        <p>{{package.name}} <br><div class="package_text">{{package.text}} </div></p>
         
         <div class="price"></div>
         <div class="package_content">
           <p   *ngFor="let GymStart of GymStarts ; let i = index ">{{GymStart.text}}</p>
         </div>
-        <img src="{{package.image}}" alt="Item Image" />
+        <!-- <img src="{{package.image}}" alt="Item Image" /> -->
+        <div class="package_end">
+          <div>
+          see more
+        </div>
+        <div>
+          Register now
+        </div>
+        </div>
       </div>
       <div class="square2">
         <p> {{package.expiry}} month </p>
         <p>+ {{package.promotion}} day</p>
       </div>
-      <div class="package_end">
-        <div>
-        see more
-      </div>
-      <div>
-        Register now
-      </div>
-      </div>
+      
     </div>
   </div>
 </div>
