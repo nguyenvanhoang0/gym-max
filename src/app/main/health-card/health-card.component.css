@@ -12,76 +12,230 @@
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.tile img {
+    width: 100%;
+    filter: blur(10px);
 }
 
 .form {
     border-radius: 12px;
-    border: 1px solid #ffbcbc;
+    /* border: 1px solid #ffbcbc; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 20vh;
-    width: 45vw;
+    width: 650px;
     /* height: 3000px; */
-    background-color: rgb(255, 127, 127);
+    /* background-color: rgb(255, 127, 127); */
+    background-color: white;
     z-index: 2;
     box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
 }
 
-.user {
-    display: flex;
-    padding: 20px;
+.hearder_form {
     box-shadow: 0px 2px 4px rgba(70, 70, 70, 0.7);
+    background-color: rgb(255, 127, 127);
+    position: relative;
     border-radius: 12px;
 }
 
+.user {
+    display: flex;
+    padding: 20px 20px 0px 20px;
+
+    /* border-radius: 12px 0px 12px 0px; */
+    /* box-shadow: 0px 2px 4px rgba(70, 70, 70, 0.7); */
+
+}
+
 .avata {
-    width: 15vh;
-    height: 15vh;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-color: aqua;
     border: white 4px solid;
+    position: relative;
+    margin-right: 20px;
+    /* overflow: hidden; */
 }
 
-.basic_information,
+.add_avata {
+    /* border: 1px #4533d2 solid; */
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.add_avata img {
+    width: 70%;
+    height: auto;
+}
+
+
+
+.choose_avatar {
+    position: fixed;
+    max-width: 1150px;
+    width: 68%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.822);
+    border-radius: 12px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+    /* display: none; */
+}
+
+.choose_avatar .avata {
+    margin: 20px 40px;
+    overflow: hidden;
+}
+
+.choose_avatar input{
+    margin: 20px 40px;
+    /* width: 100px; */
+    /* height: 40px; */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* right: 50%;  */
+    /* border: 1px solid #ffbcbc; */
+}
+
+/* .choose_avatar input::-webkit-file-upload-button {
+    visibility: hidden;
+  } */
+.avata>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.choose_avatar::-webkit-scrollbar,
+.img_avata::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.choose_avatar::-webkit-scrollbar,
+.img_avata::-webkit-scrollbar {
+    background-color: #888;
+    /* Màu nền của thanh cuộn */
+    border-radius: 4px;
+}
+
+.choose_avatar::-webkit-scrollbar,
+.img_avata::-webkit-scrollbar {
+    background-color: #555;
+    /* Màu nền của thanh cuộn khi hover */
+}
+
+.choose_avatar::-webkit-scrollbar,
+.img_avata::-webkit-scrollbar {
+    background-color: #f2f2f200;
+    /* Màu nền của phần bên ngoài thanh cuộn */
+    border-radius: 4px;
+}
+
+.choose_avatar .img_avata {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+    height: 50%;
+    padding: 20px 40px;
+    overflow: auto;
+}
+
+.choose_avatar.animate{
+    animation: chooseAvatarAnimation 3000s linear infinite;
+} 
+
+
+.img_avata img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.7);
+
+}
+
+.img_avata img:hover {
+    transform: scale(1.1);
+}
+
+
+.health_card ul {
+    padding: 0px 20px 20px 20px;
+}
+
+.health_card ul li {
+    padding: 0px 12px;
+    font-size: 2vh;
+
+}
+
 .details {
-    padding: 20px 4vw;
+    overflow: hidden;
+    padding: 20px 60px;
+}
+
+.basic_information {
+    margin: 20px 0px;
 }
 
 .basic_information input {
     border: none;
     outline: none;
     background-color: transparent;
+    cursor: pointer;
+  position: relative;
 }
 
 .basic_information input:nth-child(1) {
-    height: 5vh;
-    width: 70%;
-    font-size: 3vh;
+    height: 40px;
+    width: auto;
+    font-size: 25px;
 }
 
 .basic_information input:nth-child(2) {
-    height: 4vh;
-    width: 70%;
-    font-size: 2vh;
+    height: 30px;
+    width: auto;
+    font-size: 18px;
 }
 
 .list {
     border-left: 6px solid palegreen;
     position: relative;
+    min-width: 526px;
+    /* width: 100vw; */
 }
 
 
 
-.inputItems >label{
-    /* padding: 10px; */
+.inputItems>label {
+    padding: 10px;
 }
 
 .list input[type="text"],
 input[type="number"],
 input[type="date"] {
     width: 46%;
-    height:25px ;
+    height: 25px;
     border: 1px solid #4533d2;
     background-color: transparent;
     border-radius: 4px;
@@ -89,23 +243,48 @@ input[type="date"] {
     outline: none;
 }
 
+.radio {
+    display: flex;
+    /* padding: 20px; */
+}
+
+.radio label {
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+   
+   
+}
+
+.radio input{
+    margin: 0px 10px;
+}
+
+
+
 .list .basic {
     margin-top: 15px;
 }
 
-.list .basic label{
+.list .basic label {
     padding: 0px 15px;
     width: 100px;
+    transform: 1S;
 }
 
-.checkbox_input{
+.list.animate {
+    animation: conveyorBeltAnimation 3000s linear infinite;
+  }
+
+
+.checkbox_input {
     display: flex;
     font-size: 1.3em;
 }
 
-.checkbox_input input{
+.checkbox_input input {
     margin: 0px 15px;
-    
+
 }
 
 .icon_tile {
@@ -114,21 +293,87 @@ input[type="date"] {
     margin: 0px 30px 0px 0px;
     position: absolute;
     left: -18px;
-  
-    border: rgb(255, 127, 127) 5px solid;
-    transform:rotate(45deg);
+
+    border: rgb(255, 255, 255) 5px solid;
+    transform: rotate(45deg);
     background-color: chartreuse;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.icon_square{
+
+.icon_square {
     width: 15px;
     height: 15px;
-    border: rgb(255, 127, 127) 3px solid;
+    border: rgb(255, 255, 255) 3px solid;
     background-color: chartreuse;
 }
+
+.form_button {
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    
+}
+
+.form_button>div {
+    position: absolute;
+    right: 0;
+}
+
+.form_button button {
+
+    width: 100px;
+    height: 45px;
+    /* border: 1px solid #4533d2; */
+    border: none;
+    margin: 0px 10px;
+    border-radius: 6px;
+}
+
+.bt_back:hover {
+    background-color: gray;
+    border: 1px solid #545454;
+}
+
+.bt_save:hover {
+    background: palegreen;
+}
+
+.bt_next:hover {
+    background-color: palegreen;
+}
+
+@keyframes conveyorBeltAnimation {
+    0% {
+      transform: translateX(0);
+    }
+
+    0.005%{
+        transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes chooseAvatarAnimation {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    0.005%{
+        transform: translate(-50%, -80%);
+    }
+  
+    100% {
+        transform: translate(-50%, -80%);
+    }
+  }
+
 
 
 /* 
