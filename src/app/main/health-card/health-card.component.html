@@ -12,13 +12,10 @@
                                 src="../../../assets/svg/camera.svg" alt="">
                             </div>
                     </div>
-
-
                     <div class="basic_information">
-                        <input type="text" value="nguyễn văn hoàng">
+                        <input type="text" value="{{ userInfo }}">
                         <input type="text" value="123456789@gmail.com">
                     </div>
-
                 </div>
                 <hr>
                 <ul>
@@ -26,78 +23,116 @@
                     </li>
                     <li (click)="nextAnimation()">advanced</li>
                 </ul>
-
             </div>
             <div class="details flex">
-                <div class="list" [class.animate]="next" *ngFor="let item of inputItems; let i = index ">
-                    <div class="  form_main ">
-                        <div>
-                            <div class="details" *ngFor="let item of item.form">
-
-                                <div class="icon_tile">
-                                    <!-- <img src="../../../assets/img/864763.png" alt=""> -->
-                                    <span class=" icon_square ">
-
-                                    </span>
-                                </div>
-                                <div class="">
-                                    <div>
-                                        <h3>{{ item.tile }}</h3>
-                                        <div *ngFor="let content of item.contents" class="inputItems">
-                                            <div class="basic">
-
-                                                <label
-                                                    *ngIf="item.tile !== 'health condition' && content.label.length > 0 && content.label.length == 1 ">{{
-                                                    content.label[0]}}</label>
-                                                <input
-                                                    *ngIf="content.type === 'number' || content.type === 'text' || content.type === 'date' "
-                                                    type="{{ content.type }}" [placeholder]="content.placeholder"
-                                                    [name]="content.name" [id]="content.id" [class]="content.class">
-                                            </div>
-
-                                            <div *ngIf="content.type === 'radio'" class="radio">
-                                                <label *ngFor="let option of content.value">
-                                                    <input type="radio" [value]="option" [name]="content.name">
-                                                    {{ option }}
-                                                </label>
-                                            </div>
-
-                                            <div *ngIf="content.type === 'checkbox'">
-                                                <label *ngFor="let option of content.label" [class]="item.class">
-                                                    <input type="checkbox" [value]="option">
-                                                    {{ option }}
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
+                <div class="list" [class.animate]="next">
+                    <div *ngFor="let question of formQuestions ,  let i = index" class="form_main">
+                        <h2>{{ question.tile }}</h2>
+                        <div class="icon_tile" >
+                            <img [src]="question.img" [alt]="question.tile" >
+                        </div>
+                        
+                        <div *ngFor="let input of question.inputAttributes.$values" class="details">
+                          <label [class]="input.class">{{ input.label }}</label>
+                          <input [type]="input.type" [name]="input.name" [placeholder]="input.placeholder" [value]="input.value">
+                          <!-- Thêm các thuộc tính khác nếu cần -->
+                        </div>
+                        <div class="details">
+                            <div class="icon_tile">
+                              
+                              <span class="icon_square"></span>
                             </div>
-
-                        </div>
-
-                    </div>
-                    <div class="details">
-                        <div class="icon_tile">
-                            <!-- <img src="../../../assets/img/864763.png" alt=""> -->
-                            <span class=" icon_square ">
-
-                            </span>
-                        </div>
-                        <div class="form_button">
-                            <div>
-                                <button class="bt_back" *ngIf="i === 0" >skip</button>
+                            <div class="icon_tile">
+                              <img src="../../../assets/icon gym/complete-100.png" alt="">
+                            </div>
+                            <div class="form_button">
+                              <div>
+                                <button class="bt_back" *ngIf="i === 0">skip</button>
                                 <button class="bt_back" *ngIf="i !== 0" (click)="nextAnimation()">Back</button>
                                 <button class="bt_save">Save</button>
                                 <button class="bt_next" (click)="nextAnimation()">Next</button>
+                              </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                       
+                      </div>
+                      
                 </div>
+                  
+
+
+
+
+                <!-- <div class="list" [class.animate]="next">
+                    <ng-container *ngFor="let item of formQuestions; let i = index">
+                      <div class="form_main">
+                        <div>
+                          <div class="details" *ngFor="let question of item.form">
+                            <div class="icon_tile">
+                            
+                              <span class="icon_square"></span>
+                            </div>
+                            <div class="icon_tile" *ngFor="let img of question.img; let j = index">
+                              <img src="{{ img }}" alt="">
+                            </div>
+                            <div class="icon_tile" *ngFor="let img of question.img; let j = index">
+                              <div *ngFor="let content of question.inputAttributes">
+                                <img *ngIf="selectedGender === content.value[j]" src="{{ img }}" alt="">
+                              </div>
+                            </div>
+                            <div>
+                              <div>
+                                <h3>{{ question.tile }}</h3>
+                                <div *ngFor="let content of question.inputAttributes" class="inputItems">
+                                  <div class="basic">
+                                    <input *ngIf="content.type === 'number' || content.type === 'text' || content.type === 'date'"
+                                      type="{{ content.type }}" [placeholder]="content.label" [name]="content.name" [id]="content.id"
+                                      [class]="content.class">
+                                  </div>
+                                  <div *ngIf="content.type === 'radio'" class="radio">
+                                    <label *ngFor="let option of content.value">
+                                      <input type="radio" [value]="option" [name]="content.name" [(ngModel)]="selectedGender">
+                                      {{ option }}
+                                    </label>
+                                  </div>
+                                  <div *ngIf="content.type === 'checkbox'">
+                                    <label *ngFor="let option of content.label" [class]="item.class">
+                                      <input type="checkbox" [value]="option">
+                                      {{ option }}
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="details">
+                        <div class="icon_tile">
+                          
+                          <span class="icon_square"></span>
+                        </div>
+                        <div class="icon_tile">
+                          <img src="../../../assets/icon gym/complete-100.png" alt="">
+                        </div>
+                        <div class="form_button">
+                          <div>
+                            <button class="bt_back" *ngIf="i === 0">skip</button>
+                            <button class="bt_back" *ngIf="i !== 0" (click)="nextAnimation()">Back</button>
+                            <button class="bt_save">Save</button>
+                            <button class="bt_next" (click)="nextAnimation()">Next</button>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                   -->
+
+
+
+
             </div>
             <div class="edit_avata">
-
                 <div class="choose_avatar" *ngIf="onoffavata" [class.animate]="onoffavata">
                     <div class="avata">
                         <img [src]="currentImg" alt="">
@@ -108,14 +143,11 @@
                                 (click)="toggleElementVisibility()">
                         </div>
                     </div>
-
                     <div class="container" (click)="focusInput()">
                         <input type="file" (change)="onFileSelected($event)" #myInput>
                     </div>
-
                 </div>
             </div>
         </form>
     </div>
-
 </div>

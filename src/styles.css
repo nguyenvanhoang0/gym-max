@@ -26,3 +26,19 @@ ul li{
 .flex{
     display: flex;
 }
+
+
+
+@media screen and (min-width: 840px) and (max-width: 1023px) {
+   
+}
+
+@media screen and (max-width: 840px) {
+  .font_size_tile{
+    font-size: 18px;
+  }
+
+  .font_size{
+    font-size: 12px;
+  }
+}

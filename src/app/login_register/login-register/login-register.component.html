@@ -1,0 +1,72 @@
+<section>
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center">
+                    <div class="section pb-5 pt-5 text-center">
+                        <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                        <label for="reg-log"></label>
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Account Login</h4>
+                                            <div class="form-group" [formGroup]="loginForm">
+                                                <input type="email" class="form-style" placeholder="Email" formControlName="email">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2" [formGroup]="loginForm">
+                                                <input type="password" class="form-style" placeholder="Password" formControlName="password">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <button class="btn mt-4" (click)="login()">Login</button>
+                                            <p class="mb-0 mt-4 text-center"><a href="https://www.web-leb.com/code" class="link">Forgot your password?</a></p>
+                                            <p class="mb-0 mt-4 text-center " routerLink="/main/home">Home</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <form class="section text-center">
+                                            <h4 class="mb-3 pb-3">Create your Account!</h4>
+                                            <div class="form-group" [formGroup]="registerForm">
+                                                <input type="text" class="form-style" placeholder="Full Name" formControlName="username">
+                                                <i class="input-icon uil uil-user"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <!-- <input type="tel" class="form-style" placeholder="Phone Number" formControlName="phoneNumber">
+                                                <i class="input-icon uil uil-phone"></i> -->
+                                            </div>
+                                            <div class="form-group mt-2" [formGroup]="registerForm">
+                                                <input type="email" class="form-style" placeholder="Email" formControlName="email">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2" [formGroup]="registerForm">
+                                                <input type="password" class="form-style" placeholder="Password" formControlName="password">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                               <button class="btn mt-4" (click)="register()">Register</button>
+                                            <p class="mb-0 mt-4 text-center " routerLink="/main/home">Home</p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section>
+    <div class="container">
+        
+        <button conveyorBeltAnimation (contextmenu)="false">Đảo ngược</button>
+
+        123
+    </div>
+
+</section> -->

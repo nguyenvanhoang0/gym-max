@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutMainComponent } from './appLayout/layout-main/layout-main.component';
 import { LayoutAdminComponent } from './appLayout/layout-admin/layout-admin.component';
+import { LoginRegisterComponent } from './login_register/login-register/login-register.component';
+
+
 import { IndexComponent } from './main/index/index.component';
 import { IntroComponent } from './main/intro/intro.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { TipsComponent } from './main/tips/tips.component';
 import { NewsComponent } from './main/news/news.component';
 import { HealthCardComponent } from './main/health-card/health-card.component';
+import { CreateExerciseComponent } from './main/create-exercise/create-exercise.component';
 
 const routes: Routes = [
   {
@@ -18,6 +22,13 @@ const routes: Routes = [
       
     ]
   },
+
+  {
+    path: 'login',
+    component: LoginRegisterComponent,
+  },
+
+
   {
     path: 'main',
     component: LayoutMainComponent,
@@ -28,6 +39,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'tips', component: TipsComponent },
       { path: 'HealthCard', component: HealthCardComponent },
+      { path: 'createExercise', component: CreateExerciseComponent },
     ]
   }
 ];

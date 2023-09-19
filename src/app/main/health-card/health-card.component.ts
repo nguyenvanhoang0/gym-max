@@ -1,28 +1,33 @@
-import { Component , ViewChild, ElementRef } from '@angular/core';
+import { Component , ViewChild, ElementRef ,OnInit } from '@angular/core';
+import { FormQuestionService } from '../../../service/form-question/form-question.service';
+import { AuthService } from '../../../service/AuthService/auth.service';
+import { UserInfo } from '../../../service/AuthService/auth-interface';
+import { UserService } from '../../../service/user/user-service.service';
+import { User , UserInterface } from '../../../service/user/user-interface';
+import { AppComponent} from '../../app.component'
+// interface properties {
+//   label: string[];
+//   type: string;
+//   checked: string;
+//   placeholder: string;
+//   value: string[];
+//   name: string;
+//   id: string;
+//   class: string;
+//   img: string;
+// }
 
-interface properties {
-  label: string[];
-  type: string;
-  checked: string;
-  placeholder: string;
-  value: string[];
-  name: string;
-  id: string;
-  class: string;
-  img: string;
-}
+// interface input {
+//   tile: string;
+//   img: string[];
+//   class: string;
+//   contents: properties[];
+// }
 
-interface input {
-  tile: string;
-  img: string;
-  class: string;
-  contents: properties[];
-}
-
-interface form {
-  category: string;
-  form: input[];
-}
+// interface form {
+//   category: string;
+//   form: input[];
+// }
 
 interface avata {
   img: string;
@@ -34,7 +39,7 @@ interface avata {
   templateUrl: './health-card.component.html',
   styleUrls: ['./health-card.component.css']
 })
-export class HealthCardComponent {
+export class HealthCardComponent implements OnInit{
 
   avata: avata[] = [
     {img: '../../../assets/img/avata_001.png',},
@@ -62,70 +67,102 @@ export class HealthCardComponent {
   
   ];
 
-  inputItems: form[] = [
+  // inputItems: form[] = [
 
-    {
-      category: 'basic', form: [
-        {
-          tile: 'your birthday', img: '', class: '', contents: [
-            { label: [''], type: 'date', checked: '', placeholder: '', value: [], name: 'age', id: 'age', class: 'input_text_number', img: '' }
-          ]
-        },
-        {
-          tile: 'gender', img: '', class: '', contents: [
-            { label: ['male', 'female', 'other'], type: 'radio', checked: '', placeholder: '', value: ['male', 'female', 'other'], name: 'gender', id: '', class: '', img: '' }
-          ]
-        },
-        {
-          tile: 'What is your address', img: '', class: '', contents: [
-            { label: ['address 1'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' },
-            { label: ['address 2'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' },
-            { label: ['address 3'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' }
-          ]
-        },
-        {
-          tile: 'your body index', img: '', class: '', contents: [
-            { label: ['weight'], type: 'number', checked: '', placeholder: '', value: [], name: 'weight', id: 'weight', class: 'input_text_number', img: '' },
-            { label: ['height'], type: 'number', checked: '', placeholder: '', value: [], name: 'height', id: 'height', class: 'input_text_number', img: '' }
-          ]
-        },]
-    },
+  //   {
+  //     category: 'basic', form: [
+  //       {
+  //         tile: 'your birthday', img:[ '../../../assets/icon gym/birthday-date-100.png'], class: '', contents: [
+  //           { label: [''], type: 'date', checked: '', placeholder: '', value: [], name: 'age', id: 'age', class: 'input_text_number', img: '' }
+  //         ]
+  //       },
+  //       {
+  //         tile: 'gender', img:[ '../../../assets/icon gym/gender-100 (1).png','../../../assets/icon gym/gender-100.png','../../../assets/icon gym/agender-symbol-100.png','../../../assets/icon gym/gender-100 (2).png',], class: '', contents: [
+  //           { label: ['male', 'female', 'other'], type: 'radio', checked: '', placeholder: '', value: ['male', 'female', 'other'], name: 'gender', id: '', class: '', img: '' }
+  //         ]
+  //       },
+  //       {
+  //         tile: 'What is your address', img:[ '../../../assets/icon gym/address-100.png'], class: '', contents: [
+  //           { label: ['address 1'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' },
+  //           { label: ['address 2'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' },
+  //           { label: ['address 3'], type: 'text', checked: '', placeholder: '', value: [''], name: 'address', id: '', class: 'input_text_number', img: '' }
+  //         ]
+  //       },
+  //       {
+  //         tile: 'your body index', img:[ '../../../assets/icon gym/strength-100.png'], class: '', contents: [
+  //           { label: ['weight'], type: 'number', checked: '', placeholder: '', value: [], name: 'weight', id: 'weight', class: 'input_text_number', img: '' },
+  //           { label: ['height'], type: 'number', checked: '', placeholder: '', value: [], name: 'height', id: 'height', class: 'input_text_number', img: '' }
+  //         ]
+  //       },]
+  //   },
 
-    {
-      category: 'advanced', form: [
-        {
-          tile: 'health condition', img: '', class: 'checkbox_input', contents: [
-            { label: ['Heart-related diseaes'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Lung disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Back pain'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['diseases related to bones and joints'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Diabetes'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Chronic lung disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Kidney disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Gastrointestinal diseases:'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['Infections'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-            { label: ['other'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
-          ]
-        },
-      ]
-    },
-
-
-  ];
+  //   {
+  //     category: 'advanced', form: [
+  //       {
+  //         tile: 'health condition', img:[ '../../../assets/icon gym/health-100.png'], class: 'checkbox_input', contents: [
+  //           { label: ['Heart-related diseaes'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Lung disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Back pain'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['diseases related to bones and joints'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Diabetes'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Chronic lung disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Kidney disease'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Gastrointestinal diseases:'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['Infections'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //           { label: ['other'], type: 'checkbox', checked: '', placeholder: '', value: [], name: 'health', id: '', class: '', img: '' },
+  //         ]
+  //       },
+  //     ]
+  //   },
 
 
-  selectedOption: string = 'advanced'; // Khởi tạo biến chứa giá trị lựa chọn
+  // ];
+
+  selectedGender: string = 'default';
   selectedAvata: any;
+
   currentImg: string = '';
   onoffavata:boolean = false;
   next: boolean = false;
-  // back: boolean = false;
+  formQuestions: any[] = []; 
+  userInfo: UserInterface | null = null;
+  constructor(
+    private formQuestionService: FormQuestionService,
+    private authService: AuthService,
+    private appComponent: AppComponent
+    ) { 
+    this.formQuestions = [];
+  }
+
+
+
+  loadFormQuestions() {
+    this.formQuestionService.getAllFormQuestions().subscribe(
+      (response) => {
+        // Xử lý dữ liệu sau khi nhận được từ API
+        this.formQuestions = response.$values; // Đây có thể là một mảng hoặc đối tượng tùy theo API của bạn
+        console.log(this.formQuestions);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+
+
+
+
   @ViewChild('myInput') myInput!: ElementRef;
+
+
 
   ngOnInit() {
     this.getRandomAvata();
+    this.loadFormQuestions();
+    this.appComponent.getUser();
   }
-
 
   focusInput() {
     this.myInput.nativeElement.focus();

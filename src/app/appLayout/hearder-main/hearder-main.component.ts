@@ -20,7 +20,7 @@ export class HearderMainComponent {
 
   menuItems: MenuItem[] = [
     { label: 'Exercise', route: '/main/home' ,img:'../../../assets/svg/book.svg'},
-    { label: 'Create Exercise', route: '/main/home' ,img:'../../../assets/svg/create_new_books.svg' },
+    { label: 'Create Exercise', route: '/main/createExercise' ,img:'../../../assets/svg/create_new_books.svg' },
     { label: 'Exercises of the day', route: '/main/home' ,img:'../../../assets/svg/book_pins.svg' },
     { label: 'Instruct', route: '/main/home' ,img:'../../../assets/svg/Instruction_book.svg' },
     { label: 'Exercise library', route: '/main/home' ,img:'../../../assets/svg/book.svg' },
@@ -35,7 +35,7 @@ export class HearderMainComponent {
     if (token) {
       this.router.navigateByUrl(route);
     } else {
-      this.router.navigateByUrl('/main/profile');
+      this.router.navigateByUrl(route);
     }
   }
 }
