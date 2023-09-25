@@ -9,16 +9,17 @@
             <li routerLink="/main/intro">Intro</li>
             <li>Exercise
                 <ul class="item">
-                    <li *ngFor="let item of menuItems" (click)="redirectToPage(item.route)">
+                    <li *ngFor="let item of menuItems" >
                         <img src="{{ item.img }}" alt="">{{ item.label }}
                     </li>
                 </ul>
             </li>
             <li routerLink="/main/news">News</li>
             <li routerLink="/main/tips">Tips</li>
-            <li routerLink="/login"><img src="../../../assets/svg/user.svg" alt="">
+            <li (click)="navigateToPage()">
+                <img src="../../../assets/svg/user.svg" alt="">
                 <div></div>
-            </li>
+              </li>
         </ul>
     </div>
     

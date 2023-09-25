@@ -32,5 +32,9 @@ export class AuthService {
   //   return this.http.get<UserInfo>(`${this.baseUrl}/current-user`);
   // }
 
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+    return !!token; // Trả về true nếu có token, ngược lại trả về false
+  }
   
 }

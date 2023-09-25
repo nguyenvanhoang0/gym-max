@@ -3,6 +3,7 @@ import { FormQuestionService } from '../../../service/form-question/form-questio
 import { AuthService } from '../../../service/AuthService/auth.service';
 import { UserInfo } from '../../../service/AuthService/auth-interface';
 import { UserService } from '../../../service/user/user-service.service';
+
 import { User , UserInterface } from '../../../service/user/user-interface';
 import { AppComponent} from '../../app.component'
 // interface properties {
@@ -67,6 +68,112 @@ export class HealthCardComponent implements OnInit{
   
   ];
 
+  selectedGender: string = 'default';
+  selectedAvata: any;
+
+  currentImg: string = '';
+  onoffavata:boolean = false;
+  next: boolean = false;
+  formQuestions: any[] = []; 
+  userInfo: User | null = null;
+  constructor(
+    private formQuestionService: FormQuestionService,
+    private authService: AuthService,
+    private userService: UserService,
+    private appComponent: AppComponent
+    ) { 
+    this.formQuestions = [];
+  }
+
+
+
+
+
+
+  @ViewChild('myInput') myInput!: ElementRef;
+
+
+
+  ngOnInit() {
+    this.getRandomAvata();
+    this.loadFormQuestions();
+    this.getUser();
+  }
+
+  getUser(){
+    this.userService.getUserInfo().subscribe(
+      (userInfo) => {
+        // Xử lý khi nhận được thông tin người dùng
+        this.userInfo = userInfo;
+        this.userService.getUserById(userInfo.id);
+        console.log('User Info:', userInfo);
+      },
+      (error) => {
+        // Xử lý lỗi khi gọi API hoặc token không hợp lệ
+        console.error('Error:', error);
+      }
+    );
+  }
+
+  
+  loadFormQuestions() {
+    this.formQuestionService.getAllFormQuestions().subscribe(
+      (response) => {
+        // Xử lý dữ liệu sau khi nhận được từ API
+        this.formQuestions = response.$values; // Đây có thể là một mảng hoặc đối tượng tùy theo API của bạn
+        console.log(this.formQuestions);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  focusInput() {
+    this.myInput.nativeElement.focus();
+  }
+
+  toggleElementVisibility() {
+    this.onoffavata = !this.onoffavata;
+  }
+
+  choose_avatar() {
+    this.next = false;
+  }
+
+  nextAnimation() {
+    this.next = !this.next;
+    console.log("isAnimationStarted:", this.next);
+  }
+
+  getRandomAvata() {
+    const randomIndex = Math.floor(Math.random() * this.avata.length);
+    this.selectedAvata = this.avata[randomIndex];
+    this.currentImg = this.selectedAvata.img;
+  }
+
+  selectAvata(avatar: any) {
+    this.selectedAvata = avatar;
+    this.currentImg = this.selectedAvata.img;
+  }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.currentImg = reader.result as string;
+        this.toggleElementVisibility();
+      };
+    }
+  }
+}
+
+
+
+
   // inputItems: form[] = [
 
   //   {
@@ -117,90 +224,3 @@ export class HealthCardComponent implements OnInit{
 
 
   // ];
-
-  selectedGender: string = 'default';
-  selectedAvata: any;
-
-  currentImg: string = '';
-  onoffavata:boolean = false;
-  next: boolean = false;
-  formQuestions: any[] = []; 
-  userInfo: UserInterface | null = null;
-  constructor(
-    private formQuestionService: FormQuestionService,
-    private authService: AuthService,
-    private appComponent: AppComponent
-    ) { 
-    this.formQuestions = [];
-  }
-
-
-
-  loadFormQuestions() {
-    this.formQuestionService.getAllFormQuestions().subscribe(
-      (response) => {
-        // Xử lý dữ liệu sau khi nhận được từ API
-        this.formQuestions = response.$values; // Đây có thể là một mảng hoặc đối tượng tùy theo API của bạn
-        console.log(this.formQuestions);
-        
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-
-
-
-
-  @ViewChild('myInput') myInput!: ElementRef;
-
-
-
-  ngOnInit() {
-    this.getRandomAvata();
-    this.loadFormQuestions();
-    this.appComponent.getUser();
-  }
-
-  focusInput() {
-    this.myInput.nativeElement.focus();
-  }
-
-  toggleElementVisibility() {
-    this.onoffavata = !this.onoffavata;
-  }
-
-  choose_avatar() {
-    this.next = false;
-  }
-
-  nextAnimation() {
-    this.next = !this.next;
-    console.log("isAnimationStarted:", this.next);
-  }
-
-  getRandomAvata() {
-    const randomIndex = Math.floor(Math.random() * this.avata.length);
-    this.selectedAvata = this.avata[randomIndex];
-    this.currentImg = this.selectedAvata.img;
-  }
-
-  selectAvata(avatar: any) {
-    this.selectedAvata = avatar;
-    this.currentImg = this.selectedAvata.img;
-  }
-
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.currentImg = reader.result as string;
-        this.toggleElementVisibility();
-      };
-    }
-  }
-}

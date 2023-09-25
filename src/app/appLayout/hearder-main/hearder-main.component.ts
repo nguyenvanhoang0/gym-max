@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../../../service/AuthService/auth.service';
 
 interface MenuItem {
   label: string;
@@ -27,15 +27,19 @@ export class HearderMainComponent {
     // Thêm các mục menu khác tương tự ở đây
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService) {}
 
-  redirectToPage(route: string) {
-    const token = localStorage.getItem('token'); // Kiểm tra token trong localStorage hoặc từ nơi khác
-
-    if (token) {
-      this.router.navigateByUrl(route);
-    } else {
-      this.router.navigateByUrl(route);
+    navigateToPage() {
+      const hasToken = this.authService.isAuthenticated(); // Đã có token hay chưa
+  
+      if (hasToken) {
+        // Nếu có token, chuyển hướng đến trang home
+        this.router.navigate(['/main/home']);
+      } else {
+        // Nếu không có token, chuyển hướng đến trang login
+        this.router.navigate(['/login']);
+      }
     }
-  }
 }

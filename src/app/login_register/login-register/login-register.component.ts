@@ -62,12 +62,14 @@ export class LoginRegisterComponent {
         (response) => {
           // Handle successful registration
           console.log('Registered user:', response);
+          this.login();
         },
         (error) => {
           // Handle registration error
           console.error('Registration error:', error);
         }
       );
+      
     }
   }
 }
