@@ -28,6 +28,11 @@ const routes: Routes = [
     component: LoginRegisterComponent,
   },
 
+  {
+    path: 'HealthCard',
+    component: HealthCardComponent,
+  },
+
 
   {
     path: 'main',

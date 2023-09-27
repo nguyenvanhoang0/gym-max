@@ -6,12 +6,14 @@ export interface InputFormAttribute {
     id: number;
     formId: number;
     label: string;
+    type: string;
     checked: string;
     placeholder: string;
     value: string;
     name: string;
     content_class: string;
     img: string;
+    // $values: InputFormAttribute[];
 }
 
 export interface InputForm {
@@ -20,10 +22,11 @@ export interface InputForm {
     tile: string;
     img: string;
     class: string;
-    inputAttributes: InputFormAttribute[];
+    inputAttributes: FormQuestionResponse[];
+    
 }
 
 export interface FormQuestionResponse {
     $id: string;
-    $values: InputForm[];
+    $values: InputFormAttribute[];
 }

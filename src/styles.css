@@ -23,8 +23,20 @@ ul li{
     cursor: pointer;
 }
 
+p {
+  margin-top: 0; /* Xóa lề trên */
+  margin-bottom: 0; /* Xóa lề dưới */
+}
+
+
 .flex{
     display: flex;
+}
+
+.center {
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
