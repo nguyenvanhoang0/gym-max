@@ -16,8 +16,8 @@
                 </div>
               </div>
               <div class="basic_information">
-                <input type="text" value="{{ userInfo?.username }}">
-                <input type="text" value="{{ userInfo?.email }}">
+                <input type="text" value="{{ userInfo?.username }}" (click)="getkey('username')" [(ngModel)]="updatedUserInfo.value" name="username">
+                <input type="text" value="{{ userInfo?.email }}" (click)="getkey('username')" [(ngModel)]="updatedUserInfo.value" name="email">
               </div>
             </div>
           </div>
@@ -45,7 +45,37 @@
 
                     <label *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'">{{ attribute.label }}</label>
                     <br *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'">
-                    <input [type]="attribute.type" [name]="attribute.name" [placeholder]="attribute.placeholder"[value]="attribute.value">
+                    <input 
+                    *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'" 
+                    [name]="attribute.name" 
+                    [type]="attribute.type"  
+                    [placeholder]="attribute.placeholder"
+                    [value]="attribute.value" 
+                    (click)="getkey(attribute.name)" 
+                    [(ngModel)]="updatedUserInfo.value" 
+                    (blur)="updateColumn(attribute)"
+                    >
+                    <input 
+                    *ngIf="attribute.type === 'radio'" 
+                    [name]="attribute.name" 
+                    [type]="attribute.type"  
+                    [placeholder]="attribute.placeholder"
+                    [value]="attribute.value" 
+                    (click)="getkey(attribute.name)" 
+                    [(ngModel)]="updatedUserInfo.value" 
+                    (change)="updateColumn(attribute)" 
+                    >
+                    <input 
+                    *ngIf="attribute.type === 'checkbox'" 
+                    [name]="attribute.name" 
+                    [type]="attribute.type"  
+                    [placeholder]="attribute.placeholder"
+                    [value]="attribute.value" 
+                    (click)="getkey(attribute.name)" 
+                    [(ngModel)]="updatedUserInfo.value" 
+                    (change)="handleChange(attribute)"
+                    >
+
                     <label *ngIf="attribute.type === 'radio' || attribute.type === 'checkbox'">{{ attribute.label }}</label>
 
                   </div>

@@ -10,10 +10,10 @@ export interface User {
     password_salt: string;
     email: string;
     address?: string;
-    dateOfBirth?: string; 
+    dateOfBirth?: string | null;
     gender?: string;
-    weight?: number;
-    height?: number; 
+    weight?: string | null;
+    height?: string | null;
     healthStatus?: string;
     avatarPath?: string;
     status?: string;
@@ -22,3 +22,11 @@ export interface User {
     Role?: string; 
     logged_out: boolean; 
 }
+
+
+export interface AddUserInformation {
+    id: number;
+    key: string;
+    value: string;
+  }
+  

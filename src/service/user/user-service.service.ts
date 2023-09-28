@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User , UserInterface } from './user-interface';
+import { User , UserInterface , AddUserInformation} from './user-interface';
 import { AuthService } from '../AuthService/auth.service';
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,16 @@ export class UserService {
   updateUser(id: number, updateUser: User): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${id}`, updateUser);
   }
+
+  updateUserColumn(updatedUserInfo: AddUserInformation): Observable<any> {
+    const { id, key, value } = updatedUserInfo;
+  const updateData = {
+    [key]: value
+  };
+  return this.http.put<any>(`${this.baseUrl}/${id}`, updateData);
+  }
+  
+  
 
   deleteUser(id: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/${id}`);

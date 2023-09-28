@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../service/AuthService/auth.service';
-
+import { UserService } from '../../../service/user/user-service.service';
+import { UserInfo } from '../../../service/AuthService/auth-interface';
+import { User , UserInterface } from '../../../service/user/user-interface';
 interface MenuItem {
   label: string;
   route: string;
@@ -26,10 +28,33 @@ export class HearderMainComponent {
     { label: 'Exercise library', route: '/main/home' ,img:'../../../assets/svg/book.svg' },
     // Thêm các mục menu khác tương tự ở đây
   ];
+  userInfo: User | null = null;
 
   constructor(
     private router: Router,
-    private authService: AuthService) {}
+    private authService: AuthService,private userService: UserService,) {}
+    // private authService: AuthService,
+    
+   
+
+    ngOnInit() {
+      this.getUser();
+    }
+
+    getUser(){
+      this.userService.getUserInfo().subscribe(
+        (userInfo) => {
+          // Xử lý khi nhận được thông tin người dùng
+          this.userInfo = userInfo;
+          this.userService.getUserById(userInfo.id);
+          console.log('User Info:', userInfo);
+        },
+        (error) => {
+          // Xử lý lỗi khi gọi API hoặc token không hợp lệ
+          console.error('Error:', error);
+        }
+      );
+    }
 
     navigateToPage() {
       const hasToken = this.authService.isAuthenticated(); // Đã có token hay chưa

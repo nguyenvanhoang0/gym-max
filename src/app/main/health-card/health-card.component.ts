@@ -7,7 +7,7 @@ import { AuthService } from '../../../service/AuthService/auth.service';
 import { UserInfo } from '../../../service/AuthService/auth-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
-import { User , UserInterface } from '../../../service/user/user-interface';
+import { User , UserInterface , AddUserInformation } from '../../../service/user/user-interface';
 import { AppComponent} from '../../app.component'
 
 interface avata {
@@ -57,9 +57,15 @@ export class HealthCardComponent implements OnInit{
   formQuestions: any[] = []; 
   formQuestionsById: InputForm | null = null;
   inputAttributesArray: any[] = [];
-  idFormQuestion: number = 5;
+  idFormQuestion: number = 1;
   userInfo: User | null = null;
 
+  
+updatedUserInfo: AddUserInformation = {
+  id: this.userInfo?.id || -1,
+  key:'',
+  value:'',
+};
   constructor(
     private formQuestionService: FormQuestionService,
     private authService: AuthService,
@@ -93,6 +99,7 @@ export class HealthCardComponent implements OnInit{
         // Xử lý khi nhận được thông tin người dùng
         this.userInfo = userInfo;
         this.userService.getUserById(userInfo.id);
+        this.updatedUserInfo.id = userInfo.id
         console.log('User Info:', userInfo);
       },
       (error) => {
@@ -125,7 +132,6 @@ export class HealthCardComponent implements OnInit{
           // Kiểm tra nếu response chứa inputAttributes
           this.formQuestionsById = response;
           this.inputAttributesArray = Object.values(this.formQuestionsById.inputAttributes);
-
           console.log(this.inputAttributesArray);
         } else {
           console.error('Không thể xác định cấu trúc dữ liệu từ API');
@@ -140,6 +146,45 @@ export class HealthCardComponent implements OnInit{
   assignValueToX(value: number) {
     this.idFormQuestion = value;
     this.loadFormQuestionsById(this.idFormQuestion);
+  }
+
+  getkey(value: string){
+    this.updatedUserInfo.key = value
+    console.log(this.updatedUserInfo.key);
+    console.log(this.updatedUserInfo);
+    
+  }
+
+  updateColumn(attribute: InputFormAttribute) {
+  if (this.updatedUserInfo) { // Kiểm tra nếu this.updatedUserInfo không phải là null
+    this.userService.updateUserColumn(this.updatedUserInfo).subscribe(
+      (response) => {
+        // Xử lý khi cập nhật thành công
+        console.log(`Cập nhật ${this.updatedUserInfo.key} thành công.`);
+        this.updatedUserInfo.value = '';
+        console.log(this.updatedUserInfo);
+      },
+      (error) => {
+        // Xử lý khi có lỗi
+        console.error(`Lỗi khi cập nhật ${this.updatedUserInfo.key}:`, error);
+      }
+    );
+  } else {
+    console.error('this.updatedUserInfo là null. Không thể thực hiện cập nhật.');
+  }
+}
+
+
+  handleChange(attribute: InputFormAttribute) {
+    // Xử lý sự kiện khi giá trị của trường input thay đổi
+    // console.log(`Value of ${attribute.label} changed to: ${attribute.value}`);
+    // Cập nhật giá trị vào updatedUserInfo hoặc nơi bạn muốn lưu trữ thay đổi
+  }
+
+  handleBlur(attribute: InputFormAttribute) {
+    // Xử lý sự kiện khi trường input mất focus
+    // console.log(`${attribute.label} lost focus. Current value: ${attribute.value}`);
+    // Cập nhật giá trị vào updatedUserInfo hoặc nơi bạn muốn lưu trữ thay đổi
   }
 
   nextBackFormQuestions(value: number){
@@ -159,10 +204,10 @@ export class HealthCardComponent implements OnInit{
     this.next = false;
   }
 
-  nextAnimation() {
-    this.next = !this.next;
-    console.log("isAnimationStarted:", this.next);
-  }
+  // nextAnimation() {
+  //   this.next = !this.next;
+  //   console.log("isAnimationStarted:", this.next);
+  // }
 
   getRandomAvata() {
     const randomIndex = Math.floor(Math.random() * this.avata.length);
