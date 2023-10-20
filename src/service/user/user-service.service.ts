@@ -51,9 +51,7 @@ export class UserService {
     const token = this.authService.getToken();
 
     if (!token) {
-      // Xử lý trường hợp token không tồn tại, ví dụ: đưa người dùng đến trang đăng nhập
-      // this.router.navigate(['/login']);
-      return new Observable<User>(); // Trả về Observable trống trong trường hợp không có token
+      return new Observable<User>();
     }
 
     // Thêm token vào tiêu đề của HTTP request
@@ -62,7 +60,7 @@ export class UserService {
     });
 
     const options = { headers: headers };
-    console.log(this.getUserInfo)
+    // console.log(this.getUserInfo)
     return this.http.get<User>(`${this.baseUrl}/current-user`, options);
   }
 }

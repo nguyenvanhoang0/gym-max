@@ -23,6 +23,10 @@ import { NewsComponent } from './main/news/news.component';
 import { HealthCardComponent } from './main/health-card/health-card.component';
 import { CreateExerciseComponent } from './main/create-exercise/create-exercise.component';
 import { LoginRegisterComponent } from './login_register/login-register/login-register.component';
+// import { MenuUserComponent } from './appLayout/menu-user/menu-user.component';
+import { SidebarUserComponent } from './appLayout/sidebar-user/sidebar-user.component';
+import { LayoutUserComponent } from './appLayout/layout-user/layout-user.component';
+import { HearderUserComponent } from './appLayout/hearder-user/hearder-user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { LoginRegisterComponent } from './login_register/login-register/login-re
     NewsComponent,
     HealthCardComponent,
     CreateExerciseComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    // MenuUserComponent,
+    SidebarUserComponent,
+    LayoutUserComponent,
+    HearderUserComponent
   ],
   imports: [
     BrowserModule,

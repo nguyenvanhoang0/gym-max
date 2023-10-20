@@ -10,8 +10,7 @@ import { LoginResponse , UserInfo  } from './auth-interface';
 export class AuthService {
   private baseUrl = 'https://localhost:7010/api/User';
 
-  constructor(private http: HttpClient,
-    ) { }
+  constructor(private http: HttpClient,) { }
 
   setToken(token: string): void {
     localStorage.setItem('accessToken', token);
@@ -24,7 +23,6 @@ export class AuthService {
 
   login(email: string, password: string): Observable<LoginResponse> {
     const loginData = { email, password };
-
     return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginData);
   }
 
@@ -34,7 +32,7 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const token = this.getToken();
-    return !!token; // Trả về true nếu có token, ngược lại trả về false
+    return !!token;
   }
   
 }

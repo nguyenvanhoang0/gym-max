@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutMainComponent } from './appLayout/layout-main/layout-main.component';
 import { LayoutAdminComponent } from './appLayout/layout-admin/layout-admin.component';
+import { LayoutUserComponent } from './appLayout/layout-user/layout-user.component';
 import { LoginRegisterComponent } from './login_register/login-register/login-register.component';
 
 
@@ -33,6 +34,10 @@ const routes: Routes = [
     component: HealthCardComponent,
   },
 
+  {
+    path: 'User',
+    component: LayoutUserComponent,
+  },
 
   {
     path: 'main',

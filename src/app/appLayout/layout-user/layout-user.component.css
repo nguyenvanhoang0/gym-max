@@ -1,0 +1,5 @@
+
+
+.flex div:nth-child(2){
+    flex: 1;
+}

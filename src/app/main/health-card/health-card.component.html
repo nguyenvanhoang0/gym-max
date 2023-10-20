@@ -7,11 +7,11 @@
 
       <div class="details flex">
         <div class="form">
-          <div class="hearder_form">
+          <div class="header_form">
             <div class="user flex">
-              <div class="avata">
+              <div class="avatar">
                 <img [src]="currentImg" alt="">
-                <div class="add_avata" (click)="toggleElementVisibility()"><img src="../../../assets/svg/camera.svg"
+                <div class="add_avatar" (click)="toggleElementVisibility()"><img src="../../../assets/svg/camera.svg"
                     alt="">
                 </div>
               </div>
@@ -45,34 +45,34 @@
 
                     <label *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'">{{ attribute.label }}</label>
                     <br *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'">
-                    <input 
-                    *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'" 
-                    [name]="attribute.name" 
-                    [type]="attribute.type"  
+                    <input
+                    *ngIf="attribute.type === 'text' || attribute.type === 'number' || attribute.type === 'date'"
+                    [name]="attribute.name"
+                    [type]="attribute.type"
                     [placeholder]="attribute.placeholder"
-                    [value]="attribute.value" 
-                    (click)="getkey(attribute.name)" 
-                    [(ngModel)]="updatedUserInfo.value" 
+                    [value]="attribute.value"
+                    (click)="getkey(attribute.name)"
+                    [(ngModel)]="updatedUserInfo.value"
                     (blur)="updateColumn(attribute)"
                     >
-                    <input 
-                    *ngIf="attribute.type === 'radio'" 
-                    [name]="attribute.name" 
-                    [type]="attribute.type"  
+                    <input
+                    *ngIf="attribute.type === 'radio'"
+                    [name]="attribute.name"
+                    [type]="attribute.type"
                     [placeholder]="attribute.placeholder"
-                    [value]="attribute.value" 
-                    (click)="getkey(attribute.name)" 
-                    [(ngModel)]="updatedUserInfo.value" 
-                    (change)="updateColumn(attribute)" 
+                    [value]="attribute.value"
+                    (click)="getkey(attribute.name)"
+                    [(ngModel)]="updatedUserInfo.value"
+                    (change)="updateColumn(attribute)"
                     >
-                    <input 
-                    *ngIf="attribute.type === 'checkbox'" 
-                    [name]="attribute.name" 
-                    [type]="attribute.type"  
+                    <input
+                    *ngIf="attribute.type === 'checkbox'"
+                    [name]="attribute.name"
+                    [type]="attribute.type"
                     [placeholder]="attribute.placeholder"
-                    [value]="attribute.value" 
-                    (click)="getkey(attribute.name)" 
-                    [(ngModel)]="updatedUserInfo.value" 
+                    [value]="attribute.value"
+                    (click)="getkey(attribute.name)"
+                    [(ngModel)]="updatedUserInfo.value"
                     (change)="handleChange(attribute)"
                     >
 
@@ -91,12 +91,12 @@
         </div>
 
       </div>
-      <div class="edit_avata">
+      <div class="edit_avatar">
         <div class="choose_avatar" *ngIf="onoffavata" [class.animate]="onoffavata">
-          <div class="avata">
+          <div class="avatar">
             <img [src]="currentImg" alt="">
           </div>
-          <div class="img_avata">
+          <div class="img_avatar">
             <div *ngFor="let avatar of avata ">
               <img [src]="avatar.img" (click)="selectAvata(avatar)" alt="" (click)="toggleElementVisibility()">
             </div>

@@ -1,4 +1,4 @@
-/* 
+/*
 
 .tile {
     width: 100vw;
@@ -72,13 +72,13 @@
 
 .basic_information input:nth-child(1) {
     height: 40px;
-  
+
     font-size: 25px;
 }
 
 .basic_information input:nth-child(2) {
     height: 30px;
-  
+
     font-size: 18px;
 }
 
@@ -116,8 +116,8 @@ input[type="date"] {
     display: flex;
     align-items: center;
     padding: 0px 15px;
-   
-   
+
+
 }
 
 .radio input{
@@ -157,7 +157,7 @@ input[type="date"] {
     margin: 0px 30px 0px 0px;
     position: absolute;
     left: -18px;
-    
+
 }
 
 .icon_tile img{
@@ -178,7 +178,7 @@ input[type="date"] {
     height: 10vh;
     position: relative;
     display: flex;
-    
+
 }
 
 .form_button>div {
@@ -213,7 +213,7 @@ input[type="date"] {
     width: 100%;
 }
 
-.hearder_form {
+.header_form {
     border-bottom: 1px solid #888;
 }
 
@@ -236,7 +236,7 @@ input[type="date"] {
     align-items: center;
 }
 
-.avata {
+.avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -247,7 +247,7 @@ input[type="date"] {
 
 }
 
-.add_avata {
+.img_avatar {
 
     border-radius: 50%;
     position: absolute;
@@ -261,7 +261,7 @@ input[type="date"] {
     height: 25px;
 }
 
-.add_avata img {
+.img_avatar img {
     width: 70%;
     height: auto;
 }
@@ -283,7 +283,7 @@ input[type="date"] {
 
 }
 
-.choose_avatar .avata {
+.choose_avatar .avatar {
     margin: 20px 40px;
     overflow: hidden;
 }
@@ -292,35 +292,35 @@ input[type="date"] {
     margin: 20px 40px;
 }
 
-.avata>img {
+.avatar>img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
 
 .choose_avatar::-webkit-scrollbar,
-.img_avata::-webkit-scrollbar {
+.img_avatar::-webkit-scrollbar {
     width: 0.5em;
 }
 
 .choose_avatar::-webkit-scrollbar,
-.img_avata::-webkit-scrollbar {
+.img_avatar::-webkit-scrollbar {
     background-color: #888;
     border-radius: 4px;
 }
 
 .choose_avatar::-webkit-scrollbar,
-.img_avata::-webkit-scrollbar {
+.img_avatar::-webkit-scrollbar {
     background-color: #555;
 }
 
 .choose_avatar::-webkit-scrollbar,
-.img_avata::-webkit-scrollbar {
+.img_avatar::-webkit-scrollbar {
     background-color: #f2f2f200;
     border-radius: 4px;
 }
 
-.choose_avatar .img_avata {
+.choose_avatar .img_avatar {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
@@ -334,7 +334,7 @@ input[type="date"] {
 }
 
 
-.img_avata img {
+.img_avatar img {
     display: inline-block;
     width: 100%;
     height: auto;
@@ -345,7 +345,7 @@ input[type="date"] {
 
 }
 
-.img_avata img:hover {
+.img_avatar img:hover {
     transform: scale(1.1);
 }
 
@@ -365,7 +365,7 @@ input[type="date"] {
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
+
   .question-number:hover {
     background-color: #888;
   }
@@ -399,7 +399,7 @@ input[type="date"] {
     box-sizing: border-box;
     border-top: 1px solid #888;
     border-bottom: 1px solid #888;
-    
+
     /* Bao gồm phần padding và border trong chiều rộng */
 }
 
@@ -491,12 +491,12 @@ input[type="date"] {
         justify-content: center;
     }
 
-    .avata {
+    .avatar {
 
-        margin-right: 0px;
+        margin-right: 0;
     }
 
-    /* 
+    /*
     .user input{
         margin-left: 50%;
         margin-right: 50%;
@@ -515,7 +515,7 @@ input[type="date"] {
 
 
 
-/* 
+/*
 hr {
     margin-top: 0rem;
     margin-bottom: 10px;
