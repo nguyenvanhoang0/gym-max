@@ -7,35 +7,22 @@
     <div class="main text">
         <div class="title">home</div>
         <ul>
-            <li>
-                <div class="conten">
-                    <div class="tile"><img src="../../../assets/svg/map.svg" alt="">Home</div>
-                    <div><img src="../../../assets/svg/Dropdown.svg" alt=""></div>
+            <li *ngFor="let item of sidebarData" >
+                <div class="Sidebar_Items" (click)="toggleContent(item)" [class.click_color]="item.showChildItem">
+                    <div class="conten" [class.click_img]="item.showChildItem">
+                        <div class="tile"><img src="{{ item.img_1 }}" alt="">{{ item.name }}</div>
+                        <div *ngIf="item.items.length > 0"><img [class.rotate]="item.showChildItem" src="{{ item.img_2 }}" alt=""></div>
+                    </div>
                 </div>
-            </li>
-            <li>
-                <div class="conten">
-                    <div class="tile"><img src="../../../assets/svg/map.svg" alt="">Home</div>
-                    <div><img src="../../../assets/svg/Dropdown.svg" alt=""></div>
-                </div>
-            </li>
-            <li>
-                <div class="conten">
-                    <div class="tile"><img src="../../../assets/svg/map.svg" alt="">Home</div>
-                    <div><img src="../../../assets/svg/Dropdown.svg" alt=""></div>
-                </div>
-            </li>
-            <li>
-                <div class="conten">
-                    <div class="tile"><img src="../../../assets/svg/map.svg" alt="">Home</div>
-                    <div><img src="../../../assets/svg/Dropdown.svg" alt=""></div>
-                </div>
-            </li>
-            <li>
-                <div class="conten">
-                    <div class="tile"><img src="../../../assets/svg/map.svg" alt="">Home</div>
-                    <div><img src="../../../assets/svg/Dropdown.svg" alt=""></div>
-                </div>
+                <ul *ngIf="item.showChildItem">
+                    <li *ngFor="let childItem of item.items">
+                        <div class="Sidebar_Items">
+                            <div class="conten">
+                                <div class="tile"><img src="{{ childItem.img }}" alt="">{{ item.name }}</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

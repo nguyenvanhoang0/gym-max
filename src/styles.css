@@ -72,7 +72,7 @@ p {
   display: block;
 }
 
-.sidebar ul li {
+.Sidebar_Items {
   display: flex;
   width: 233px;
   padding: 8px 24px;
@@ -95,7 +95,8 @@ p {
 .sidebar li .conten {
   display: flex;
   align-items: center;
-  gap: 77px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 
@@ -106,11 +107,42 @@ p {
   transform: 1s;
 }
 
-
-.sidebar li:hover {
-  color: #3A57E8;
-  background: #C4CCF8;
+.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s; /* Để có hiệu ứng mượt mà */
 }
+
+.click_color{
+  background-color: #3A57E8;
+  color : #fff;
+}
+
+.click_img img{
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+}
+
+.Sidebar_Items{
+  border-radius: 4px;
+}
+
+.Sidebar_Items div img{
+  transition: transform 0.3s; 
+}
+
+.Sidebar_Items:hover div img{
+  filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
+  
+}
+
+
+.Sidebar_Items:hover {
+ 
+  background: #C4CCF8;
+  color: #3A57E8;
+}
+
+
 
 .text_13{
   color: var(--8A92A6-Text-Color-2, #8A92A6);
