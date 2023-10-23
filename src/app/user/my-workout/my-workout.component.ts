@@ -37,7 +37,6 @@ export class MyWorkoutComponent {
       }
     );
   }
-
   // getDaysInMonth(): number[] {
   //   const daysInMonth: number[] = [];
   //   const firstDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
