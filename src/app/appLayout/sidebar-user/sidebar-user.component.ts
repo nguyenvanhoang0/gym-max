@@ -22,26 +22,35 @@ interface ChildItem {
   styleUrls: ['./sidebar-user.component.css']
 })
 export class SidebarUserComponent {
-  // showContent: boolean = false;
-
-  Sidebar_Items = [
-    { name: 'Item 1', content: 'Content for Item 1'},
-    { name: 'Item 2', content: 'Content for Item 2'},
-    { name: 'Item 3', content: 'Content for Item 3'}
-  ];
+  isSidebarOpen: boolean = true;
 
    sidebarData: SidebarItem[] = [
     {
-      name: 'Item 1',
+      name: 'Exercises',
       img_1: '../../../assets/svg/map.svg',
       img_2: '../../../assets/svg/Dropdown.svg',
       showChildItem: false,
-      url: '/main/home',
+      url: '',
       items: [
         {
-          name: 'Exercise',
+          name: 'My Workout',
           img: '../../../assets/svg/bulk.svg',
-          url: '/main/exercise'
+          url: '/user/myWorkout'
+        },
+        {
+          name: 'All Exercises',
+          img: '../../../assets/svg/bulk.svg',
+          url: '/user/allExercises'
+        },
+        {
+          name: 'Created Exercises',
+          img: '../../../assets/svg/bulk.svg',
+          url: '/user/createdExercises'
+        },
+        {
+          name: 'Create Exercises',
+          img: '../../../assets/svg/bulk.svg',
+          url: '/user/createExercises'
         }
       ]
     },
@@ -100,8 +109,15 @@ export class SidebarUserComponent {
   ];
   
 
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    console.log(this.isSidebarOpen );
+    
+  }
+
   toggleContent(item: any) {
     item.showChildItem = !item.showChildItem;
     console.log(item);
   }
+
 }

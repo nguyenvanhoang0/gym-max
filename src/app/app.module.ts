@@ -27,6 +27,10 @@ import { LoginRegisterComponent } from './login_register/login-register/login-re
 import { SidebarUserComponent } from './appLayout/sidebar-user/sidebar-user.component';
 import { LayoutUserComponent } from './appLayout/layout-user/layout-user.component';
 import { HearderUserComponent } from './appLayout/hearder-user/hearder-user.component';
+import { MyWorkoutComponent } from './user/my-workout/my-workout.component';
+import { CreatedExercisesComponent } from './user/created-exercises/created-exercises.component';
+import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
+import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { HearderUserComponent } from './appLayout/hearder-user/hearder-user.comp
     // MenuUserComponent,
     SidebarUserComponent,
     LayoutUserComponent,
-    HearderUserComponent
+    HearderUserComponent,
+    MyWorkoutComponent,
+    CreatedExercisesComponent,
+    CreateExercisesComponent,
+    AllExercisesComponent
   ],
   imports: [
     BrowserModule,

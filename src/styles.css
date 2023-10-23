@@ -54,7 +54,7 @@ p {
 
 .sidebar .main {
   display: flex;
-  width: 257px;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@ p {
 
 .sidebar .title {
   display: flex;
-  width: 257px;
+  width: 100%;
   padding: 8px 16px 8px 32px;
   align-items: center;
   gap: 40px;
@@ -70,11 +70,13 @@ p {
 
 .sidebar ul {
   display: block;
+  width: 100%;
+  padding: 8px 12px;
 }
 
 .Sidebar_Items {
   display: flex;
-  width: 233px;
+  width: 100%;
   padding: 8px 24px;
   flex-direction: column;
   justify-content: center;
