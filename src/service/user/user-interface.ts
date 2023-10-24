@@ -19,7 +19,7 @@ export interface User {
     status?: string;
     introduction?: string;
     educationLevel?: string;
-    Role?: string; 
+    role?: string; 
     logged_out: boolean; 
 }
 

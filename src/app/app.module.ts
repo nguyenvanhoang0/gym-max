@@ -68,6 +68,10 @@ import { AllExercisesComponent } from './user/all-exercises/all-exercises.compon
     JwtModule,
     // JwtHelperModule
   ],
+  exports: [
+    // ...
+    HearderUserComponent, // Đảm bảo đã thêm component vào đây
+  ],
   providers: [JwtHelperService],
   bootstrap: [AppComponent]
 })

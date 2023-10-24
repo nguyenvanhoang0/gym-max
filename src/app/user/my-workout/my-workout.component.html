@@ -1,53 +1,27 @@
-<div *ngFor="let time of practiceTimes">
-    <p>{{ time.timeStart }}</p>
-    <p>{{ time.timeEnd }}</p>
-</div>
-<!-- 
-<table>
-    <thead>
-        <tr>
-            <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let day of getDaysInMonth(); let i = index">
-        <tr  *ngIf="i % 7 === 0 && i !== 0">
-            <ng-container *ngFor="let day of getDaysInMonth(); let i = index" >
-                <ng-container >
-    
-                </ng-container>
-                <td >{{ day }}</td>
-            </ng-container>
-        </tr>
-    </tbody>
-    
-</table> -->
 
 <table>
-    <thead>
-      <tr>
-        <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let week of weeks; let i = index">
-        <tr>
-          <ng-container *ngFor="let day of week; let j = index">
-            <td>{{ day }}</td>
-          </ng-container>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  
-<!-- 
-<table>
+  <thead>
     <tr>
       <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
     </tr>
-    <tr>
-      <ng-container *ngFor="let day of daysInMonth; let i = index">
-        <td *ngIf="day !== 0">{{ day }}</td>
-        <td *ngIf="day === 0"></td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let week of weeks; let i = index">
+      <ng-container *ngFor="let day of week; let j = index">
+        <td >
+          {{ day }}
+          <br>
+          <div *ngFor="let time of practiceTimes">
+          <ng-container  *ngIf="day.toString() == (time.timeStart | date: 'dd') ">
+            <!-- {{ dayStart }} -->
+            {{time.content}}
+          </ng-container>
+        </div>
+        </td>
       </ng-container>
     </tr>
-  </table> -->
+  </tbody>
+</table>
+
+
+

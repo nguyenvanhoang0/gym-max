@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  tr {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  th, td {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+  }
+
+  td{
+    height: 100px;
+  }
+  
+  td:hover {
+    background-color: #e6e6e6;
+  }
+  
