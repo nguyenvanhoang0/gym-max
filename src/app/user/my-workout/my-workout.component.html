@@ -1,27 +1,67 @@
-
-<table>
-  <thead>
-    <tr>
-      <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let week of weeks; let i = index">
-      <ng-container *ngFor="let day of week; let j = index">
-        <td >
-          {{ day }}
-          <br>
-          <div *ngFor="let time of practiceTimes">
-          <ng-container  *ngIf="day.toString() == (time.timeStart | date: 'dd') ">
-            <!-- {{ dayStart }} -->
-            {{time.content}}
-          </ng-container>
-        </div>
-        </td>
+<div class="my_workout" *ngIf="day == 0">
+  <div>
+    <ul class="select_month">
+      <li>month</li>
+      <ng-container *ngFor="let month of months">
+        <li class="month" [class.click_color]="currentMonth == month " [value]="month"
+          (click)="updateCurrentMonth(month)"> {{ month }} </li>
       </ng-container>
-    </tr>
-  </tbody>
-</table>
+
+    </ul>
+  </div>
+  <div>
+    <ul class="select_month">
+      <li (click)="updateCurrentMonthAndYear( - 1)"><img src="../../../assets/svg/arrow-left.svg" alt=""></li>
+
+      <li class="month"> {{ currentMonth }}/{{currentYear}} </li>
+      <li class="month" (click)="updateCurrentMonthAndYear( + 1)"><img src="../../../assets/svg/arrow-right.svg" alt="">
+      </li>
+    </ul>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let week of weeks; let i = index">
+        <ng-container *ngFor="let day of week; let j = index">
+          <td (click)="clickDay(day)">
+            {{ day }}
+            <br>
+            <div *ngFor="let time of practiceTimes">
+              <ng-container
+                *ngIf="day.toString() == (time.timeStart | date: 'dd') && currentMonth.toString() == (time.timeStart | date: 'MM') && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
+                <!-- {{ dayStart }} -->
+                {{time.content}}
+                {{time.id}}
+              </ng-container>
+            </div>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div *ngIf="day !== 0">
+  
+  <div *ngFor="let time of practiceTimes">{{time.content}}
+    {{time.id}} </div>
+</div>
 
 
 
+<!-- <div>
+  <label for="month">Chọn tháng:</label>
+  <select id="month" [(ngModel)]="currentMonth" (change)="updateCurrentMonthAndYear()">
+    <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+  </select>
+  <label for="year">Chọn năm:</label>
+  <select id="year" [(ngModel)]="currentYear" (change)="updateCurrentMonthAndYear()">
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+  </select>
+ <button >Cập nhật</button> 
+</div> -->
