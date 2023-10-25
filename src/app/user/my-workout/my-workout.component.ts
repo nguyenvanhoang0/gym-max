@@ -24,7 +24,6 @@ export class MyWorkoutComponent {
   currentMonth: number;
   years: number[] = this.generateYears(10);
   months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
-  // combinedData: any[] = [];
 
   constructor(
     // private practiceTimeService: PracticeTimeService,
@@ -48,7 +47,7 @@ export class MyWorkoutComponent {
       (userInfo) => {
         this.userInfo = userInfo;
         if (this.userInfo?.id !== undefined) {
-          console.log(this.userInfo?.id);
+          // console.log(this.userInfo?.id);
           this.getpracticeTimesUserById(this.userInfo.id);
           // console.log(this.practiceTimes);
         }
@@ -64,7 +63,7 @@ export class MyWorkoutComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
-        console.log(this.practiceTimes);
+        // console.log(this.practiceTimes);
         // this.combineData();
       },
       (error) => {
@@ -78,7 +77,7 @@ export class MyWorkoutComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
-        console.log(this.practiceTimes);
+        // console.log(this.practiceTimes);
         // this.combineData();
       },
       (error) => {
@@ -97,9 +96,9 @@ export class MyWorkoutComponent {
         this.myWorkoutService.getPracticeTimesByTimeStart(id, formattedDate).subscribe(
           (response) => {
             this.practiceTimes = response.$values;
-            console.log(this.practiceTimes);
+            // console.log(this.practiceTimes);
             this.day = day
-            console.log(this.day);
+            // console.log(this.day);
           },
           (error) => {
             console.error(error);
@@ -116,8 +115,6 @@ export class MyWorkoutComponent {
     return `${year}-${month}-${day}`;
   }
 
-
-
   calculateDaysInMonth() {
     this.weeks = [];
 
@@ -126,7 +123,7 @@ export class MyWorkoutComponent {
     const firstDayOfWeek = firstDay.getDay(); // Ngày đầu tiên rơi vào tuần nào (0 là Chủ Nhật, 1 là Thứ 2, ...)
     this.lastDayOfMonth = lastDay.getDate();
     let weeks: number[] = [];
-    console.log(this.lastDayOfMonth);
+    // console.log(this.lastDayOfMonth);
 
 
     // Tính toán ngày của tháng trước (nếu cần)
@@ -154,40 +151,11 @@ export class MyWorkoutComponent {
       }
 
     }
-    console.log(this.weeks);
+    // console.log(this.weeks);
 
 
     this.weeks.push(weeks);
   }
-
-  // isTargetMonth(day: number): boolean {
-  //   if (this.currentMonth === 2) {
-  //     return day === 28 || day === 29;
-  //   } else if ([4, 6, 9, 11].includes(this.currentMonth)) {
-  //     return day <= 30;
-  //   } else {
-  //     return day <= 31;
-  //   }
-  // }
-
-
-
-
-
-  // combineData() {
-  //   for (let i = 0; i < this.practiceTimes.length; i++) {
-  //     const daysOfWeek = this.weeks[i];
-  //     this.combinedData.push({ practiceTime: this.practiceTimes[i], daysOfWeek });
-  //     console.log(this.combinedData);
-
-  //   }
-  // }
-
-  // updateCurrentMonthAndYear() {
-  //   // this.currentYear = year;
-  //   // this.currentMonth = month;
-  //   this.calculateDaysInMonth();
-  // }
 
   updateCurrentMonthAndYear(offset: number) {
     const newMonth = this.currentMonth + offset;
@@ -209,6 +177,34 @@ export class MyWorkoutComponent {
     this.calculateDaysInMonth();
   }
 
+  updateCurrentDayAndMonthAndYear(offset: number) {
+    const day = this.day + offset;
+    const newMonth = this.currentMonth;
+
+    if (day === 0) {
+      this.day = this.getDaysInMonth(this.currentYear, this.currentMonth - 1);
+      this.currentMonth -= 1;
+      const newMonth = this.currentMonth;
+      if (newMonth == 0) {
+        this.currentYear -= 1;
+        this.currentMonth = 12;
+      }
+    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) + 1) {
+      this.day = 1;
+      this.currentMonth += 1
+      const newMonth = this.currentMonth;
+      if (newMonth == 13) {
+        this.currentYear += 1;
+        this.currentMonth = 1;
+      }
+      // this.currentYear -= 1;
+    } else {
+      this.currentMonth = newMonth;
+    }
+    this.calculateDaysInMonth();
+    this.clickDay(day);
+  }
+
   generateYears(yearsAhead: number): number[] {
     const currentYear = this.currentDate.getFullYear();
     const startYear = currentYear - (yearsAhead - 1); // Năm bắt đầu, ví dụ: 2013 nếu yearsAhead = 10
@@ -220,6 +216,10 @@ export class MyWorkoutComponent {
     }
 
     return yearArray;
+  }
+
+  getDaysInMonth(year: number, month: number): number {
+    return new Date(year, month, 0).getDate();
   }
 
 

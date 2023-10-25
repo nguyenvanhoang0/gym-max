@@ -46,10 +46,27 @@
 
 </div>
 
-<div *ngIf="day !== 0">
-  
-  <div *ngFor="let time of practiceTimes">{{time.content}}
-    {{time.id}} </div>
+<div class="my_workout today" *ngIf="day !== 0">
+  <div>
+    <ul class="select_month">
+      <li (click)="updateCurrentDayAndMonthAndYear( - 1)"><img src="../../../assets/svg/arrow-left.svg" alt=""></li>
+
+      <li class="month">{{day}}/{{ currentMonth }}/{{currentYear}} </li>
+      <li class="month" (click)="updateCurrentDayAndMonthAndYear( + 1)"><img src="../../../assets/svg/arrow-right.svg" alt="">
+      </li>
+    </ul>
+  </div>
+  <div *ngFor="let time of practiceTimes" >
+    <div>{{time.timeStart}}</div>
+    <ul class="flex workout">
+      <li>{{time.id}}</li>
+      <li>{{time.content}}</li>
+      <li>{{time.quantity}}</li>
+      <li>{{time.time}}</li>
+      <li>{{time.category}}</li>
+      <li>{{time.evaluate}}</li>
+    </ul>
+  </div>
 </div>
 
 

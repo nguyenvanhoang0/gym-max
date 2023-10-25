@@ -15,7 +15,7 @@ export class MyWorkoutService {
 
   getPracticeTimesByTimeStart(id: number, timeStart: Date): Observable<MyWorkoutInterface> {
     const formattedTimeStart = timeStart.toISOString(); 
-    console.log(formattedTimeStart);
+    // console.log(formattedTimeStart);
     
     return this.http.get<MyWorkoutInterface>(`${this.apiUrl}/GetUserWorkoutByUserAndTimeStart?userId=${id}&timeStart=${formattedTimeStart}`);
 }
