@@ -1,5 +1,6 @@
 <div class="created_workouts">
-    <div *ngFor="let myBigExercises of myBigExercises">
+    <div *ngFor="let myBigExercises of myBigExercises" (click)="navigateToBigExerciseDetails(myBigExercises.id)">
         <div class="big_exercises">{{myBigExercises.target}}</div>
+        <!-- <div class="big_exercises">{{myBigExercises.id}}</div> -->
     </div>
 </div>

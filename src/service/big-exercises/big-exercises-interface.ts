@@ -1,10 +1,10 @@
 
 export interface createdWorkoutsInterface {
     $id: string;
-    $values: BigExercises[];
+    $values: bigExercises[];
 }
 
-export interface BigExercises {
+export interface bigExercises {
     id: number;
     target: string;
     category: string;
@@ -12,4 +12,21 @@ export interface BigExercises {
     userId: number;
     private: boolean;
     status: string;
+    exercises :exerciseInterface[];
+}
+
+export interface exerciseInterface {
+    $id: string;
+    $values: exercise[];
+}
+
+export interface exercise {
+    id: number;
+    content: string;
+    quantity: number;
+    time: number;
+    category: string;
+    point: number;
+    userId: number;
+    evaluate: number;
 }

@@ -32,6 +32,8 @@ import { CreatedExercisesComponent } from './user/created-exercises/created-exer
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
 import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
+import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
+import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ExerciseContentComponent } from './user/exercise-content/exercise-conte
     CreatedExercisesComponent,
     CreateExercisesComponent,
     AllExercisesComponent,
-    ExerciseContentComponent
+    ExerciseContentComponent,
+    BigExerciseDetailsComponent,
+    ExerciseDetailsComponent
   ],
   imports: [
     BrowserModule,

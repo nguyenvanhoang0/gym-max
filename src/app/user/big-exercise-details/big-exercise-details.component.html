@@ -1,0 +1,7 @@
+<div class="created_workouts">
+    {{myBigExercises?.target}}
+    <div *ngFor="let exercise of exercises" >
+        <!-- <div class="big_exercises">{{myBigExercises.content}}</div> -->
+        <div class="big_exercises">{{exercise?.$values}}</div>
+    </div>
+</div>

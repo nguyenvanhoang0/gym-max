@@ -20,6 +20,8 @@ import { AllExercisesComponent } from './user/all-exercises/all-exercises.compon
 import { CreatedExercisesComponent } from './user/created-exercises/created-exercises.component';
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
+import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
+import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
 
 const routes: Routes = [
   {
@@ -49,6 +51,8 @@ const routes: Routes = [
       { path: 'createdExercises', component: CreatedExercisesComponent },
       { path: 'createExercises', component: CreateExercisesComponent },
       { path: 'exerciseContent', component: ExerciseContentComponent },
+      { path: 'bigExerciseDetail/:id', component: BigExerciseDetailsComponent },
+      { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },
     ]
   },
 
