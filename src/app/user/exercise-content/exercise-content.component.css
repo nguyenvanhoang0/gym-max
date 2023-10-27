@@ -1,25 +1,50 @@
-.exercise_conten{
+.exercise_conten {
     padding: 40px;
     width: 100%;
+
 }
 
-.my_big_exercise{
-    border-left: 3px solid #d8dee4;
+.exercise_conten>div {
+    position: relative;
+}
+
+.my_big_exercise {
+    border-left: 1px solid hsl(0, 0%, 0%);
     padding: 20px;
+
 }
 
-.big_exercise{
+.big_exercise {
     width: 100%;
     background-color: white;
-    
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
-.exercise{
-    padding: 25px;
+.exercise {
+    padding: 10px;
 }
 
 
 .exercise:not(:first-child) {
     border-top: 1px solid var(--e9ecef-Bg-2, #E9ECEF);
+}
+
+.timeStart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+    left: 0px;
+    /* transform: translateY(-50%);
+     */
+}
+
+.timeStart svg {
+    position: absolute;
+    transform: translatex(-50%);
+}
+
+.timeStart > div{
+    padding: 0 20px;
 }

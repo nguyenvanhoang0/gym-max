@@ -15,14 +15,10 @@ export class ExerciseContentComponent {
   bigExercisesMonthlyData: { [key: string]: MonthlyData[] } = {};
   // monthlyDataList: bigExercisesMonthlyData[] = [];
   constructor(
-    // private practiceTimeService: PracticeTimeService,
     private myWorkoutService: MyWorkoutService,
-    // private hearderUserComponent :HearderUserComponent,
     private userService: UserService,
-  ) 
-  {
-    this.myBigExercises;
-  }
+  ) {}
+  
   ngOnInit(): void {
     this.UserInfo();
     // this.calculateDaysInMonth();

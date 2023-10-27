@@ -1,0 +1,11 @@
+.created_workouts{
+    padding: 40px;
+    width: 100%;
+}
+
+.big_exercises{
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 5px 0px;
+}
