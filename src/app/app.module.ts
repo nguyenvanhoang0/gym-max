@@ -31,6 +31,7 @@ import { MyWorkoutComponent } from './user/my-workout/my-workout.component';
 import { CreatedExercisesComponent } from './user/created-exercises/created-exercises.component';
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
 import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
+import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AllExercisesComponent } from './user/all-exercises/all-exercises.compon
     MyWorkoutComponent,
     CreatedExercisesComponent,
     CreateExercisesComponent,
-    AllExercisesComponent
+    AllExercisesComponent,
+    ExerciseContentComponent
   ],
   imports: [
     BrowserModule,

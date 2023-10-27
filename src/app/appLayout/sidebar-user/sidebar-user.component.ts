@@ -51,6 +51,11 @@ export class SidebarUserComponent {
           name: 'Create Exercises',
           img: '../../../assets/svg/bulk.svg',
           url: '/user/createExercises'
+        },
+        {
+          name: 'exercise Content',
+          img: '../../../assets/svg/bulk.svg',
+          url: '/user/exerciseContent'
         }
       ]
     },

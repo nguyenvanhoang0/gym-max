@@ -63,7 +63,7 @@ export class MyWorkoutComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
-        // console.log(this.practiceTimes);
+        console.log(this.practiceTimes);
         // this.combineData();
       },
       (error) => {
@@ -72,19 +72,19 @@ export class MyWorkoutComponent {
     );
   }
 
-  getPracticeTimesByTimeStart(id: number, timeStart: Date) {
-    this.myWorkoutService.getPracticeTimesByTimeStart(id, timeStart).subscribe(
-      (response) => {
-        // Xử lý dữ liệu sau khi nhận được từ API
-        this.practiceTimes = response.$values;
-        // console.log(this.practiceTimes);
-        // this.combineData();
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  // getPracticeTimesByTimeStart(id: number, timeStart: Date) {
+  //   this.myWorkoutService.getPracticeTimesByTimeStart(id, timeStart).subscribe(
+  //     (response) => {
+  //       // Xử lý dữ liệu sau khi nhận được từ API
+  //       this.practiceTimes = response.$values;
+  //       console.log(this.practiceTimes);
+  //       // this.combineData();
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 
   clickDay(day: number) {
     if (this.userInfo) {
@@ -157,6 +157,11 @@ export class MyWorkoutComponent {
     this.weeks.push(weeks);
   }
 
+  updateCurrentMonth(selectedMonth: number) {
+    this.currentMonth = selectedMonth;
+    this.calculateDaysInMonth();
+  }
+
   updateCurrentMonthAndYear(offset: number) {
     const newMonth = this.currentMonth + offset;
 
@@ -172,26 +177,25 @@ export class MyWorkoutComponent {
     this.calculateDaysInMonth();
   }
 
-  updateCurrentMonth(selectedMonth: number) {
-    this.currentMonth = selectedMonth;
-    this.calculateDaysInMonth();
-  }
-
   updateCurrentDayAndMonthAndYear(offset: number) {
-    const day = this.day + offset;
+    let day = this.day + offset;
     const newMonth = this.currentMonth;
 
     if (day === 0) {
+      day = this.getDaysInMonth(this.currentYear, this.currentMonth - 1);
       this.day = this.getDaysInMonth(this.currentYear, this.currentMonth - 1);
       this.currentMonth -= 1;
       const newMonth = this.currentMonth;
       if (newMonth == 0) {
         this.currentYear -= 1;
         this.currentMonth = 12;
+      }else {
+        this.currentMonth = newMonth;
       }
-    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) + 1) {
+    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) +1) {
+      day = 1;
       this.day = 1;
-      this.currentMonth += 1
+      this.currentMonth += 1  
       const newMonth = this.currentMonth;
       if (newMonth == 13) {
         this.currentYear += 1;

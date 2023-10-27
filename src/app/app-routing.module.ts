@@ -19,6 +19,7 @@ import { MyWorkoutComponent } from './user/my-workout/my-workout.component';
 import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
 import { CreatedExercisesComponent } from './user/created-exercises/created-exercises.component';
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
+import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
       { path: 'allExercises', component: AllExercisesComponent },
       { path: 'createdExercises', component: CreatedExercisesComponent },
       { path: 'createExercises', component: CreateExercisesComponent },
+      { path: 'exerciseContent', component: ExerciseContentComponent },
     ]
   },
 

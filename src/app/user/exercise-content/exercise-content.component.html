@@ -1,0 +1,12 @@
+<div class="exercise_conten" >
+    <div *ngFor="let monthData of bigExercisesMonthlyData | keyvalue">
+        <div class="text_13"><img src="../../../assets/svg/task.svg" alt="">TimeStart : {{ monthData.key }}</div>
+    <div class="my_big_exercise">
+        <div class="big_exercise">
+            <div class="exercise" *ngFor="let exercise of monthData.value">
+                <div>{{ exercise?.bigExercise?.target }}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

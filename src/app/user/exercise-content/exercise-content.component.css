@@ -1,0 +1,25 @@
+.exercise_conten{
+    padding: 40px;
+    width: 100%;
+}
+
+.my_big_exercise{
+    border-left: 3px solid #d8dee4;
+    padding: 20px;
+}
+
+.big_exercise{
+    width: 100%;
+    background-color: white;
+    
+    border-radius: 8px; 
+}
+
+.exercise{
+    padding: 25px;
+}
+
+
+.exercise:not(:first-child) {
+    border-top: 1px solid var(--e9ecef-Bg-2, #E9ECEF);
+}

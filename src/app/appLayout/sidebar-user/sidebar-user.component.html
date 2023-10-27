@@ -2,7 +2,9 @@
     <div class="main_logo text logo logo_name">
         <img src="../../../assets/svg/Frame 453.svg" alt="">
         gymmax
-        <div class="close_sidebar" (click)="toggleSidebar()"><img src="../../../assets/svg/left_arrow.svg" alt="" ></div>
+        <div class="close_sidebar" (click)="toggleSidebar()">
+            <img src="../../../assets/svg/left_arrow.svg" alt="" >
+        </div>
     </div>
 
     <div class="main text">
@@ -11,15 +13,24 @@
             <li *ngFor="let item of sidebarData" >
                 <div class="Sidebar_Items" (click)="toggleContent(item)" [class.click_color]="item.showChildItem">
                     <div class="conten" [class.click_img]="item.showChildItem">
-                        <div class="tile"><img src="{{ item.img_1 }}" alt="">{{ item.name }}</div>
-                        <div *ngIf="item.items.length > 0"><img [class.rotate]="item.showChildItem" src="{{ item.img_2 }}" alt=""></div>
+                        <div class="tile">
+                            <img src="{{ item.img_1 }}" alt="">
+                            {{ item.name }}
+                        </div>
+                        <div *ngIf="item.items.length > 0">
+                            <img [class.rotate]="item.showChildItem" src="
+                            {{ item.img_2 }}" alt="">
+                        </div>
                     </div>
                 </div>
                 <ul *ngIf="item.showChildItem" >
                     <li *ngFor="let childItem of item.items" routerLink="{{childItem.url}}">
                         <div class="Sidebar_Items">
                             <div class="conten">
-                                <div class="tile"><img src="{{ childItem.img }}" alt="">{{ childItem.name }}</div>
+                                <div class="tile">
+                                    <img src="{{ childItem.img }}" alt="">
+                                    {{ childItem.name }}
+                                </div>
                             </div>
                         </div>
                     </li>
