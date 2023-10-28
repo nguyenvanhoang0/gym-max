@@ -1,0 +1,43 @@
+.create_exercises {
+    padding: 40px ;
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    background-color: white;
+    padding: 20px 200px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form input , button{
+    /* height: 18px; */
+    padding: 5px ;
+    min-width: 200px;
+    max-width: 40%;
+    border-radius: 4px;
+    border:  1px solid gray;
+}
+
+.flex{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form_radio{
+    display: flex;
+    align-items: center;
+}
+
+button{
+    margin-top: 20px;
+}

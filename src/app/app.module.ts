@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule, JwtHelperService ,} from '@auth0/angular-jwt';
-
+// import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,6 +72,7 @@ import { ExerciseDetailsComponent } from './user/exercise-details/exercise-detai
     HttpClientModule,
     FormsModule,
     JwtModule,
+    // CommonModule,
     // JwtHelperModule
   ],
   exports: [

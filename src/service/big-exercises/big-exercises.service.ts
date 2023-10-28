@@ -10,6 +10,10 @@ export class BigExercisesService {
   private apiUrl = 'https://localhost:7010/api/BigExerciseControllers'; 
   constructor(private http: HttpClient) { }
 
+  createBigExercise(data: any) {
+    return this.http.post(`${this.apiUrl}/createBigExercise`, data);
+  }
+
   getcreatedWorkouts(userId: number): Observable<createdWorkoutsInterface> {
     return this.http.get<createdWorkoutsInterface>(`${this.apiUrl}/GetBigExercisesByAuthor/${userId}`);
   }
@@ -17,5 +21,7 @@ export class BigExercisesService {
   getBigExerciseDetails(id: number): Observable<bigExercises> {
     return this.http.get<bigExercises>(`${this.apiUrl}/GetBigExerciseWithRelatedDataById/${id}`);
   }
+
+
 
 }

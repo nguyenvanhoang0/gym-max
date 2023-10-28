@@ -1,7 +1,15 @@
 <div class="created_workouts">
     {{myBigExercises?.target}}
-    <div *ngFor="let exercise of exercises" >
-        <!-- <div class="big_exercises">{{myBigExercises.content}}</div> -->
-        <div class="big_exercises">{{exercise?.$values}}</div>
+    <!-- {{ exercise | json }} -->
+    <div *ngFor="let item of myBigExercises?.exercises">
+        {{item.$id}}
+        <ul *ngIf="item.$values && item.$values.length">
+            <li *ngFor="let subItem of item.$values">
+              <div>ID: {{ subItem.id }}</div>
+              <div>Content: {{ subItem.content }}</div>
+              <div>Quantity: {{ subItem.quantity }}</div>
+              <div>Time: {{ subItem.time }}</div>
+            </li>
+          </ul>
     </div>
 </div>

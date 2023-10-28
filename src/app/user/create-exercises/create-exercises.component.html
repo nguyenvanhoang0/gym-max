@@ -1,1 +1,40 @@
-<p>create-exercises works!</p>
+<div class="create_exercises">
+    Create new exercises
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form">
+            <label for="target">Target:</label>
+            <input type="text" id="target" name="target" [(ngModel)]="formData.target" (input)="filterKeywords()"
+                value="{{targetInput}}">
+            <div class="flex">
+                <div *ngFor="let goal of goals" (click)="selectKeyword(goal.name)"> {{goal.name}}/</div>
+            </div>
+        </div>
+
+        <!-- <ul *ngIf="filteredKeywords.length > 0">
+            <li *ngFor="let keyword of filteredKeywords" (click)="selectKeyword(keyword)">{{ keyword }}</li>
+          </ul> -->
+        <div class="form">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" [(ngModel)]="formData.category">
+        </div>
+
+        <div class="form">
+            <label for="point">Point:</label>
+            <input type="number" id="point" name="point" [(ngModel)]="formData.point">
+        </div>
+
+        <div class="form_radio">
+            <label for="private">Private:</label>
+            <input type="radio" id="private" name="private" [(ngModel)]="formData.private">
+        </div>
+
+        <div class="form">
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" [(ngModel)]="formData.status">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
