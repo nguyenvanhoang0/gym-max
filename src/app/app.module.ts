@@ -34,6 +34,7 @@ import { AllExercisesComponent } from './user/all-exercises/all-exercises.compon
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
 import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
 import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
+import { IsolationExercisesComponent } from './user/isolation-exercises/isolation-exercises.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ExerciseDetailsComponent } from './user/exercise-details/exercise-detai
     AllExercisesComponent,
     ExerciseContentComponent,
     BigExerciseDetailsComponent,
-    ExerciseDetailsComponent
+    ExerciseDetailsComponent,
+    IsolationExercisesComponent
   ],
   imports: [
     BrowserModule,

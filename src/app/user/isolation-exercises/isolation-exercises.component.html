@@ -1,0 +1,34 @@
+<div class="isolation_exercises text">
+    
+    <form #exerciseForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="text_16_title">
+            <div>Create new isolation exercises</div>
+            <div class="text_13">
+                Creating new exercises can be a fun and creative way to make your workout regimen interesting and
+                challenging.
+            </div>
+        </div>
+        <div class="form">
+          <label for="content">Content:</label>
+          <input type="text" id="content" name="content" [(ngModel)]="formData.content" required>
+        </div>
+      
+        <div class="form">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" [(ngModel)]="formData.quantity" required>
+        </div>
+      
+        <div class="form">
+          <label for="time">Time:</label>
+          <input type="number" id="time" name="time" [(ngModel)]="formData.time" required>
+        </div>
+      
+        <div class="form">
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category" [(ngModel)]="formData.category" required>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      
+</div>

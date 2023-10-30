@@ -22,6 +22,8 @@ import { CreateExercisesComponent } from './user/create-exercises/create-exercis
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
 import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
 import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
+import { IsolationExercisesComponent } from './user/isolation-exercises/isolation-exercises.component';
+
 
 const routes: Routes = [
   {
@@ -50,6 +52,7 @@ const routes: Routes = [
       { path: 'allExercises', component: AllExercisesComponent },
       { path: 'createdExercises', component: CreatedExercisesComponent },
       { path: 'createExercises', component: CreateExercisesComponent },
+      { path: 'isolationExercises', component: IsolationExercisesComponent },
       { path: 'exerciseContent', component: ExerciseContentComponent },
       { path: 'bigExerciseDetail/:id', component: BigExerciseDetailsComponent },
       { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },

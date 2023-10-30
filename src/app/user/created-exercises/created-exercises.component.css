@@ -4,8 +4,41 @@
 }
 
 .big_exercises{
-    padding: 20px;
+    /* height: 20px; */
+    padding: 15px;
     background-color: white;
     border-radius: 8px;
     margin: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* 
+.workouts{
+    
+} */
+
+.big_exercises:hover{
+    background-color: #bee4ff;
+}
+
+.big_exercises:hover .add_small_exercises{
+    display: block;
+}
+
+.add_small_exercises{
+    display: none;
+}
+
+.add_small_exercises img:last-child{
+    display: none;
+}
+
+.add_small_exercises:hover img:last-child{
+    display: block;
+}
+
+.add_small_exercises:hover img:first-child{
+    display: none;
 }

@@ -1,6 +1,13 @@
 <div class="created_workouts">
-    <div *ngFor="let myBigExercises of myBigExercises" (click)="navigateToBigExerciseDetails(myBigExercises.id)">
-        <div class="big_exercises">{{myBigExercises.target}}</div>
+    <div class="workouts" *ngFor="let myBigExercises of myBigExercises">
+        <div class="big_exercises">
+            <div (click)="navigateToBigExerciseDetails(myBigExercises.id)">{{myBigExercises.target}}</div>
+            <div class="add_small_exercises" routerLink="/user/isolationExercises">
+                <img src="../../../assets/svg/plus-square-dotted.svg" alt="">
+                <img src="../../../assets/svg/plus-square.svg" alt="">
+            </div>
+        </div>
+
         <!-- <div class="big_exercises">{{myBigExercises.id}}</div> -->
     </div>
 </div>
