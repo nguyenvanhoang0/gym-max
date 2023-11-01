@@ -2,10 +2,13 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
+import { GeneralGenreService } from '../../../service/general_genre/general-genre.service';
+import { BigExerciseGeneralGenreService } from '../../../service/big-exercise-general-genre/big-exercise-general-genre.service';
 
-import { User } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
-
+import { User } from '../../../service/user/user-interface';
+import { GeneralGenreInterface } from '../../../service/general_genre/general-genre-interface';
+import { BigExerciseGeneralGenreInterface } from '../../../service/big-exercise-general-genre/big-exercise-general-genre-interface';
 
 export interface WorkoutGoal {
   name: string;
@@ -31,7 +34,7 @@ export class CreateExercisesComponent {
   targetInputs: string = '';
   filteredKeywords: string[] = [];
   selectedKeyword: string = '';
-
+  allGeneralGenre:GeneralGenreInterface [] = [];
   formData: any = {
     target: '',
     category: '',
@@ -132,13 +135,18 @@ export class CreateExercisesComponent {
 
   constructor(
     private bigExercisesService: BigExercisesService,
+    private generalGenreService: GeneralGenreService,
     private userService: UserService,
     private router: Router
     // private route: ActivatedRoute
   ) { }
 
-  onSubmit() {
+  ngOnInit(): void {
+    this.getallGeneralGenre();
+    // this.calculateDaysInMonth();
+  }
 
+  onSubmit() {
     this.userService.getUserInfo().subscribe(
       (userInfo) => {
         this.userInfo = userInfo;
@@ -159,11 +167,18 @@ export class CreateExercisesComponent {
         }
       },
     )
-    // Lấy userId từ service xác thực
-
-    // Gửi dữ liệu lên API bao gồm userId
-
   }
+
+  getallGeneralGenre(){
+    this.generalGenreService.getGeneralGenre().subscribe(
+      (allGeneralGenre) => {
+        this.allGeneralGenre = allGeneralGenre.$values;
+        console.log(this.allGeneralGenre);
+        
+      })
+  }
+
+
 
   filterKeywords() {
     this.filteredKeywords = this.suggestedKeywords.filter(keyword =>
@@ -180,7 +195,7 @@ export class CreateExercisesComponent {
 
   toggleSelect(item: any) {
     item.select = !item.select;
-    // console.log(this.categoriesData);
+    console.log(this.allGeneralGenre);
 
     const selectedCategories = this.categoriesData
       .filter((category) => category.select)

@@ -27,12 +27,16 @@
             <label for="category">Category:</label>
             <input type="text" id="category" name="category" [(ngModel)]="formData.category">
             <div class="flex">
-                <div class="tip" *ngFor="let categorie of categoriesData ; let last = last" (click)="toggleSelect(categorie)">
-                    <div class="suggest" [class.select]="categorie.select">{{categorie.generalGenre}}</div>
+                <div class="tip" *ngFor="let categorie of allGeneralGenre ; let last = last" (click)="toggleSelect(categorie)">
+                    <div class="suggest" [class.select]="categorie.select">{{categorie.name}}</div>
                     <div class="Suggested_details">
-                        <div  *ngFor="let categorie of categorie.categorys">
-                            {{categorie}}
-                        </div>
+                        {{categorie.description}}
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="suggest" >Others</div>
+                    <div class="Suggested_details">
+                        Can't find the genre you need? Create your own new category
                     </div>
                 </div>
             </div>
@@ -81,12 +85,6 @@
 
 </div>
 
-<!-- <div class="form">
-            <label for="point">Point:</label>
-            <input type="number" id="point" name="point" [(ngModel)]="formData.point">
-        </div> -->
-
-<!-- <div class="form">
-            <label for="status">Status:</label>
-            <input type="text" id="status" name="status" [(ngModel)]="formData.status">
-        </div> -->
+<div>
+    <form action=""></form>
+</div>

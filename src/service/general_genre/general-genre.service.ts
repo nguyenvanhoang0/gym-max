@@ -12,15 +12,15 @@ export class GeneralGenreService {
 
   constructor(private http: HttpClient) { }
 
-  createGeneralGenre(formData: GeneralGenre): Observable<GeneralGenre> {
-    return this.http.post<GeneralGenre>(`${this.apiUrl}/createGeneralGenre`, formData)
+  createGeneralGenre(formData: GeneralGenreInterface): Observable<GeneralGenreInterface> {
+    return this.http.post<GeneralGenreInterface>(`${this.apiUrl}/createGeneralGenre`, formData)
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  getGeneralGenre(): Observable<GeneralGenreInterface> {
-    return this.http.get<GeneralGenreInterface>(`${this.apiUrl}/getGeneralGenre`);
+  getGeneralGenre(): Observable<GeneralGenre> {
+    return this.http.get<GeneralGenre>(`${this.apiUrl}/getGeneralGenre`);
   }
 
 
