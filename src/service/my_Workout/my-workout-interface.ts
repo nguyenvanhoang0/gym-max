@@ -6,9 +6,10 @@ export interface PracticeTime {
   content: string;
   quantity: number;
   time: number;
-  category: string;
   point: number;
   evaluate: number;
+  categoryName: string;
+  descriptionCategory: string;
 }
 
 

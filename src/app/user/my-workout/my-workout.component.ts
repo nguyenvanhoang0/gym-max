@@ -3,8 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
-import { PracticeTime, PracticeTimes } from '../../../service/practice-time/practice-time-interface';
+import { PracticeTime, } from '../../../service/my_Workout/my-workout-interface';
 // import { HearderUserComponent } from '../../appLayout/hearder-user/hearder-user.component'
+
+interface DayDetails  {
+  day: number;
+  month: number;
+}
+
 @Component({
   selector: 'app-my-workout',
   templateUrl: './my-workout.component.html',
@@ -19,7 +25,7 @@ export class MyWorkoutComponent {
   // firstDay: Date = new Date();
   day: number = 0;
   lastDayOfMonth: number = 0;
-  weeks: number[][] = [];
+  weeks: DayDetails[][];
   currentYear: number;
   currentMonth: number;
   years: number[] = this.generateYears(10);
@@ -35,6 +41,7 @@ export class MyWorkoutComponent {
     this.currentDate = new Date();
     this.currentYear = this.currentDate.getFullYear();
     this.currentMonth = this.currentDate.getMonth() + 1;
+    this.weeks = [];
   }
 
   ngOnInit(): void {
@@ -116,45 +123,42 @@ export class MyWorkoutComponent {
   }
 
   calculateDaysInMonth() {
-    this.weeks = [];
-
     const firstDay = new Date(this.currentYear, this.currentMonth - 1, 1);
     const lastDay = new Date(this.currentYear, this.currentMonth, 0);
-    const firstDayOfWeek = firstDay.getDay(); // Ngày đầu tiên rơi vào tuần nào (0 là Chủ Nhật, 1 là Thứ 2, ...)
+    const firstDayOfWeek = firstDay.getDay();
     this.lastDayOfMonth = lastDay.getDate();
-    let weeks: number[] = [];
-    // console.log(this.lastDayOfMonth);
-
+    let daysInWeek: DayDetails[] = [];
 
     // Tính toán ngày của tháng trước (nếu cần)
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
     const prevMonthDays = prevMonthLastDay.getDate();
     for (let i = prevMonthDays - firstDayOfWeek + 1; i <= prevMonthDays; i++) {
-      weeks.push(i);
+      daysInWeek.push({ day: i, month: this.currentMonth - 1 });
+      console.log(this.weeks + "hehehehe" + i + prevMonthDays + prevMonthLastDay);
     }
 
     for (let day = firstDay.getDate(); day <= lastDay.getDate(); day++) {
-      weeks.push(day);
-      if (weeks.length === 7) {
-        this.weeks.push(weeks);
-        weeks = [];
+      daysInWeek.push({ day: day, month: this.currentMonth });
+      if (daysInWeek.length === 7) {
+        this.weeks.push([...daysInWeek]);
+        daysInWeek = [];
       }
     }
 
-    // Tính toán ngày của tháng tiếp theo (nếu cần)
-    if (weeks.length > 0) {
+    if (daysInWeek.length > 0) {
       const nextMonthFirstDay = new Date(this.currentYear, this.currentMonth, 1);
-      const remainingDays = 7 - weeks.length;
+      const remainingDays = 7 - daysInWeek.length;
 
       for (let day = nextMonthFirstDay.getDate(); day <= nextMonthFirstDay.getDate() + remainingDays - 1; day++) {
-        weeks.push(day);
+        daysInWeek.push({ day: day, month: this.currentMonth + 1 });
       }
-
     }
-    // console.log(this.weeks);
 
+    if (daysInWeek.length > 0) {
+      this.weeks.push([...daysInWeek]);
+    }
 
-    this.weeks.push(weeks);
+    console.log(this.weeks + "hehehehe");
   }
 
   updateCurrentMonth(selectedMonth: number) {
@@ -164,7 +168,7 @@ export class MyWorkoutComponent {
 
   updateCurrentMonthAndYear(offset: number) {
     const newMonth = this.currentMonth + offset;
-
+    this.weeks = [];
     if (newMonth === 0) {
       this.currentMonth = 12;
       this.currentYear -= 1;
@@ -226,6 +230,9 @@ export class MyWorkoutComponent {
     return new Date(year, month, 0).getDate();
   }
 
+  formatDay(day: number): string {
+    return day < 10 ? '0' + day : day.toString();
+  }
 
 
 }

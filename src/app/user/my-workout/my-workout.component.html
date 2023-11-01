@@ -6,18 +6,21 @@
         <li class="month" [class.click_color]="currentMonth == month " [value]="month"
           (click)="updateCurrentMonth(month)"> {{ month }} </li>
       </ng-container>
-
     </ul>
   </div>
+
   <div>
     <ul class="select_month">
-      <li (click)="updateCurrentMonthAndYear( - 1)"><img src="../../../assets/svg/arrow-left.svg" alt=""></li>
-
+      <li (click)="updateCurrentMonthAndYear( - 1)">
+        <img src="../../../assets/svg/arrow-left.svg" alt="">
+      </li>
       <li class="month"> {{ currentMonth }}/{{currentYear}} </li>
-      <li class="month" (click)="updateCurrentMonthAndYear( + 1)"><img src="../../../assets/svg/arrow-right.svg" alt="">
+      <li class="month" (click)="updateCurrentMonthAndYear( + 1)">
+        <img src="../../../assets/svg/arrow-right.svg" alt="">
       </li>
     </ul>
   </div>
+
   <table>
     <thead>
       <tr>
@@ -25,14 +28,17 @@
       </tr>
     </thead>
     <tbody>
+      <ng-container>
       <tr *ngFor="let week of weeks; let i = index">
-        <ng-container *ngFor="let day of week; let j = index">
-          <td (click)="clickDay(day)">
-            {{ day }}
+        <ng-container *ngFor="let days of week; let j = index">
+          <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month ">
+            {{ days.day }}
             <br>
             <div *ngFor="let time of practiceTimes">
               <ng-container
-                *ngIf="day.toString() == (time.timeStart | date: 'dd') && currentMonth.toString() == (time.timeStart | date: 'MM') && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
+                *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
+                && days.month.toString() == (time.timeStart | date: 'MM') 
+                && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
                 <!-- {{ dayStart }} -->
                 {{time.content}}
                 {{time.id}}
@@ -41,6 +47,7 @@
           </td>
         </ng-container>
       </tr>
+    </ng-container>
     </tbody>
   </table>
 
@@ -49,10 +56,13 @@
 <div class="my_workout today" *ngIf="day !== 0">
   <div>
     <ul class="select_month">
-      <li (click)="updateCurrentDayAndMonthAndYear( - 1)"><img src="../../../assets/svg/arrow-left.svg" alt=""></li>
+      <li (click)="updateCurrentDayAndMonthAndYear( - 1)">
+        <img src="../../../assets/svg/arrow-left.svg" alt="">
+      </li>
 
       <li class="month">{{day}}/{{ currentMonth }}/{{currentYear}} </li>
-      <li class="month" (click)="updateCurrentDayAndMonthAndYear( + 1)"><img src="../../../assets/svg/arrow-right.svg" alt="">
+      <li class="month" (click)="updateCurrentDayAndMonthAndYear( + 1)">
+        <img src="../../../assets/svg/arrow-right.svg" alt="">
       </li>
     </ul>
   </div>
@@ -63,7 +73,7 @@
       <li>{{time.content}}</li>
       <li>{{time.quantity}}</li>
       <li>{{time.time}}</li>
-      <li>{{time.category}}</li>
+      <!-- <li>{{time.category}}</li> -->
       <li>{{time.evaluate}}</li>
     </ul>
   </div>

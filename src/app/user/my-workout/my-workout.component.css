@@ -33,7 +33,7 @@ th {
 
 td {
   height: 100px;
-  background-color: white
+  background-color: rgb(161, 205, 208)
 }
 
 td:hover {
@@ -70,4 +70,8 @@ td:hover {
   border-radius: 10px;
   /* padding: 8px; */
   overflow: hidden;
+}
+
+.currentMonth{
+  background-color: white;
 }
