@@ -1,6 +1,4 @@
 <div class="create_exercises text">
-
-
     <form (ngSubmit)="onSubmit()">
         <div class="text_16_title">
             <div>Create new exercises</div>
@@ -12,7 +10,7 @@
         <div class="form">
             <label for="target">Target:</label>
             <input type="text" id="target" #targetInput name="target" [(ngModel)]="formData.target"
-                (input)="filterKeywords()" value="{{targetInputs}}">
+                 value="{{targetInputs}}">
             #tip
             <div class="flex">
                 <div class="tip" *ngFor="let goal of goals" (click)="selectKeyword(goal.name)">
@@ -21,7 +19,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="form">
             <label for="category">Category:</label>
@@ -33,7 +30,7 @@
                         {{categorie.description}}
                     </div>
                 </div>
-                <div class="tip">
+                <div class="tip" (click)="toggleFormCreatecategory()">
                     <div class="suggest" >Others</div>
                     <div class="Suggested_details">
                         Can't find the genre you need? Create your own new category
@@ -41,8 +38,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <div class="form">
             <div class="form_radio ">
@@ -82,9 +77,24 @@
 
         <button type="submit">Submit</button>
     </form>
-
 </div>
 
-<!-- <div>
-    <form action=""></form>
-</div> -->
+<div class="form_create_category text" [class.form_create_category_open]="formCreatecategory" (click)="toggleFormCreatecategory()">
+    <form action="" (click)="onChildClick($event)">
+        <div class="text_16_title">create new category</div>
+        <div class="form">
+            <label for="target">Target:</label>
+            <input type="text" id="target" #targetInput name="target" [(ngModel)]="formData.target"
+                 >
+            #tip
+            
+        </div>
+
+        <div class="form">
+            <label for="target">Target:</label>
+            <textarea></textarea>
+            #tip
+            
+        </div>
+    </form>
+</div>

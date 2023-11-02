@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit ,HostListener  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
@@ -30,14 +30,14 @@ export class CreateExercisesComponent {
   @ViewChild('targetInput', { static: true }) targetInput!: ElementRef<HTMLInputElement>;
 
   userInfo: User | null = null;
-  suggestedKeywords: string[] = ['Angular', 'React', 'Vue', 'TypeScript', 'JavaScript'];
+  formCreatecategory: boolean = false
+  // suggestedKeywords: string[] = ['Angular', 'React', 'Vue', 'TypeScript', 'JavaScript'];
   targetInputs: string = '';
-  filteredKeywords: string[] = [];
-  selectedKeyword: string = '';
+  // filteredKeywords: string[] = [];
+  // selectedKeyword: string = '';
   allGeneralGenre:GeneralGenreInterface [] = [];
   formData: any = {
     target: '',
-    // category: '',
     point: 0,
     private: true,
     status: '',
@@ -163,9 +163,6 @@ export class CreateExercisesComponent {
               console.error('Lỗi khi gửi dữ liệu lên API:', error);
             }
           );
-          // console.log(this.userInfo?.id);
-          // this.GetcreatedWorkoutsInterface(this.userInfo.id);
-          // console.log(this.myBigExercises);
         }
       },
     )
@@ -179,19 +176,14 @@ export class CreateExercisesComponent {
         bigExerciseId: createdBigExerciseid,
         generalGenreId: category.id,
       };
-      console.log(formData);
-      
       this.igExerciseGeneralGenreService.createBigExerciseGeneralGenre(formData ).subscribe(
         (response) => {
           console.log('Dữ liệu đã được gửi lên API thành công:', response);
-          // this.createBigExerciseGeneralGenre(response.id)
-          // this.router.navigate(['user/createdExercises']);
         },
         (error) => {
           console.error('Lỗi khi gửi dữ liệu lên API:', error);
         }
       )
-      console.log(category.id);
     })
     
     
@@ -206,20 +198,12 @@ export class CreateExercisesComponent {
       })
   }
 
-
-
-  filterKeywords() {
-    this.filteredKeywords = this.suggestedKeywords.filter(keyword =>
-      keyword.toLowerCase().includes(this.targetInputs.toLowerCase())
-    );
-  }
-
   selectKeyword(keyword: string) {
     // this.selectedKeyword = keyword;
     this.targetInput.nativeElement.focus();
     // this.targetInputs = keyword;
     this.formData.target = keyword;
-    this.filteredKeywords = [];
+    // this.filteredKeywords = [];
 
   }
 
@@ -235,9 +219,16 @@ export class CreateExercisesComponent {
     console.log(this.formData.category);
   }
 
-  // ngAfterViewInit() {
-  //   this.targetInput.nativeElement.value = 'Giá trị mặc định hoặc bất kì giá trị nào bạn muốn';
-  // }
+  toggleFormCreatecategory() {
+    this.formCreatecategory = !this.formCreatecategory;
+    console.log(this.formCreatecategory );
+  }
+
+  onChildClick(event: Event) {
+    // Ngăn chặn sự kiện lan truyền lên thẻ cha
+    event.stopPropagation();
+  }
+
 
   resetForm() {
     this.formData = {
