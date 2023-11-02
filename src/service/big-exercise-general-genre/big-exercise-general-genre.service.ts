@@ -10,7 +10,7 @@ export class BigExerciseGeneralGenreService {
   private apiUrl = 'https://localhost:7010/api/big-exercise-general-genres';
   constructor(private http: HttpClient) { }
 
-  createBigExercise(data: BigExerciseGeneralGenreInterface) {
+  createBigExerciseGeneralGenre(data: BigExerciseGeneralGenreInterface) {
     return this.http.post(`${this.apiUrl}/CreateBigExerciseGeneralGenre`, data);
   }
 }

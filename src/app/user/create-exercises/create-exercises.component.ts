@@ -37,7 +37,7 @@ export class CreateExercisesComponent {
   allGeneralGenre:GeneralGenreInterface [] = [];
   formData: any = {
     target: '',
-    category: '',
+    // category: '',
     point: 0,
     private: true,
     status: '',
@@ -136,6 +136,7 @@ export class CreateExercisesComponent {
   constructor(
     private bigExercisesService: BigExercisesService,
     private generalGenreService: GeneralGenreService,
+    private igExerciseGeneralGenreService: BigExerciseGeneralGenreService,
     private userService: UserService,
     private router: Router
     // private route: ActivatedRoute
@@ -155,7 +156,8 @@ export class CreateExercisesComponent {
           this.bigExercisesService.createBigExercise({ ...this.formData, userId }).subscribe(
             (response) => {
               console.log('Dữ liệu đã được gửi lên API thành công:', response);
-              this.router.navigate(['user/createdExercises']);
+              this.CreateBigExerciseGeneralGenre(response.id)
+              // this.router.navigate(['user/createdExercises']);
             },
             (error) => {
               console.error('Lỗi khi gửi dữ liệu lên API:', error);
@@ -167,6 +169,32 @@ export class CreateExercisesComponent {
         }
       },
     )
+  }
+
+  CreateBigExerciseGeneralGenre(createdBigExerciseid : number ){
+    // 
+    const selectedCategories = this.allGeneralGenre.filter(category => category.select);
+    selectedCategories.forEach(category => {
+      const formData: BigExerciseGeneralGenreInterface = {
+        bigExerciseId: createdBigExerciseid,
+        generalGenreId: category.id,
+      };
+      console.log(formData);
+      
+      this.igExerciseGeneralGenreService.createBigExerciseGeneralGenre(formData ).subscribe(
+        (response) => {
+          console.log('Dữ liệu đã được gửi lên API thành công:', response);
+          // this.createBigExerciseGeneralGenre(response.id)
+          // this.router.navigate(['user/createdExercises']);
+        },
+        (error) => {
+          console.error('Lỗi khi gửi dữ liệu lên API:', error);
+        }
+      )
+      console.log(category.id);
+    })
+    
+    
   }
 
   getallGeneralGenre(){
@@ -189,13 +217,15 @@ export class CreateExercisesComponent {
   selectKeyword(keyword: string) {
     // this.selectedKeyword = keyword;
     this.targetInput.nativeElement.focus();
-    this.targetInputs = keyword;
+    // this.targetInputs = keyword;
+    this.formData.target = keyword;
     this.filteredKeywords = [];
+
   }
 
   toggleSelect(item: any) {
     item.select = !item.select;
-    console.log(this.allGeneralGenre);
+    // console.log(this.allGeneralGenre);
 
     const selectedCategories = this.categoriesData
       .filter((category) => category.select)
@@ -212,7 +242,7 @@ export class CreateExercisesComponent {
   resetForm() {
     this.formData = {
       target: '',
-      category: '',
+      // category: '',
       point: 0,
       private: true,
       status: '',
