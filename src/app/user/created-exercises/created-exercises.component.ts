@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
-import { createdWorkoutsInterface, bigExercises } from '../../../service/big-exercises/big-exercises-interface';
+import { createdWorkoutsInterface, bigExercises , bigExercisesByAuthor } from '../../../service/big-exercises/big-exercises-interface';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 @Component({
@@ -12,7 +12,7 @@ import { UserService } from '../../../service/user/user-service.service';
 })
 export class CreatedExercisesComponent {
   userInfo: User | null = null;
-  myBigExercises: bigExercises[] = [];
+  myBigExercises: bigExercisesByAuthor["$values"] = [];
 
   constructor(
     private bigExercisesService: BigExercisesService,

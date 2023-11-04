@@ -1,44 +1,96 @@
-.created_workouts{
+.created_workouts {
     padding: 40px;
     width: 100%;
 }
 
-.big_exercises{
+.group_workouts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.big_exercises {
     /* height: 20px; */
     padding: 15px;
     background-color: white;
     border-radius: 8px;
-    margin: 5px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
+
+.generalGenre {
+    display: flex;
+    transition: 1s;
+flex: 1;
+
+}
+
+.generalGenre>div {
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 2px;
+    display: none;
+}
+
+.generalGenre>div:first-child {
+    display: block;
+}
+
+.generalGenre>div:last-child {
+    display: block;
+    position: relative;
+}
+
+.generalGenre>div:last-child:hover .all_generalGenre {
+    display: block;
+
+}
+
+.all_generalGenre {
+    display: none;
+    width: 300px;
+    position: absolute;
+    /* bottom: -400%; */
+    margin: 20px 0 0 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    z-index: 3;
+    /* transform: translate(-50%, -50%); */
+    /* left: 0px; */
+    transition: 1s;
+}
+
 /* 
 .workouts{
     
 } */
 
-.big_exercises:hover{
+.big_exercises:hover {
     background-color: #bee4ff;
 }
 
-.big_exercises:hover .add_small_exercises{
+.big_exercises:hover .add_small_exercises {
     display: block;
 }
 
-.add_small_exercises{
+.add_small_exercises {
     display: none;
 }
 
-.add_small_exercises img:last-child{
+.add_small_exercises img:last-child {
     display: none;
 }
 
-.add_small_exercises:hover img:last-child{
+.add_small_exercises:hover img:last-child {
     display: block;
 }
 
-.add_small_exercises:hover img:first-child{
+.add_small_exercises:hover img:first-child {
     display: none;
 }

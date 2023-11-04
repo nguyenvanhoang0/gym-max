@@ -22,7 +22,7 @@
 
         <div class="form">
             <label for="category">Category:</label>
-            <input type="text" id="category" name="category" [(ngModel)]="formData.category">
+            <input type="text" id="category" placeholder="search could type">
             <div class="flex">
                 <div class="tip" *ngFor="let categorie of allGeneralGenre ; let last = last" (click)="toggleSelect(categorie)">
                     <div class="suggest" [class.select]="categorie.select">{{categorie.name}}</div>
@@ -73,28 +73,25 @@
                 </label>
             </div>
         </div>
-
-
         <button type="submit">Submit</button>
     </form>
 </div>
 
 <div class="form_create_category text" [class.form_create_category_open]="formCreatecategory" (click)="toggleFormCreatecategory()">
-    <form action="" (click)="onChildClick($event)">
+    <form action="" (click)="onChildClick($event)" (ngSubmit)="onSubmitCategory()">
         <div class="text_16_title">create new category</div>
         <div class="form">
-            <label for="target">Target:</label>
-            <input type="text" id="target" #targetInput name="target" [(ngModel)]="formData.target"
-                 >
+            <label for="target">Name category:</label>
+            <input type="text" id="target" #targetInput name="name" [(ngModel)]="formDataCategory.name">
             #tip
-            
         </div>
 
         <div class="form">
-            <label for="target">Target:</label>
-            <textarea></textarea>
+            <label for="target">description :</label>
+            <textarea name="description" [(ngModel)]="formDataCategory.description"></textarea>
             #tip
             
         </div>
+        <button type="submit" (click)="toggleFormCreatecategory()">Submit</button>
     </form>
 </div>

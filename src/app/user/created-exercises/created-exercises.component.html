@@ -1,13 +1,40 @@
-<div class="created_workouts">
-    <div class="workouts" *ngFor="let myBigExercises of myBigExercises">
-        <div class="big_exercises">
-            <div (click)="navigateToBigExerciseDetails(myBigExercises.id)">{{myBigExercises.target}}</div>
-            <div class="add_small_exercises" routerLink="/user/isolationExercises">
-                <img src="../../../assets/svg/plus-square-dotted.svg" alt="">
-                <img src="../../../assets/svg/plus-square.svg" alt="">
-            </div>
-        </div>
+<div class="created_workouts text">
+    <div class="group_workouts">
+        <div class="workouts" *ngFor="let myBigExercise of myBigExercises">
+            <div class="big_exercises">
+                <div>
+                    <div (click)="navigateToBigExerciseDetails(myBigExercise.id)">
+                        {{myBigExercise.target}}
+                    </div>
+                    <div class="generalGenre">
+                        <div *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">
 
-        <!-- <div class="big_exercises">{{myBigExercises.id}}</div> -->
+                            <div *ngIf="i === 0 ">{{ generalGenre.name }}</div>
+                            <div *ngIf="i > 0">+ {{ i }}
+                                <div class="all_generalGenre">
+                                    <ng-container
+                                        *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">
+                                        <div *ngIf="i > 0">
+                                            + {{ generalGenre.name }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="add_small_exercises" routerLink="/user/isolationExercises">
+                            <img src="../../../assets/svg/plus-square-dotted.svg" alt="">
+                            <img src="../../../assets/svg/plus-square.svg" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- <div class="big_exercises">{{myBigExercises.id}}</div> -->
+        </div>
     </div>
 </div>

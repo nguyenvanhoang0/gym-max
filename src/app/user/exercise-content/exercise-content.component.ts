@@ -66,11 +66,11 @@ export class ExerciseContentComponent {
           const newData: MonthlyData = {
             id: item.id,
             timeStart: modifiedDate,
-            timeEnd: item.timeStart,
+            // timeEnd: item.timeStart,
             bigExercise: {
               id: item.bigExercise.id,
               target: item.bigExercise.target,
-              category: item.bigExercise.category,
+              // category: item.bigExercise.category,
               point: item.bigExercise.point,
               userId: item.bigExercise.userId,
               private: item.bigExercise.private,

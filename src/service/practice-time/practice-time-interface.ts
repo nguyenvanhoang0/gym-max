@@ -2,9 +2,9 @@
 export interface PracticeTime {
   id: number;
   timeStart: string;
-  timeEnd: string;
   exerciseId: number;
-  content: string;
+  name: string;
+  description: string;
   quantity: number;
   time: number;
   category: string;

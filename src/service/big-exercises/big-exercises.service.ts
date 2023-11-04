@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { createdWorkoutsInterface  ,bigExercises} from './big-exercises-interface';
+import { createdWorkoutsInterface  ,bigExercises, bigExercisesByAuthor} from './big-exercises-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +14,8 @@ export class BigExercisesService {
     return this.http.post<bigExercises>(`${this.apiUrl}/createBigExercise`, data);
   }
 
-  getcreatedWorkouts(userId: number): Observable<createdWorkoutsInterface> {
-    return this.http.get<createdWorkoutsInterface>(`${this.apiUrl}/GetBigExercisesByAuthor/${userId}`);
+  getcreatedWorkouts(userId: number): Observable<bigExercisesByAuthor> {
+    return this.http.get<bigExercisesByAuthor>(`${this.apiUrl}/GetBigExercisesByAuthor/${userId}`);
   }
 
   getBigExerciseDetails(id: number): Observable<bigExercises> {

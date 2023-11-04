@@ -1,9 +1,10 @@
 export interface PracticeTime {
   id: number;
   timeStart: string;
-  timeEnd: string;
+
   exerciseId: number;
-  content: string;
+  name: string;
+  description: string;
   quantity: number;
   time: number;
   point: number;
@@ -29,7 +30,6 @@ export interface MyWorkoutData {
   $id: string;
   id: number;
   timeStart: Date;
-  timeEnd: Date;
   bigExerciseId: number;
   userId: number;
   bigExercise: BigExerciseData;
@@ -40,7 +40,7 @@ export interface BigExerciseData {
   $id: string;
   id: number;
   target: string;
-  category: string;
+  // category: string;
   point: number;
   userId: number;
   private: boolean;
@@ -53,11 +53,10 @@ export interface BigExerciseData {
 export interface MonthlyData {
   id: number;
   timeStart: string;
-  timeEnd: Date;
   bigExercise: {
     id: number;
     target: string;
-    category: string;
+    // category: string;
     point: number;
     userId: number;
     private: boolean;

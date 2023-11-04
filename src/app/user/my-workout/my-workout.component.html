@@ -33,6 +33,7 @@
         <ng-container *ngFor="let days of week; let j = index">
           <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month ">
             {{ days.day }}
+            {{ days.month }}
             <br>
             <div *ngFor="let time of practiceTimes">
               <ng-container
@@ -40,7 +41,7 @@
                 && days.month.toString() == (time.timeStart | date: 'MM') 
                 && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
                 <!-- {{ dayStart }} -->
-                {{time.content}}
+                {{time.name}}
                 {{time.id}}
               </ng-container>
             </div>
@@ -70,7 +71,7 @@
     <div>{{time.timeStart}}</div>
     <ul class="flex workout">
       <li>{{time.id}}</li>
-      <li>{{time.content}}</li>
+      <li>{{time.name}}</li>
       <li>{{time.quantity}}</li>
       <li>{{time.time}}</li>
       <!-- <li>{{time.category}}</li> -->

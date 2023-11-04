@@ -129,11 +129,16 @@ export class MyWorkoutComponent {
     this.lastDayOfMonth = lastDay.getDate();
     let daysInWeek: DayDetails[] = [];
 
-    // Tính toán ngày của tháng trước (nếu cần)
+    // Tính toán ngày của tháng trước 
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
     const prevMonthDays = prevMonthLastDay.getDate();
     for (let i = prevMonthDays - firstDayOfWeek + 1; i <= prevMonthDays; i++) {
-      daysInWeek.push({ day: i, month: this.currentMonth - 1 });
+      if(this.currentMonth ==1){
+        daysInWeek.push({ day: i, month: 12 });
+      } else{
+        daysInWeek.push({ day: i, month: this.currentMonth - 1 });
+      }
+      
       console.log(this.weeks + "hehehehe" + i + prevMonthDays + prevMonthLastDay);
     }
 
@@ -150,7 +155,11 @@ export class MyWorkoutComponent {
       const remainingDays = 7 - daysInWeek.length;
 
       for (let day = nextMonthFirstDay.getDate(); day <= nextMonthFirstDay.getDate() + remainingDays - 1; day++) {
-        daysInWeek.push({ day: day, month: this.currentMonth + 1 });
+        if(this.currentMonth == 12){
+          daysInWeek.push({ day: day, month: 1 });
+        } else{
+          daysInWeek.push({ day: day, month: this.currentMonth + 1 });
+        }
       }
     }
 

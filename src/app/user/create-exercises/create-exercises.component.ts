@@ -7,7 +7,7 @@ import { BigExerciseGeneralGenreService } from '../../../service/big-exercise-ge
 
 import { UserService } from '../../../service/user/user-service.service';
 import { User } from '../../../service/user/user-interface';
-import { GeneralGenreInterface } from '../../../service/general_genre/general-genre-interface';
+import { GeneralGenreInterface , createGeneralGenre} from '../../../service/general_genre/general-genre-interface';
 import { BigExerciseGeneralGenreInterface } from '../../../service/big-exercise-general-genre/big-exercise-general-genre-interface';
 
 export interface WorkoutGoal {
@@ -42,6 +42,12 @@ export class CreateExercisesComponent {
     private: true,
     status: '',
   };
+
+  formDataCategory : createGeneralGenre = {
+    name: '',
+    description: '',
+  };
+  
 
   // Tạo mảng chứa các mục tiêu tập luyện
   goals: WorkoutGoal[] = [
@@ -185,8 +191,16 @@ export class CreateExercisesComponent {
         }
       )
     })
-    
-    
+  }
+
+  onSubmitCategory(){
+    this.generalGenreService.createGeneralGenre({ ...this.formDataCategory }).subscribe(
+      (response) => {
+        console.log('Dữ liệu đã được gửi lên API thành công:', response);
+        this.getallGeneralGenre();
+        // this.CreateBigExerciseGeneralGenre(response.id)
+        // this.router.navigate(['user/createdExercises']);
+      },)
   }
 
   getallGeneralGenre(){
@@ -211,11 +225,11 @@ export class CreateExercisesComponent {
     item.select = !item.select;
     // console.log(this.allGeneralGenre);
 
-    const selectedCategories = this.categoriesData
-      .filter((category) => category.select)
-      .map((category) => category.generalGenre);
+    // const selectedCategories = this.categoriesData
+    //   .filter((category) => category.select)
+    //   .map((category) => category.generalGenre);
 
-    this.formData.category  = selectedCategories.join(" / ");
+    // this.formData.category  = selectedCategories.join(" / ");
     console.log(this.formData.category);
   }
 
