@@ -128,6 +128,7 @@ export class MyWorkoutComponent {
     const firstDayOfWeek = firstDay.getDay();
     this.lastDayOfMonth = lastDay.getDate();
     let daysInWeek: DayDetails[] = [];
+    this.weeks = [];
 
     // Tính toán ngày của tháng trước 
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
@@ -139,7 +140,7 @@ export class MyWorkoutComponent {
         daysInWeek.push({ day: i, month: this.currentMonth - 1 });
       }
       
-      console.log(this.weeks + "hehehehe" + i + prevMonthDays + prevMonthLastDay);
+      // console.log(this.weeks + "hehehehe" + i + prevMonthDays + prevMonthLastDay);
     }
 
     for (let day = firstDay.getDate(); day <= lastDay.getDate(); day++) {

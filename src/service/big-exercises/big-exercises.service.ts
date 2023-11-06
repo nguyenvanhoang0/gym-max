@@ -22,6 +22,8 @@ export class BigExercisesService {
     return this.http.get<bigExercises>(`${this.apiUrl}/GetBigExerciseWithRelatedDataById/${id}`);
   }
 
-
+  GetAllPublicBigExercises(): Observable<bigExercisesByAuthor> {
+    return this.http.get<bigExercisesByAuthor>(`${this.apiUrl}/GetAllPublicBigExercises`);
+  }
 
 }

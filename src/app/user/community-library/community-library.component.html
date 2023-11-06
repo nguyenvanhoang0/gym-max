@@ -1,0 +1,22 @@
+<p>community-library works!</p>
+<div class="community_library text">
+    <div class="BigExercises">
+        <div class="BigExercise" *ngFor="let exercise of myBigExercises">
+            <div>Target: {{ exercise.target }}</div>
+            <div>Point: {{ exercise.point }}</div>
+            <div>Status: {{ exercise.status }}</div>
+            <!-- <div>Private: {{ exercise.private ? 'Yes' : 'No' }}</div> -->
+    
+            <!-- <div>Author Information:</div> -->
+            <div>Username: {{ exercise.username }}/{{ exercise.role }}</div>
+            <div>Email: {{ exercise.email }}</div>
+            <img class="avatar" src="{{ exercise.avatarPath }}" alt="">
+            <!-- <div>Date of Birth: {{ exercise.DateOfBirth | date:'yyyy-MM-dd' }}</div> -->
+            <!-- <div>Gender: {{ exercise.Gender }}</div> -->
+            <!-- <div>Avatar Path: {{ exercise.avatarPath }}</div> -->
+            <!-- <div>Introduction: {{ exercise.Introduction }}</div> -->
+            <!-- <div>Education Level: {{ exercise.educationLevel }}</div> -->
+            <!-- <div>Role: </div> -->
+        </div>
+    </div>
+</div>

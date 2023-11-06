@@ -1,10 +1,10 @@
 <div class="created_workouts text">
     <div class="group_workouts">
         <div class="workouts" *ngFor="let myBigExercise of myBigExercises">
-            <div class="big_exercises">
-                <div>
-                    <div (click)="navigateToBigExerciseDetails(myBigExercise.id)">
-                        {{myBigExercise.target}}
+            <div class="">
+                <div class="content big_exercises">
+                    <div class="target" (click)="navigateToBigExerciseDetails(myBigExercise.id)">
+                        Target : {{myBigExercise.target}}
                     </div>
                     <div class="generalGenre">
                         <div *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">
@@ -21,19 +21,14 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div>
-                        <div class="add_small_exercises" routerLink="/user/isolationExercises">
-                            <img src="../../../assets/svg/plus-square-dotted.svg" alt="">
-                            <img src="../../../assets/svg/plus-square.svg" alt="">
-                        </div>
-                        
+                    <div class="flex ">
+                        <img src="../../../assets/svg/check.svg" alt="">
+                        <img src="../../../assets/svg/add_exercise.svg" alt="">
+                        <img routerLink="/user/isolationExercises" src="../../../assets/svg/plus-square.svg" alt="">
                     </div>
                 </div>
-                
             </div>
-
             <!-- <div class="big_exercises">{{myBigExercises.id}}</div> -->
         </div>
     </div>

@@ -83,21 +83,21 @@ export class SidebarUserComponent {
         ]
       },
       {
-        name: 'Item 2',
+        name: 'library',
         img_1: '../../../assets/svg/map.svg',
         img_2: '../../../assets/svg/Dropdown.svg',
         showChildItem: false,
         url: '/main/about',
         items: [
           {
-            name: 'About Us',
+            name: 'Community library',
             img: '../../../assets/svg/bulk.svg',
-            url: '/main/about-us'
+            url: '/user/communityLibrary'
           },
           {
-            name: 'Our Team',
+            name: 'Genre library',
             img: '../../../assets/svg/bulk.svg',
-            url: '/main/our-team'
+            url: '/user/our-team'
           }
         ]
       },
@@ -106,7 +106,7 @@ export class SidebarUserComponent {
         img_1: '../../../assets/svg/map.svg',
         img_2: '../../../assets/svg/Dropdown.svg',
         showChildItem: false,
-        url: '/main/contact',
+        url: '/user/contact',
         items: [
           {
             name: 'Contact',

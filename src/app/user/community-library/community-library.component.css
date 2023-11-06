@@ -1,0 +1,24 @@
+.community_library{
+    padding: 40px;
+    width: 100%;
+}
+
+.BigExercises{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.BigExercise{
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    min-width: 23%;
+}
+
+.avatar{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}

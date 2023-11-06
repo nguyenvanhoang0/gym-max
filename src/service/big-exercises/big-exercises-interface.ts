@@ -43,6 +43,16 @@ export interface bigExercisesByAuthor {
       userId: number;
       status: string;
       private: boolean;
+
+      username: string;
+      email: string;
+      dateOfBirth: Date;
+      gender: string;
+      avatarPath: string;
+      introduction: string;
+      educationLevel: string;
+      role: string;
+
       generalGenre: {
         $id: string;
         $values: GeneralGenreInterface[];
