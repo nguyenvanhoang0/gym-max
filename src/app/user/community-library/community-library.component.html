@@ -1,22 +1,51 @@
 <p>community-library works!</p>
 <div class="community_library text">
-    <div class="BigExercises">
-        <div class="BigExercise" *ngFor="let exercise of myBigExercises">
-            <div>Target: {{ exercise.target }}</div>
-            <div>Point: {{ exercise.point }}</div>
-            <div>Status: {{ exercise.status }}</div>
-            <!-- <div>Private: {{ exercise.private ? 'Yes' : 'No' }}</div> -->
-    
-            <!-- <div>Author Information:</div> -->
-            <div>Username: {{ exercise.username }}/{{ exercise.role }}</div>
-            <div>Email: {{ exercise.email }}</div>
-            <img class="avatar" src="{{ exercise.avatarPath }}" alt="">
-            <!-- <div>Date of Birth: {{ exercise.DateOfBirth | date:'yyyy-MM-dd' }}</div> -->
-            <!-- <div>Gender: {{ exercise.Gender }}</div> -->
-            <!-- <div>Avatar Path: {{ exercise.avatarPath }}</div> -->
-            <!-- <div>Introduction: {{ exercise.Introduction }}</div> -->
-            <!-- <div>Education Level: {{ exercise.educationLevel }}</div> -->
-            <!-- <div>Role: </div> -->
+    <div class="public_big_exercises">
+        <div class="big_exercises">
+            <div class="big_exercise"
+                *ngFor="let exercise of myBigExercises | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+                <div class=" exercise">
+                    <div class="target">Target: {{ exercise.target }}</div>
+                    <div class="group_genre">
+                        <div class="genre" *ngFor="let genre of exercise.generalGenre.$values ,  let i = index">
+                            <div *ngIf="i === 0 ">{{ genre.name }}</div>
+                            <div  *ngIf="i > 0">+ {{ i }}
+                                <div class="all_generalGenre">
+                                    <ng-container
+                                        *ngFor="let generalGenre of exercise.generalGenre.$values ,  let i = index">
+                                        <div *ngIf="i > 0">
+                                            + {{ generalGenre.name }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <!-- {{genre.name}} -->
+                        </div>
+                    </div>
+                    <div>Point: {{ exercise.point }}</div>
+                    <div>Status: {{ exercise.status }}</div>
+                </div>
+
+                <div class="author">
+                    <img *ngIf="exercise.avatarPath" class="avatar" src="{{ exercise.avatarPath }}" alt="">
+                    <img *ngIf="!exercise.avatarPath" class="avatar" src="../../../assets/svg/person.svg" alt="">
+                    <div>
+                        <div>{{ exercise.username }}/{{ exercise.role }}</div>
+                        <div>{{ exercise.email }}</div>
+                    </div>
+                </div>
+                <!-- <div>Private: {{ exercise.private ? 'Yes' : 'No' }}</div> -->
+                <!-- <div>Author Information:</div> -->
+                <!-- <div>Date of Birth: {{ exercise.DateOfBirth | date:'yyyy-MM-dd' }}</div> -->
+                <!-- <div>Gender: {{ exercise.Gender }}</div> -->
+                <!-- <div>Avatar Path: {{ exercise.avatarPath }}</div> -->
+                <!-- <div>Introduction: {{ exercise.Introduction }}</div> -->
+                <!-- <div>Education Level: {{ exercise.educationLevel }}</div> -->
+                <!-- <div>Role: </div> -->
+            </div>
+
         </div>
+        <pagination-controls class="pagination"  (pageChange)="currentPage = $event"></pagination-controls>
     </div>
+
 </div>

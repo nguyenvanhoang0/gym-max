@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PaginationInstance } from 'ngx-pagination';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
 import { createdWorkoutsInterface, bigExercises , bigExercisesByAuthor } from '../../../service/big-exercises/big-exercises-interface';
@@ -15,7 +16,14 @@ export class CommunityLibraryComponent {
   myBigExercises: bigExercisesByAuthor["$values"] = [];
   test: [] = [];
 
+  // page: number = 1;
+  // count: number = 0;
+  // tableSize: number = 7;
+  // tableSizes: any = [3, 6, 9, 12];
+  itemsPerPage: number = 10; // Số mục trên mỗi trang
+  currentPage: number = 1;
 
+  
   constructor(
     private bigExercisesService: BigExercisesService,
     private userService: UserService,
@@ -31,7 +39,6 @@ export class CommunityLibraryComponent {
   GetAllPublicBigExercises() {
     this.bigExercisesService.GetAllPublicBigExercises().subscribe(
       (response) => {
-        // Xử lý dữ liệu sau khi nhận được từ API
         this.myBigExercises = response.$values;
         console.log(this.myBigExercises);
       },
@@ -39,5 +46,17 @@ export class CommunityLibraryComponent {
         console.error(error);
       }
     )
+  }
+
+  
+  
+  onPageChange(event: any) {
+    // this.config.currentPage  = event;
+
+    this.router.navigate([], {
+      queryParams: { page: event },
+      queryParamsHandling: 'merge',
+    });
+    // this.GetAllPublicBigExercises();
   }
 }

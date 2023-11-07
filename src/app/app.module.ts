@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule, JwtHelperService ,} from '@auth0/angular-jwt';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -76,6 +78,7 @@ import { CommunityLibraryComponent } from './user/community-library/community-li
     HttpClientModule,
     FormsModule,
     JwtModule,
+    NgxPaginationModule,  
     // CommonModule,
     // JwtHelperModule
   ],
