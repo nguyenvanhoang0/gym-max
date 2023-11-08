@@ -1,22 +1,27 @@
 <div class="my_workout" *ngIf="day == 0">
   <div>
     <ul class="select_month">
+      <li>{{ currentMonth }}/{{currentYear}}</li>
       <li>month</li>
+      <li class="month" (click)="updateCurrentMonthAndYear( - 1)">
+        <img src="../../../assets/svg/arrow-left.svg" alt="">
+      </li>
       <ng-container *ngFor="let month of months">
         <li class="month" [class.click_color]="currentMonth == month " [value]="month"
           (click)="updateCurrentMonth(month)"> {{ month }} </li>
       </ng-container>
-    </ul>
-  </div>
-
-  <div>
-    <ul class="select_month">
-      <li (click)="updateCurrentMonthAndYear( - 1)">
-        <img src="../../../assets/svg/arrow-left.svg" alt="">
-      </li>
-      <li class="month"> {{ currentMonth }}/{{currentYear}} </li>
       <li class="month" (click)="updateCurrentMonthAndYear( + 1)">
         <img src="../../../assets/svg/arrow-right.svg" alt="">
+      </li>
+      <li class="month">
+        <select>
+          <ng-container *ngFor="let year of years" >
+            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year == currentYear" selected>{{year}}</option>
+            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year !== currentYear">{{year}}</option>
+
+          </ng-container>
+
+        </select>
       </li>
     </ul>
   </div>
@@ -29,26 +34,25 @@
     </thead>
     <tbody>
       <ng-container>
-      <tr *ngFor="let week of weeks; let i = index">
-        <ng-container *ngFor="let days of week; let j = index">
-          <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month ">
-            {{ days.day }}
-            {{ days.month }}
-            <br>
-            <div *ngFor="let time of practiceTimes">
-              <ng-container
-                *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
+        <tr *ngFor="let week of weeks; let i = index">
+          <ng-container *ngFor="let days of week; let j = index">
+            <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month ">
+              {{ days.day }}
+              {{ days.month }}
+              <br>
+              <div *ngFor="let time of practiceTimes">
+                <ng-container *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
                 && days.month.toString() == (time.timeStart | date: 'MM') 
                 && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
-                <!-- {{ dayStart }} -->
-                {{time.name}}
-                {{time.id}}
-              </ng-container>
-            </div>
-          </td>
-        </ng-container>
-      </tr>
-    </ng-container>
+                  <!-- {{ dayStart }} -->
+                  {{time.name}}
+                  {{time.id}}
+                </ng-container>
+              </div>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 
@@ -67,7 +71,7 @@
       </li>
     </ul>
   </div>
-  <div *ngFor="let time of practiceTimes" >
+  <div *ngFor="let time of practiceTimes">
     <div>{{time.timeStart}}</div>
     <ul class="flex workout">
       <li>{{time.id}}</li>

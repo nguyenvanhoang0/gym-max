@@ -169,6 +169,15 @@ export class MyWorkoutComponent {
     }
 
     console.log(this.weeks + "hehehehe");
+    console.log(this.years);
+    
+  }
+
+  updateCurrentYear(currentYear : number){
+    this.currentYear = currentYear;
+    console.log(123);
+    
+    this.calculateDaysInMonth();
   }
 
   updateCurrentMonth(selectedMonth: number) {
