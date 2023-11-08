@@ -40,6 +40,10 @@ td:hover {
   background-color: #e6e6e6;
 }
 
+.select_month{
+  border: 1px solid #ddd;
+}
+
 .select_month ,.workout{
   /* padding: 40px; */
   width: 100%;
@@ -58,6 +62,8 @@ td:hover {
   border-left: 1px solid #ddd;
 }
 
+
+
 .select_month .month:hover{
   background: #C4CCF8;
   color: #3A57E8;
@@ -65,11 +71,13 @@ td:hover {
 
 .today .workout{
   width: 100%;
-  flex: 1;
+  /* flex: 1; */
   background-color: white;
-  border-radius: 10px;
+  border-left: 1px solid #ddd;
+
+  /* border-radius: 10px; */
   /* padding: 8px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .currentMonth{

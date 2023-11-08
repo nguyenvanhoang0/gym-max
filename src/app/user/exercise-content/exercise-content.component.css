@@ -18,6 +18,7 @@
     width: 100%;
     background-color: white;
     border-radius: 8px;
+    border:1px solid var(--e9ecef-Bg-2, #E9ECEF) ;
 }
 
 .exercise {
