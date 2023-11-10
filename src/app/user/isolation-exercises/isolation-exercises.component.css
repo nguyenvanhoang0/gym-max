@@ -25,7 +25,6 @@ form input[type="text"],
 input[type="number"],
 input[type="date"],
 button {
-    /* height: 18px; */
     padding: 5px;
     min-width: 200px;
     max-width: 40%;

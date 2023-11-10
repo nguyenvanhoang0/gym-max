@@ -41,21 +41,6 @@ export class HearderMainComponent {
       // this.getUser();
     }
 
-    // getUser(){
-    //   this.userService.getUserInfo().subscribe(
-    //     (userInfo) => {
-    //       // Xử lý khi nhận được thông tin người dùng
-    //       this.userInfo = userInfo;
-    //       this.userService.getUserById(userInfo.id);
-    //       console.log('User Info:', userInfo);
-    //     },
-    //     (error) => {
-    //       // Xử lý lỗi khi gọi API hoặc token không hợp lệ
-    //       console.error('Error:', error);
-    //     }
-    //   );
-    // }
-
     navigateToPage() {
       const hasToken = this.authService.isAuthenticated(); // Đã có token hay chưa
   

@@ -1,6 +1,5 @@
 .my_workout {
   width: 100%;
-  /* background-color: white; */
   padding: 40px;
 }
 
@@ -74,10 +73,6 @@ td:hover {
   /* flex: 1; */
   background-color: white;
   border-left: 1px solid #ddd;
-
-  /* border-radius: 10px; */
-  /* padding: 8px; */
-  /* overflow: hidden; */
 }
 
 .currentMonth{

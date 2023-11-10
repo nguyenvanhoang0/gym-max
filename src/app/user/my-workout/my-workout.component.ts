@@ -79,20 +79,6 @@ export class MyWorkoutComponent {
     );
   }
 
-  // getPracticeTimesByTimeStart(id: number, timeStart: Date) {
-  //   this.myWorkoutService.getPracticeTimesByTimeStart(id, timeStart).subscribe(
-  //     (response) => {
-  //       // Xử lý dữ liệu sau khi nhận được từ API
-  //       this.practiceTimes = response.$values;
-  //       console.log(this.practiceTimes);
-  //       // this.combineData();
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
-
   clickDay(day: number) {
     if (this.userInfo) {
       const id = this.userInfo.id;

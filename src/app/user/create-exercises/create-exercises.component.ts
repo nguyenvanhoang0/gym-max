@@ -198,8 +198,6 @@ export class CreateExercisesComponent {
       (response) => {
         console.log('Dữ liệu đã được gửi lên API thành công:', response);
         this.getallGeneralGenre();
-        // this.CreateBigExerciseGeneralGenre(response.id)
-        // this.router.navigate(['user/createdExercises']);
       },)
   }
 
@@ -223,13 +221,6 @@ export class CreateExercisesComponent {
 
   toggleSelect(item: any) {
     item.select = !item.select;
-    // console.log(this.allGeneralGenre);
-
-    // const selectedCategories = this.categoriesData
-    //   .filter((category) => category.select)
-    //   .map((category) => category.generalGenre);
-
-    // this.formData.category  = selectedCategories.join(" / ");
     console.log(this.formData.category);
   }
 

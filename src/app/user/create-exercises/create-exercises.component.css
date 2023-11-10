@@ -101,7 +101,6 @@ button:hover{
 
 .tip:hover .Suggested_details{
     display: block;
-    /* transform: translateY(-10px); */
 }
 
 .click_private{
@@ -130,6 +129,5 @@ button:hover{
 
 .form_create_category_open{
     display: block;
-    /* padding: 180px 200px; */
     transition: 1s;
 }

@@ -15,8 +15,6 @@
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    /* background-color: rgb(158, 158, 158); */
-    /* background-image: url(../../../assets/img/city.jpg); */
 
     position: fixed;
     top: 0;
@@ -76,27 +74,7 @@ ul li:hover {
 
 }
 
-/* 
-.menu > li:first-child{
-    display: none;
-    
-}
 
-.menu > li:first-child:hover .app {
-    display: block;
-  }
-
-.menu > li:first-child:hover .menu > li:first-child{
-    display: none;
-}
-
-.menu > li:first-child:hover .menu li .item{
-    display: none;
-}
-
-.menu > li:first-child .menu li:hover .item{
-    display: block;
-} */
 
 
 .item {

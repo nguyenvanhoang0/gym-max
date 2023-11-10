@@ -60,15 +60,12 @@
     display: none;
     width: 300px;
     position: absolute;
-    /* bottom: -400%; */
     margin: 20px 0 0 0;
     background-color: white;
     border-radius: 8px;
     padding: 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     z-index: 3;
-    /* transform: translate(-50%, -50%); */
-    /* left: 0px; */
     transition: 1s;
 }
 
