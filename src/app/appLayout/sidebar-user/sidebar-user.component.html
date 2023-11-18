@@ -1,10 +1,10 @@
-<div class="sidebar" *ngIf="isSidebarOpen">
-    <div class="main_logo text logo logo_name">
+<div class="sidebar text" *ngIf="isSidebarOpen">
+    <div class="main_logo logo logo_name">
         <img src="../../../assets/svg/Frame 453.svg" alt="">
         gymmax
-        <div class="close_sidebar" (click)="toggleSidebar()">
+        <!-- <div class="close_sidebar" (click)="toggleSidebar()">
             <img src="../../../assets/svg/left_arrow.svg" alt="" >
-        </div>
+        </div> -->
     </div>
 
     <div class="main text" *ngFor="let group  of sidebarData">

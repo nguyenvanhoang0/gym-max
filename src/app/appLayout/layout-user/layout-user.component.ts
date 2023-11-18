@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-user.component.css']
 })
 export class LayoutUserComponent {
+  isSidebarOpen: boolean = true;
 
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    console.log(this.isSidebarOpen);
+
+  }
 }

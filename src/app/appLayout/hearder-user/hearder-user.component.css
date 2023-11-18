@@ -7,7 +7,7 @@
     align-items: center;
     flex-shrink: 0;
     background-color: #fff;
-    border-bottom: 1px solid var(--e9ecef-Bg-2, #E9ECEF);
+    /* border-bottom: 1px solid var(--e9ecef-Bg-2, #E9ECEF); */
 width: 100%;
 }
 
