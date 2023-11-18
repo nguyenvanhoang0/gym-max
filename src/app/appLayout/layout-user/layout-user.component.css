@@ -1,4 +1,4 @@
-.flex div:nth-child(2) {
+.flex > div:nth-child(2) {
     flex: 1;
 }
 
@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .sidebar {
+    .sidebars {
       position: absolute;
       left: -250px;
     }
@@ -67,7 +67,7 @@
   
     .block{
       display: block;
-      position: absolute;
+      /* position: absolute; */
 
     }
   }

@@ -22,6 +22,9 @@ export class MyWorkoutComponent {
 
   daysOfWeek: string[] = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
   currentDate: Date = new Date();
+
+  // currentDay: number = this.currentDate.getDate();
+
   // firstDay: Date = new Date();
   day: number = 0;
   lastDayOfMonth: number = 0;
@@ -47,6 +50,9 @@ export class MyWorkoutComponent {
   ngOnInit(): void {
     this.UserInfo();
     this.calculateDaysInMonth();
+    this.currentDateAsNumber();
+    // console.log(this.currentDay);
+    
   }
 
   UserInfo() {
@@ -63,6 +69,7 @@ export class MyWorkoutComponent {
         console.error('Error:', error);
       }
     );
+    this.day = 0;
   }
 
   getpracticeTimesUserById(id: number) {
@@ -153,15 +160,14 @@ export class MyWorkoutComponent {
     if (daysInWeek.length > 0) {
       this.weeks.push([...daysInWeek]);
     }
-
-    console.log(this.weeks + "hehehehe");
-    console.log(this.years);
+    console.log(this.weeks);
+    // console.log(this.years);
     
   }
 
   updateCurrentYear(currentYear : number){
     this.currentYear = currentYear;
-    console.log(123);
+    console.log(this.currentYear);
     
     this.calculateDaysInMonth();
   }
@@ -237,6 +243,15 @@ export class MyWorkoutComponent {
 
   formatDay(day: number): string {
     return day < 10 ? '0' + day : day.toString();
+  }
+
+  currentDateAsNumber(){
+    this.currentMonth = this.currentDate.getMonth() + 1;
+    this.currentYear = this.currentDate.getFullYear();
+    const currentDay = this.currentDate.getDate();
+    this.clickDay(currentDay)
+    console.log(currentDay);
+
   }
 
 

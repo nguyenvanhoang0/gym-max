@@ -26,6 +26,12 @@
     </ul>
   </div>
 
+  <div>
+    <ul>
+      <li (click)="currentDateAsNumber()">list</li>
+    </ul>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -59,6 +65,15 @@
 </div>
 
 <div class="my_workout today" *ngIf="day !== 0">
+
+  <div>
+    <ul>
+      <li (click)="UserInfo()">list</li>
+
+      <li></li>
+    </ul>
+  </div>
+  
   <div>
     <ul class="select_month">
       <li (click)="updateCurrentDayAndMonthAndYear( - 1)">
