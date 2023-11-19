@@ -6,9 +6,11 @@ import { UserService } from '../../../service/user/user-service.service';
 import { PracticeTime, } from '../../../service/my_Workout/my-workout-interface';
 // import { HearderUserComponent } from '../../appLayout/hearder-user/hearder-user.component'
 
-interface DayDetails  {
+interface DayDetails {
   day: number;
   month: number;
+  year: number;
+  status: string;
 }
 
 @Component({
@@ -23,9 +25,6 @@ export class MyWorkoutComponent {
   daysOfWeek: string[] = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
   currentDate: Date = new Date();
 
-  // currentDay: number = this.currentDate.getDate();
-
-  // firstDay: Date = new Date();
   day: number = 0;
   lastDayOfMonth: number = 0;
   weeks: DayDetails[][];
@@ -33,6 +32,7 @@ export class MyWorkoutComponent {
   currentMonth: number;
   years: number[] = this.generateYears(10);
   months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
+  Today = new Date();
 
   constructor(
     // private practiceTimeService: PracticeTimeService,
@@ -51,8 +51,8 @@ export class MyWorkoutComponent {
     this.UserInfo();
     this.calculateDaysInMonth();
     this.currentDateAsNumber();
-    // console.log(this.currentDay);
-    
+    console.log(this.Today);
+
   }
 
   UserInfo() {
@@ -77,7 +77,7 @@ export class MyWorkoutComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
-        console.log(this.practiceTimes);
+        // console.log(this.practiceTimes);
         // this.combineData();
       },
       (error) => {
@@ -116,6 +116,7 @@ export class MyWorkoutComponent {
   }
 
   calculateDaysInMonth() {
+    const today = new Date();
     const firstDay = new Date(this.currentYear, this.currentMonth - 1, 1);
     const lastDay = new Date(this.currentYear, this.currentMonth, 0);
     const firstDayOfWeek = firstDay.getDay();
@@ -123,21 +124,24 @@ export class MyWorkoutComponent {
     let daysInWeek: DayDetails[] = [];
     this.weeks = [];
 
-    // Tính toán ngày của tháng trước 
+    // Tính toán ngày của tháng trước
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
     const prevMonthDays = prevMonthLastDay.getDate();
     for (let i = prevMonthDays - firstDayOfWeek + 1; i <= prevMonthDays; i++) {
-      if(this.currentMonth ==1){
-        daysInWeek.push({ day: i, month: 12 });
-      } else{
-        daysInWeek.push({ day: i, month: this.currentMonth - 1 });
+      console.log(this.currentMonth);
+
+      if (this.currentMonth == 1) {
+        daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'past' });
+      } else {
+        daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'past' });
+
       }
-      
-      // console.log(this.weeks + "hehehehe" + i + prevMonthDays + prevMonthLastDay);
     }
 
     for (let day = firstDay.getDate(); day <= lastDay.getDate(); day++) {
-      daysInWeek.push({ day: day, month: this.currentMonth });
+      const status = this.calculateDayStatus(day, this.currentMonth, this.currentYear, today);
+      daysInWeek.push({ day, month: this.currentMonth, year: this.currentYear, status });
+
       if (daysInWeek.length === 7) {
         this.weeks.push([...daysInWeek]);
         daysInWeek = [];
@@ -149,10 +153,30 @@ export class MyWorkoutComponent {
       const remainingDays = 7 - daysInWeek.length;
 
       for (let day = nextMonthFirstDay.getDate(); day <= nextMonthFirstDay.getDate() + remainingDays - 1; day++) {
-        if(this.currentMonth == 12){
-          daysInWeek.push({ day: day, month: 1 });
-        } else{
-          daysInWeek.push({ day: day, month: this.currentMonth + 1 });
+        if (this.currentMonth == 12) {
+          // const Month  = 1
+
+          if (this.Today.getMonth() +1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
+            console.log(1);
+
+            daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'future' });
+          } else {
+            daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'past' });
+            console.log(2);
+
+          }
+        } else {
+          const Month = this.currentMonth + 1
+          if (this.Today.getMonth() +1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
+            console.log(3);
+
+            daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'future' });
+          } else {
+            console.log(4);
+            console.log(this.Today.getMonth() <= this.currentMonth);
+
+            daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'past' });
+          }
         }
       }
     }
@@ -160,15 +184,26 @@ export class MyWorkoutComponent {
     if (daysInWeek.length > 0) {
       this.weeks.push([...daysInWeek]);
     }
-    console.log(this.weeks);
-    // console.log(this.years);
-    
+
+    // console.log(this.weeks);
   }
 
-  updateCurrentYear(currentYear : number){
+  calculateDayStatus(day: number, month: number, year: number, today: Date): 'past' | 'today' | 'future' {
+    const compareDate = new Date(year, month - 1, day);
+
+    if (compareDate.toDateString() === today.toDateString()) {
+      return 'today';
+    } else if (compareDate < today) {
+      return 'past';
+    } else {
+      return 'future';
+    }
+  }
+
+  updateCurrentYear(currentYear: number) {
     this.currentYear = currentYear;
     console.log(this.currentYear);
-    
+
     this.calculateDaysInMonth();
   }
 
@@ -183,12 +218,17 @@ export class MyWorkoutComponent {
     if (newMonth === 0) {
       this.currentMonth = 12;
       this.currentYear -= 1;
+      console.log("a");
+
     } else if (newMonth === 13) {
       this.currentMonth = 1;
       this.currentYear += 1;
+      console.log("b");
     } else {
       this.currentMonth = newMonth;
     }
+    console.log(this.currentMonth + "-" + this.currentYear);
+
     this.calculateDaysInMonth();
   }
 
@@ -204,13 +244,13 @@ export class MyWorkoutComponent {
       if (newMonth == 0) {
         this.currentYear -= 1;
         this.currentMonth = 12;
-      }else {
+      } else {
         this.currentMonth = newMonth;
       }
-    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) +1) {
+    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) + 1) {
       day = 1;
       this.day = 1;
-      this.currentMonth += 1  
+      this.currentMonth += 1
       const newMonth = this.currentMonth;
       if (newMonth == 13) {
         this.currentYear += 1;
@@ -245,7 +285,7 @@ export class MyWorkoutComponent {
     return day < 10 ? '0' + day : day.toString();
   }
 
-  currentDateAsNumber(){
+  currentDateAsNumber() {
     this.currentMonth = this.currentDate.getMonth() + 1;
     this.currentYear = this.currentDate.getFullYear();
     const currentDay = this.currentDate.getDate();
@@ -254,5 +294,10 @@ export class MyWorkoutComponent {
 
   }
 
+  getDayClass(status: string) {
+    // console.log(`${status}-day`);
+
+    return `${status}_day`;
+  }
 
 }

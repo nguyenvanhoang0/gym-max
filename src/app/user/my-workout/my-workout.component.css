@@ -8,7 +8,7 @@ table {
   border-collapse: collapse;
   display: flex;
   flex-direction: column;
-    
+
 }
 
 tr {
@@ -32,18 +32,20 @@ th {
 
 td {
   height: 100px;
-  background-color: rgb(161, 205, 208)
+  background-color: rgb(161, 205, 208);
+  position: relative;
 }
 
 td:hover {
   background-color: #e6e6e6;
 }
 
-.select_month{
+.select_month {
   border: 1px solid #ddd;
 }
 
-.select_month ,.workout{
+.select_month,
+.workout {
   /* padding: 40px; */
   width: 100%;
   border-radius: 10px;
@@ -51,31 +53,101 @@ td:hover {
   overflow: hidden;
 }
 
-.select_month li ,.workout li{
+.select_month li,
+.workout li {
   flex: 1;
   text-align: center;
   padding: 8px;
 }
 
-.select_month .month{
+.select_month .month {
   border-left: 1px solid #ddd;
 }
 
 
 
-.select_month .month:hover{
+.select_month .month:hover {
   background: #C4CCF8;
   color: #3A57E8;
 }
 
-.today .workout{
+.today .workout {
   width: 100%;
   /* flex: 1; */
   background-color: white;
   border-left: 1px solid #ddd;
 }
 
-.currentMonth{
+.currentMonth {
   background-color: white;
 }
 
+
+.block_ex {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+}
+
+
+.exercises_day {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+
+}
+
+td:hover .group_edit{
+ display: block;
+}
+
+.group_edit {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.group_edit ul {
+  /* padding: 5px; */
+  /* gap: 5px 5px 10px 5px; */
+  background-color: #c4ccf8;
+
+}
+
+.group_edit ul li {
+  padding: 10px;
+  /* border-radius: 6px; */
+}
+
+.group_edit li:hover{
+  background-color: #3A57E8;
+}
+
+.group_edit li img{
+  filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
+}
+
+.group_edit li:hover img{
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+}
+
+.check_status{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Trong component.css */
+.past_day {
+  /* background-color: red; */
+}
+
+.today_day {
+  background-color: blue;
+}
+
+.future_day {
+  /* background-color: green; */
+}

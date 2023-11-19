@@ -15,8 +15,9 @@
       </li>
       <li class="month">
         <select>
-          <ng-container *ngFor="let year of years" >
-            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year == currentYear" selected>{{year}}</option>
+          <ng-container *ngFor="let year of years">
+            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year == currentYear" selected>{{year}}
+            </option>
             <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year !== currentYear">{{year}}</option>
 
           </ng-container>
@@ -42,19 +43,35 @@
       <ng-container>
         <tr *ngFor="let week of weeks; let i = index">
           <ng-container *ngFor="let days of week; let j = index">
-            <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month ">
-              {{ days.day }}
-              {{ days.month }}
-              <br>
-              <div *ngFor="let time of practiceTimes">
-                <ng-container *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
-                && days.month.toString() == (time.timeStart | date: 'MM') 
-                && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
-                  <!-- {{ dayStart }} -->
-                  {{time.name}}
-                  {{time.id}}
+            <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month "
+              [ngClass]="getDayClass(days.status)">
+              {{ days.day }}-
+              {{ days.month }}-
+              {{ days.year }}
+              <!-- <br> -->
+              <div class="flex exercises_day">
+
+                <ng-container *ngFor="let time of practiceTimes">
+                  <ng-container *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
+                  && days.month.toString() == (time.timeStart | date: 'MM') 
+                  && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
+                    <!-- {{ dayStart }} -->
+                    <div class="block_ex"></div>
+
+                    <!-- {{time.name}}
+                    {{time.id}} -->
+                  </ng-container>
                 </ng-container>
+
               </div>
+              <div class="group_edit">
+                <ul>
+                  <li><img src="../../../assets/svg/plus-square.svg" alt=""></li>
+                  <li><img src="../../../assets/svg/icon_svg/pencil-square.svg" alt=""></li>
+                  <!-- <li><img src="../../../assets/svg/add_exercise.svg" alt=""></li> -->
+                </ul>
+              </div>
+              <div class="check_status" *ngIf="days.status == 'past'"><img src="../../../assets/svg/icon_svg/check-all.svg" alt=""></div>
             </td>
           </ng-container>
         </tr>
@@ -73,7 +90,7 @@
       <li></li>
     </ul>
   </div>
-  
+
   <div>
     <ul class="select_month">
       <li (click)="updateCurrentDayAndMonthAndYear( - 1)">

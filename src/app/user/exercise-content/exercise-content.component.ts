@@ -49,12 +49,14 @@ export class ExerciseContentComponent {
         this.myBigExercises.forEach((item) => {
           const timeStart = new Date(item.timeStart);
           const year = timeStart.getFullYear();
-          const month = timeStart.getMonth() + 1; // Lấy tháng từ 0-11, cần cộng thêm 1
-          const originalDate = "2023-10";
+          const month = timeStart.getMonth() + 1;
+          const day = timeStart.getDate();
+          // Lấy tháng từ 0-11, cần cộng thêm 1
+          const originalDate = "2023-12-30";
           const parts = originalDate.split('-'); // Tách chuỗi theo dấu '-'
-          const modifiedDate = `${parts[1]}-${parts[0]}`;
+          const modifiedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
           // Tạo key cho tháng (ví dụ: "2023-10")
-          const monthKey = `${year}-${month.toString().padStart(2, '0')}`;
+          const monthKey = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
         
           // Kiểm tra xem key đã tồn tại chưa
           if (!this.bigExercisesMonthlyData[monthKey]) {
