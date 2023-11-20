@@ -34,6 +34,8 @@ export class MyWorkoutComponent {
   months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
   Today = new Date();
 
+  bigExerciseId: number = 0;
+
   constructor(
     // private practiceTimeService: PracticeTimeService,
     private myWorkoutService: MyWorkoutService,
@@ -51,7 +53,7 @@ export class MyWorkoutComponent {
     this.UserInfo();
     this.calculateDaysInMonth();
     this.currentDateAsNumber();
-    console.log(this.Today);
+    // console.log(this.Today);
 
   }
 
@@ -78,6 +80,8 @@ export class MyWorkoutComponent {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
         // console.log(this.practiceTimes);
+        this.getUniqueBigExerciseIdsWithColors()
+
         // this.combineData();
       },
       (error) => {
@@ -108,6 +112,11 @@ export class MyWorkoutComponent {
     }
   }
 
+  clickBigExercise(bigExerciseId: number) {
+    this.bigExerciseId = bigExerciseId
+    this.UserInfo()
+  }
+
   formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -128,13 +137,19 @@ export class MyWorkoutComponent {
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
     const prevMonthDays = prevMonthLastDay.getDate();
     for (let i = prevMonthDays - firstDayOfWeek + 1; i <= prevMonthDays; i++) {
-      console.log(this.currentMonth);
-
-      if (this.currentMonth == 1) {
-        daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'past' });
+      // console.log(this.currentMonth);
+      if (this.Today.getMonth() + 1 < this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
+        if (this.currentMonth == 1) {
+          daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'future' });
+        } else {
+          daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'future' });
+        }
       } else {
-        daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'past' });
-
+        if (this.currentMonth == 1) {
+          daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'past' });
+        } else {
+          daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'past' });
+        }
       }
     }
 
@@ -156,23 +171,18 @@ export class MyWorkoutComponent {
         if (this.currentMonth == 12) {
           // const Month  = 1
 
-          if (this.Today.getMonth() +1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
-            console.log(1);
-
+          if (this.Today.getMonth() + 1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
             daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'future' });
           } else {
             daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'past' });
-            console.log(2);
 
           }
         } else {
           const Month = this.currentMonth + 1
-          if (this.Today.getMonth() +1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
-            console.log(3);
+          if (this.Today.getMonth() + 1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
 
             daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'future' });
           } else {
-            console.log(4);
             console.log(this.Today.getMonth() <= this.currentMonth);
 
             daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'past' });
@@ -290,14 +300,25 @@ export class MyWorkoutComponent {
     this.currentYear = this.currentDate.getFullYear();
     const currentDay = this.currentDate.getDate();
     this.clickDay(currentDay)
-    console.log(currentDay);
+    // console.log(currentDay);
 
   }
 
   getDayClass(status: string) {
     // console.log(`${status}-day`);
-
     return `${status}_day`;
+  }
+
+  getUniqueBigExerciseIdsWithColors(): { id: number; color: string; target: string }[] {
+    const uniqueIdsWithColors: { id: number; color: string; target: string; }[] = [];
+
+    this.practiceTimes.forEach((practiceTime) => {
+      const existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.bigExerciseId);
+      if (!existingId) {
+        uniqueIdsWithColors.push({ id: practiceTime.bigExerciseId, color: practiceTime.defaultColor, target: practiceTime.target });
+      }
+    });
+    return uniqueIdsWithColors;
   }
 
 }

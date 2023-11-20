@@ -1,4 +1,4 @@
-<div class="my_workout" *ngIf="day == 0">
+<div class="my_workout text" *ngIf="day == 0">
   <div>
     <ul class="select_month">
       <li>{{ currentMonth }}/{{currentYear}}</li>
@@ -48,18 +48,19 @@
               {{ days.day }}-
               {{ days.month }}-
               {{ days.year }}
-              <!-- <br> -->
               <div class="flex exercises_day">
 
                 <ng-container *ngFor="let time of practiceTimes">
                   <ng-container *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
                   && days.month.toString() == (time.timeStart | date: 'MM') 
-                  && currentYear.toString() == (time.timeStart | date: 'yyyy') ">
-                    <!-- {{ dayStart }} -->
-                    <div class="block_ex"></div>
+                  && currentYear.toString() == (time.timeStart | date: 'yyyy') && bigExerciseId == 0">
+                    <div class="block_ex" [style.background-color]="time.defaultColor"></div>
+                  </ng-container>
 
-                    <!-- {{time.name}}
-                    {{time.id}} -->
+                  <ng-container *ngIf="formatDay(days.day) == (time.timeStart | date: 'dd') 
+                  && days.month.toString() == (time.timeStart | date: 'MM') 
+                  && currentYear.toString() == (time.timeStart | date: 'yyyy') && time.bigExerciseId == bigExerciseId ">
+                    <div class="block_ex" [style.background-color]="time.defaultColor"></div>
                   </ng-container>
                 </ng-container>
 
@@ -71,7 +72,8 @@
                   <!-- <li><img src="../../../assets/svg/add_exercise.svg" alt=""></li> -->
                 </ul>
               </div>
-              <div class="check_status" *ngIf="days.status == 'past'"><img src="../../../assets/svg/icon_svg/check-all.svg" alt=""></div>
+              <div class="check_status" *ngIf="days.status == 'past'"><img
+                  src="../../../assets/svg/icon_svg/check-all.svg" alt=""></div>
             </td>
           </ng-container>
         </tr>
@@ -79,8 +81,16 @@
     </tbody>
   </table>
 
+  <div class="note">
+    <ul>
+      <li *ngFor="let uniqueIdsWithColor of getUniqueBigExerciseIdsWithColors()" (click)="clickBigExercise(uniqueIdsWithColor.id)">
+        <div [style.background-color]="uniqueIdsWithColor.color"></div>
+          {{uniqueIdsWithColor.target}}
+        </li>
+        <li (click)="clickBigExercise(0)">default</li>
+    </ul>
+  </div>
 </div>
-
 <div class="my_workout today" *ngIf="day !== 0">
 
   <div>

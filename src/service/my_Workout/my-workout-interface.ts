@@ -3,7 +3,9 @@ export interface PracticeTime {
   timeStart: string;
 
   exerciseId: number;
+  bigExerciseId: number;
   name: string;
+  target: string;
   description: string;
   quantity: number;
   time: number;
@@ -11,6 +13,7 @@ export interface PracticeTime {
   evaluate: number;
   categoryName: string;
   descriptionCategory: string;
+  defaultColor: string;
 }
 
 
