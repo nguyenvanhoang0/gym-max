@@ -34,7 +34,8 @@ export class MyWorkoutComponent {
   months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
   Today = new Date();
 
-  bigExerciseId: number = 0;
+  colorId: number = 0;
+  viewType: number = 0;
 
   constructor(
     // private practiceTimeService: PracticeTimeService,
@@ -79,8 +80,8 @@ export class MyWorkoutComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
-        // console.log(this.practiceTimes);
-        this.getUniqueBigExerciseIdsWithColors()
+        console.log(this.practiceTimes);
+        this.getUniqueColors()
 
         // this.combineData();
       },
@@ -88,6 +89,59 @@ export class MyWorkoutComponent {
         console.error(error);
       }
     );
+  }
+
+  exercise(day: DayDetails) {
+    const filteredExercise: PracticeTime[] = [];
+
+    this.practiceTimes.forEach((practiceTime) => {
+      // const formattedDay = formatDay(day.day);
+      const practiceTimeDay = new Date(practiceTime.timeStart).getDate();
+      const practiceTimeMonth = new Date(practiceTime.timeStart).getMonth() + 1; // Tháng bắt đầu từ 0
+      const practiceTimeYear = new Date(practiceTime.timeStart).getFullYear();
+      if (this.viewType == 0) {
+        if (this.colorId == 0) {
+          if (
+            day.day === practiceTimeDay && day.month === practiceTimeMonth && day.year === practiceTimeYear
+          ) {
+            filteredExercise.push(practiceTime);
+          }
+        } else {
+          if (
+            day.day === practiceTimeDay &&
+            day.month === practiceTimeMonth &&
+            day.year === practiceTimeYear &&
+            this.colorId == practiceTime.bigExerciseId
+          ) {
+            filteredExercise.push(practiceTime);
+          }
+        }
+      } else {
+        if (this.colorId == 0) {
+          if (
+            day.day === practiceTimeDay &&
+            day.month === practiceTimeMonth &&
+            day.year === practiceTimeYear
+          ) {
+            filteredExercise.push(practiceTime);
+          }
+        } else {
+          if (
+            day.day === practiceTimeDay &&
+            day.month === practiceTimeMonth &&
+            day.year === practiceTimeYear &&
+            this.colorId == practiceTime.categoryId
+          ) {
+            filteredExercise.push(practiceTime);
+          }
+        }
+      }
+
+    });
+
+    // Kết quả sau khi lọc được lưu trong filteredExercise
+    // console.log(filteredExercise);
+    return filteredExercise;
   }
 
   clickDay(day: number) {
@@ -112,9 +166,19 @@ export class MyWorkoutComponent {
     }
   }
 
-  clickBigExercise(bigExerciseId: number) {
-    this.bigExerciseId = bigExerciseId
+  clickBigExercise(colorId: number) {
+    if (this.colorId == colorId) {
+      this.colorId = 0;
+    } else {
+      this.colorId = colorId
+    }
     this.UserInfo()
+  }
+
+  clickviewType(viewType: number) {
+    this.viewType = viewType
+    this.UserInfo()
+
   }
 
   formatDate(date: Date): string {
@@ -188,13 +252,14 @@ export class MyWorkoutComponent {
             daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'past' });
           }
         }
+        // this.exercise(daysInWeek)
+
       }
     }
 
     if (daysInWeek.length > 0) {
       this.weeks.push([...daysInWeek]);
     }
-
     // console.log(this.weeks);
   }
 
@@ -309,16 +374,41 @@ export class MyWorkoutComponent {
     return `${status}_day`;
   }
 
-  getUniqueBigExerciseIdsWithColors(): { id: number; color: string; target: string }[] {
-    const uniqueIdsWithColors: { id: number; color: string; target: string; }[] = [];
+  getUniqueColors(): { id: number; color: string; content: string }[] {
+    const uniqueIdsWithColors: { id: number; color: string; content: string }[] = [];
 
     this.practiceTimes.forEach((practiceTime) => {
-      const existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.bigExerciseId);
+      let existingId: { id: number; color: string; content: string } | undefined;
+
+      if (this.viewType === 0) {
+        existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.bigExerciseId);
+      } else {
+        existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.categoryId);
+      }
+
       if (!existingId) {
-        uniqueIdsWithColors.push({ id: practiceTime.bigExerciseId, color: practiceTime.defaultColor, target: practiceTime.target });
+        if (this.viewType === 0) {
+          uniqueIdsWithColors.push({
+            id: practiceTime.bigExerciseId,
+            color: practiceTime.defaultColor,
+            content: practiceTime.target
+          });
+        } else {
+          uniqueIdsWithColors.push({
+            id: practiceTime.categoryId,
+            color: practiceTime.categoryDefaultColor,
+            content: practiceTime.categoryName
+          });
+        }
+      } else {
+        // If the existingId already exists, update the color and content
+        existingId.color = this.viewType === 0 ? practiceTime.defaultColor : practiceTime.categoryDefaultColor;
+        existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
+
     return uniqueIdsWithColors;
   }
+
 
 }

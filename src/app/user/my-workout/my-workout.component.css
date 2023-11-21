@@ -3,6 +3,15 @@
   padding: 40px;
 }
 
+.my_workout ul {
+  padding: 0;
+  margin: 0;
+}
+
+.my_workout > div {
+  margin-top: 20px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -40,7 +49,8 @@ td:hover {
   background-color: #e6e6e6;
 }
 
-.select_month {
+.select_month,
+.view_type {
   border: 1px solid #ddd;
 }
 
@@ -54,13 +64,15 @@ td:hover {
 }
 
 .select_month li,
+.view_type li,
 .workout li {
   flex: 1;
   text-align: center;
   padding: 8px;
 }
 
-.select_month .month {
+.select_month .month,
+.view_type li:not(:first-child) {
   border-left: 1px solid #ddd;
 }
 
@@ -98,14 +110,14 @@ td:hover {
 
 }
 
-td:hover .group_edit{
- display: block;
+td:hover .group_edit {
+  display: block;
 }
 
 .group_edit {
   display: none;
   position: absolute;
-  top: 0;
+  top: -41px;
   right: 0;
 }
 
@@ -121,20 +133,20 @@ td:hover .group_edit{
   /* border-radius: 6px; */
 }
 
-.group_edit li:hover{
+.group_edit li:hover {
   background-color: #3A57E8;
 }
 
-.group_edit li img{
+.group_edit li img {
   filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
 }
 
-.group_edit li:hover img{
+.group_edit li:hover img {
   filter: brightness(0) invert(1);
   -webkit-filter: brightness(0) invert(1);
 }
 
-.check_status{
+.check_status {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -148,20 +160,21 @@ td:hover .group_edit{
 .today_day {
   background-color: #03a9f4;
 }
+
 /* 
 .future_day {
   background-color: green;
 } */
 
-.note{
+.note {
   padding: 20px;
 }
 
-.note ul{
+.note ul {
   flex-wrap: wrap;
 }
 
-.note ul li{
+.note ul li {
   display: flex;
   align-items: center;
   width: 24%;
@@ -169,7 +182,8 @@ td:hover .group_edit{
   gap: 10px;
 }
 
-.note li div{
+.note li div {
   height: 10px;
   width: 10px;
+  /* border-color: ; */
 }
