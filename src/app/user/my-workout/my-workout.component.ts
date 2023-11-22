@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
-import { PracticeTime, } from '../../../service/my_Workout/my-workout-interface';
+import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
+import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
 // import { HearderUserComponent } from '../../appLayout/hearder-user/hearder-user.component'
 
 interface DayDetails {
@@ -37,11 +38,18 @@ export class MyWorkoutComponent {
   colorId: number = 0;
   viewType: number = 0;
 
+  dataColor: any = {
+    id: 0,
+    color: "#fffffff",
+    // timeStart : 
+  }
+
   constructor(
     // private practiceTimeService: PracticeTimeService,
     private myWorkoutService: MyWorkoutService,
     // private hearderUserComponent :HearderUserComponent,
     private userService: UserService,
+    private colorPreferenceService: ColorPreferenceService,
   ) {
     this.practiceTimes;
     this.currentDate = new Date();
@@ -111,7 +119,7 @@ export class MyWorkoutComponent {
             day.day === practiceTimeDay &&
             day.month === practiceTimeMonth &&
             day.year === practiceTimeYear &&
-            this.colorId == practiceTime.bigExerciseId
+            this.colorId == practiceTime.myWorkoutId
           ) {
             filteredExercise.push(practiceTime);
           }
@@ -169,15 +177,18 @@ export class MyWorkoutComponent {
   clickBigExercise(colorId: number) {
     if (this.colorId == colorId) {
       this.colorId = 0;
+
     } else {
       this.colorId = colorId
     }
-    this.UserInfo()
+    // this.UserInfo()
   }
 
   clickviewType(viewType: number) {
     this.viewType = viewType
-    this.UserInfo()
+    this.colorId = 0;
+
+    // this.UserInfo()
 
   }
 
@@ -381,7 +392,9 @@ export class MyWorkoutComponent {
       let existingId: { id: number; color: string; content: string } | undefined;
 
       if (this.viewType === 0) {
-        existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.bigExerciseId);
+        existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.myWorkoutId);
+        // console.log(practiceTime.myWorkoutId);
+
       } else {
         existingId = uniqueIdsWithColors.find((item) => item.id === practiceTime.categoryId);
       }
@@ -389,20 +402,20 @@ export class MyWorkoutComponent {
       if (!existingId) {
         if (this.viewType === 0) {
           uniqueIdsWithColors.push({
-            id: practiceTime.bigExerciseId,
+            id: practiceTime.myWorkoutId,
             color: practiceTime.defaultColor,
             content: practiceTime.target
           });
         } else {
           uniqueIdsWithColors.push({
             id: practiceTime.categoryId,
-            color: practiceTime.categoryDefaultColor,
+            color: practiceTime.categoryColor,
             content: practiceTime.categoryName
           });
         }
       } else {
         // If the existingId already exists, update the color and content
-        existingId.color = this.viewType === 0 ? practiceTime.defaultColor : practiceTime.categoryDefaultColor;
+        existingId.color = this.viewType === 0 ? practiceTime.defaultColor : practiceTime.categoryColor;
         existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
@@ -410,5 +423,53 @@ export class MyWorkoutComponent {
     return uniqueIdsWithColors;
   }
 
+  updateColor() {
+    if(this.viewType == 0){
+      this.myWorkoutService.updateMyWorkout(this.dataColor.color, this.dataColor.id).subscribe(
+        () => {
+          console.log('Color updated successfully');
+          // this.dataColor.color = ""
+          this.dataColor.id = 0
+          console.log(this.dataColor);
+          this.UserInfo()
+          // Thêm bất kỳ logic hoặc chuyển hướng bổ sung nào ở đây
+        },
+        (response) => {
+          console.error('Error updating color:', response);
+        }
+      );
+    }else{
+      this.colorPreferenceService.updatecolorPreferen(this.dataColor.color, this.dataColor.id).subscribe(
+        () => {
+          console.log('colorPreferen updated successfully');
+          // this.dataColor.color = ""
+          this.dataColor.id = 0
+          console.log(this.dataColor);
+          this.UserInfo()
+          // Thêm bất kỳ logic hoặc chuyển hướng bổ sung nào ở đây
+        },
+        (response) => {
+          console.error('Error updating color:', response);
+        }
+      );
+    } 
+    
+  }
+
+  dataupdateColor(id: number, color: string) {
+    this.dataColor.id = id,
+      this.dataColor.color = color
+    console.log(this.dataColor);
+    // this.updateColor()
+  }
+
+  closeTheForm(){
+    this.dataColor.id = 0
+  }
+
+  blockFormClosing(event: Event){
+    event.stopPropagation();
+
+  }
 
 }

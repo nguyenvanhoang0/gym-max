@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PracticeTime, MyWorkoutInterface , MyBigExerciseInterface } from './my-workout-interface';
+import { UpdateMyWorkout, MyWorkoutInterface , MyBigExerciseInterface  } from './my-workout-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +11,7 @@ export class MyWorkoutService {
 
   getPracticeTimes(id: number): Observable<MyWorkoutInterface> {
     return this.http.get<MyWorkoutInterface>(`${this.apiUrl}/GetWorkoutByUserID/${id}`);
-  }
+  } 
 
   getPracticeTimesByTimeStart(id: number, timeStart: Date): Observable<MyWorkoutInterface> {
     const formattedTimeStart = timeStart.toISOString();
@@ -21,6 +21,14 @@ export class MyWorkoutService {
 
   GetBigExerciseInMyWorkoutsByUserId(idUser: number): Observable<MyBigExerciseInterface> {
     return this.http.get<MyBigExerciseInterface>(`${this.apiUrl}/GetBigExerciseInMyWorkoutsByUserId/${idUser}`);
+  }
+
+  updateMyWorkout( data : string ,MyWorkoutId: number ): Observable<any> {
+    const url = `${this.apiUrl}/UpdateMyWorkout/${MyWorkoutId}`;
+    const requestBody = { defaultColor: data }; // Tạo một đối tượng JSON
+  console.log(requestBody);
+    
+    return this.http.put<any>(url, requestBody);
   }
 
 }

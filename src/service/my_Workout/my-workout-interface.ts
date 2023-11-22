@@ -1,6 +1,7 @@
 export interface PracticeTime {
   id: number;
   timeStart: string;
+  myWorkoutId:number,
 
   exerciseId: number;
   bigExerciseId: number;
@@ -36,6 +37,7 @@ export interface MyWorkoutData {
   $id: string;
   id: number;
   timeStart: Date;
+  color: string;
   bigExerciseId: number;
   userId: number;
   bigExercise: BigExerciseData;
@@ -68,4 +70,12 @@ export interface MonthlyData {
     private: boolean;
     status: string;
   };
+}
+
+//--------
+
+export interface UpdateMyWorkout {
+  id: number;
+  // timeStart: Date;
+  color: string;
 }

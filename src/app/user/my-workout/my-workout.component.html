@@ -54,8 +54,9 @@
                 <div class="flex exercises_day">
 
                   <ng-container *ngFor="let time of exercise(days)">
-                      <div class="block_ex" [style.background-color]="time.defaultColor" *ngIf="viewType == 0"></div>
-                      <div class="block_ex" [style.background-color]="time.categoryDefaultColor" *ngIf="viewType == 1"></div>
+                    <div class="block_ex" [style.background-color]="time.defaultColor" *ngIf="viewType == 0"></div>
+                    <div class="block_ex" [style.background-color]="time.categoryColor" *ngIf="viewType == 1">
+                    </div>
                   </ng-container>
 
                 </div>
@@ -81,15 +82,21 @@
   <div class="note">
     <ul>
       <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickBigExercise(uniqueIdsWithColor.id)">
-        <div [style.background-color]="uniqueIdsWithColor.color"></div>
-        {{uniqueIdsWithColor.content}}
+        <div class="flex">
+          <div [style.background-color]="uniqueIdsWithColor.color"></div>
+          {{uniqueIdsWithColor.content}}
+        </div>
+        <div (click)="dataupdateColor(uniqueIdsWithColor.id , uniqueIdsWithColor.color)">
+          <img src="../../../assets/svg/icon_svg/pencil-square.svg" alt="">
+
+        </div>
       </li>
       <li (click)="clickBigExercise(0)">default</li>
     </ul>
   </div>
 
 </div>
-<div class="my_workout today" *ngIf="day !== 0">    
+<div class="my_workout today" *ngIf="day !== 0">
 
   <div>
     <ul>
@@ -111,9 +118,9 @@
       </li>
     </ul>
   </div>
-  <div *ngFor="let time of practiceTimes" >
+  <div *ngFor="let time of practiceTimes">
     <div>{{time.timeStart}}</div>
-    <ul class="flex workout" >
+    <ul class="flex workout">
       <li>{{time.id}}</li>
       <li>{{time.name}}</li>
       <li>{{time.quantity}}</li>
@@ -124,16 +131,9 @@
   </div>
 </div>
 
-
-
-<!-- <div>
-  <label for="month">Chọn tháng:</label>
-  <select id="month" [(ngModel)]="currentMonth" (change)="updateCurrentMonthAndYear()">
-    <option *ngFor="let month of months" [value]="month">{{ month }}</option>
-  </select>
-  <label for="year">Chọn năm:</label>
-  <select id="year" [(ngModel)]="currentYear" (change)="updateCurrentMonthAndYear()">
-    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-  </select>
- <button >Cập nhật</button> 
-</div> -->
+<form action="" (ngSubmit)="updateColor()" *ngIf="dataColor.id != 0" (click)="closeTheForm()" class="text">
+  <div (click)="blockFormClosing($event)">
+    <input type="color" id="colorInput" name="color" [(ngModel)]="dataColor.color" [value]="dataColor.color" >
+  <button type="submit">save</button>
+  </div>
+</form>
