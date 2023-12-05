@@ -2,17 +2,13 @@ import { Component, OnInit } from '@angular/core';
 // import { PracticeTimeService } from '../../../service/practice-time/practice-time.service';
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
+import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
+import { DayDetailsInterface } from '../../../service/workout-schedule/day-details-interface';
+
 import { UserService } from '../../../service/user/user-service.service';
 import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
-import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
+import { WorkoutScheduleService } from '../../../service/workout-schedule/workout-schedule.service';
 // import { HearderUserComponent } from '../../appLayout/hearder-user/hearder-user.component'
-
-interface DayDetails {
-  day: number;
-  month: number;
-  year: number;
-  status: string;
-}
 
 @Component({
   selector: 'app-my-workout',
@@ -27,8 +23,8 @@ export class MyWorkoutComponent {
   currentDate: Date = new Date();
 
   day: number = 0;
-  lastDayOfMonth: number = 0;
-  weeks: DayDetails[][];
+  // lastDayOfMonth: number = 0;
+  weeks: DayDetailsInterface[][];
   currentYear: number;
   currentMonth: number;
   years: number[] = this.generateYears(10);
@@ -50,6 +46,7 @@ export class MyWorkoutComponent {
     // private hearderUserComponent :HearderUserComponent,
     private userService: UserService,
     private colorPreferenceService: ColorPreferenceService,
+    private workoutScheduleService: WorkoutScheduleService,
   ) {
     this.practiceTimes;
     this.currentDate = new Date();
@@ -89,7 +86,7 @@ export class MyWorkoutComponent {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.practiceTimes = response.$values;
         console.log(this.practiceTimes);
-        this.getUniqueColors()
+        // this.getUniqueColors()
 
         // this.combineData();
       },
@@ -99,7 +96,7 @@ export class MyWorkoutComponent {
     );
   }
 
-  exercise(day: DayDetails) {
+  exercise(day: DayDetailsInterface) {
     const filteredExercise: PracticeTime[] = [];
 
     this.practiceTimes.forEach((practiceTime) => {
@@ -152,12 +149,17 @@ export class MyWorkoutComponent {
     return filteredExercise;
   }
 
-  clickDay(day: number) {
+  clickDay(day: number, month: number, year: number) {
     if (this.userInfo) {
       const id = this.userInfo.id;
       if (id) {
-        const selectedDate = new Date(this.currentYear + `-` + this.currentMonth + `-` + day);
+        const selectedDate = new Date(year + `-` + month + `-` + day);
+        console.log(selectedDate);
+
         const formattedDate = new Date(this.formatDate(selectedDate));
+
+        console.log(formattedDate);
+
 
         this.myWorkoutService.getPracticeTimesByTimeStart(id, formattedDate).subscribe(
           (response) => {
@@ -200,90 +202,10 @@ export class MyWorkoutComponent {
   }
 
   calculateDaysInMonth() {
-    const today = new Date();
-    const firstDay = new Date(this.currentYear, this.currentMonth - 1, 1);
-    const lastDay = new Date(this.currentYear, this.currentMonth, 0);
-    const firstDayOfWeek = firstDay.getDay();
-    this.lastDayOfMonth = lastDay.getDate();
-    let daysInWeek: DayDetails[] = [];
-    this.weeks = [];
-
-    // Tính toán ngày của tháng trước
-    const prevMonthLastDay = new Date(this.currentYear, this.currentMonth - 1, 0);
-    const prevMonthDays = prevMonthLastDay.getDate();
-    for (let i = prevMonthDays - firstDayOfWeek + 1; i <= prevMonthDays; i++) {
-      // console.log(this.currentMonth);
-      if (this.Today.getMonth() + 1 < this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
-        if (this.currentMonth == 1) {
-          daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'future' });
-        } else {
-          daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'future' });
-        }
-      } else {
-        if (this.currentMonth == 1) {
-          daysInWeek.push({ day: i, month: 12, year: this.currentYear - 1, status: 'past' });
-        } else {
-          daysInWeek.push({ day: i, month: this.currentMonth - 1, year: this.currentYear, status: 'past' });
-        }
-      }
-    }
-
-    for (let day = firstDay.getDate(); day <= lastDay.getDate(); day++) {
-      const status = this.calculateDayStatus(day, this.currentMonth, this.currentYear, today);
-      daysInWeek.push({ day, month: this.currentMonth, year: this.currentYear, status });
-
-      if (daysInWeek.length === 7) {
-        this.weeks.push([...daysInWeek]);
-        daysInWeek = [];
-      }
-    }
-
-    if (daysInWeek.length > 0) {
-      const nextMonthFirstDay = new Date(this.currentYear, this.currentMonth, 1);
-      const remainingDays = 7 - daysInWeek.length;
-
-      for (let day = nextMonthFirstDay.getDate(); day <= nextMonthFirstDay.getDate() + remainingDays - 1; day++) {
-        if (this.currentMonth == 12) {
-          // const Month  = 1
-
-          if (this.Today.getMonth() + 1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
-            daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'future' });
-          } else {
-            daysInWeek.push({ day, month: 1, year: this.currentYear + 1, status: 'past' });
-
-          }
-        } else {
-          const Month = this.currentMonth + 1
-          if (this.Today.getMonth() + 1 <= this.currentMonth || this.Today.getFullYear() + 1 <= this.currentYear) {
-
-            daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'future' });
-          } else {
-            console.log(this.Today.getMonth() <= this.currentMonth);
-
-            daysInWeek.push({ day, month: Month, year: this.currentYear, status: 'past' });
-          }
-        }
-        // this.exercise(daysInWeek)
-
-      }
-    }
-
-    if (daysInWeek.length > 0) {
-      this.weeks.push([...daysInWeek]);
-    }
-    // console.log(this.weeks);
-  }
-
-  calculateDayStatus(day: number, month: number, year: number, today: Date): 'past' | 'today' | 'future' {
-    const compareDate = new Date(year, month - 1, day);
-
-    if (compareDate.toDateString() === today.toDateString()) {
-      return 'today';
-    } else if (compareDate < today) {
-      return 'past';
-    } else {
-      return 'future';
-    }
+    // const today = new Date();
+    const result = this.workoutScheduleService.calculateDaysInMonth(this.currentYear, this.currentMonth);
+    // Sử dụng result
+    this.weeks = result;
   }
 
   updateCurrentYear(currentYear: number) {
@@ -347,7 +269,7 @@ export class MyWorkoutComponent {
       this.currentMonth = newMonth;
     }
     this.calculateDaysInMonth();
-    this.clickDay(day);
+    this.clickDay(day, this.currentMonth, this.currentYear);
   }
 
   generateYears(yearsAhead: number): number[] {
@@ -375,7 +297,7 @@ export class MyWorkoutComponent {
     this.currentMonth = this.currentDate.getMonth() + 1;
     this.currentYear = this.currentDate.getFullYear();
     const currentDay = this.currentDate.getDate();
-    this.clickDay(currentDay)
+    this.clickDay(currentDay, this.currentMonth, this.currentYear)
     // console.log(currentDay);
 
   }
@@ -419,12 +341,13 @@ export class MyWorkoutComponent {
         existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
+    console.log(uniqueIdsWithColors);
 
     return uniqueIdsWithColors;
   }
 
   updateColor() {
-    if(this.viewType == 0){
+    if (this.viewType == 0) {
       this.myWorkoutService.updateMyWorkout(this.dataColor.color, this.dataColor.id).subscribe(
         () => {
           console.log('Color updated successfully');
@@ -438,7 +361,7 @@ export class MyWorkoutComponent {
           console.error('Error updating color:', response);
         }
       );
-    }else{
+    } else {
       this.colorPreferenceService.updatecolorPreferen(this.dataColor.color, this.dataColor.id).subscribe(
         () => {
           console.log('colorPreferen updated successfully');
@@ -452,8 +375,8 @@ export class MyWorkoutComponent {
           console.error('Error updating color:', response);
         }
       );
-    } 
-    
+    }
+
   }
 
   dataupdateColor(id: number, color: string) {
@@ -463,11 +386,11 @@ export class MyWorkoutComponent {
     // this.updateColor()
   }
 
-  closeTheForm(){
+  closeTheForm() {
     this.dataColor.id = 0
   }
 
-  blockFormClosing(event: Event){
+  blockFormClosing(event: Event) {
     event.stopPropagation();
 
   }

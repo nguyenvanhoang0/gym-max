@@ -46,8 +46,8 @@
         <ng-container>
           <tr *ngFor="let week of weeks; let i = index">
             <ng-container *ngFor="let days of week; let j = index">
-              <td (click)="clickDay(days.day)" [class.currentMonth]="currentMonth == days.month "
-                [ngClass]="getDayClass(days.status)">
+              <td (click)="clickDay(days.day , days.month, days.year)"
+                [class.currentMonth]="currentMonth == days.month " [ngClass]="getDayClass(days.status)">
                 {{ days.day }}-
                 {{ days.month }}-
                 {{ days.year }}
@@ -70,6 +70,7 @@
                 <div class="check_status" *ngIf="days.status == 'past'">
                   <img src="../../../assets/svg/icon_svg/check-all.svg" alt="">
                 </div>
+                <!-- <div *ngIf="days.status == 'past'">birthday</div> -->
               </td>
             </ng-container>
           </tr>
@@ -112,7 +113,7 @@
         <img src="../../../assets/svg/arrow-left.svg" alt="">
       </li>
 
-      <li class="month">{{day}}/{{ currentMonth }}/{{currentYear}} </li>
+      <!-- <li class="month">{{day}}/{{ currentMonth }}/{{currentYear}} </li> -->
       <li class="month" (click)="updateCurrentDayAndMonthAndYear( + 1)">
         <img src="../../../assets/svg/arrow-right.svg" alt="">
       </li>
@@ -133,7 +134,7 @@
 
 <form action="" (ngSubmit)="updateColor()" *ngIf="dataColor.id != 0" (click)="closeTheForm()" class="text">
   <div (click)="blockFormClosing($event)">
-    <input type="color" id="colorInput" name="color" [(ngModel)]="dataColor.color" [value]="dataColor.color" >
-  <button type="submit">save</button>
+    <input type="color" id="colorInput" name="color" [(ngModel)]="dataColor.color" [value]="dataColor.color">
+    <button type="submit">save</button>
   </div>
 </form>
