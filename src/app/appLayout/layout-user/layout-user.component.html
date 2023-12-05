@@ -1,8 +1,8 @@
-<div class="flex">
+<div class="flex layout_user">
     <div class="sidebars" [class.hidden]="!isSidebarOpen">
         <app-sidebar-user></app-sidebar-user>
     </div>
-    <div>
+    <div  [class.content]="isSidebarOpen">
         <div class="group_header">
             <div class="open_and_close" (click)="toggleSidebar()">
                 <img *ngIf="isSidebarOpen" src="../../../assets/svg/icon_svg/x.svg" alt="" />

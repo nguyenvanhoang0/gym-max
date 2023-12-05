@@ -1,3 +1,8 @@
+.layout_user{
+  position: relative;
+
+}
+
 .flex > div:nth-child(2) {
     flex: 1;
 }
@@ -8,11 +13,25 @@
 
 .sidebars {
     width: 250px;
-    z-index: 2;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+
+    transition: 0.5s ;
+  }
+
+  .content{
+    margin-left: 250px;
+    transition: 0.5s ;
+
   }
 
   .group_header{
     /* position: relative; */
+    position: sticky;
+    top: 0px;
+    z-index: 99;
     display: flex;
     align-items:center ;
     gap: 10px;
@@ -42,7 +61,7 @@
 }
 
 .hidden {
-    position: absolute;
+    /* position: absolute; */
     left: -250px;
 }
 
@@ -52,7 +71,7 @@
 
 @media screen and (max-width: 1023px) {
     .sidebars {
-      position: absolute;
+      /* position: absolute; */
       left: -250px;
     }
   

@@ -164,7 +164,7 @@ export class MyWorkoutComponent {
         this.myWorkoutService.getPracticeTimesByTimeStart(id, formattedDate).subscribe(
           (response) => {
             this.practiceTimes = response.$values;
-            // console.log(this.practiceTimes);
+            console.log(this.practiceTimes);
             this.day = day
             // console.log(this.day);
           },

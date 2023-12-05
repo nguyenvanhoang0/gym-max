@@ -54,8 +54,7 @@ td:hover {
   border: 1px solid #ddd;
 }
 
-.select_month,
-.workout {
+.select_month {
   /* padding: 40px; */
   width: 100%;
   border-radius: 10px;
@@ -99,7 +98,7 @@ td:hover {
 .block_ex {
   width: 10px;
   height: 10px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 
@@ -205,11 +204,11 @@ td:hover .group_edit {
 
 }
 
- .flex div {
+ /* .flex div {
   height: 10px;
   width: 10px;
-  /* border-color: ; */
-}
+ 
+} */
 
 form{
   position: fixed;
@@ -250,3 +249,39 @@ form button{
 form button:hover{
   background-color: rgb(59, 224, 83);
 }
+
+/* ______________________________________________ */
+
+.practiceTimes .timeStart div{
+  padding: 0px 20px;
+}
+
+/* .practiceTimes > div{
+  position: relative;
+} */
+
+.timeStart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: black;
+  left: 0px;
+  white-space: nowrap;
+}
+
+.timeStart svg {
+  position: absolute;
+  transform: translatex(-50%);
+}
+
+ .workout{
+  width: 100%;
+  padding: 20px;
+  border-left: 1px solid #333;
+}
+
+.workout div{
+  width: auto;
+}
+
