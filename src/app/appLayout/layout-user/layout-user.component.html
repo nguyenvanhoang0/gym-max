@@ -2,19 +2,29 @@
     <div class="sidebars" [class.hidden]="!isSidebarOpen">
         <app-sidebar-user></app-sidebar-user>
     </div>
-    <div  [class.content]="isSidebarOpen">
+    <div [class.content]="isSidebarOpen">
         <div class="group_header">
             <div class="open_and_close" (click)="toggleSidebar()">
                 <img *ngIf="isSidebarOpen" src="../../../assets/svg/icon_svg/x.svg" alt="" />
                 <img *ngIf="!isSidebarOpen" src="../../../assets/svg/icon_svg/list-task.svg" alt="" />
-              </div>
-              
-              <div class="open_and_close block" (click)="toggleSidebar()">
+            </div>
+
+            <div class="open_and_close block" (click)="toggleSidebar()">
                 <img *ngIf="!isSidebarOpen" src="../../../assets/svg/icon_svg/x.svg" alt="" />
                 <img *ngIf="isSidebarOpen" src="../../../assets/svg/icon_svg/list-task.svg" alt="" />
-              </div>
+            </div>
             <div><app-hearder-user></app-hearder-user></div>
         </div>
         <router-outlet></router-outlet>
     </div>
+    <div  (mousemove)="onResizeLeft($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeEnd()"
+        class="sidebar_left">
+        <div #resizableDiv >
+            <div class="sidebar_left_content" (mousemove)="blocKonResize($event)">
+                <app-sidebar-left-user></app-sidebar-left-user>
+            </div>
+            
+        </div>
+    </div>
+    <div class="sidebar_right"><app-sidebar-right-user></app-sidebar-right-user></div>
 </div>

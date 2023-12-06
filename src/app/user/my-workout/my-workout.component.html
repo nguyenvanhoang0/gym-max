@@ -27,7 +27,12 @@
     </ul>
   </div>
 
-  <div class="view_type">
+  <div class="flex view_type">
+    <ul>
+      <li (click)="currentDateAsNumber()">list</li>
+      <li (click)="clickviewType(0)">target</li>
+      <li (click)="clickviewType(1)">category</li>
+    </ul>
     <ul>
       <li (click)="currentDateAsNumber()">list</li>
       <li (click)="clickviewType(0)">target</li>

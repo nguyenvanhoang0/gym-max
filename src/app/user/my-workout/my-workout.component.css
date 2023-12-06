@@ -49,8 +49,8 @@ td:hover {
   background-color: #e6e6e6;
 }
 
-.select_month,
-.view_type {
+.select_month
+ {
   border: 1px solid #ddd;
 }
 
@@ -70,8 +70,7 @@ td:hover {
   padding: 8px;
 }
 
-.select_month .month,
-.view_type li:not(:first-child) {
+.select_month .month {
   border-left: 1px solid #ddd;
 }
 
@@ -80,6 +79,7 @@ td:hover {
 .select_month .month:hover {
   background: #C4CCF8;
   color: #3A57E8;
+  
 }
 
 .today .workout {

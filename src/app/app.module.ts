@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule, JwtHelperService ,} from '@auth0/angular-jwt';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ResizableModule } from 'angular-resizable-element';
 
 // import { CommonModule } from '@angular/common';
 
@@ -38,6 +39,8 @@ import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exe
 import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
 import { IsolationExercisesComponent } from './user/isolation-exercises/isolation-exercises.component';
 import { CommunityLibraryComponent } from './user/community-library/community-library.component';
+import { SidebarLeftUserComponent } from './appLayout/sidebar-left-user/sidebar-left-user.component';
+import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sidebar-right-user.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,9 @@ import { CommunityLibraryComponent } from './user/community-library/community-li
     BigExerciseDetailsComponent,
     ExerciseDetailsComponent,
     IsolationExercisesComponent,
-    CommunityLibraryComponent
+    CommunityLibraryComponent,
+    SidebarLeftUserComponent,
+    SidebarRightUserComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,9 @@ import { CommunityLibraryComponent } from './user/community-library/community-li
     HttpClientModule,
     FormsModule,
     JwtModule,
-    NgxPaginationModule,  
+    NgxPaginationModule,
+    ResizableModule,
+  
     // CommonModule,
     // JwtHelperModule
   ],
