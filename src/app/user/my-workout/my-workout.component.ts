@@ -341,7 +341,7 @@ export class MyWorkoutComponent {
         existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
-    console.log(uniqueIdsWithColors);
+    // console.log(uniqueIdsWithColors);
 
     return uniqueIdsWithColors;
   }

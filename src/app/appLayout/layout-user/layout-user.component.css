@@ -69,45 +69,103 @@
   display: none;
 }
 
+/* __________________________________________________________________ */
+
 .sidebar_left,
-.sidebar_right {
-  overflow: auto;
-  min-width: 200px;
-  max-width: 600px;
-  height: 100vh;
-  border: 1px solid #ccc;
-  cursor: ew-resize;
-  background-color: white;
-  display: none;
-}
-
-.sidebar_left>div,
-.sidebar_right>div {
-  height: 100%;
-  width: 100%;
-}
-
-.sidebar_left>div {
-  padding: 0pc 5px 0px 0px;
-}
-
-.sidebar_left:hover,
-.sidebar_right:hover {
-  overflow: hidden;
-}
-
-.sidebar_left {
+.sidebar_left_2 {
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 101;
+}
+
+.sidebar_right,
+.sidebar_right_2 {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 101;
+  /* background-color: #75aee6;   */
+}
+
+.sidebar_left,
+.sidebar_right {
+  transition: 0.5s;
+
+  overflow: auto;
+  min-width: 200px;
+  max-width: 600px;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+  z-index: 102;
+  /* display: none; */
+}
+
+.sidebar_left{
+  border-right: 1px solid #ccc;
+}
+
+.sidebar_right{
+  border-left: 1px solid #ccc;
+
+}
+
+.sidebar_left_2 {
+  
+  padding: 0pc 10px 0px 0px;
+  /* border-right: 1px #ccc solid; */
+}
+
+.sidebar_right_2{
+  padding: 0pc 0px 0px 10px;
+  /* border-left: 1px solid #ccc; */
+}
+
+.sidebar_left_2 ,.sidebar_right_2{
+  transition: 0.5s;
+  min-width: 210px;
+  cursor: ew-resize;
+  max-width: 600px;
+  height: 100%;
+  z-index: 101;
+}
+
+.sidebar_right_2 >div ,
+.sidebar_left_2 > div {
+  min-width: 200px;
+}
+
+
+
+.sidebar_left>div,
+.sidebar_right>div,
+.sidebar_left_2>div,
+.sidebar_right_2> div {
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar_left_2>div {
   padding: 0pc 5px 0px 0px;
 }
 
-.sidebar_left_content {
+.sidebar_right_2>div{
+  padding: 0pc 0px 0px 15px;
+  background-color: #ccc;
+}
+
+.sidebar_left:hover,
+.sidebar_right:hover {
+  background-color: aliceblue;
+}
+
+
+
+.sidebar_left_content ,.sidebar_right_content {
   width: 100%;
   height: 100%;
-  min-width: 190px;
+  min-width: 200px;
   cursor: default
 }
 
