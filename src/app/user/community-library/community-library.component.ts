@@ -33,7 +33,6 @@ export class CommunityLibraryComponent {
 
   ngOnInit(): void {
     this.GetAllPublicBigExercises();
-    // this.calculateDaysInMonth();
   }
 
   GetAllPublicBigExercises() {
@@ -51,12 +50,10 @@ export class CommunityLibraryComponent {
   
   
   onPageChange(event: any) {
-    // this.config.currentPage  = event;
 
     this.router.navigate([], {
       queryParams: { page: event },
       queryParamsHandling: 'merge',
     });
-    // this.GetAllPublicBigExercises();
   }
 }

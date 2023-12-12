@@ -29,7 +29,6 @@
     <div [style.zIndex]="leftSideBarStyle2.zIndex" [style.borderRight]="leftSideBarStyle2.borderRight" (mousemove)="onResizeLeft($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeLeftEnd($event)" class="sidebar_left_2">
         <div [style.width.px]="leftSideBarStyle2.width" >
             <div class="sidebar_left_content" (mousemove)="blocKonResize($event)">
-                <!-- <app-sidebar-left-user></app-sidebar-left-user> -->
             </div>
             
         </div>
@@ -45,10 +44,8 @@
     <div #zIndexSidebarRight (mousemove)="onResizeRight($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeRightEnd($event)" class="sidebar_right_2">
         <div #resizableSidebarRight2  >
             <div class="sidebar_right_content" >
-                <!-- <app-sidebar-right-user></app-sidebar-right-user> -->
             </div>
             
         </div>
     </div>
-    <!-- <div class="sidebar_right"></div> -->
 </div>

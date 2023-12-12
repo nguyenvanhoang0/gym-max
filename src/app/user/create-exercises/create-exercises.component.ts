@@ -211,11 +211,8 @@ export class CreateExercisesComponent {
   }
 
   selectKeyword(keyword: string) {
-    // this.selectedKeyword = keyword;
     this.targetInput.nativeElement.focus();
-    // this.targetInputs = keyword;
     this.formData.target = keyword;
-    // this.filteredKeywords = [];
 
   }
 

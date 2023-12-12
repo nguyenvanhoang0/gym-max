@@ -73,8 +73,7 @@ export class LayoutUserComponent {
   }
 
   ngOnInit(): void {
-    // Thực hiện các hành động khi component được khởi tạo (trang được tải)
-    this.onResizes(); // Gọi hàm onResize với event là null
+    this.onResizes();
   }
 
   screenWidth: number = window.innerWidth;
@@ -87,7 +86,6 @@ export class LayoutUserComponent {
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
-    // console.log(this.isSidebarOpen);
 
   }
 
@@ -102,7 +100,7 @@ export class LayoutUserComponent {
 
     if (!this.isResizing) {
       this._leftSideBarStyle = {
-        ...this._leftSideBarStyle,
+        ...this._leftSideBarStyle,  
         width: event.clientX
       };
       
@@ -133,7 +131,6 @@ export class LayoutUserComponent {
     }
   }
 
-  // @HostListener('window:resize', ['$event'])
   onResizeRight(event: MouseEvent): void {
     if (this.isResizing) {
       this.renderer.setStyle(

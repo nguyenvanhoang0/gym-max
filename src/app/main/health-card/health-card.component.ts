@@ -204,10 +204,7 @@ updatedUserInfo: AddUserInformation = {
     this.next = false;
   }
 
-  // nextAnimation() {
-  //   this.next = !this.next;
-  //   console.log("isAnimationStarted:", this.next);
-  // }
+ 
 
   getRandomAvata() {
     const randomIndex = Math.floor(Math.random() * this.avata.length);

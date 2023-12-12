@@ -8,17 +8,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
-  // animations: [
-  //   trigger('slideAnimation', [
-  //     transition(':enter', [
-  //       style({ transform: 'translateX(100%)' }),
-  //       animate('1s', style({ transform: 'translateX(0)' }))
-  //     ]),
-  //     transition(':leave', [
-  //       animate('1s', style({ transform: 'translateX(-100%)' }))
-  //     ])
-  //   ])
-  // ]
+  
 })
 export class IndexComponent {
   items: any[] = [
@@ -29,26 +19,7 @@ export class IndexComponent {
     // Thêm các item khác tương tự
   ];
 
-  // imgs: any[] = [
-  //   { image: '../../../assets/img/img_anime1.jpg', },
-  //   { image: '../../../assets/img/img_anime2.jpg', },
-  //   { image: '../../../assets/img/img_anime3.jpg', },
-  //   { image: '../../../assets/img/img_anime2.jpg', }
-  //   // Thêm các item khác tương tự
-  // ];
-
-  // img1: any[] = [
-  //   { image: '../../../assets/jpg/sky.jpg', },
-  //   { image: '../../../assets/jpg/sky2.jpg', },
-  //   { image: '../../../assets/jpg/sky3.jpg', },
-
-  //   // Thêm các item khác tương tự
-  // ];
-
-  // img3: any[] = [
-  //   { image: '../../../assets/svg/ssshape (2).svg', },
-  //   // Thêm các item khác tương tự
-  // ];
+  
 
 
   packages: any[] = [

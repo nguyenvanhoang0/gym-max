@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { PracticeTimeService } from '../../../service/practice-time/practice-time.service';
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
@@ -8,7 +7,6 @@ import { DayDetailsInterface } from '../../../service/workout-schedule/day-detai
 import { UserService } from '../../../service/user/user-service.service';
 import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
 import { WorkoutScheduleService } from '../../../service/workout-schedule/workout-schedule.service';
-// import { HearderUserComponent } from '../../appLayout/hearder-user/hearder-user.component'
 
 @Component({
   selector: 'app-my-workout',
@@ -23,7 +21,6 @@ export class MyWorkoutComponent {
   currentDate: Date = new Date();
 
   day: number = 0;
-  // lastDayOfMonth: number = 0;
   weeks: DayDetailsInterface[][];
   currentYear: number;
   currentMonth: number;
@@ -37,13 +34,10 @@ export class MyWorkoutComponent {
   dataColor: any = {
     id: 0,
     color: "#fffffff",
-    // timeStart : 
   }
 
   constructor(
-    // private practiceTimeService: PracticeTimeService,
     private myWorkoutService: MyWorkoutService,
-    // private hearderUserComponent :HearderUserComponent,
     private userService: UserService,
     private colorPreferenceService: ColorPreferenceService,
     private workoutScheduleService: WorkoutScheduleService,

@@ -59,7 +59,6 @@ import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sideba
     HealthCardComponent,
     CreateExerciseComponent,
     LoginRegisterComponent,
-    // MenuUserComponent,
     SidebarUserComponent,
     LayoutUserComponent,
     HearderUserComponent,
@@ -86,12 +85,10 @@ import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sideba
     NgxPaginationModule,
     ResizableModule,
   
-    // CommonModule,
-    // JwtHelperModule
+
   ],
   exports: [
-    // ...
-    HearderUserComponent, // Đảm bảo đã thêm component vào đây
+    HearderUserComponent,
   ],
   providers: [JwtHelperService],
   bootstrap: [AppComponent]
