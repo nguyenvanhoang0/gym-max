@@ -76,16 +76,18 @@ export class MyWorkoutComponent {
 
   getpracticeTimesUserById(id: number) {
     this.myWorkoutService.getPracticeTimes(id).subscribe(
-      (response) => {
-        // Xử lý dữ liệu sau khi nhận được từ API
-        this.practiceTimes = response.$values;
-        console.log(this.practiceTimes);
-        // this.getUniqueColors()
+      {
+        next: (response) => {
+          // Xử lý dữ liệu sau khi nhận được từ API
+          this.practiceTimes = response.$values;
+          console.log(this.practiceTimes);
+          // this.getUniqueColors()
 
-        // this.combineData();
-      },
-      (error) => {
-        console.error(error);
+          // this.combineData();
+        },
+        error: (error) => {
+          console.error(error);
+        }
       }
     );
   }
@@ -335,7 +337,7 @@ export class MyWorkoutComponent {
         existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
-    // console.log(uniqueIdsWithColors);
+    console.log(uniqueIdsWithColors);
 
     return uniqueIdsWithColors;
   }

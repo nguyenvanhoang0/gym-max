@@ -14,62 +14,68 @@ export class LayoutUserComponent {
     zIndex: 101,
     borderRight: "none"
   };
-  get leftSideBarStyle() {
-    return this._leftSideBarStyle;
-  }
-  set leftSideBarStyle(value: { width: number, zIndex: number, borderRight: string }) {
-    if (value.width <= 600) {
-      this._leftSideBarStyle = value
-    } else {
-      this._leftSideBarStyle = { ...value, width: 600 }
-    }
-
-  }
 
   private _leftSideBarStyle2 = {
     width: 210,
     zIndex: 101,
     borderRight: "none"
   };
+
+  private _rightSideBarStyle = {
+    width: 200,
+    zIndex: 101,
+    borderLeft: "none"
+  };
+
+  private _rightSideBarStyle2 = {
+    width: 210,
+    zIndex: 101,
+    borderLeft: "none"
+  };
+
+  get leftSideBarStyle() {
+    return this._leftSideBarStyle;
+  }
+  set leftSideBarStyle(value: { width: number, zIndex: number, borderRight: string }) {
+    this._leftSideBarStyle = value
+  }
+
   get leftSideBarStyle2() {
     return this._leftSideBarStyle2;
   }
   set leftSideBarStyle2(value: { width: number, zIndex: number, borderRight: string }) {
-    if (value.width <= 600) {
-      this._leftSideBarStyle2 = value
-    } else {
-      this._leftSideBarStyle2 = { ...value, width: 600 }
-    }
+    this._leftSideBarStyle2 = value
+  }
+
+  get rightSideBarStyle() {
+    return this._rightSideBarStyle;
+  }
+  set rightSideBarStyle(value: { width: number, zIndex: number, borderLeft: string }) {
+    this._rightSideBarStyle = value
+  }
+
+  get rightSideBarStyle2() {
+    return this._rightSideBarStyle2;
+  }
+  set rightSideBarStyle2(value: { width: number, zIndex: number, borderLeft: string }) {
+    this._rightSideBarStyle2 = value
   }
 
   private _mainContentStyle = {
-    marginLeft: 200,
-    marginRight: 200,
+    marginLeft: 250,
+    marginRight: 0,
   };
+
   get mainContentStyle() {
     return this._mainContentStyle;
   }
   set mainContentStyle(value: { marginLeft: number, marginRight: number }) {
     this._mainContentStyle = value
   }
-  @ViewChild('resizableBody') resizableBody: ElementRef;
-
-  @ViewChild('zIndexSidebarLeft', { static: true }) zIndexSidebarLeft: ElementRef;
-
-
-  @ViewChild('resizableSidebarRight', { static: true }) resizableSidebarRight: ElementRef;
-  @ViewChild('resizableSidebarRight2', { static: true }) resizableSidebarRight2: ElementRef;
-  @ViewChild('zIndexSidebarRight', { static: true }) zIndexSidebarRight: ElementRef;
 
   constructor(private renderer: Renderer2) {
 
-    this.resizableBody = new ElementRef(null);
-    this.zIndexSidebarLeft = new ElementRef(null);
 
-    // this.resizableBody2 = new ElementRef(null);
-    this.resizableSidebarRight = new ElementRef(null);
-    this.resizableSidebarRight2 = new ElementRef(null);
-    this.zIndexSidebarRight = new ElementRef(null);
   }
 
   ngOnInit(): void {
@@ -86,7 +92,21 @@ export class LayoutUserComponent {
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
-
+    console.log(this.isSidebarOpen);
+    
+    if (this.isSidebarOpen) {
+      this.mainContentStyle = {
+        ...this._mainContentStyle,
+        marginLeft: 250,
+        marginRight:0
+      };
+    }else{
+      this.mainContentStyle = {
+        ...this._mainContentStyle,
+        marginLeft: 200,
+        marginRight:200
+      };
+    }
   }
 
   onResizeStart(): void {
@@ -99,21 +119,7 @@ export class LayoutUserComponent {
     console.log("end");
 
     if (!this.isResizing) {
-      this._leftSideBarStyle = {
-        ...this._leftSideBarStyle,  
-        width: event.clientX
-      };
-      
-      this.leftSideBarStyle2 = {
-        ...this._leftSideBarStyle2,
-        width: event.clientX,
-        zIndex: 101,
-        borderRight: "none"
-      }
-      this.mainContentStyle = {
-        ...this._mainContentStyle,
-        marginLeft: event.clientX 
-      }
+      this.updateLeftSidebarStyles(event.clientX)
 
     }
   }
@@ -127,29 +133,18 @@ export class LayoutUserComponent {
         zIndex: 102,
         borderRight: "1px #ccc solid"
       }
-      
+
     }
   }
 
   onResizeRight(event: MouseEvent): void {
     if (this.isResizing) {
-      this.renderer.setStyle(
-        this.resizableSidebarRight2.nativeElement,
-        'width',
-        this.screenWidth - event.clientX + 'px'
-      );
-
-      this.renderer.setStyle(
-        this.zIndexSidebarRight.nativeElement,
-        'z-index',
-        '102'
-      );
-
-      this.renderer.setStyle(
-        this.zIndexSidebarRight.nativeElement,
-        'border-left',
-        '1px #ccc solid'
-      );
+      this.rightSideBarStyle2 = {
+        ...this.rightSideBarStyle2,
+        width: this.screenWidth - event.clientX,
+        zIndex: 102,
+        borderLeft: "1px #ccc solid"
+      }
 
 
 
@@ -163,41 +158,54 @@ export class LayoutUserComponent {
     this.isResizing = false;
     console.log("End");
     if (!this.isResizing) {
-      this.renderer.setStyle(
-        this.resizableSidebarRight.nativeElement,
-        'width',
-        this.screenWidth - event.clientX + 'px'
-      );
-      this.renderer.setStyle(
-        this.zIndexSidebarRight.nativeElement,
-        'z-index',
-        '101'
-      );
-      this.renderer.setStyle(
-        this.zIndexSidebarRight.nativeElement,
-        'border-left',
-        'none'
-      );
-      if (this.screenWidth - event.clientX < 200) {
-        this.renderer.setStyle(
-          this.resizableBody.nativeElement,
-          'margin-right',
-          200 + 'px'
-        );
-      } else {
-        this.renderer.setStyle(
-          this.resizableBody.nativeElement,
-          'margin-right',
-          this.screenWidth - event.clientX + 'px'
-        );
-      }
+      this.updateRightSidebarStyles(event.clientX)
     }
 
 
   }
 
+
+  private updateLeftSidebarStyles(clientX: number): void {
+    this._leftSideBarStyle = {
+      ...this._leftSideBarStyle,
+      width: clientX
+    };
+
+    this.leftSideBarStyle2 = {
+      ...this._leftSideBarStyle2,
+      width: clientX,
+      zIndex: 101,
+      borderRight: "none"
+    };
+
+    this.mainContentStyle = {
+      ...this._mainContentStyle,
+      marginLeft: clientX
+    };
+  }
+
+  private updateRightSidebarStyles(clientX: number): void {
+    this._rightSideBarStyle = {
+      ...this._rightSideBarStyle,
+      width: this.screenWidth - clientX
+    };
+
+    this.rightSideBarStyle2 = {
+      ...this.rightSideBarStyle2,
+      width: this.screenWidth - clientX,
+      zIndex: 101,
+      borderLeft: "none"
+    };
+
+    this.mainContentStyle = {
+      ...this._mainContentStyle,
+      marginRight: this.screenWidth - clientX
+    };
+  }
+
   blocKonResize(event: Event) {
     event.stopPropagation();
+    // console.log(12212);
 
   }
 

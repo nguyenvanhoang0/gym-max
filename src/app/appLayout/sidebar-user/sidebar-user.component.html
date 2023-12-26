@@ -6,36 +6,38 @@
             <img src="../../../assets/svg/left_arrow.svg" alt="" >
         </div> -->
     </div>
-
-    <div class="main text" *ngFor="let group  of sidebarData">
-        <div class="title">{{group .name}}</div>
-        <ul>
-            <li *ngFor="let item of group.item " >
-                <div class="Sidebar_Items" (click)="toggleContent(item)" [class.click_color]="item.showChildItem">
-                    <div class="conten" [class.click_img]="item.showChildItem">
-                        <div class="tile">
-                            <img src="{{ item.img_1 }}" alt="">
-                            {{ item.name }}
-                        </div>
-                        <div *ngIf="item.items.length > 0">
-                            <img [class.rotate]="item.showChildItem" src="
+    <div class="menu">
+        <div class="main text" *ngFor="let group  of sidebarData">
+            <div class="title">{{group .name}}</div>
+            <ul>
+                <li *ngFor="let item of group.item ">
+                    <div class="Sidebar_Items" (click)="toggleContent(item)" [class.click_color]="item.showChildItem">
+                        <div class="conten" [class.click_img]="item.showChildItem">
+                            <div class="tile">
+                                <img src="{{ item.img_1 }}" alt="">
+                                {{ item.name }}
+                            </div>
+                            <div *ngIf="item.items.length > 0">
+                                <img [class.rotate]="item.showChildItem" src="
                             {{ item.img_2 }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <ul *ngIf="item.showChildItem" >
-                    <li *ngFor="let childItem of item.items" routerLink="{{childItem.url}}">
-                        <div class="Sidebar_Items">
-                            <div class="conten">
-                                <div class="tile">
-                                    <img src="{{ childItem.img }}" alt="">
-                                    {{ childItem.name }}
-                                </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+                    </div>
+                    <ul *ngIf="item.showChildItem">
+                        <li *ngFor="let childItem of item.items" routerLink="{{childItem.url}}">
+                            <div class="Sidebar_Items">
+                                <div class="conten">
+                                    <div class="tile">
+                                        <img src="{{ childItem.img }}" alt="">
+                                        {{ childItem.name }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+<!-- <div class="scroll-bar"></div> -->

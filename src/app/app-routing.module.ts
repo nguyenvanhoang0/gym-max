@@ -70,7 +70,7 @@ const routes: Routes = [
       { path: 'news', component: NewsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'tips', component: TipsComponent },
-      { path: 'healthCard', component: HealthCardComponent },
+      // { path: 'healthCard', component: HealthCardComponent },
       { path: 'createExercise', component: CreateExerciseComponent },
     ]
   }
