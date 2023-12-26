@@ -83,7 +83,7 @@
 
   <div class="note">
     <ul>
-      <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickBigExercise(uniqueIdsWithColor.id)">
+      <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickNote(uniqueIdsWithColor.id)">
         <div class="flex">
           <div class="block_ex" [style.background-color]="uniqueIdsWithColor.color"></div>
           {{uniqueIdsWithColor.content}}
@@ -93,7 +93,7 @@
 
         </div>
       </li>
-      <li (click)="clickBigExercise(0)">default</li>
+      <li (click)="clickNote(0)">default</li>
     </ul>
   </div>
 

@@ -1,18 +1,35 @@
-<div class="exercise_conten text_13">
-    <div *ngFor="let monthData of bigExercisesMonthlyData | keyvalue">
-        <div class=" timeStart">
-            <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"
-                class="octicon octicon-git-commit">
-                <path
-                    d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
-                </path>
-            </svg>
-            <div>TimeStart : {{ monthData.key }}</div>
+<div class="exercise_content text_13">
+    <div class="content">
+        <div class="title_content flex">
+            <ul>
+                <li class="avatar"><img src="{{userInfo?.avatarPath}}" alt=""></li>
+                <li class="user_name">{{userInfo?.username}}</li>
+                <li>{{userInfo?.role}}</li>
+            </ul>
+            <ul>
+                <li>finished</li>
+                <li>practicing</li>
+                <li>upcoming</li>
+            </ul>
         </div>
-        <div class="my_big_exercise">
-            <div class="big_exercise">
-                <div class="exercise" *ngFor="let exercise of monthData.value">
-                    <div>{{ exercise?.bigExercise?.target }}</div>
+        <div class="main">
+            <div *ngFor="let monthData of bigExercisesMonthlyData | keyvalue" class="item_main">
+                <div class=" timeStart">
+                    <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"
+                        class="octicon octicon-git-commit">
+                        <path
+                            d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
+                        </path>
+                    </svg>
+                    <div>TimeStart : {{ monthData.key }}</div>
+                </div>
+                <div class="my_big_exercise">
+                    <div class="big_exercise">
+                        <div class="exercise flex" *ngFor="let exercise of monthData.value">
+                            <div class="avatar"><img src="{{exercise?.bigExercise?.author?.avatarPath}}" alt=""></div>
+                            <div>{{ exercise?.bigExercise?.target }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

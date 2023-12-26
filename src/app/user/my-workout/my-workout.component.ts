@@ -80,7 +80,7 @@ export class MyWorkoutComponent {
         next: (response) => {
           // Xử lý dữ liệu sau khi nhận được từ API
           this.practiceTimes = response.$values;
-          console.log(this.practiceTimes);
+          console.log(1);
           // this.getUniqueColors()
 
           // this.combineData();
@@ -150,17 +150,17 @@ export class MyWorkoutComponent {
       const id = this.userInfo.id;
       if (id) {
         const selectedDate = new Date(year + `-` + month + `-` + day);
-        console.log(selectedDate);
+        console.log(2);
 
         const formattedDate = new Date(this.formatDate(selectedDate));
 
-        console.log(formattedDate);
+        console.log(2);
 
 
         this.myWorkoutService.getPracticeTimesByTimeStart(id, formattedDate).subscribe(
           (response) => {
             this.practiceTimes = response.$values;
-            console.log(this.practiceTimes);
+            console.log(2);
             this.day = day
             // console.log(this.day);
           },
@@ -172,7 +172,7 @@ export class MyWorkoutComponent {
     }
   }
 
-  clickBigExercise(colorId: number) {
+  clickNote(colorId: number) {
     if (this.colorId == colorId) {
       this.colorId = 0;
 
@@ -206,7 +206,7 @@ export class MyWorkoutComponent {
 
   updateCurrentYear(currentYear: number) {
     this.currentYear = currentYear;
-    console.log(this.currentYear);
+    console.log(3);
 
     this.calculateDaysInMonth();
   }
@@ -222,16 +222,16 @@ export class MyWorkoutComponent {
     if (newMonth === 0) {
       this.currentMonth = 12;
       this.currentYear -= 1;
-      console.log("a");
+      // console.log(4);
 
     } else if (newMonth === 13) {
       this.currentMonth = 1;
       this.currentYear += 1;
-      console.log("b");
+      // console.log(4);
     } else {
       this.currentMonth = newMonth;
     }
-    console.log(this.currentMonth + "-" + this.currentYear);
+    console.log(4);
 
     this.calculateDaysInMonth();
   }
@@ -337,7 +337,7 @@ export class MyWorkoutComponent {
         existingId.content = this.viewType === 0 ? practiceTime.target : practiceTime.categoryName;
       }
     });
-    console.log(uniqueIdsWithColors);
+    console.log(5);
 
     return uniqueIdsWithColors;
   }
@@ -351,7 +351,6 @@ export class MyWorkoutComponent {
           this.dataColor.id = 0
           console.log(this.dataColor);
           this.UserInfo()
-          // Thêm bất kỳ logic hoặc chuyển hướng bổ sung nào ở đây
         },
         (response) => {
           console.error('Error updating color:', response);
@@ -378,7 +377,7 @@ export class MyWorkoutComponent {
   dataupdateColor(id: number, color: string) {
     this.dataColor.id = id,
       this.dataColor.color = color
-    console.log(this.dataColor);
+    console.log(6);
     // this.updateColor()
   }
 

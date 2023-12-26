@@ -1,12 +1,59 @@
-.exercise_conten {
+.exercise_content {
     padding: 40px;
     width: 100%;
 
 }
 
-.exercise_conten>div {
+.content{
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+.content>div {
     position: relative;
 }
+
+.title_content{
+    padding: 10px 20px;
+    /* border-radius: 12px 12px 0px 0xp; */
+    background-color: #f6f8fa;
+    justify-content: space-between;
+}
+
+.title_content ul{
+    align-items: center;
+    color: black;
+    gap: 10px;
+    
+}
+
+.title_content .user_name{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main{
+    padding:20px 20px 20px 40px;
+}
+
+.item_main:hover svg {
+    fill: hsl(235, 71%, 57%);
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img{
+    width: 100%;
+    height: auto;
+}
+
+
 
 .my_big_exercise {
     border-left: 1px solid hsl(0, 0%, 0%);
@@ -14,20 +61,36 @@
 
 }
 
+.my_big_exercise:hover {
+    border-left: 1px solid hsl(235, 71%, 57%);
+}
+
 .big_exercise {
     width: 100%;
     background-color: white;
     border-radius: 8px;
     border:1px solid var(--e9ecef-Bg-2, #E9ECEF) ;
+    overflow: hidden;
 }
 
 .exercise {
     padding: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
+.exercise .avatar{
+    width: 30px;
+    height: 30px;
+}
 
 .exercise:not(:first-child) {
     border-top: 1px solid var(--e9ecef-Bg-2, #E9ECEF);
+}
+
+.exercise:hover{
+    background-color: rgb(218, 231, 252);
+    color: black;
 }
 
 .timeStart {
@@ -43,6 +106,8 @@
     position: absolute;
     transform: translatex(-50%);
 }
+
+
 
 .timeStart > div{
     padding: 0 20px;

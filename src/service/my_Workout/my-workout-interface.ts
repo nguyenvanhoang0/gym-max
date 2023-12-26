@@ -51,12 +51,16 @@ export interface BigExerciseData {
   // category: string;
   point: number;
   userId: number;
+  author: Author;
+
   private: boolean;
   status: string;
   user: null;
   // myWorkouts: MyWorkoutReferenceData[];
   practiceTimes: null;
 }
+
+//___________________________________________________________________
 
 export interface MonthlyData {
   id: number;
@@ -66,10 +70,20 @@ export interface MonthlyData {
     target: string;
     // category: string;
     point: number;
-    userId: number;
+    author: Author;
+    // avatar_author 
     private: boolean;
     status: string;
   };
+}
+
+interface Author {
+
+  username: string;
+  email: string;
+  avatarPath: string;
+  educationLevel: string;
+  role: string;
 }
 
 //--------

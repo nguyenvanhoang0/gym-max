@@ -44,7 +44,7 @@ export class ExerciseContentComponent {
       (response) => {
         // Xử lý dữ liệu sau khi nhận được từ API
         this.myBigExercises = response.$values;
-        console.log(this.myBigExercises);
+        console.log("kkkkk"+this.myBigExercises);
         
         this.myBigExercises.forEach((item) => {
           const timeStart = new Date(item.timeStart);
@@ -71,7 +71,7 @@ export class ExerciseContentComponent {
               id: item.bigExercise.id,
               target: item.bigExercise.target,
               point: item.bigExercise.point,
-              userId: item.bigExercise.userId,
+              author: item.bigExercise.author,
               private: item.bigExercise.private,
               status: item.bigExercise.status,
             },
