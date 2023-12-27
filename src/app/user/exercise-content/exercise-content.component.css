@@ -37,7 +37,7 @@
     padding:20px 20px 20px 40px;
 }
 
-.item_main:hover svg {
+.item_main:hover .timeStart svg {
     fill: hsl(235, 71%, 57%);
 }
 
@@ -74,9 +74,15 @@
 }
 
 .exercise {
-    padding: 10px;
+    padding: 10px 20px;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
+}
+
+.exercise .flex{
+    align-items: center;
+    gap: 10px;
 }
 
 .exercise .avatar{
@@ -111,4 +117,11 @@
 
 .timeStart > div{
     padding: 0 20px;
+}
+
+.private{
+    font-size: 12px;
+    border: solid 1px #ccc;
+    padding: 5px 10px;
+    border-radius: 100px;
 }

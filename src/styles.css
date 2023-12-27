@@ -119,6 +119,11 @@ font-weight: 600;
 line-height: 130%; /* 36.4px */
 }
 
+.title_icon_svg img{
+  width: 20px;
+  height: 20px;
+}
+
 ::-webkit-scrollbar {
   width:3px;
 }

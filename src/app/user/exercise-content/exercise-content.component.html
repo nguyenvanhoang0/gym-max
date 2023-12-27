@@ -15,8 +15,8 @@
         <div class="main">
             <div *ngFor="let monthData of bigExercisesMonthlyData | keyvalue" class="item_main">
                 <div class=" timeStart">
-                    <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"
-                        class="octicon octicon-git-commit">
+                    <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24"
+                        data-view-component="true" class="octicon octicon-git-commit">
                         <path
                             d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
                         </path>
@@ -26,8 +26,24 @@
                 <div class="my_big_exercise">
                     <div class="big_exercise">
                         <div class="exercise flex" *ngFor="let exercise of monthData.value">
-                            <div class="avatar"><img src="{{exercise?.bigExercise?.author?.avatarPath}}" alt=""></div>
-                            <div>{{ exercise?.bigExercise?.target }}</div>
+                            <div class="flex">
+                                <div class="avatar"><img src="{{exercise?.bigExercise?.author?.avatarPath}}" alt="">
+                                </div>
+                                <div>{{ exercise?.bigExercise?.target }}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">
+                                    <svg aria-label="feed item heading menu" role="img" height="16" viewBox="0 0 16 16"
+                                        version="1.1" width="16" data-view-component="true"
+                                        class="octicon octicon-kebab-horizontal feed-item-heading-menu-button mr-1">
+                                        <path
+                                            d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z">
+                                        </path>
+                                    </svg>
+                                </div>  
+                                <div class="private">{{ exercise?.bigExercise?.private ? 'Private' : 'Public' }}</div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

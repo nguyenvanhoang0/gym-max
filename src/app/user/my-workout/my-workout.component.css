@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.my_workout > div {
+.my_workout>div {
   margin-top: 20px;
 }
 
@@ -49,8 +49,7 @@ td:hover {
   background-color: #e6e6e6;
 }
 
-.select_month
- {
+.select_month {
   border: 1px solid #ddd;
 }
 
@@ -79,7 +78,7 @@ td:hover {
 .select_month .month:hover {
   background: #C4CCF8;
   color: #3A57E8;
-  
+
 }
 
 .today .workout {
@@ -145,6 +144,21 @@ td:hover .group_edit {
   -webkit-filter: brightness(0) invert(1);
 }
 
+.view_type ul{
+  gap: 20px;
+}
+
+.view_type ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view_type ul li:hover{
+  background-color: #c4ccf8;
+  color:#3A57E8 ;
+}
+
 .check_status {
   position: absolute;
   bottom: 10px;
@@ -183,12 +197,12 @@ td:hover .group_edit {
   justify-content: space-between;
 }
 
-.note li:hover{
-  background-color:#C4CCF8 ;
+.note li:hover {
+  background-color: #C4CCF8;
   color: #3A57E8;
 }
 
-.flex{
+.flex {
   align-items: center;
   gap: 10px;
 
@@ -199,18 +213,18 @@ td:hover .group_edit {
   -webkit-filter: brightness(0) invert(1);
 }
 
-.note img:hover{
+.note img:hover {
   filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
 
 }
 
- /* .flex div {
+/* .flex div {
   height: 10px;
   width: 10px;
  
 } */
 
-form{
+form {
   position: fixed;
   top: 0;
   left: 0;
@@ -223,22 +237,22 @@ form{
   background-color: #8595e584;
 }
 
-form > div{
-padding: 40px;
-background-color: white;
-border-radius: 8px;
-display: flex;
-flex-direction: column;
+form>div {
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
-form input{
-width: 50px;
-height: 50px;
-border: none;
-background: none;
+form input {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: none;
 }
 
-form button{
+form button {
   width: 100%;
   margin-top: 10px;
   border: none;
@@ -246,15 +260,74 @@ form button{
   padding: 5px;
 }
 
-form button:hover{
+form button:hover {
   background-color: rgb(59, 224, 83);
 }
 
 /* ______________________________________________ */
 
-.practiceTimes .timeStart div{
+.content {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.content>div {
+  position: relative;
+}
+
+.title_content {
+  padding: 10px 20px;
+  /* border-radius: 12px 12px 0px 0xp; */
+  background-color: #f6f8fa;
+  justify-content: space-between;
+}
+
+.title_content ul {
+  align-items: center;
+  color: black;
+  gap: 10px;
+
+}
+
+.title_content .user_name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: auto;
+}
+
+.main {
+  padding: 20px 20px 20px 40px;
+}
+
+.item_main:hover .timeStart svg {
+  fill: hsl(235, 71%, 57%);
+}
+
+.practiceTimes .timeStart div {
   padding: 0px 20px;
 }
+
+.practiceTimes:hover svg {
+  fill: #3a57e8;
+}
+
+.practiceTimes:hover .workout {
+  border-left: 1px solid #3a57e8;
+}
+
+
 
 /* .practiceTimes > div{
   position: relative;
@@ -275,13 +348,12 @@ form button:hover{
   transform: translatex(-50%);
 }
 
- .workout{
+.workout {
   width: 100%;
   padding: 20px;
   border-left: 1px solid #333;
 }
 
-.workout div{
+.workout div {
   width: auto;
 }
-
