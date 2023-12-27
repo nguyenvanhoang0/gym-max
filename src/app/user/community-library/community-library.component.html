@@ -7,7 +7,7 @@
                     <div class="target">Target: {{ exercise.target }}</div>
                     <div class="group_genre">
                         <div class="genre" *ngFor="let genre of exercise.generalGenre.$values ,  let i = index">
-                            <div *ngIf="i === 0 ">{{ genre.name }}</div>
+                            <div class="truncate_text" *ngIf="i === 0 ">{{ genre.name }}</div>
                             <div  *ngIf="i > 0">+ {{ i }}
                                 <div class="all_generalGenre">
                                     <ng-container

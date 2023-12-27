@@ -92,6 +92,11 @@ border-bottom: 1px solid var(--e9ecef-Bg-2, #E9ECEF);
     justify-content: center;
     align-items: flex-start;
   }
+
+  .Sidebar_Item{
+    padding: 4px 12px;
+
+  }
   
   .sidebar .text {
     color: var(--8A92A6-Text-Color-2, #8A92A6);

@@ -81,9 +81,6 @@ export class MyWorkoutComponent {
           // Xử lý dữ liệu sau khi nhận được từ API
           this.practiceTimes = response.$values;
           console.log(1);
-          // this.getUniqueColors()
-
-          // this.combineData();
         },
         error: (error) => {
           console.error(error);
@@ -142,6 +139,7 @@ export class MyWorkoutComponent {
 
     // Kết quả sau khi lọc được lưu trong filteredExercise
     // console.log(filteredExercise);
+    // console.log(0);
     return filteredExercise;
   }
 
@@ -218,55 +216,41 @@ export class MyWorkoutComponent {
 
   updateCurrentMonthAndYear(offset: number) {
     const newMonth = this.currentMonth + offset;
-    this.weeks = [];
-    if (newMonth === 0) {
-      this.currentMonth = 12;
-      this.currentYear -= 1;
-      // console.log(4);
-
-    } else if (newMonth === 13) {
-      this.currentMonth = 1;
-      this.currentYear += 1;
-      // console.log(4);
+  
+    if (newMonth === 0 || newMonth === 13) {
+      this.currentMonth = newMonth === 0 ? 12 : 1;
+      this.currentYear += offset > 0 ? 1 : -1;
     } else {
       this.currentMonth = newMonth;
     }
+  
     console.log(4);
-
+  
+    this.weeks = [];
     this.calculateDaysInMonth();
   }
+  
 
   updateCurrentDayAndMonthAndYear(offset: number) {
     let day = this.day + offset;
-    const newMonth = this.currentMonth;
-
-    if (day === 0) {
-      day = this.getDaysInMonth(this.currentYear, this.currentMonth - 1);
-      this.day = this.getDaysInMonth(this.currentYear, this.currentMonth - 1);
-      this.currentMonth -= 1;
-      const newMonth = this.currentMonth;
-      if (newMonth == 0) {
-        this.currentYear -= 1;
-        this.currentMonth = 12;
-      } else {
-        this.currentMonth = newMonth;
-      }
-    } else if (day === this.getDaysInMonth(this.currentYear, this.currentMonth) + 1) {
-      day = 1;
-      this.day = 1;
-      this.currentMonth += 1
-      const newMonth = this.currentMonth;
-      if (newMonth == 13) {
-        this.currentYear += 1;
-        this.currentMonth = 1;
-      }
-      // this.currentYear -= 1;
+  
+    if (day === 0 || day === this.getDaysInMonth(this.currentYear, this.currentMonth - 1) + 1) {
+      const newMonth = day === 0 ? this.currentMonth - 1 : this.currentMonth + 1;
+      const newYear = newMonth === 0 ? this.currentYear - 1 : newMonth === 13 ? this.currentYear + 1 : this.currentYear;
+  
+      this.currentMonth = newMonth === 0 ? 12 : newMonth === 13 ? 1 : newMonth;
+      this.currentYear = newYear;
+  
+      day = day === 0 ? this.getDaysInMonth(this.currentYear, this.currentMonth) : 1;
+      this.day = day;
     } else {
-      this.currentMonth = newMonth;
+      this.currentMonth = this.currentMonth;
     }
+  
     this.calculateDaysInMonth();
     this.clickDay(day, this.currentMonth, this.currentYear);
   }
+  
 
   generateYears(yearsAhead: number): number[] {
     const currentYear = this.currentDate.getFullYear();

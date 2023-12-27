@@ -84,9 +84,16 @@
 
 .genre:first-child {
     display: block;
+    max-width: 60%;
 }
 
 .genre:last-child {
     display: block;
     position: relative;
 }
+
+.truncate_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
