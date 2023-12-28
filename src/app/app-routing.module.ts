@@ -13,7 +13,7 @@ import { ProfileComponent } from './main/profile/profile.component';
 import { TipsComponent } from './main/tips/tips.component';
 import { NewsComponent } from './main/news/news.component';
 import { HealthCardComponent } from './main/health-card/health-card.component';
-import { CreateExerciseComponent } from './main/create-exercise/create-exercise.component';
+import { CreateExerciseComponent } from './user/create-exercise/create-exercise.component';
 
 import { MyWorkoutComponent } from './user/my-workout/my-workout.component';
 import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
@@ -58,6 +58,8 @@ const routes: Routes = [
       { path: 'communityLibrary', component: CommunityLibraryComponent },
       { path: 'bigExerciseDetail/:id', component: BigExerciseDetailsComponent },
       { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },
+      { path: 'createExercise', component: CreateExerciseComponent },
+
     ]
   },
 
@@ -71,7 +73,6 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'tips', component: TipsComponent },
       // { path: 'healthCard', component: HealthCardComponent },
-      { path: 'createExercise', component: CreateExerciseComponent },
     ]
   }
 ];

@@ -102,26 +102,26 @@ export class SidebarUserComponent {
         ]
       },
       {
-        name: 'Item 3',
+        name: 'Create',
         img_1: '../../../assets/svg/map.svg',
         img_2: '../../../assets/svg/Dropdown.svg',
         showChildItem: false,
         url: '/user/contact',
         items: [
           {
-            name: 'Contact',
+            name: 'Create Exercise',
             img: '../../../assets/svg/bulk.svg',
-            url: '/main/contact-us'
+            url: '/user/createExercise'
           },
           {
-            name: 'Location',
+            name: 'Create Target',
             img: '../../../assets/svg/bulk.svg',
-            url: '/main/location'
+            url: '/user/createExercises'
           },
           {
             name: 'Hours',
             img: '../../../assets/svg/bulk.svg',
-            url: '/main/hours'
+            url: '/user/hours'
           }
         ]
       },
