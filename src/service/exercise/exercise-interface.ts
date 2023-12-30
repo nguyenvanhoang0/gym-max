@@ -1,8 +1,13 @@
 export interface ExerciseInterface {
-    name: number;
+    name: string;
     description: string;
-    point: string;
+    point: number;
     userId: number;
-    categoryId: boolean;
+    categoryId: number;
     // status: string;
+}
+
+export interface ExercisesInterface {
+    $id: string;
+    $values: ExerciseInterface[];
 }

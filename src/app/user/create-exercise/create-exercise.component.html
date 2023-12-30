@@ -1,1 +1,10 @@
-<p>create-exercise works!</p>
+<div class="create_exercise text">
+
+    <div class="group_category">
+        <div class="category" *ngFor="let category of categorys" (click)="selectCategory(category.id)" [style.borderColor]="category.defaultColor" 
+        >
+            <div [style.Color]="category.defaultColor">Name: {{ category.name }}</div>
+            <div class="description">{{ category.description }}</div>
+        </div>
+    </div>
+</div>

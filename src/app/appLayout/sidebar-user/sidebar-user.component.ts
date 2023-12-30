@@ -61,11 +61,6 @@ export class SidebarUserComponent {
             url: '/user/myWorkout'
           },
           {
-            name: 'All Exercises',
-            img: '../../../assets/svg/bulk.svg',
-            url: '/user/allExercises'
-          },
-          {
             name: 'Created Exercises',
             img: '../../../assets/svg/bulk.svg',
             url: '/user/createdExercises'
@@ -95,15 +90,15 @@ export class SidebarUserComponent {
             url: '/user/communityLibrary'
           },
           {
-            name: 'Genre library',
+            name: 'exercise library',
             img: '../../../assets/svg/bulk.svg',
-            url: '/user/our-team'
+            url: '/user/allExercises'
           }
         ]
       },
       {
         name: 'Create',
-        img_1: '../../../assets/svg/map.svg',
+        img_1: '../../../assets/svg/add_exercise.svg',
         img_2: '../../../assets/svg/Dropdown.svg',
         showChildItem: false,
         url: '/user/contact',
@@ -116,7 +111,7 @@ export class SidebarUserComponent {
           {
             name: 'Create Target',
             img: '../../../assets/svg/bulk.svg',
-            url: '/user/createExercises'
+            url: '/user/createTarget'
           },
           {
             name: 'Hours',

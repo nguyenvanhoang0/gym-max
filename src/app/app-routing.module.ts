@@ -13,12 +13,14 @@ import { ProfileComponent } from './main/profile/profile.component';
 import { TipsComponent } from './main/tips/tips.component';
 import { NewsComponent } from './main/news/news.component';
 import { HealthCardComponent } from './main/health-card/health-card.component';
+
 import { CreateExerciseComponent } from './user/create-exercise/create-exercise.component';
 
 import { MyWorkoutComponent } from './user/my-workout/my-workout.component';
 import { AllExercisesComponent } from './user/all-exercises/all-exercises.component';
 import { CreatedExercisesComponent } from './user/created-exercises/created-exercises.component';
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
+import { CreateTargetComponent } from './user/create-target/create-target.component';
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
 import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
 import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
@@ -53,6 +55,7 @@ const routes: Routes = [
       { path: 'allExercises', component: AllExercisesComponent },
       { path: 'createdExercises', component: CreatedExercisesComponent },
       { path: 'createExercises', component: CreateExercisesComponent },
+      { path: 'createTarget', component: CreateTargetComponent },
       { path: 'isolationExercises', component: IsolationExercisesComponent },
       { path: 'exerciseContent', component: ExerciseContentComponent },
       { path: 'communityLibrary', component: CommunityLibraryComponent },

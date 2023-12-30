@@ -4,6 +4,7 @@ export interface CategoryInterface {
     description: string;
     point: string;
     userId: number;
+    defaultColor : string;
 }
 
 export interface Category {

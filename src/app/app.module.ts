@@ -42,6 +42,7 @@ import { IsolationExercisesComponent } from './user/isolation-exercises/isolatio
 import { CommunityLibraryComponent } from './user/community-library/community-library.component';
 import { SidebarLeftUserComponent } from './appLayout/sidebar-left-user/sidebar-left-user.component';
 import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sidebar-right-user.component';
+import { CreateTargetComponent } from './user/create-target/create-target.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sideba
     IsolationExercisesComponent,
     CommunityLibraryComponent,
     SidebarLeftUserComponent,
-    SidebarRightUserComponent
+    SidebarRightUserComponent,
+    CreateTargetComponent
   ],
   imports: [
     BrowserModule,

@@ -15,11 +15,7 @@ export interface WorkoutGoal {
   description: string;
 }
 
-export interface categorys {
-  generalGenre: string;
-  categorys: string[];
-  select: boolean;
-}
+
 @Component({
   selector: 'app-create-target',
   templateUrl: './create-target.component.html',
@@ -88,60 +84,13 @@ export class CreateTargetComponent {
     }
   ];
 
-  categoriesData: categorys[] = [
-    {
-      generalGenre: "Bài tập nâng tạ (Weightlifting)",
-      categorys: ["Kéo đẩy (Bench Press)", "Kéo đứng (Deadlift)", "Gác chân (Squats)", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập cardio",
-      categorys: ["Chạy bộ", "Đạp xe", "Bơi lội", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập chức năng (Functional Training)",
-      categorys: ["CrossFit", "HIIT (High-Intensity Interval Training)", "Yoga và Pilates", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập tập trung (Isolation Exercises)",
-      categorys: ["Curl tay (Bicep Curls)", "Extension cơ chân (Leg Extensions)", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập tập trung vào cơ bắp cụ thể",
-      categorys: ["Nâng cằm (Pull-ups/Chin-ups)", "Nâng mông (Glute Bridges)", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập dùng tải trọng cơ thể",
-      categorys: ["Lie Plank", "Push-ups", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập tăng cường linh hoạt (Flexibility Training)",
-      categorys: ["Tập giãn cơ (Stretching)", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "Bài tập bổ trợ (Supplementary Exercises)",
-      categorys: ["Kéo dây (Cable Exercises)", "Bài tập bảo vệ cơ bắp (Prehab Exercises)", "..."],
-      select: false,
-    },
-    {
-      generalGenre: "another type",
-      categorys: ["Do you want to practice another genre?. Please fill in here"],
-      select: false,
-    },
-
-  ];
+  
 
 
   constructor(
     private bigExercisesService: BigExercisesService,
     private generalGenreService: GeneralGenreService,
-    private igExerciseGeneralGenreService: BigExerciseGeneralGenreService,
+    private bigExerciseGeneralGenreService: BigExerciseGeneralGenreService,
     private userService: UserService,
     private router: Router
     // private route: ActivatedRoute
@@ -181,7 +130,7 @@ export class CreateTargetComponent {
         bigExerciseId: createdBigExerciseid,
         generalGenreId: category.id,
       };
-      this.igExerciseGeneralGenreService.createBigExerciseGeneralGenre(formData ).subscribe(
+      this.bigExerciseGeneralGenreService.createBigExerciseGeneralGenre(formData ).subscribe(
         (response) => {
           console.log('Dữ liệu đã được gửi lên API thành công:', response);
         },

@@ -1,0 +1,43 @@
+.create_exercise {
+    padding: 40px;
+}
+
+.group_category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.category:hover {
+    background: #C4CCF8;
+    color: #3A57E8 !important;
+    border-color: #3A57E8 !important;
+}
+
+.category:hover .description {
+    display: block;
+}
+
+.description {
+    padding: 10px;
+    display: none;
+    max-height: 100px;
+    overflow: auto;
+    width: 100%;
+    min-width: 120px;
+    position: absolute;
+    top: -115px;
+    left: 0px;
+    border: #ccc 1px solid;
+    border-radius: 4px;
+    z-index: 100;
+    background-color: white;
+}

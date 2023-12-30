@@ -19,8 +19,8 @@ export class CategoryService {
     );
   }
 
-  getCategory(): Observable<CategoryInterface> {
-    return this.http.get<CategoryInterface>(`${this.apiUrl}/getCategory`);
+  getCategory(): Observable<Category> {
+    return this.http.get<Category>(`${this.apiUrl}/getCategory`);
   }
 
 
