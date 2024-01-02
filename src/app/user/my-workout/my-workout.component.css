@@ -89,7 +89,7 @@ td:hover {
 }
 
 .currentMonth {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   color: black;
 }
 
@@ -174,11 +174,11 @@ td:hover .group_edit {
 
 /* Trong component.css */
 .past_day {
-  background-color: #00930a63;
+  background-color: #13b01e63;
 }
 
 .today_day {
-  background-color: #03a9f4;
+  background-color: #03a8f483;
 }
 
 /* 

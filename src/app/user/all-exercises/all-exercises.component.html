@@ -1,9 +1,30 @@
-<div *ngFor="let exercise of exercise">
-    <h3>{{ exercise.name }}</h3>
-    <!-- <p>ID: {{ exercise.id }}</p> -->
-    <p>Point: {{ exercise.point }}</p>
-    <p>Description: {{ exercise.description }}</p>
-    <p>User ID: {{ exercise.userId }}</p>
+<div class="all_exercises">
+  <div class="content">
+    <div class="title_content flex">
+      <ul>
+        <li class="avatar"><img src="{{userInfo?.avatarPath}}" alt=""></li>
+        <li class="user_name">{{userInfo?.username}}</li>
+        <li>{{userInfo?.role}}</li>
+    </ul>
+    <ul>
+        <li>finished</li>
+        <li>practicing</li>
+        <li>upcoming</li>
+    </ul>
+    </div>
+    <div *ngFor="let exercise of exercise" class="flex exercises">
+      <div class="information">
+        <p class="exercise_name">{{ exercise.name }}</p>
+        <p>Description: {{ exercise.description }}</p>
+
+      </div>
+      <div class="flex_end">
+        <p class="point">Point: {{ exercise.point }}</p>
+
+      </div>
+      <!-- <p>ID: {{ exercise.id }}</p> -->
+      <!-- <p>User ID: {{ exercise.userId }}</p> -->
     
-    <hr>
+    </div>
   </div>
+</div>

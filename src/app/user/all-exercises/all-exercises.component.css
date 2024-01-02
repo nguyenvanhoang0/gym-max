@@ -1,0 +1,74 @@
+.all_exercises {
+    padding: 40px;
+    width: 100%;
+}
+
+.content {
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+.content>div {
+    position: relative;
+}
+
+.title_content {
+    padding: 10px 20px;
+    /* border-radius: 12px 12px 0px 0xp; */
+    background-color: #f6f8fa;
+    justify-content: space-between;
+}
+
+.title_content ul {
+    align-items: center;
+    color: black;
+    gap: 10px;
+
+}
+
+.title_content .user_name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.exercises {
+    /* gap: 10px; */
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+
+
+.exercises:hover {
+    background-color: rgb(218, 231, 252);
+    color: black;
+}
+
+.exercise_name {
+    font-size: 14px;
+    color: black;
+}
+
+.point {
+    padding: 5px 10px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+}
+
+.point:hover {
+    border: 1px solid #000000;
+}

@@ -52,7 +52,7 @@ p {
 
 form {
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
   padding: 20px 200px;
   border-radius: 8px;
   display: flex;
@@ -80,6 +80,8 @@ button {
   max-width: 40%;
   border-radius: 4px;
   border: 1px solid gray;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 form input[type="radio"]{
@@ -91,6 +93,12 @@ form input[type="radio"]{
 
 .flex {
   display: flex;
+}
+
+.flex_end{
+  display: flex;
+  align-items: center;
+  
 }
 
 .center {
