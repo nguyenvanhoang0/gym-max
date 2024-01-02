@@ -7,13 +7,21 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
+
+}
+
+.name_category{
+    padding: 5px 10px;
+    text-align: center;
+
 }
 
 .category {
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 5px 10px;
     position: relative;
+    min-width: 170px;
+    overflow: hidden;
 }
 
 .category:hover {

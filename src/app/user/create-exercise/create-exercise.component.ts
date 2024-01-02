@@ -20,10 +20,10 @@ export class CreateExerciseComponent {
   categorys: CategoryInterface[] = [];
   userInfo: User | null = null;
   exerciseData = {
-    name: 'Tên bài tập',
-    description: 'Mô tả bài tập',
-    point: 100,
-    categoryId: 1
+    name: '',
+    description: '',
+    point: 0,
+    categoryId: 0
   };
 
 
@@ -54,8 +54,8 @@ export class CreateExerciseComponent {
   selectCategory(categoryId: number) {
     this.exerciseData.categoryId = categoryId;
     console.log(this.exerciseData);
-    
   }
+  
 
   onSubmit() {
     this.userService.getUserInfo().subscribe(

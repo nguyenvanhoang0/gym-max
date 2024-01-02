@@ -1,10 +1,36 @@
 <div class="create_exercise text">
-
-    <div class="group_category">
-        <div class="category" *ngFor="let category of categorys" (click)="selectCategory(category.id)" [style.borderColor]="category.defaultColor" 
-        >
-            <div [style.Color]="category.defaultColor">Name: {{ category.name }}</div>
-            <div class="description">{{ category.description }}</div>
+    <form (ngSubmit)="onSubmit()">
+        <div class="text_16_title">
+            <div>Create New Exercises</div>
+            <div class="text_13">
+                Creating new exercises can be a fun and creative way to make your workout regimen interesting and
+                challenging.
+            </div>
         </div>
-    </div>
+
+        <div class="form">
+            <label for="name">Exercise name:</label>
+            <input type="text" id="name" [(ngModel)]="exerciseData.name" name="name" required />
+            #tip
+        </div>
+
+        <div class="form">
+            <label for="description">Exercise description:</label>
+            <textarea id="description" [(ngModel)]="exerciseData.description" name="description" required></textarea>
+            #tip
+        </div>
+
+        <div class="group_category">
+            <label for="description">category</label>
+            <div class="category" *ngFor="let category of categorys" (click)="selectCategory(category.id) "
+                [style.borderColor]="category.defaultColor">
+                <div class="name_category" [class.click_color]="category.id == exerciseData.categoryId"
+                    [style.Color]="category.defaultColor">{{ category.name }}</div>
+                <div class="description">{{ category.description }}</div>
+            </div>
+        </div>
+        #tip
+        <button class="submit" type="submit">Submit</button>
+
+    </form>
 </div>
