@@ -130,6 +130,8 @@ export class CreateTargetComponent {
         bigExerciseId: createdBigExerciseid,
         generalGenreId: category.id,
       };
+      console.log(formData);
+      
       this.bigExerciseGeneralGenreService.createBigExerciseGeneralGenre(formData ).subscribe(
         (response) => {
           console.log('Dữ liệu đã được gửi lên API thành công:', response);

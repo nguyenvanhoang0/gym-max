@@ -35,6 +35,10 @@
     display: block;
 }
 
+.category:hover .name_category{
+    color: #3A57E8 !important;
+}
+
 .description {
     padding: 10px;
     display: none;

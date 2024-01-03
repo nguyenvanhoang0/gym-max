@@ -1,5 +1,5 @@
 <div class="create_exercises text">
-    <form (ngSubmit)="onSubmit()">
+    <form class="form_create_exercises" (ngSubmit)="onSubmit()">
         <div class="text_16_title">
             <div>Create New Target</div>
             <div class="text_13">
@@ -10,7 +10,7 @@
         <div class="form">
             <label for="target">Target:</label>
             <input type="text" id="target" #targetInput name="target" [(ngModel)]="formData.target"
-                 value="{{targetInputs}}">
+                value="{{targetInputs}}">
             #tip
             <div class="flex">
                 <div class="tip" *ngFor="let goal of goals" (click)="selectKeyword(goal.name)">
@@ -24,19 +24,37 @@
             <label for="category">Category:</label>
             <input type="text" id="category" placeholder="search could type">
             <div class="flex">
-                <div class="tip" *ngFor="let categorie of allGeneralGenre ; let last = last" (click)="toggleSelect(categorie)">
+                <div class="tip" *ngFor="let categorie of allGeneralGenre ; let last = last"
+                    (click)="toggleSelect(categorie)">
                     <div class="suggest" [class.select]="categorie.select">{{categorie.name}}</div>
                     <div class="Suggested_details">
                         {{categorie.description}}
                     </div>
                 </div>
                 <div class="tip" (click)="toggleFormCreatecategory()">
-                    <div class="suggest" >Others</div>
+                    <div class="suggest">Others</div>
                     <div class="Suggested_details">
                         Can't find the genre you need? Create your own new category
                     </div>
                 </div>
             </div>
+            <div class="selected_group" *ngIf="allGeneralGenre && allGeneralGenre.length > 1">
+                <div class="selected" *ngFor="let genre of allGeneralGenre">
+                    <ng-container *ngIf="genre.select">
+                        <div class="">
+                            <div class="selected_content">
+                                <p class="genre_name">{{ genre.name }}</p>
+                                <p>Description: {{ genre.description }}</p>
+                            </div>
+                            <div class="unchecked" (click)="toggleSelect(genre)">
+                                <img src="../../../assets/svg/icon_svg/trash3.svg" alt="">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+
         </div>
 
         <div class="form">
@@ -73,11 +91,12 @@
                 </label>
             </div>
         </div>
-        <button type="submit">Submit</button>
+        <button class="submit" type="submit">Submit</button>
     </form>
 </div>
 
-<div class="form_create_category text" [class.form_create_category_open]="formCreatecategory" (click)="toggleFormCreatecategory()">
+<div class="form_create_category text" [class.form_create_category_open]="formCreatecategory"
+    (click)="toggleFormCreatecategory()">
     <form action="" (click)="onChildClick($event)" (ngSubmit)="onSubmitCategory()">
         <div class="text_16_title">create new category</div>
         <div class="form">
@@ -90,7 +109,7 @@
             <label for="target">description :</label>
             <textarea name="description" [(ngModel)]="formDataCategory.description"></textarea>
             #tip
-            
+
         </div>
         <button type="submit" (click)="toggleFormCreatecategory()">Submit</button>
     </form>

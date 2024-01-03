@@ -1,6 +1,12 @@
 .create_exercises {
-    padding: 40px;
+    padding: 40px 40px 80px 40px;
     width: 100%;
+    position: relative;
+
+}
+
+.form_create_exercises{
+    position: relative;
 }
 
 form {
@@ -56,7 +62,7 @@ form input[type="radio"]{
     cursor: pointer;
 }
 
-button {
+/* button {
     margin-top: 20px;
     right: 0;
     border: none;
@@ -66,7 +72,7 @@ button {
 
 button:hover{
     background-color: rgb(24, 150, 74);
-}
+} */
 
 .tip{
     position: relative;
@@ -94,6 +100,52 @@ button:hover{
     z-index: 2;
 }
 
+.selected_group{
+    margin-top: 20px;
+    /* padding: 0px 15px 0px 0px; */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.selected >div:not(:last-child){
+    border-bottom:1px solid #ccc ;
+}
+
+
+
+.selected > div{
+    padding: 10px 20px;
+    border-bottom:1px solid #ccc ;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selected_content{
+    width: 80%;
+}
+
+.genre_name{
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.unchecked{
+    display: none;
+}
+
+.selected:hover{
+    background: #C4CCF8;
+    color: #3A57E8 !important;
+    border-color: #3A57E8 !important;
+}
+
+.selected:hover .unchecked{
+display: block;
+}
+
 .tip .suggest:hover{
     background-color: rgb(25, 189, 90);
     color: rgb(255, 255, 255);
@@ -112,21 +164,29 @@ button:hover{
     color: white;
 }
 
+.submit{
+    position: fixed;
+    left: 50%;
+    bottom: 10vh;
+    transform: translateX(-50%);
+}
+
 .form_create_category{
     left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
+    top: 0px;
+
     padding: 200px 400px;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(154, 154, 154, 0.462);
     z-index: 3;
     display: none;
     transition: 1s;
   }
-
+.form_create_category form{
+    background-color: white;
+}
 .form_create_category_open{
     display: block;
     transition: 1s;
