@@ -1,15 +1,88 @@
-<div *ngIf="targetData">
-    <h2>{{ targetData.target }}</h2>
-    <p>Status: {{ targetData.status }}</p>
-    <p>Private: {{ targetData.private }}</p>
-    
-    <div *ngIf="targetData.exercises && targetData.exercises.$values">
-      <h3>Exercises:</h3>
-      <div *ngFor="let exercise of targetData.exercises.$values">
-        <p>{{ exercise.name }} - Quantity: {{ exercise.quantity }} - Time: {{ exercise.time }} minutes</p>
-        <!-- Hiển thị các thông tin khác của exercise -->
-      </div>
+<div>
+    <div class="target_details" *ngIf="targetData">
+        <div class="">
+            <div class="title_target flex">
+                <div class="flex target">
+                    <img class="avatar" src="{{ targetData.author.avatarPath }}" alt="">
+                    <p>{{ targetData.target }}</p>
+                </div>
+                <div class="flex">
+                    <div class="Private center">{{ targetData.private ? 'Private' : 'Public' }}</div>
+                    <div class="Private center">Status: {{ targetData.status }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="group_exercise">
+                <div class="title_exercise flex">
+                    <div>{{targetData.author.username}} / {{targetData.author.role}}</div>
+                    <div class="flex">
+                        <img src="../../../assets/svg/book.svg" alt="">
+                        <p> {{targetData.exercises.$values.length}} exercises</p>
+                    </div>
+                </div>
+                <div class="exercise" *ngIf="targetData.exercises && targetData.exercises.$values && viewCategories == ''">
+                    <div *ngFor="let exercise of targetData.exercises.$values">
+                        <div class=" timeStart">
+                            <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24"
+                                data-view-component="true" class="octicon octicon-git-commit">
+                                <path
+                                    d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
+                                </path>
+                            </svg>
+                            <div>TimeStart : {{ exercise.timeStart }}</div>
+                        </div>
+                        <div class="content">
+                            <p>{{ exercise.name }} - Quantity: {{ exercise.quantity }} - Time: {{ exercise.time }}
+                                minutes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise" *ngIf="targetData.exercises && targetData.exercises.$values && viewCategories !== ''">
+                    <div *ngFor="let exercise of targetData.exercises.$values">
+                        <ng-container *ngIf="viewCategories == exercise.categoryName">
+                        <div class=" timeStart" >
+                            <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24"
+                                data-view-component="true" class="octicon octicon-git-commit">
+                                <path
+                                    d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
+                                </path>
+                            </svg>
+                            <div>TimeStart : {{ exercise.timeStart }}</div>
+                        </div>
+                        <div class="content">
+                            <p>{{ exercise.name }} - Quantity: {{ exercise.quantity }} - Time: {{ exercise.time }}
+                                minutes</p>
+                        </div>
+                    </ng-container>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="other">
+                <div class="about">
+                    <div class="title_about">About</div>
+                    <ul class="content_about ">
+                        <li><img src="../../../assets/svg/icon_svg/hand-thumbs-up.svg" alt=""> {{targetData.point}} point</li>
+                        <li><img src="../../../assets/svg/icon_svg/star.svg" alt=""> 0 follow </li>
+                        <li><img src="../../../assets/svg/icon_svg/copy.svg" alt="">0 cloned</li>
+                        <li><img src="../../../assets/svg/icon_svg/eye.svg" alt="">0 view</li>
+                    </ul>
+                </div>
+                <div class="group_category">
+                    <div class="title_category">Category</div>
+                    <div class="flex content_category">
+                        <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)">
+                            <div [style.background-color]="category.color"></div>
+                            <div>{{category.name}} </div>
+                            <div>x{{category.quantity}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    
-    <p>Author: {{ targetData.author.username }}</p>
-  </div>
+</div>

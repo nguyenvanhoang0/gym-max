@@ -154,6 +154,11 @@ form input[type="radio"]{
   color: #3A57E8;
 }
 
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .text_13 {

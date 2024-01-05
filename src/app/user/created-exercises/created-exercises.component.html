@@ -10,7 +10,10 @@
                         <div *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">
 
                             <div *ngIf="i === 0 ">{{ generalGenre.name }}</div>
-                            <div *ngIf="i > 0">+ {{ i }}
+                            
+                        </div>
+                        <div>
+                            <div *ngIf="myBigExercise.generalGenre.$values.length > 0">+ {{ myBigExercise.generalGenre.$values.length -1 }}
                                 <div class="all_generalGenre">
                                     <ng-container
                                         *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">

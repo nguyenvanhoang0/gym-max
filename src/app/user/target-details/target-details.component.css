@@ -1,0 +1,146 @@
+.target_details {
+    padding: 40px;
+    width: 100%;
+}
+
+.title_target {
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.title_target .flex {
+    gap: 20px;
+}
+
+.target {
+    align-items: center;
+    font-size: 14px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.Private {
+    padding: 5px 15px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.main {
+    margin-top: 20px;
+    display: flex;
+    gap: 5%;
+}
+
+.main .group_exercise {
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.exercise {
+    padding: 20px 20px 20px 40px;
+}
+
+.group_exercise {
+    width: 65%;
+}
+
+.title_exercise {
+    padding: 20px;
+    background-color: #ecf3fa;
+    justify-content: space-between;
+}
+
+.title_exercise>div {
+    align-items: center;
+    gap: 10px;
+}
+
+.title_exercise p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.timeStart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+    left: 0px;
+}
+
+.timeStart svg {
+    position: absolute;
+    transform: translatex(-50%);
+}
+
+.timeStart>div {
+    padding: 0 20px;
+}
+
+.content {
+    border-left: 1px solid #ccc;
+    padding: 10px 20px;
+}
+
+.content p {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.other {
+    flex: 1;
+}
+
+.other>div {
+    border-bottom: 1px solid #ccc;
+    margin: 0px 0px 20px 0px;
+}
+
+.group_category>div {
+    display: flex;
+    gap: 20px;
+
+}
+
+.title_category,
+.title_about {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.content_category,
+.content_about {
+    margin: 15px 0px;
+}
+
+.content_about {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content_about li{
+    display: flex;
+    gap: 10px;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category>div:first-child {
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+}
