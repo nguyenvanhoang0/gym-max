@@ -1,5 +1,7 @@
 
 import { GeneralGenre , GeneralGenreInterface , createGeneralGenre } from '../general_genre/general-genre-interface';
+import { IExercise , IExercises } from '../exercise/exercise-interface';
+import {  IAuthor} from '../user/user-interface';
 
 
 export interface createdWorkoutsInterface {
@@ -15,24 +17,24 @@ export interface bigExercises {
     userId: number;
     private: boolean;
     status: string;
-    exercises :exerciseInterface[];
+    exercises :IExercises[];
 }
 
-export interface exerciseInterface {
-    $id: string;
-    $values: exercise[];
-}
+// export interface exerciseInterface {
+//     $id: string;
+//     $values: ExerciseInterface[];
+// }
 
-export interface exercise {
-    id: number;
-    content: string;
-    quantity: number;
-    time: number;
-    category: string;
-    point: number;
-    userId: number;
-    evaluate: number;
-}
+// export interface exercise {
+//     id: number;
+//     content: string;
+//     quantity: number;
+//     time: number;
+//     category: string;
+//     point: number;
+//     userId: number;
+//     evaluate: number;
+// }
 
 export interface bigExercisesByAuthor {
     $id: string;
@@ -53,13 +55,23 @@ export interface bigExercisesByAuthor {
       educationLevel: string;
       role: string;
 
-      generalGenre: {
-        $id: string;
-        $values: GeneralGenreInterface[];
-      };
+      generalGenre: GeneralGenre
     }[];
   }
   
+
+  export interface targetData {
+    $id: string;
+    id: number;
+    target: string;
+    point: number;
+    userId: number;
+    status: string;
+    private: boolean;
+    generalGenre: GeneralGenre;
+    exercises: IExercises;
+    author: IAuthor;
+  }
   
   
   

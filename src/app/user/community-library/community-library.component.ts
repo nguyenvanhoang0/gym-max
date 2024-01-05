@@ -36,7 +36,7 @@ export class CommunityLibraryComponent {
   }
 
   GetAllPublicBigExercises() {
-    this.bigExercisesService.GetAllPublicBigExercises().subscribe(
+    this.bigExercisesService.getAllPublicBigExercises().subscribe(
       (response) => {
         this.myBigExercises = response.$values;
         console.log(this.myBigExercises);

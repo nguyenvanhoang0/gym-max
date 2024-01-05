@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryInterface } from '../../../service/Category/category-interface';
 import { CategoryService } from '../../../service/Category/category.service';
 
-import { ExerciseInterface } from '../../../service/exercise/exercise-interface';
+// import { ExerciseInterface } from '../../../service/exercise/exercise-interface';
 import { ExerciseService } from '../../../service/exercise/exercise.service';
 
 import { UserService } from '../../../service/user/user-service.service';

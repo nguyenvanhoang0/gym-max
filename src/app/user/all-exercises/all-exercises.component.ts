@@ -3,7 +3,7 @@ import { User, UserInterface, AddUserInformation } from '../../../service/user/u
 import { UserService } from '../../../service/user/user-service.service';
 
 import { ExerciseService } from '../../../service/exercise/exercise.service';
-import { ExerciseInterface , ExercisesInterface} from '../../../service/exercise/exercise-interface';
+import { IExercise , IExercises} from '../../../service/exercise/exercise-interface';
 
 @Component({
   selector: 'app-all-exercises',
@@ -12,7 +12,7 @@ import { ExerciseInterface , ExercisesInterface} from '../../../service/exercise
 })
 export class AllExercisesComponent {
   userInfo: User | null = null;
-  exercise: ExerciseInterface[] = [];
+  exercise: IExercise[] = [];
 
   constructor(
     

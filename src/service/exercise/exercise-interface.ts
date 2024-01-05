@@ -1,4 +1,4 @@
-export interface ExerciseInterface {
+export interface ICreateExercise{
     name: string;
     description: string;
     point: number;
@@ -7,7 +7,25 @@ export interface ExerciseInterface {
     // status: string;
 }
 
-export interface ExercisesInterface {
-    $id: string;
-    $values: ExerciseInterface[];
+
+export interface IExercise{
+    name: string;
+    description: string;
+    point: number;
+    userId: number;
+    categoryId: number;
+    timeStart: string;
+    exerciseId: number;
+    quantity: number;
+    time: number;
+    categoryName: string;
+    descriptionCategory: string;
+    // status: string;
 }
+
+export interface IExercises {
+    $id: string;
+    $values: IExercise[];
+}
+
+

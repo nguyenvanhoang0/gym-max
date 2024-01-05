@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
@@ -17,6 +20,7 @@ export class ExerciseContentComponent implements OnInit {
   constructor(
     private myWorkoutService: MyWorkoutService,
     private userService: UserService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -72,4 +76,10 @@ export class ExerciseContentComponent implements OnInit {
       }
     );
   }
+
+  navigateToTargetDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/TargetDetails', exerciseId]);
+  }
+  
 }

@@ -29,4 +29,14 @@ export interface AddUserInformation {
     key: string;
     value: string;
   }
+
+  export interface IAuthor {
+    $id: string;
+    id: number;
+    username: string;
+    email: string;
+    avatarPath: string;
+    educationLevel: string;
+    role: string;
+  }
   

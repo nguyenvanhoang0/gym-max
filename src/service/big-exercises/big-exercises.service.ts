@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { createdWorkoutsInterface  ,bigExercises, bigExercisesByAuthor} from './big-exercises-interface';
+import { targetData  ,bigExercises, bigExercisesByAuthor} from './big-exercises-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,12 +18,16 @@ export class BigExercisesService {
     return this.http.get<bigExercisesByAuthor>(`${this.apiUrl}/GetBigExercisesByAuthor/${userId}`);
   }
 
-  getBigExerciseDetails(id: number): Observable<bigExercises> {
-    return this.http.get<bigExercises>(`${this.apiUrl}/GetBigExerciseWithRelatedDataById/${id}`);
+  // getBigExerciseDetails(id: number): Observable<bigExercises> {
+  //   return this.http.get<bigExercises>(`${this.apiUrl}/GetBigExerciseWithRelatedDataById/${id}`);
+  // }
+
+  getAllPublicBigExercises(): Observable<bigExercisesByAuthor> {
+    return this.http.get<bigExercisesByAuthor>(`${this.apiUrl}/GetAllPublicBigExercises`);
   }
 
-  GetAllPublicBigExercises(): Observable<bigExercisesByAuthor> {
-    return this.http.get<bigExercisesByAuthor>(`${this.apiUrl}/GetAllPublicBigExercises`);
+  getBigExerciseWithRelatedDataById(id: number): Observable<targetData> {
+    return this.http.get<targetData>(`${this.apiUrl}/GetBigExercisesWithRelatedData/${id}`);
   }
 
 }

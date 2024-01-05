@@ -43,6 +43,7 @@ import { CommunityLibraryComponent } from './user/community-library/community-li
 import { SidebarLeftUserComponent } from './appLayout/sidebar-left-user/sidebar-left-user.component';
 import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sidebar-right-user.component';
 import { CreateTargetComponent } from './user/create-target/create-target.component';
+import { TargetDetailsComponent } from './user/target-details/target-details.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CreateTargetComponent } from './user/create-target/create-target.compon
     CommunityLibraryComponent,
     SidebarLeftUserComponent,
     SidebarRightUserComponent,
-    CreateTargetComponent
+    CreateTargetComponent,
+    TargetDetailsComponent
   ],
   imports: [
     BrowserModule,

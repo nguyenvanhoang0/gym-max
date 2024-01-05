@@ -1,0 +1,15 @@
+<div *ngIf="targetData">
+    <h2>{{ targetData.target }}</h2>
+    <p>Status: {{ targetData.status }}</p>
+    <p>Private: {{ targetData.private }}</p>
+    
+    <div *ngIf="targetData.exercises && targetData.exercises.$values">
+      <h3>Exercises:</h3>
+      <div *ngFor="let exercise of targetData.exercises.$values">
+        <p>{{ exercise.name }} - Quantity: {{ exercise.quantity }} - Time: {{ exercise.time }} minutes</p>
+        <!-- Hiển thị các thông tin khác của exercise -->
+      </div>
+    </div>
+    
+    <p>Author: {{ targetData.author.username }}</p>
+  </div>
