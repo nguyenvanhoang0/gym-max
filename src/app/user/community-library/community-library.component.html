@@ -2,7 +2,7 @@
     <div class="public_big_exercises">
         <div class="big_exercises">
             <div class="big_exercise"
-                *ngFor="let exercise of myBigExercises | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+                *ngFor="let exercise of myBigExercises | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" (click)="navigateToTargetDetails(exercise.id)">
                 <div class=" exercise">
                     <div class="target">Target: {{ exercise.target }}</div>
                     <div class="group_genre">

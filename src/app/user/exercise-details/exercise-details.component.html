@@ -1,1 +1,26 @@
-<p>exercise-details works!</p>
+<!-- exerciseData.component.html -->
+
+<div *ngIf="exerciseData">
+    <h2>{{ exerciseData.name }}</h2>
+    <p>{{ exerciseData.description }}</p>
+    <p>Number of Uses: {{ exerciseData.numberOfUses }}</p>
+    <p>Number of Users: {{ exerciseData.numberOfUsers }}</p>
+  
+    <h3>Author:</h3>
+    <div>
+      <img [src]="exerciseData.author.avatarPath" alt="{{ exerciseData.author.username }}'s Avatar">
+      <p>{{ exerciseData.author.username }}</p>
+      <p>{{ exerciseData.author.educationLevel }}</p>
+    </div>
+  
+    <h3>Targets:</h3>
+    <div *ngFor="let target of exerciseData.target.$values">
+      <div>
+        <img [src]="target.author.avatarPath" alt="{{ target.author.username }}'s Avatar">
+        <p>{{ target.target }}</p>
+        <p>Point: {{ target.point }}</p>
+        <p>Status: {{ target.status }}</p>
+      </div>
+    </div>
+  </div>
+  

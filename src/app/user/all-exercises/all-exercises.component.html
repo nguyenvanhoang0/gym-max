@@ -12,7 +12,7 @@
         <li>upcoming</li>
     </ul>
     </div>
-    <div *ngFor="let exercise of exercise" class="flex exercises">
+    <div *ngFor="let exercise of exercise" class="flex exercises" (click)="navigateToExerciseDetails(exercise.id)">
       <div class="information">
         <p class="exercise_name">{{ exercise.name }}</p>
         <p>Description: {{ exercise.description }}</p>

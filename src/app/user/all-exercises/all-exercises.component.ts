@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
@@ -15,7 +19,7 @@ export class AllExercisesComponent {
   exercise: IExercise[] = [];
 
   constructor(
-    
+    private router: Router,
     private userService: UserService,
     private exerciseService: ExerciseService,
     
@@ -59,6 +63,11 @@ export class AllExercisesComponent {
         }
       }
     );
+  }
+
+  navigateToExerciseDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/exerciseDetail', exerciseId]);
   }
 
 }

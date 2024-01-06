@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
-import {IExercise , IExercises , ICreateExercise} from './exercise-interface';
+import {IExercise , IExercises , ICreateExercise , IExerciseDetails} from './exercise-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,9 @@ export class ExerciseService {
     return this.http.get<IExercise>(`${this.apiUrl}/getExercise`);
   }
 
+  getExerciseById(userId: number): Observable<IExerciseDetails> {
+    return this.http.get<IExerciseDetails>(`${this.apiUrl}/getExerciseById/${userId}`);
+  }
   getExerciseByUserId(userId: number): Observable<IExercises> {
     return this.http.get<IExercises>(`${this.apiUrl}/getExerciseByUserId/${userId}`);
   }

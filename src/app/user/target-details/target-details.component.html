@@ -74,7 +74,7 @@
                 <div class="group_category">
                     <div class="title_category">Category</div>
                     <div class="flex content_category">
-                        <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)" >
+                        <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)" [class.click_color]="category.name == viewCategories ">
                             <div [style.background-color]="category.color"></div>
                             <div>{{category.name}} </div>
                             <div>x{{category.quantity}}</div>
