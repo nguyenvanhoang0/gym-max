@@ -66,6 +66,7 @@ export interface bigExercisesByAuthor {
     target: string;
     point: number;
     userId: number;
+    followers:  number;
     status: string;
     private: boolean;
     generalGenre: GeneralGenre;

@@ -1,9 +1,9 @@
 <div class="created_workouts text">
     <div class="group_workouts">
-        <div class="workouts" *ngFor="let myBigExercise of myBigExercises">
+        <div class="workouts" *ngFor="let myBigExercise of myBigExercises" (click)="navigateToBigExerciseDetails(myBigExercise.id)">
             <div class="">
                 <div class="content big_exercises">
-                    <div class="target" (click)="navigateToBigExerciseDetails(myBigExercise.id)">
+                    <div class="target" >
                         Target : {{myBigExercise.target}}
                     </div>
                     <div class="generalGenre">
@@ -12,8 +12,8 @@
                             <div *ngIf="i === 0 ">{{ generalGenre.name }}</div>
                             
                         </div>
-                        <div>
-                            <div *ngIf="myBigExercise.generalGenre.$values.length > 0">+ {{ myBigExercise.generalGenre.$values.length -1 }}
+                        <div *ngIf="myBigExercise.generalGenre.$values.length > 1">
+                            <div >+ {{ myBigExercise.generalGenre.$values.length -1 }}
                                 <div class="all_generalGenre">
                                     <ng-container
                                         *ngFor="let generalGenre of myBigExercise.generalGenre.$values ,  let i = index">

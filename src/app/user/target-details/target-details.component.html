@@ -66,7 +66,7 @@
                     <div class="title_about">About</div>
                     <ul class="content_about ">
                         <li><img src="../../../assets/svg/icon_svg/hand-thumbs-up.svg" alt=""> {{targetData.point}} point</li>
-                        <li><img src="../../../assets/svg/icon_svg/star.svg" alt=""> 0 follow </li>
+                        <li><img src="../../../assets/svg/icon_svg/star.svg" alt=""> {{targetData.followers}} followers </li>
                         <li><img src="../../../assets/svg/icon_svg/copy.svg" alt="">0 cloned</li>
                         <li><img src="../../../assets/svg/icon_svg/eye.svg" alt="">0 view</li>
                     </ul>
@@ -74,7 +74,7 @@
                 <div class="group_category">
                     <div class="title_category">Category</div>
                     <div class="flex content_category">
-                        <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)">
+                        <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)" >
                             <div [style.background-color]="category.color"></div>
                             <div>{{category.name}} </div>
                             <div>x{{category.quantity}}</div>

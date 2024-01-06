@@ -20,6 +20,7 @@ export interface IExercise{
     time: number;
     categoryName: string;
     descriptionCategory: string;
+    defaultColor: string;
     // status: string;
 }
 

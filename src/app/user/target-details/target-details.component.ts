@@ -56,8 +56,7 @@ export class TargetDetailsComponent {
     if (this.targetData) {
       this.targetData.exercises?.$values.forEach((exercise: any) => {
         const categoryName = exercise.categoryName;
-        const defaultColor = exercise.default_color;
-
+        const defaultColor = exercise.defaultColor;
         if (!categoryMap[categoryName]) {
           categoryMap[categoryName] = { name: categoryName, color: defaultColor, quantity: 1 };
         } else {
