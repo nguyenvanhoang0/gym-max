@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
 import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
@@ -37,6 +40,8 @@ export class MyWorkoutComponent {
   }
 
   constructor(
+    private router: Router,
+
     private myWorkoutService: MyWorkoutService,
     private userService: UserService,
     private colorPreferenceService: ColorPreferenceService,
@@ -372,6 +377,11 @@ export class MyWorkoutComponent {
   blockFormClosing(event: Event) {
     event.stopPropagation();
 
+  }
+
+  navigateToExerciseDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/exerciseDetail', exerciseId]);
   }
 
 }

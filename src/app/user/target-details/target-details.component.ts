@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
 import { targetData } from '../../../service/big-exercises/big-exercises-interface';
@@ -26,8 +28,9 @@ export class TargetDetailsComponent {
   viewCategories = "";
   constructor(
     private bigExerciseService: BigExercisesService,
-    // private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -77,6 +80,11 @@ export class TargetDetailsComponent {
     }
 
 
+  }
+
+  navigateToExerciseDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/exerciseDetail', exerciseId]);
   }
 
   // sortedExercises() {

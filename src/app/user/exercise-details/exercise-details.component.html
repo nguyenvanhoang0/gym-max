@@ -1,26 +1,66 @@
-<!-- exerciseData.component.html -->
-
-<div *ngIf="exerciseData">
-    <h2>{{ exerciseData.name }}</h2>
-    <p>{{ exerciseData.description }}</p>
-    <p>Number of Uses: {{ exerciseData.numberOfUses }}</p>
-    <p>Number of Users: {{ exerciseData.numberOfUsers }}</p>
-  
-    <h3>Author:</h3>
-    <div>
-      <img [src]="exerciseData.author.avatarPath" alt="{{ exerciseData.author.username }}'s Avatar">
-      <p>{{ exerciseData.author.username }}</p>
-      <p>{{ exerciseData.author.educationLevel }}</p>
-    </div>
-  
-    <h3>Targets:</h3>
-    <div *ngFor="let target of exerciseData.target.$values">
-      <div>
-        <img [src]="target.author.avatarPath" alt="{{ target.author.username }}'s Avatar">
-        <p>{{ target.target }}</p>
-        <p>Point: {{ target.point }}</p>
-        <p>Status: {{ target.status }}</p>
+<div class="exercise_details">
+  <div *ngIf="exerciseData">
+    <div class="title_exercise">
+      <div class="flex group_author">
+        <img class="avatar" [src]="exerciseData.author.avatarPath" alt="{{ exerciseData.author.username }}'s Avatar">
+        <p>{{ exerciseData.author.username }}</p>/
+        <p>{{ exerciseData.author.educationLevel }}</p>
+      </div>
+      <div  class="exercise flex">
+       <p>{{ exerciseData.name }}</p>
       </div>
     </div>
+    <div class="main">
+      <div class="other">
+        <div class="about">
+          <div class="title_about">About</div>
+          <p>Description : {{ exerciseData.description }}</p>
+          <ul class="content_about icon_16">
+            <li>
+              <img src="../../../assets/svg/create_new_books.svg" alt="">
+              {{ exerciseData.numberOfUses }} Number of Uses
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/hand-thumbs-up.svg" alt="">
+              {{ exerciseData.point }} point
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/target-line-icon.svg" alt="">
+              {{ exerciseData.target.$values.length }} target
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/eye.svg" alt="">0 view
+            </li>
+          </ul>
+        </div>
+        <div class="group_category">  
+          <div class="title_category">Category</div>
+          <div class="content_category">
+            <div>Name: {{ exerciseData.categoryName }}</div>
+            <div>Description: {{ exerciseData.descriptionCategory }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="target">
+        <div class="title_target flex">
+          <div>
+            <p>{{ exerciseData.name }}</p>
+          </div>
+          <div>
+            <p>{{ exerciseData.target.$values.length }}</p>
+
+          </div>
+        </div>
+        <div class="content flex" *ngFor="let target of exerciseData.target.$values"  (click)="navigateToTargetDetails(target.id)">
+          <div class="flex">
+            <img class="avatar" [src]="target.author.avatarPath" alt="{{ target.author.username }}'s Avatar">
+            <p>{{ target.target }}</p>
+            <p>Point: {{ target.point }}</p>
+            <p>Status: {{ target.status }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  
+</div>

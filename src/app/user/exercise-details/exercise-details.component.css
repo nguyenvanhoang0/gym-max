@@ -1,0 +1,92 @@
+.exercise_details{
+    padding: 40px;
+}
+
+.title_exercise{
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.exercise{
+    font-size: 16px;
+    font-weight: 600;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+
+.group_author{
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.main {
+    padding-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    gap: 5%;
+}
+
+.main .target {
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.target {
+    width: 65%;
+}
+
+.title_target{
+    padding: 20px;
+    background-color: #ecf3fa;
+    justify-content: space-between;
+}
+
+.content{
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.content:hover{
+    background-color: rgb(218, 231, 252);
+    color: black;
+}
+
+.content>div{
+    align-items: center;
+    gap: 10px;
+}
+
+.other {
+    flex: 1;
+}
+
+.title_category,
+.title_about {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.content_category,
+.content_about {
+    margin: 15px 0px;
+}
+
+.content_about {
+    flex-direction: column;
+    gap: 20px ;
+}
+
+.content_about li{
+    display: flex;
+    gap: 10px;
+}

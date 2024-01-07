@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="exercise" *ngIf="targetData.exercises && targetData.exercises.$values && viewCategories == ''">
-                    <div *ngFor="let exercise of targetData.exercises.$values">
+                    <div *ngFor="let exercise of targetData.exercises.$values" (click)="navigateToExerciseDetails(exercise.id)">
                         <div class=" timeStart">
                             <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24"
                                 data-view-component="true" class="octicon octicon-git-commit">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="exercise" *ngIf="targetData.exercises && targetData.exercises.$values && viewCategories !== ''">
-                    <div *ngFor="let exercise of targetData.exercises.$values">
+                    <div *ngFor="let exercise of targetData.exercises.$values" (click)="navigateToExerciseDetails(exercise.id)">
                         <ng-container *ngIf="viewCategories == exercise.categoryName">
                         <div class=" timeStart" >
                             <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24"

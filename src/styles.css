@@ -160,6 +160,11 @@ form input[type="radio"]{
   justify-content: center;
 }
 
+.icon_16 img {
+  width: 16px;
+  height: 16px;
+}
+
 
 .text_13 {
   color: var(--8A92A6-Text-Color-2, #8A92A6);
