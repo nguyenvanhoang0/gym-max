@@ -27,6 +27,7 @@ import { ExerciseDetailsComponent } from './user/exercise-details/exercise-detai
 import { IsolationExercisesComponent } from './user/isolation-exercises/isolation-exercises.component';
 import { CommunityLibraryComponent } from './user/community-library/community-library.component';
 import { TargetDetailsComponent } from './user/target-details/target-details.component';
+import { CategoryListComponent } from './user/category-list/category-list.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
       { path: 'isolationExercises', component: IsolationExercisesComponent },
       { path: 'exerciseContent', component: ExerciseContentComponent },
       { path: 'communityLibrary', component: CommunityLibraryComponent },
+      { path: 'categoryList', component: CategoryListComponent },
       { path: 'bigExerciseDetail/:id', component: BigExerciseDetailsComponent },
       { path: 'TargetDetails/:id', component: TargetDetailsComponent },
       { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },

@@ -14,9 +14,6 @@ export class CategoryService {
 
   createCategory(formData: Category): Observable<Category> {
     return this.http.post<Category>(`${this.apiUrl}/createCategory`, formData)
-    .pipe(
-      catchError(this.handleError)
-    );
   }
 
   getCategory(): Observable<Category> {
