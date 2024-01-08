@@ -7,7 +7,7 @@ import { BigExerciseGeneralGenreService } from '../../../service/big-exercise-ge
 
 import { UserService } from '../../../service/user/user-service.service';
 import { User } from '../../../service/user/user-interface';
-import { GeneralGenreInterface , createGeneralGenre} from '../../../service/general_genre/general-genre-interface';
+import { IGeneralGenreInterface , ICreateGeneralGenre} from '../../../service/general_genre/general-genre-interface';
 import { BigExerciseGeneralGenreInterface } from '../../../service/big-exercise-general-genre/big-exercise-general-genre-interface';
 
 export interface WorkoutGoal {
@@ -35,7 +35,7 @@ export class CreateExercisesComponent {
   targetInputs: string = '';
   // filteredKeywords: string[] = [];
   // selectedKeyword: string = '';
-  allGeneralGenre:GeneralGenreInterface [] = [];
+  allGeneralGenre:IGeneralGenreInterface [] = [];
   formData: any = {
     target: '',
     point: 0,
@@ -43,7 +43,7 @@ export class CreateExercisesComponent {
     status: '',
   };
 
-  formDataCategory : createGeneralGenre = {
+  formDataCategory : ICreateGeneralGenre = {
     name: '',
     description: '',
   };

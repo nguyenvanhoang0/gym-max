@@ -3,7 +3,7 @@
         <input type="text" placeholder="search">
     </div>
     <div class="main">
-        <div class="categorie" *ngFor="let categorie of categories">
+        <div class="categorie" *ngFor="let categorie of categories" (click)="navigateToCategoryDetails(categorie.id)">
             <img src="../../../assets//svg/book.svg" alt="">
             <div class="content">{{categorie.name}}</div>
         </div>

@@ -1,17 +1,35 @@
-export interface GeneralGenreInterface {
+import {  targetData} from '../big-exercises/big-exercises-interface';
+import {  ICategorys} from '../Category/category-interface';
+
+
+export interface IGeneralGenreInterface {
     id : number;
     name: number;
     description: string;
     select: boolean ;
 }
 
-export interface createGeneralGenre {
+export interface ICreateGeneralGenre {
     name: string;
     description: string;
 }
 
 
-export interface GeneralGenre {
+export interface IGeneralGenre {
     $id: string;
-    $values: GeneralGenreInterface[];
+    $values: IGeneralGenreInterface[];
 }
+
+export interface GeneralGenreDetails {
+    $id: string;
+    id: number;
+    name: string;
+    description: string;
+    numberOfUses: number;
+    point: number;
+    category: ICategorys;
+    bigExercise: {
+      $id: string;
+      $values: targetData[];
+    };
+  }

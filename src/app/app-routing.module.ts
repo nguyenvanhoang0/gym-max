@@ -22,8 +22,12 @@ import { CreatedExercisesComponent } from './user/created-exercises/created-exer
 import { CreateExercisesComponent } from './user/create-exercises/create-exercises.component';
 import { CreateTargetComponent } from './user/create-target/create-target.component';
 import { ExerciseContentComponent } from './user/exercise-content/exercise-content.component';
+
 import { BigExerciseDetailsComponent } from './user/big-exercise-details/big-exercise-details.component';
 import { ExerciseDetailsComponent } from './user/exercise-details/exercise-details.component';
+import { CategoryDetailsComponent } from './user/category-details/category-details.component';
+
+
 import { IsolationExercisesComponent } from './user/isolation-exercises/isolation-exercises.component';
 import { CommunityLibraryComponent } from './user/community-library/community-library.component';
 import { TargetDetailsComponent } from './user/target-details/target-details.component';
@@ -62,9 +66,12 @@ const routes: Routes = [
       { path: 'exerciseContent', component: ExerciseContentComponent },
       { path: 'communityLibrary', component: CommunityLibraryComponent },
       { path: 'categoryList', component: CategoryListComponent },
+
       { path: 'bigExerciseDetail/:id', component: BigExerciseDetailsComponent },
       { path: 'TargetDetails/:id', component: TargetDetailsComponent },
       { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },
+      { path: 'categoryDetails/:id', component: CategoryDetailsComponent },
+      
       { path: 'createExercise', component: CreateExerciseComponent },
 
     ]

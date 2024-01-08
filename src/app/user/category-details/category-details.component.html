@@ -1,0 +1,21 @@
+<div *ngIf="GeneralGenreData">
+    <h2>{{ GeneralGenreData.name }}</h2>
+    <p>{{ GeneralGenreData.description }}</p>
+    <p>Number of Uses: {{ GeneralGenreData.numberOfUses }}</p>
+    <p>Point: {{ GeneralGenreData.point }}</p>
+  
+    <h3>Category</h3>
+    <ul>
+      <li *ngFor="let category of GeneralGenreData.category.$values">
+        {{ category.name }} - {{ category.description }}
+      </li>
+    </ul>
+  
+    <h3>Big Exercise</h3>
+    <ul>
+      <li *ngFor="let exercise of GeneralGenreData.bigExercise.$values">
+        {{ exercise.target }} - Point: {{ exercise.point }}
+      </li>
+    </ul>
+  </div>
+  

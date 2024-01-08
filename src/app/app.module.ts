@@ -45,6 +45,7 @@ import { SidebarRightUserComponent } from './appLayout/sidebar-right-user/sideba
 import { CreateTargetComponent } from './user/create-target/create-target.component';
 import { TargetDetailsComponent } from './user/target-details/target-details.component';
 import { CategoryListComponent } from './user/category-list/category-list.component';
+import { CategoryDetailsComponent } from './user/category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { CategoryListComponent } from './user/category-list/category-list.compon
     SidebarRightUserComponent,
     CreateTargetComponent,
     TargetDetailsComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CategoryDetailsComponent
   ],
   imports: [
     BrowserModule,

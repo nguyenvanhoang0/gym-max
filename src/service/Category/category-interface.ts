@@ -1,3 +1,7 @@
+import {  IAuthor} from '../user/user-interface';
+import {  targetData} from '../big-exercises/big-exercises-interface';
+
+
 export interface CategoryInterface {
     id: number;
     name: number;
@@ -7,7 +11,10 @@ export interface CategoryInterface {
     defaultColor : string;
 }
 
-export interface Category {
+
+
+
+export interface ICategorys {
     $id: string;
     $values: CategoryInterface[];
 }

@@ -1,5 +1,5 @@
 
-import { GeneralGenre , GeneralGenreInterface , createGeneralGenre } from '../general_genre/general-genre-interface';
+import { IGeneralGenre , IGeneralGenreInterface , ICreateGeneralGenre } from '../general_genre/general-genre-interface';
 import { IExercise , IExercises } from '../exercise/exercise-interface';
 import {  IAuthor} from '../user/user-interface';
 
@@ -55,7 +55,7 @@ export interface bigExercisesByAuthor {
       educationLevel: string;
       role: string;
 
-      generalGenre: GeneralGenre
+      generalGenre: IGeneralGenre
     }[];
   }
   
@@ -69,7 +69,7 @@ export interface bigExercisesByAuthor {
     followers:  number;
     status: string;
     private: boolean;
-    generalGenre: GeneralGenre;
+    generalGenre: IGeneralGenre;
     exercises: IExercises;
     author: IAuthor;
   }

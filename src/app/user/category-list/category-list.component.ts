@@ -36,4 +36,9 @@ export class CategoryListComponent {
       }
     );
   }
+
+  navigateToCategoryDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/categoryDetails', exerciseId]);
+  }
 }
