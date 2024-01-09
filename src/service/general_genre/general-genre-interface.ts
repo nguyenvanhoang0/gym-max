@@ -28,7 +28,7 @@ export interface GeneralGenreDetails {
     numberOfUses: number;
     point: number;
     category: ICategorys;
-    bigExercise: {
+    target: {
       $id: string;
       $values: targetData[];
     };

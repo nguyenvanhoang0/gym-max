@@ -42,4 +42,9 @@ export class CategoryDetailsComponent {
       }
     );
   }
+
+  navigateToTargetDetails(exerciseId: number) {
+    // Navigate to TargetDetails with the specified exercise ID
+    this.router.navigate(['/user/TargetDetails', exerciseId]);
+  }
 }

@@ -1,21 +1,80 @@
-<div *ngIf="GeneralGenreData">
-    <h2>{{ GeneralGenreData.name }}</h2>
-    <p>{{ GeneralGenreData.description }}</p>
-    <p>Number of Uses: {{ GeneralGenreData.numberOfUses }}</p>
-    <p>Point: {{ GeneralGenreData.point }}</p>
-  
-    <h3>Category</h3>
-    <ul>
-      <li *ngFor="let category of GeneralGenreData.category.$values">
-        {{ category.name }} - {{ category.description }}
-      </li>
-    </ul>
-  
-    <h3>Big Exercise</h3>
-    <ul>
-      <li *ngFor="let exercise of GeneralGenreData.bigExercise.$values">
-        {{ exercise.target }} - Point: {{ exercise.point }}
-      </li>
-    </ul>
+<div class="category_details">
+  <div *ngIf="GeneralGenreData">
+
+    <div class="title_category">
+      <div class="flex category_name">
+        <!-- <img class="avatar" [src]="GeneralGenreData.author.avatarPath" alt="{{ GeneralGenreData.author.username }}'s Avatar"> -->
+        <!-- <p>{{ GeneralGenreData.author.username }}</p>/ -->
+        <!-- <p>{{ GeneralGenreData.author.educationLevel }}</p> -->
+        <p>{{ GeneralGenreData.name }}</p>
+      </div>
+      <div class=" flex">
+        <p>{{ GeneralGenreData.description }}</p>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="category" *ngIf="GeneralGenreData.target">
+        <div class="title flex">
+          <div>
+            <p>{{ GeneralGenreData.name }}</p>
+          </div>
+          <div>
+            <p>{{ GeneralGenreData.category.$values.length }}</p>
+
+          </div>
+        </div>
+        <div class="content flex" *ngFor="let category of GeneralGenreData.category.$values"
+          >
+          <div class="flex">
+            <!-- <img class="avatar" [src]="target.author.avatarPath" alt="{{ target.author.username }}'s Avatar"> -->
+            <p>{{ category.name }}</p>
+            <p>Point: {{ category.point }}</p>
+            <p>Status: {{ category.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="other">
+        <div class="about">
+          <div class="title_about">About</div>
+          <p>Description : {{ GeneralGenreData.description }}</p>
+          <ul class="content_about icon_16">
+            <li>
+              <img src="../../../assets/svg/create_new_books.svg" alt="">
+              {{ GeneralGenreData.numberOfUses }} Number of Uses
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/hand-thumbs-up.svg" alt="">
+              {{ GeneralGenreData.point }} point
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/target-line-icon.svg" alt="">
+              {{ GeneralGenreData.target.$values.length }} target
+            </li>
+            <li>
+              <img src="../../../assets/svg/icon_svg/eye.svg" alt="">0 view
+            </li>
+          </ul>
+        </div>
+
+        <div class="target">
+          <div class="title_about">target</div>
+          <div *ngIf="GeneralGenreData.target.$values.length == 0">
+            <p>This category has no related goals yet</p>
+            <p class="navigation">create target for this category</p>
+          </div>
+          <div *ngIf="GeneralGenreData.target.$values.length > 0">
+            <div *ngFor="let target of GeneralGenreData.target.$values" class="item_target" (click)="navigateToTargetDetails(target.id)">
+              <img class="avatar" src="{{target.author.avatarPath}}" alt="">
+              <P>{{target.author.username}}</P>/
+              <p>{{target.target}}</p>
+       
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  
+</div>

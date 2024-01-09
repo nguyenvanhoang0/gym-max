@@ -129,6 +129,14 @@ form input[type="radio"]{
   color: #fff !important;
 }
 
+.navigation{
+  color: #3A57E8;
+}
+
+.navigation:hover{
+  text-decoration: underline;
+}
+
 .click_img img {
   filter: brightness(0) invert(1);
   -webkit-filter: brightness(0) invert(1);
