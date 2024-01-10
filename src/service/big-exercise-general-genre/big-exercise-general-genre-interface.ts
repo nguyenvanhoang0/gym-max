@@ -1,4 +1,4 @@
-export interface BigExerciseGeneralGenreInterface {
+export interface IBigExerciseGeneralGenre {
     bigExerciseId: number;
     generalGenreId: number;
 

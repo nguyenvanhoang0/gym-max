@@ -74,7 +74,7 @@ import { CategoryDetailsComponent } from './user/category-details/category-detai
     ExerciseContentComponent,
     BigExerciseDetailsComponent,
     ExerciseDetailsComponent,
-    IsolationExercisesComponent,
+    IsolationExercisesComponent,  
     CommunityLibraryComponent,
     SidebarLeftUserComponent,
     SidebarRightUserComponent,

@@ -9,7 +9,7 @@
 .Search_categories{
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .Search_categories input{

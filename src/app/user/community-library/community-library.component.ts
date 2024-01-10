@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
-import { createdWorkoutsInterface, bigExercises , bigExercisesByAuthor } from '../../../service/big-exercises/big-exercises-interface';
-import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
+import { IbigExercisesByAuthor } from '../../../service/big-exercises/big-exercises-interface';
+import { IUser} from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 @Component({
   selector: 'app-community-library',
@@ -12,8 +12,8 @@ import { UserService } from '../../../service/user/user-service.service';
   styleUrls: ['./community-library.component.css']
 })
 export class CommunityLibraryComponent {
-  userInfo: User | null = null;
-  myBigExercises: bigExercisesByAuthor["$values"] = [];
+  userInfo: IUser | null = null;
+  myBigExercises: IbigExercisesByAuthor["$values"] = [];
   test: [] = [];
 
   // page: number = 1;

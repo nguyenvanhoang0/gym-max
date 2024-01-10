@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User , UserInterface , AddUserInformation} from './user-interface';
+import { IUser , UserInterface , IAddUserInformation} from './user-interface';
 import { AuthService } from '../AuthService/auth.service';
 @Injectable({
   providedIn: 'root'
@@ -13,27 +13,27 @@ export class UserService {
     private http: HttpClient,
     private authService: AuthService) { }
 
-  registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.baseUrl}/register`, user);
+  registerUser(user: IUser): Observable<IUser> {
+    return this.http.post<IUser>(`${this.baseUrl}/register`, user);
   }
 
   loginUser(email: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/login`, { email, password });
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/users`);
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.baseUrl}/users`);
   }
 
-  getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+  getUserById(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`${this.baseUrl}/${id}`);
   }
 
-  updateUser(id: number, updateUser: User): Observable<any> {
+  updateUser(id: number, updateUser: IUser): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${id}`, updateUser);
   }
 
-  updateUserColumn(updatedUserInfo: AddUserInformation): Observable<any> {
+  updateUserColumn(updatedUserInfo: IAddUserInformation): Observable<any> {
     const { id, key, value } = updatedUserInfo;
   const updateData = {
     [key]: value
@@ -47,11 +47,11 @@ export class UserService {
     return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
 
-  getUserInfo(): Observable<User> {
+  getUserInfo(): Observable<IUser> {
     const token = this.authService.getToken();
 
     if (!token) {
-      return new Observable<User>();
+      return new Observable<IUser>();
     }
 
     // Thêm token vào tiêu đề của HTTP request
@@ -61,6 +61,6 @@ export class UserService {
 
     const options = { headers: headers };
     // console.log(this.getUserInfo)
-    return this.http.get<User>(`${this.baseUrl}/current-user`, options);
+    return this.http.get<IUser>(`${this.baseUrl}/current-user`, options);
   }
 }

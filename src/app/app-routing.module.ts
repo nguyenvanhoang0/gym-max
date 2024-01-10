@@ -72,6 +72,8 @@ const routes: Routes = [
       { path: 'exerciseDetail/:id', component: ExerciseDetailsComponent },
       { path: 'categoryDetails/:id', component: CategoryDetailsComponent },
       
+      { path: 'categoryDetails/:id/createTarget', component: CreateTargetComponent },
+      
       { path: 'createExercise', component: CreateExerciseComponent },
 
     ]

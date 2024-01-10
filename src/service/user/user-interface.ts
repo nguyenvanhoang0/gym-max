@@ -3,7 +3,7 @@ export interface UserInterface {
     username: string;
     email: string;
 }
-export interface User {
+export interface IUser {
     id: number;
     username: string;
     password_hash: string;
@@ -24,7 +24,7 @@ export interface User {
 }
 
 
-export interface AddUserInformation {
+export interface IAddUserInformation {
     id: number;
     key: string;
     value: string;

@@ -4,12 +4,12 @@ import { IExercise , IExercises } from '../exercise/exercise-interface';
 import {  IAuthor} from '../user/user-interface';
 
 
-export interface createdWorkoutsInterface {
+export interface IcreatedWorkouts {
     $id: string;
-    $values: bigExercises[];
+    $values: IbigExercises[];
 }
 
-export interface bigExercises {
+export interface IbigExercises {
     id: number;
     target: string;
     category: string;
@@ -36,7 +36,7 @@ export interface bigExercises {
 //     evaluate: number;
 // }
 
-export interface bigExercisesByAuthor {
+export interface IbigExercisesByAuthor {
     $id: string;
     $values: {
       id: number;
@@ -60,7 +60,7 @@ export interface bigExercisesByAuthor {
   }
   
 
-  export interface targetData {
+  export interface ItargetData {
     $id: string;
     id: number;
     target: string;

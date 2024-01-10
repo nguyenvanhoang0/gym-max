@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginResponse , UserInfo  } from './auth-interface';
+import { ILoginResponse , IUserInfo  } from './auth-interface';
 // import { UserInfo } from './UserInfo';
 
 @Injectable({
@@ -21,9 +21,9 @@ export class AuthService {
     return localStorage.getItem('accessToken');
   }
 
-  login(email: string, password: string): Observable<LoginResponse> {
+  login(email: string, password: string): Observable<ILoginResponse> {
     const loginData = { email, password };
-    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginData);
+    return this.http.post<ILoginResponse>(`${this.baseUrl}/login`, loginData);
   }
 
   // getCurrentUser(): Observable<UserInfo> {

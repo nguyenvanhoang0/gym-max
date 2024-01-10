@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 
 
-import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
+import { IUser } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
 import { ExerciseService } from '../../../service/exercise/exercise.service';
@@ -15,7 +15,7 @@ import { IExercise , IExercises} from '../../../service/exercise/exercise-interf
   styleUrls: ['./all-exercises.component.css']
 })
 export class AllExercisesComponent {
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
   exercise: IExercise[] = [];
 
   constructor(

@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 import { IsolationExercisesService } from '../../../service/isolation-exercises/isolation-exercises.service';
-import {IsolationExercisesInterface } from '../../../service/isolation-exercises/isolation-exercises-interface';
-import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
+import {IIsolationExercises } from '../../../service/isolation-exercises/isolation-exercises-interface';
+import { IUser, UserInterface, IAddUserInformation } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
 @Component({
@@ -14,8 +14,8 @@ import { UserService } from '../../../service/user/user-service.service';
 })
 
 export class IsolationExercisesComponent {
-  userInfo: User | null = null;
-  formData: IsolationExercisesInterface = {
+  userInfo: IUser | null = null;
+  formData: IIsolationExercises = {
     content: '',
     quantity: 0,
     time: 0,

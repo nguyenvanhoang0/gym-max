@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
-import { targetData } from '../../../service/big-exercises/big-exercises-interface';
+import { ItargetData } from '../../../service/big-exercises/big-exercises-interface';
 import { IExercise, IExercises } from '../../../service/exercise/exercise-interface';
 
 export interface Category {
@@ -23,7 +23,7 @@ export interface Category {
 
 
 export class TargetDetailsComponent {
-  targetData: targetData | null = null;
+  targetData: ItargetData | null = null;
   categories: Category[] = [];
   viewCategories = "";
   constructor(

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { ICategorys ,CategoryInterface} from './category-interface';
+import { ICategorys ,ICategory} from './category-interface';
 
 @Injectable({
   providedIn: 'root'

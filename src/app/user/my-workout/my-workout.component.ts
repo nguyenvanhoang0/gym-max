@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
-import { User, UserInterface, AddUserInformation } from '../../../service/user/user-interface';
-import { PracticeTime, UpdateMyWorkout } from '../../../service/my_Workout/my-workout-interface';
-import { DayDetailsInterface } from '../../../service/workout-schedule/day-details-interface';
+import { IUser } from '../../../service/user/user-interface';
+import { IPracticeTime } from '../../../service/practice-time/practice-time-interface';
+import { IDayDetails } from '../../../service/workout-schedule/day-details-interface';
 
 import { UserService } from '../../../service/user/user-service.service';
 import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
@@ -17,14 +17,14 @@ import { WorkoutScheduleService } from '../../../service/workout-schedule/workou
   styleUrls: ['./my-workout.component.css']
 })
 export class MyWorkoutComponent {
-  userInfo: User | null = null;
-  practiceTimes: PracticeTime[] = [];
+  userInfo: IUser | null = null;
+  practiceTimes: IPracticeTime[] = [];
 
   daysOfWeek: string[] = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
   currentDate: Date = new Date();
 
   day: number = 0;
-  weeks: DayDetailsInterface[][];
+  weeks: IDayDetails[][];
   currentYear: number;
   currentMonth: number;
   years: number[] = this.generateYears(10);
@@ -94,8 +94,8 @@ export class MyWorkoutComponent {
     );
   }
 
-  exercise(day: DayDetailsInterface) {
-    const filteredExercise: PracticeTime[] = [];
+  exercise(day: IDayDetails) {
+    const filteredExercise: IPracticeTime[] = [];
 
     this.practiceTimes.forEach((practiceTime) => {
       // const formattedDay = formatDay(day.day);

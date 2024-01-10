@@ -1,68 +1,39 @@
-export interface PracticeTime {
-  id: number;
-  timeStart: string;
-  myWorkoutId:number,
-
-  exerciseId: number;
-  bigExerciseId: number;
-  categoryId: number;
-  name: string;
-  target: string;
-  description: string;
-  quantity: number;
-  time: number;
-  point: number;
-  evaluate: number;
-  categoryName: string;
-  descriptionCategory: string;
-  categoryColor: string;
-  categoryDefaultColor: string;
-  defaultColor: string;
-}
+import {  IAuthor} from '../user/user-interface';
+import {  IbigExercises , ItargetData} from '../big-exercises/big-exercises-interface';
+import {  IPracticeTime } from '../practice-time/practice-time-interface';
 
 
-export interface MyWorkoutInterface {
+
+
+
+export interface IMyWorkout {
     $id: string;
-    $values: PracticeTime[];
+    $values: IPracticeTime[];
 }
 
 //--------------------------------------------------------------------------//
 
-export interface MyBigExerciseInterface {
+export interface IMyBigExercise {
   $id: string;
-  $values: MyWorkoutData[];
+  $values: IMyWorkoutData[];
 }
 
-export interface MyWorkoutData {
+export interface IMyWorkoutData {
   $id: string;
   id: number;
   timeStart: Date;
   color: string;
   bigExerciseId: number;
   userId: number;
-  bigExercise: BigExerciseData;
+  bigExercise: ItargetData;
   user: null;
 }
 
-export interface BigExerciseData {
-  $id: string;
-  id: number;
-  target: string;
-  // category: string;
-  point: number;
-  userId: number;
-  author: Author;
 
-  private: boolean;
-  status: string;
-  user: null;
-  // myWorkouts: MyWorkoutReferenceData[];
-  practiceTimes: null;
-}
 
 //___________________________________________________________________
 
-export interface MonthlyData {
+export interface IMonthlyData {
   id: number;
   timeStart: string;
   bigExercise: {
@@ -70,25 +41,16 @@ export interface MonthlyData {
     target: string;
     // category: string;
     point: number;
-    author: Author;
+    author: IAuthor;
     // avatar_author 
     private: boolean;
     status: string;
   };
 }
 
-interface Author {
-
-  username: string;
-  email: string;
-  avatarPath: string;
-  educationLevel: string;
-  role: string;
-}
-
 //--------
 
-export interface UpdateMyWorkout {
+export interface IUpdateMyWorkout {
   id: number;
   // timeStart: Date;
   color: string;

@@ -1,4 +1,4 @@
-export interface IsolationExercisesInterface {
+export interface IIsolationExercises{
     content: string;
     quantity: number;
     time: number;

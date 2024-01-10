@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
-import { User, UserInterface } from '../../../service/user/user-interface';
+import { IUser, UserInterface } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
-import { MonthlyData, MyWorkoutData } from '../../../service/my_Workout/my-workout-interface';
+import { IMonthlyData, IMyWorkoutData } from '../../../service/my_Workout/my-workout-interface';
 
 @Component({
   selector: 'app-exercise-content',
@@ -13,9 +13,9 @@ import { MonthlyData, MyWorkoutData } from '../../../service/my_Workout/my-worko
   styleUrls: ['./exercise-content.component.css']
 })
 export class ExerciseContentComponent implements OnInit {
-  userInfo: User | null = null;
-  myBigExercises: MyWorkoutData[] = [];
-  bigExercisesMonthlyData: { [key: string]: MonthlyData[] } = {};
+  userInfo: IUser | null = null;
+  myBigExercises: IMyWorkoutData[] = [];
+  bigExercisesMonthlyData: { [key: string]: IMonthlyData[] } = {};
 
   constructor(
     private myWorkoutService: MyWorkoutService,
@@ -58,7 +58,7 @@ export class ExerciseContentComponent implements OnInit {
             this.bigExercisesMonthlyData[monthKey] = [];
           }
 
-          const newData: MonthlyData = {
+          const newData: IMonthlyData = {
             id: item.id,
             timeStart: modifiedDate,
             bigExercise: {

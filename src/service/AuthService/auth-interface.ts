@@ -1,15 +1,15 @@
-export interface AuthInterface {
+export interface IAuth {
     username: string;
   email: string;
 }
 
-export interface UserInfo {
+export interface IUserInfo {
     username: string;
   email: string;
 }
 
 // LoginResponse.ts
-export interface LoginResponse {
+export interface ILoginResponse {
   token: string;
   expiresIn: number;
 }

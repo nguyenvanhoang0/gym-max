@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DayDetailsInterface } from './day-details-interface';
+import { IDayDetails } from './day-details-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +7,7 @@ export class WorkoutScheduleService {
 
   constructor() { }
   lastDayOfMonth: number = 0;
-  weeks!: DayDetailsInterface[][];
+  weeks!: IDayDetails[][];
 
   calculateDaysInMonth(currentYear: number, currentMonth: number) {
     const today = new Date();
@@ -17,7 +17,7 @@ export class WorkoutScheduleService {
     this.lastDayOfMonth = lastDay.getDate();
     this.weeks = [];
   
-    let daysInWeek: DayDetailsInterface[] = [];
+    let daysInWeek: IDayDetails[] = [];
   
     const addDaysInWeek = () => {
       this.weeks.push([...daysInWeek]);

@@ -62,7 +62,7 @@
           <div class="title_about">target</div>
           <div *ngIf="GeneralGenreData.target.$values.length == 0">
             <p>This category has no related goals yet</p>
-            <p class="navigation">create target for this category</p>
+            <p class="navigation" routerLink="createTarget">create target for this category</p>
           </div>
           <div *ngIf="GeneralGenreData.target.$values.length > 0">
             <div *ngFor="let target of GeneralGenreData.target.$values" class="item_target" (click)="navigateToTargetDetails(target.id)">

@@ -1,5 +1,5 @@
 import {  IAuthor} from '../user/user-interface';
-import {  targetData} from '../big-exercises/big-exercises-interface';
+import {  ItargetData} from '../big-exercises/big-exercises-interface';
 
 
 export interface ICreateExercise{
@@ -48,7 +48,7 @@ export interface IExerciseDetails {
     author: IAuthor;
     target: {
       $id: string;
-      $values: targetData[];
+      $values: ItargetData[];
     };
   }
 

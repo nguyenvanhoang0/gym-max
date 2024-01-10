@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BigExercisesService } from '../../../service/big-exercises/big-exercises.service';
-import { bigExercises } from '../../../service/big-exercises/big-exercises-interface';
+import { IbigExercises } from '../../../service/big-exercises/big-exercises-interface';
 import { IExercise , IExercises } from '../../../service/exercise/exercise-interface';
  // Thêm exercise vào đây
-import { User } from '../../../service/user/user-interface';
+import { IUser } from '../../../service/user/user-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
 @Component({

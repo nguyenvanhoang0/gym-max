@@ -1,6 +1,6 @@
 import { Component , OnInit  } from '@angular/core';
 import { UserService } from '../service/user/user-service.service';
-import { User , UserInterface } from '../service/user/user-interface';
+import { IUser , UserInterface } from '../service/user/user-interface';
 // import { UserService } from '../service/user/user-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { User , UserInterface } from '../service/user/user-interface';
 })
 export class AppComponent {
   title = 'gym-max';
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
 
   constructor(private userService: UserService) {}
 

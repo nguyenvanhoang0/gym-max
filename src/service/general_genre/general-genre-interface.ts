@@ -1,4 +1,4 @@
-import {  targetData} from '../big-exercises/big-exercises-interface';
+import {  ItargetData} from '../big-exercises/big-exercises-interface';
 import {  ICategorys} from '../Category/category-interface';
 
 
@@ -20,7 +20,7 @@ export interface IGeneralGenre {
     $values: IGeneralGenreInterface[];
 }
 
-export interface GeneralGenreDetails {
+export interface IGeneralGenreDetails {
     $id: string;
     id: number;
     name: string;
@@ -30,6 +30,6 @@ export interface GeneralGenreDetails {
     category: ICategorys;
     target: {
       $id: string;
-      $values: targetData[];
+      $values: ItargetData[];
     };
   }

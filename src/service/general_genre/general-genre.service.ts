@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { IGeneralGenre , GeneralGenreDetails , ICreateGeneralGenre } from './general-genre-interface';
+import { IGeneralGenre , IGeneralGenreDetails , ICreateGeneralGenre } from './general-genre-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +23,8 @@ export class GeneralGenreService {
     return this.http.get<IGeneralGenre>(`${this.apiUrl}/getGeneralGenre`);
   }
 
-  GetGeneralCategoryDetailsById(id : number): Observable<GeneralGenreDetails> {
-    return this.http.get<GeneralGenreDetails>(`${this.apiUrl}/GetGeneralCategoryDetailsById/${id}`);
+  GetGeneralCategoryDetailsById(id : number): Observable<IGeneralGenreDetails> {
+    return this.http.get<IGeneralGenreDetails>(`${this.apiUrl}/GetGeneralCategoryDetailsById/${id}`);
   }
 
 

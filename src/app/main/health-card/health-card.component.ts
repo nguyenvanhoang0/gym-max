@@ -4,10 +4,10 @@ import { FormQuestionService } from '../../../service/form-question/form-questio
 import { InputForm , InputFormAttribute , FormQuestionResponse} from '../../../service/form-question/form-question-interface';
 
 import { AuthService } from '../../../service/AuthService/auth.service';
-import { UserInfo } from '../../../service/AuthService/auth-interface';
+import { IUserInfo } from '../../../service/AuthService/auth-interface';
 import { UserService } from '../../../service/user/user-service.service';
 
-import { User , UserInterface , AddUserInformation } from '../../../service/user/user-interface';
+import { IUser , UserInterface , IAddUserInformation } from '../../../service/user/user-interface';
 import { AppComponent} from '../../app.component'
 
 interface avata {
@@ -58,10 +58,10 @@ export class HealthCardComponent implements OnInit{
   formQuestionsById: InputForm | null = null;
   inputAttributesArray: any[] = [];
   idFormQuestion: number = 1;
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
 
   
-updatedUserInfo: AddUserInformation = {
+updatedUserInfo: IAddUserInformation = {
   id: this.userInfo?.id || -1,
   key:'',
   value:'',

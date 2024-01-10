@@ -1,8 +1,8 @@
 import {  IAuthor} from '../user/user-interface';
-import {  targetData} from '../big-exercises/big-exercises-interface';
+import {  ItargetData} from '../big-exercises/big-exercises-interface';
 
 
-export interface CategoryInterface {
+export interface ICategory {
     id: number;
     name: number;
     description: string;
@@ -16,6 +16,6 @@ export interface CategoryInterface {
 
 export interface ICategorys {
     $id: string;
-    $values: CategoryInterface[];
+    $values: ICategory[];
 }
 

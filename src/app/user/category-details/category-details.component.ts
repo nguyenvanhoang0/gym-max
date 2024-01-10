@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 
-import { GeneralGenreDetails } from '../../../service/general_genre/general-genre-interface';
+import { IGeneralGenreDetails } from '../../../service/general_genre/general-genre-interface';
 import { GeneralGenreService } from '../../../service/general_genre/general-genre.service';
 import { IExercise, IExercises ,IExerciseDetails } from '../../../service/exercise/exercise-interface';
 @Component({
@@ -12,7 +12,7 @@ import { IExercise, IExercises ,IExerciseDetails } from '../../../service/exerci
   styleUrls: ['./category-details.component.css']
 })
 export class CategoryDetailsComponent {
-  GeneralGenreData: GeneralGenreDetails | null = null;
+  GeneralGenreData: IGeneralGenreDetails | null = null;
   // categories: Category[] = [];
   // viewCategories = "";
 

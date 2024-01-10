@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CategoryInterface } from '../../../service/Category/category-interface';
+import { ICategory } from '../../../service/Category/category-interface';
 import { CategoryService } from '../../../service/Category/category.service';
 
 // import { ExerciseInterface } from '../../../service/exercise/exercise-interface';
 import { ExerciseService } from '../../../service/exercise/exercise.service';
 
 import { UserService } from '../../../service/user/user-service.service';
-import { User } from '../../../service/user/user-interface';
+import { IUser } from '../../../service/user/user-interface';
 
 
 @Component({
@@ -17,8 +17,8 @@ import { User } from '../../../service/user/user-interface';
   styleUrls: ['./create-exercise.component.css']
 })
 export class CreateExerciseComponent {
-  categorys: CategoryInterface[] = [];
-  userInfo: User | null = null;
+  categorys: ICategory[] = [];
+  userInfo: IUser | null = null;
   exerciseData = {
     name: '',
     description: '',

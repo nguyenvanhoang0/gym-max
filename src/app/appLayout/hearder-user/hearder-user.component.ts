@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User , UserInterface , AddUserInformation } from '../../../service/user/user-interface';
+import { IUser  } from '../../../service/user/user-interface';
 import { AuthService } from '../../../service/AuthService/auth.service';
 import { UserService } from '../../../service/user/user-service.service';
 
@@ -18,7 +18,7 @@ export class HearderUserComponent {
    
   }
 
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
 
   ngOnInit() {
     this.getUser();

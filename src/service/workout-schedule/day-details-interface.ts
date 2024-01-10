@@ -1,4 +1,4 @@
-export interface DayDetailsInterface {
+export interface IDayDetails {
     day: number;
     month: number;
     year: number;

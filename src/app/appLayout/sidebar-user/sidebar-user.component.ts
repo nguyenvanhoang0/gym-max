@@ -121,7 +121,7 @@ export class SidebarUserComponent {
           {
             name: 'Hours',
             img: '../../../assets/svg/bulk.svg',
-            url: '/user/hours'
+            url: '/main/home'
           }
         ]
       },

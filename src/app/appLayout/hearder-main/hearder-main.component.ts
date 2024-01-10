@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../service/AuthService/auth.service';
 import { UserService } from '../../../service/user/user-service.service';
-import { UserInfo } from '../../../service/AuthService/auth-interface';
-import { User , UserInterface } from '../../../service/user/user-interface';
+import { IUserInfo } from '../../../service/AuthService/auth-interface';
+import { IUser , UserInterface } from '../../../service/user/user-interface';
 interface MenuItem {
   label: string;
   route: string;
@@ -28,7 +28,7 @@ export class HearderMainComponent {
     { label: 'Exercise library', route: '/main/home' ,img:'../../../assets/svg/book.svg' },
     // Thêm các mục menu khác tương tự ở đây
   ];
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
 
   constructor(
     private router: Router,

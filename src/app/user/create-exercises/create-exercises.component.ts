@@ -6,9 +6,9 @@ import { GeneralGenreService } from '../../../service/general_genre/general-genr
 import { BigExerciseGeneralGenreService } from '../../../service/big-exercise-general-genre/big-exercise-general-genre.service';
 
 import { UserService } from '../../../service/user/user-service.service';
-import { User } from '../../../service/user/user-interface';
+import { IUser } from '../../../service/user/user-interface';
 import { IGeneralGenreInterface , ICreateGeneralGenre} from '../../../service/general_genre/general-genre-interface';
-import { BigExerciseGeneralGenreInterface } from '../../../service/big-exercise-general-genre/big-exercise-general-genre-interface';
+import { IBigExerciseGeneralGenre } from '../../../service/big-exercise-general-genre/big-exercise-general-genre-interface';
 
 export interface WorkoutGoal {
   name: string;
@@ -29,7 +29,7 @@ export interface categorys {
 export class CreateExercisesComponent {
   @ViewChild('targetInput', { static: true }) targetInput!: ElementRef<HTMLInputElement>;
 
-  userInfo: User | null = null;
+  userInfo: IUser | null = null;
   formCreatecategory: boolean = false
   // suggestedKeywords: string[] = ['Angular', 'React', 'Vue', 'TypeScript', 'JavaScript'];
   targetInputs: string = '';
@@ -178,7 +178,7 @@ export class CreateExercisesComponent {
     // 
     const selectedCategories = this.allGeneralGenre.filter(category => category.select);
     selectedCategories.forEach(category => {
-      const formData: BigExerciseGeneralGenreInterface = {
+      const formData: IBigExerciseGeneralGenre = {
         bigExerciseId: createdBigExerciseid,
         generalGenreId: category.id,
       };
