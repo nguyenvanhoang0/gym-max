@@ -9,8 +9,8 @@ export class MyWorkoutService {
   private apiUrl = 'https://localhost:7010/api/MyWorkoutControllers';
   constructor(private http: HttpClient) { }
 
-  getPracticeTimes(id: number): Observable<IMyWorkout> {
-    return this.http.get<IMyWorkout>(`${this.apiUrl}/GetWorkoutByUserID/${id}`);
+  getPracticeTimes(id: number , Month : number): Observable<IMyWorkout> {
+    return this.http.get<IMyWorkout>(`${this.apiUrl}/GetWorkoutByUserID/${id}/${Month}`);
   } 
 
   getPracticeTimesByTimeStart(id: number, timeStart: Date): Observable<IMyWorkout> {

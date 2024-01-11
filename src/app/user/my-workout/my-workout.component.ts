@@ -68,7 +68,7 @@ export class MyWorkoutComponent {
         this.userInfo = userInfo;
         if (this.userInfo?.id !== undefined) {
           // console.log(this.userInfo?.id);
-          this.getpracticeTimesUserById(this.userInfo.id);
+          this.getpracticeTimesUserById(this.userInfo.id , this.currentMonth);
           // console.log(this.practiceTimes);
         }
       },
@@ -79,13 +79,13 @@ export class MyWorkoutComponent {
     this.day = 0;
   }
 
-  getpracticeTimesUserById(id: number) {
-    this.myWorkoutService.getPracticeTimes(id).subscribe(
+  getpracticeTimesUserById(id: number , month : number) {
+    this.myWorkoutService.getPracticeTimes(id , month).subscribe(
       {
         next: (response) => {
           // Xử lý dữ liệu sau khi nhận được từ API
           this.practiceTimes = response.$values;
-          console.log(1);
+          console.log(this.practiceTimes);
         },
         error: (error) => {
           console.error(error);
@@ -233,6 +233,7 @@ export class MyWorkoutComponent {
   
     this.weeks = [];
     this.calculateDaysInMonth();
+    this.UserInfo()
   }
   
 
