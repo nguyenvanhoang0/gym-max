@@ -8,6 +8,7 @@ export class WorkoutScheduleService {
   constructor() { }
   lastDayOfMonth: number = 0;
   weeks!: IDayDetails[][];
+  today! : IDayDetails
 
   calculateDaysInMonth(currentYear: number, currentMonth: number) {
     const today = new Date();
@@ -87,6 +88,18 @@ export class WorkoutScheduleService {
       : compareDate < today
         ? 'past'
         : 'future';
+  }
+
+  getTodayDetails(): IDayDetails {
+    const todayDate = new Date();
+    const todayDetails: IDayDetails = {
+      day: todayDate.getDate(),
+      month: todayDate.getMonth() + 1, // Tháng trong JavaScript là từ 0 đến 11, nên cần cộng thêm 1.
+      year: todayDate.getFullYear(),
+      status: 'today',
+    };
+
+    return todayDetails;
   }
   
 }

@@ -1,0 +1,27 @@
+<div>
+    <ul class="select_month">
+      <li>{{ currentMonth }}/{{currentYear}}</li>
+      <li>month</li>
+      <li class="month" (click)="updateCurrentMonthAndYear( - 1)">
+        <img src="../../../assets/svg/arrow-left.svg" alt="">
+      </li>
+      <ng-container *ngFor="let month of months">
+        <li class="month" [class.click_color]="currentMonth == month " [value]="month"
+          (click)="updateCurrentMonth(month)"> {{ month }} </li>
+      </ng-container>
+      <li class="month" (click)="updateCurrentMonthAndYear( + 1)">
+        <img src="../../../assets/svg/arrow-right.svg" alt="">
+      </li>
+      <li class="month">
+        <select>
+          <ng-container *ngFor="let year of years">
+            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year == currentYear" selected>{{year}}
+            </option>
+            <option (click)="updateCurrentYear(year)" [value]="year" *ngIf="year !== currentYear">{{year}}</option>
+
+          </ng-container>
+
+        </select>
+      </li>
+    </ul>
+  </div>

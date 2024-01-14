@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service';
 import { IUser } from '../../../service/user/user-interface';
 import { IPracticeTime } from '../../../service/practice-time/practice-time-interface';
-import { IDayDetails } from '../../../service/workout-schedule/day-details-interface';
+import { IDayDetails , IMonthDetails } from '../../../service/workout-schedule/day-details-interface';
 
 import { UserService } from '../../../service/user/user-service.service';
 import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
@@ -39,6 +39,9 @@ export class MyWorkoutComponent {
     color: "#fffffff",
   }
 
+  selectedDate!: IDayDetails ;
+  selectedMonth!: IMonthDetails;
+
   constructor(
     private router: Router,
 
@@ -61,6 +64,37 @@ export class MyWorkoutComponent {
     // console.log(this.Today);
 
   }
+
+
+
+
+
+
+
+
+
+  onDateSelected(date: IDayDetails) {
+    this.selectedDate = date;
+    console.log( date );
+    
+  }
+
+  updateCurrentMonthAndYear_2(month: IMonthDetails) {
+    this.selectedMonth = month;
+    console.log( month );
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   UserInfo() {
     this.userService.getUserInfo().subscribe(
@@ -286,11 +320,6 @@ export class MyWorkoutComponent {
     this.clickDay(currentDay, this.currentMonth, this.currentYear)
     // console.log(currentDay);
 
-  }
-
-  getDayClass(status: string) {
-    // console.log(`${status}-day`);
-    return `${status}_day`;
   }
 
   getUniqueColors(): { id: number; color: string; content: string }[] {

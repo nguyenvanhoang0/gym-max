@@ -1,0 +1,50 @@
+<div>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let dayOfWeek of daysOfWeek">{{ dayOfWeek }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container>
+          <tr *ngFor="let week of weeks; let i = index">
+            <ng-container *ngFor="let days of week; let j = index">
+                <td (click)="selectDate(days)"
+                [ngClass]="days.status + '_day'"
+                [class.currentMonth]="currentMonth == days.month " 
+                >
+                <!-- <td 
+                (click)="clickDay(days.day , days.month, days.year)"
+                [class.currentMonth]="currentMonth == days.month " 
+                [ngClass]="getDayClass(days.status)"
+                > -->
+                {{ days.day }}-
+                {{ days.month }}-
+                {{ days.year }}
+                <div class="flex exercises_day">
+
+                  <ng-container *ngFor="let time of exercise(days)">
+                    <div class="block_ex" [style.background-color]="time.defaultColor" *ngIf="viewType == 0"></div>
+                    <div class="block_ex" [style.background-color]="time.categoryColor" *ngIf="viewType == 1">
+                    </div>
+                  </ng-container>
+
+                </div>
+                <div class="group_edit">
+                  <ul>
+                    <li><img src="../../../assets/svg/plus-square.svg" alt=""></li>
+                    <li><img src="../../../assets/svg/icon_svg/pencil-square.svg" alt=""></li>
+                    <!-- <li><img src="../../../assets/svg/add_exercise.svg" alt=""></li> -->
+                  </ul>
+                </div>
+                <div class="check_status" *ngIf="days.status == 'past'">
+                  <img src="../../../assets/svg/icon_svg/check-all.svg" alt="">
+                </div>
+                <!-- <div *ngIf="days.status == 'past'">birthday</div> -->
+              </td>
+            </ng-container>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>

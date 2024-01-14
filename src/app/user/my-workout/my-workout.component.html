@@ -52,7 +52,7 @@
           <tr *ngFor="let week of weeks; let i = index">
             <ng-container *ngFor="let days of week; let j = index">
               <td (click)="clickDay(days.day , days.month, days.year)"
-                [class.currentMonth]="currentMonth == days.month " [ngClass]="getDayClass(days.status)">
+                [class.currentMonth]="currentMonth == days.month " [ngClass]="days.status + '_day'">
                 {{ days.day }}-
                 {{ days.month }}-
                 {{ days.year }}
@@ -69,13 +69,11 @@
                   <ul>
                     <li><img src="../../../assets/svg/plus-square.svg" alt=""></li>
                     <li><img src="../../../assets/svg/icon_svg/pencil-square.svg" alt=""></li>
-                    <!-- <li><img src="../../../assets/svg/add_exercise.svg" alt=""></li> -->
                   </ul>
                 </div>
                 <div class="check_status" *ngIf="days.status == 'past'">
                   <img src="../../../assets/svg/icon_svg/check-all.svg" alt="">
                 </div>
-                <!-- <div *ngIf="days.status == 'past'">birthday</div> -->
               </td>
             </ng-container>
           </tr>
@@ -83,7 +81,15 @@
       </tbody>
     </table>
   </div>
-
+<app-select-month (monthDetails)="updateCurrentMonthAndYear_2($event)"></app-select-month>
+  <div class="flex">
+    <div class="calendar">
+      <app-calendar (dateSelected)="onDateSelected($event)" [monthDetails]="selectedMonth"></app-calendar>
+    </div>
+    <div class="details_date">
+      <app-details-date [selectedDate]="selectedDate"></app-details-date>
+    </div>
+  </div>
 
   <div class="note">
     <ul>
@@ -118,7 +124,8 @@
       </ul>
     </div>
     <div class="main">
-      <div *ngFor="let time of practiceTimes" class="practiceTimes" (click)="navigateToExerciseDetails(time.exerciseId)">
+      <div *ngFor="let time of practiceTimes" class="practiceTimes"
+        (click)="navigateToExerciseDetails(time.exerciseId)">
 
         <div class="flex , timeStart">
           <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"

@@ -1,0 +1,29 @@
+.select_month {
+    border: 1px solid #ddd;
+}
+
+.select_month {
+    /* padding: 40px; */
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.select_month li {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+}
+
+.select_month .month {
+    border-left: 1px solid #ddd;
+}
+
+
+
+.select_month .month:hover {
+    background: #C4CCF8;
+    color: #3A57E8;
+
+}

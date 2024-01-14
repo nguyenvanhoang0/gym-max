@@ -46,6 +46,9 @@ import { CreateTargetComponent } from './user/create-target/create-target.compon
 import { TargetDetailsComponent } from './user/target-details/target-details.component';
 import { CategoryListComponent } from './user/category-list/category-list.component';
 import { CategoryDetailsComponent } from './user/category-details/category-details.component';
+import { DetailsDateComponent } from './share/details-date/details-date.component';
+import { CalendarComponent } from './share/calendar/calendar.component';
+import { SelectMonthComponent } from './share/select-month/select-month.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { CategoryDetailsComponent } from './user/category-details/category-detai
     CreateTargetComponent,
     TargetDetailsComponent,
     CategoryListComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    DetailsDateComponent,
+    CalendarComponent,
+    SelectMonthComponent
   ],
   imports: [
     BrowserModule,

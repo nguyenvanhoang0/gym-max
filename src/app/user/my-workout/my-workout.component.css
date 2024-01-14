@@ -210,7 +210,6 @@ td:hover .group_edit {
 }
 
 .flex {
-  align-items: center;
   gap: 10px;
 
 }
@@ -363,4 +362,15 @@ form button:hover {
 
 .workout div {
   width: auto;
+}
+
+/* _________________________________________________ */
+
+.details_date{
+  width: 30%;
+  height: 100%;
+}
+
+.calendar{
+  flex: 1;
 }

@@ -1,0 +1,105 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+}
+
+th,
+td {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+td {
+    height: 100px;
+    /* background-color: rgb(161, 205, 208); */
+    position: relative;
+}
+
+td:hover {
+    background-color: #e6e6e6;
+}
+
+td:hover .group_edit {
+    display: block;
+}
+
+.group_edit {
+    display: none;
+    position: absolute;
+    top: -41px;
+    right: 0;
+}
+
+.group_edit ul {
+    /* padding: 5px; */
+    /* gap: 5px 5px 10px 5px; */
+    background-color: #c4ccf8;
+
+}
+
+.group_edit ul li {
+    padding: 10px;
+    /* border-radius: 6px; */
+}
+
+.group_edit li:hover {
+    background-color: #3A57E8;
+}
+
+.group_edit li img {
+    filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
+}
+
+.group_edit li:hover img {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+}
+
+.check_status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.past_day {
+    background-color: #13b01e63;
+}
+
+.today_day {
+    background-color: #03a8f483;
+}
+
+.currentMonth {
+    /* background-color: rgba(255, 255, 255, 0); */
+    color: black;
+}
+
+.exercises_day {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+  
+  }
+
+.block_ex {
+    width: 10px;
+    height: 10px;
+    /* background-color: red; */
+  }
+  
