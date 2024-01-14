@@ -19,7 +19,7 @@ export class DetailsDateComponent {
   userInfo: IUser | null = null;
   practiceTimes: IPracticeTime[] = [];
   currentDate: Date = new Date();
-  currentYear: number  ;
+  currentYear: number;
   currentMonth: number;
   constructor(
     private router: Router,
@@ -29,7 +29,7 @@ export class DetailsDateComponent {
     // private colorPreferenceService: ColorPreferenceService,
     private workoutScheduleService: WorkoutScheduleService,
   ) {
-    this.currentDate = new Date();
+    // this.currentDate = new Date();
     this.currentYear = this.currentDate.getFullYear();
     this.currentMonth = this.currentDate.getMonth() + 1;
   }
@@ -100,21 +100,30 @@ export class DetailsDateComponent {
 
   updateCurrentDayAndMonthAndYear(offset: number) {
     let day = this.selectedDate.day + offset;
-  
+
     if (day === 0 || day === this.getDaysInMonth(this.currentYear, this.currentMonth - 1) + 1) {
       const newMonth = day === 0 ? this.currentMonth - 1 : this.currentMonth + 1;
       const newYear = newMonth === 0 ? this.currentYear - 1 : newMonth === 13 ? this.currentYear + 1 : this.currentYear;
-  
+
       this.currentMonth = newMonth === 0 ? 12 : newMonth === 13 ? 1 : newMonth;
       this.currentYear = newYear;
-  
+
       day = day === 0 ? this.getDaysInMonth(this.currentYear, this.currentMonth) : 1;
       // this.day = day;
     } else {
       this.currentMonth = this.currentMonth;
     }
-  
-    // this.calculateDaysInMonth();
+
+    this.selectedDate = {
+      day: day,
+      month: this.currentMonth,
+      year: this.currentYear,
+      status
+    };
+
+    // this.calculateDaysInMonth(); 
+    console.log(this.selectedDate);
+
     this.clickDay(this.selectedDate);
   }
 
