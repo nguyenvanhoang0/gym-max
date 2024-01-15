@@ -51,6 +51,7 @@ import { CalendarComponent } from './share/calendar/calendar.component';
 import { SelectMonthComponent } from './share/select-month/select-month.component';
 import { NoteComponent } from './share/note/note.component';
 import { ViewTypeMenuComponent } from './share/view-type-menu/view-type-menu.component';
+import { ColorUpdateFormComponent } from './share/color-update-form/color-update-form.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { ViewTypeMenuComponent } from './share/view-type-menu/view-type-menu.com
     CalendarComponent,
     SelectMonthComponent,
     NoteComponent,
-    ViewTypeMenuComponent
+    ViewTypeMenuComponent,
+    ColorUpdateFormComponent
   ],
   imports: [
     BrowserModule,

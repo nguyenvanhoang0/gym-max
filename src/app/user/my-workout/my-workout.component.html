@@ -9,7 +9,7 @@
   <div class="flex main">
     <div class="calendar">
       <app-calendar (dateSelected)="onDateSelected($event)" (exerciseData)="getExerciseData($event)"
-        [viewType]="viewType" [colorId]="colorId" [monthDetails]="selectedMonth">
+        [viewType]="viewType" [colorId]="dataColor.id" [monthDetails]="selectedMonth">
       </app-calendar>
     </div>
     <div class="details_date">
@@ -22,10 +22,4 @@
 
 </div>
 
-
-<form action="" (ngSubmit)="updateColor()" *ngIf="dataColor.id != 0" (click)="closeTheForm()" class="text">
-  <div (click)="blockFormClosing($event)">
-    <input type="color" id="colorInput" name="color" [(ngModel)]="dataColor.color" [value]="dataColor.color">
-    <button type="submit">save</button>
-  </div>
-</form>
+<app-color-update-form [dataColor]="dataColor" [viewType]="viewType"></app-color-update-form>

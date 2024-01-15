@@ -6,6 +6,7 @@ import { MyWorkoutService } from '../../../service/my_Workout/my-workout.service
 import { IUser } from '../../../service/user/user-interface';
 import { IPracticeTime } from '../../../service/practice-time/practice-time-interface';
 import { IDayDetails , IMonthDetails } from '../../../service/workout-schedule/day-details-interface';
+import { IUpdateColor } from '../../../service/color-preference/color-preference-interface';
 
 import { UserService } from '../../../service/user/user-service.service';
 import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
@@ -34,9 +35,9 @@ export class MyWorkoutComponent {
   colorId: number = 0;
   viewType: number = 0;
 
-  dataColor: any = {
+  dataColor: IUpdateColor = {
     id: 0,
-    color: "#fffffff",
+    color: "",
   }
 
   selectedDate!: IDayDetails ;
@@ -58,7 +59,7 @@ export class MyWorkoutComponent {
   }
 
   ngOnInit(): void {
-    this.UserInfo();
+    // this.UserInfo();
     // this.calculateDaysInMonth();
     // this.currentDateAsNumber();
     // console.log(this.Today);
@@ -83,76 +84,15 @@ export class MyWorkoutComponent {
     // this.UserInfo()
   }
 
-  colorIDChange(colorID :number){
-    this.colorId = colorID
+  colorIDChange(colorID : IUpdateColor){
+    this.dataColor = colorID
+    console.log(this.dataColor);
+    
     console.log(colorID + "colorID");
     
   }
 
-  UserInfo() {
-    this.userService.getUserInfo().subscribe(
-      (userInfo) => {
-        this.userInfo = userInfo;
-        if (this.userInfo?.id !== undefined) {
-          // console.log(this.userInfo?.id);
-          // this.getpracticeTimesUserById(this.userInfo.id , this.currentMonth);
-          // console.log(this.practiceTimes);
-        }
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
-  }
-
-
-  updateColor() {
-    if (this.viewType == 0) {
-      this.myWorkoutService.updateMyWorkout(this.dataColor.color, this.dataColor.id).subscribe(
-        () => {
-          console.log('Color updated successfully');
-          // this.dataColor.color = ""
-          this.dataColor.id = 0
-          console.log(this.dataColor);
-          this.UserInfo()
-        },
-        (response) => {
-          console.error('Error updating color:', response);
-        }
-      );
-    } else {
-      this.colorPreferenceService.updatecolorPreferen(this.dataColor.color, this.dataColor.id).subscribe(
-        () => {
-          console.log('colorPreferen updated successfully');
-          // this.dataColor.color = ""
-          this.dataColor.id = 0
-          console.log(this.dataColor);
-          this.UserInfo()
-          // Thêm bất kỳ logic hoặc chuyển hướng bổ sung nào ở đây
-        },
-        (response) => {
-          console.error('Error updating color:', response);
-        }
-      );
-    }
-
-  }
-
-  dataupdateColor(id: number, color: string) {
-    this.dataColor.id = id,
-      this.dataColor.color = color
-    console.log(6);
-    // this.updateColor()
-  }
-
-  closeTheForm() {
-    this.dataColor.id = 0
-  }
-
-  blockFormClosing(event: Event) {
-    event.stopPropagation();
-
-  }
+  
 
   navigateToExerciseDetails(exerciseId: number) {
     // Navigate to TargetDetails with the specified exercise ID

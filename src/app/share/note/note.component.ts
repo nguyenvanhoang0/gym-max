@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { IPracticeTime } from '../../../service/practice-time/practice-time-interface';
+import { IUpdateColor } from '../../../service/color-preference/color-preference-interface';
 
 @Component({
   selector: 'app-note',
@@ -8,12 +9,14 @@ import { IPracticeTime } from '../../../service/practice-time/practice-time-inte
   styleUrls: ['./note.component.css']
 })
 export class NoteComponent {
-  @Output() colorIdData = new EventEmitter<number>();
+  @Output() colorIdData = new EventEmitter<IUpdateColor>();
 
   @Input() viewType: number = 0;
   @Input() exerciseData: IPracticeTime[] = [];
-  colorId: number = 0;
-
+  color: IUpdateColor = {
+    id: 0,
+    color: "",
+  }
 
   getUniqueColors(): { id: number; color: string; content: string }[] {
     const uniqueIdsWithColors: { id: number; color: string; content: string }[] = [];
@@ -49,22 +52,29 @@ export class NoteComponent {
         existingId.content = this.viewType === 0 ? exercise.target : exercise.categoryName;
       }
     });
-    console.log(uniqueIdsWithColors);
+    // console.log(uniqueIdsWithColors);
 
     return uniqueIdsWithColors;
   }
 
   clickNote(colorId: number) {
-    if (this.colorId == colorId) {
-      this.colorId = 0;
+    if (this.color.id == colorId) {
+      this.color.id = 0;
 
     } else {
-      this.colorId = colorId
+      this.color.id = colorId
     }
-    console.log(colorId + "colorId");
-    
-    // this.UserInfo()
-    this.colorIdData.emit(this.colorId);
 
+    this.colorIdData.emit(this.color);
+
+  }
+
+  dataupdateColor(id: number, color: string) {
+    this.color.id = id,
+      this.color.color = color
+    console.log(6);
+    this.colorIdData.emit(this.color);
+
+    // this.updateColor()
   }
 }

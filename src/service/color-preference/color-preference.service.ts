@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {  UpdateColorPreference   } from './color-preference-interface';
+import {  IUpdateColor   } from './color-preference-interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +12,8 @@ export class ColorPreferenceService {
 
   constructor(private http: HttpClient) { }
 
-  updatecolorPreferen( data : string , colorId: number ): Observable<any> {
-    const url = `${this.apiUrl}/UpdateColorPreference/${colorId}`;
-    const requestBody = { Color: data }; // Tạo một đối tượng JSON
-  console.log(requestBody);
-    
-    return this.http.put<any>(url, requestBody);
+  updatecolorPreferen( data : IUpdateColor ): Observable<any> {
+    const requestBody = { Color: data.color };
+    return this.http.put<any>(`${this.apiUrl}/UpdateColorPreference/${data.id}`,requestBody);
   }
 }

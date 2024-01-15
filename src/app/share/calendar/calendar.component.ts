@@ -33,23 +33,8 @@ export class CalendarComponent {
   daysOfWeek: string[] = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
   currentDate: Date = new Date();
 
-  day: number = 0;
+  // day: number = 0;
   weeks: IDayDetails[][];
-  // selectedDate: IDayDetails[] = [];
-
-  // currentYear: number;
-  // currentMonth: number;
-  // years: number[] = this.generateYears(10);
-  // months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
-  // Today = new Date();
-
-  // colorId: number = 0;
-  // viewType: number = 1;
-
-  // dataColor: any = {
-  //   id: 0,
-  //   color: "#fffffff",
-  // }
 
   constructor(
     private router: Router,
@@ -67,9 +52,8 @@ export class CalendarComponent {
   }
 
   ngOnInit(): void {
-    this.UserInfo();
-    this.calculateDaysInMonth();
-    // this.currentDateAsNumber();
+    // this.UserInfo();
+    // this.calculateDaysInMonth();
     console.log(this.monthDetails);
 
   }
@@ -78,11 +62,10 @@ export class CalendarComponent {
     console.log('currentMonth changed:', this.currentMonth);
     this.currentMonth = this.monthDetails.currentMonth;
     this.currentYear = this.monthDetails.currentYear;
-    // this.UserInfo();
 
     if (this.currentMonth) {
       this.calculateDaysInMonth();
-      console.log("heheh");
+      // console.log("heheh");
 
     }
 
@@ -102,7 +85,6 @@ export class CalendarComponent {
         console.error('Error:', error);
       }
     );
-    this.day = 0;
   }
 
   calculateDaysInMonth() {

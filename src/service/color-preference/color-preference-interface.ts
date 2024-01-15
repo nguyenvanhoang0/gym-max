@@ -2,6 +2,7 @@ export interface ColorPreferenceInterface {
    
 }
 
-export interface UpdateColorPreference {
+export interface IUpdateColor {
+   id: number
    color: string
 }

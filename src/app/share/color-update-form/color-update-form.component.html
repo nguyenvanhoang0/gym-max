@@ -1,0 +1,6 @@
+<form action="" (ngSubmit)="updateColor()" *ngIf="dataColor.color.length > 0" (click)="closeTheForm()" class="text">
+    <div (click)="blockFormClosing($event)">
+      <input type="color" id="colorInput" name="color" [(ngModel)]="dataColor.color" [value]="dataColor.color">
+      <button type="submit">save</button>
+    </div>
+  </form>

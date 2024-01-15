@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IMyWorkout , IMyBigExercise  } from './my-workout-interface';
+import { IUpdateColor   } from '../color-preference/color-preference-interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,12 +25,9 @@ export class MyWorkoutService {
     return this.http.get<IMyBigExercise>(`${this.apiUrl}/GetBigExerciseInMyWorkoutsByUserId/${idUser}`);
   }
 
-  updateMyWorkout( data : string ,MyWorkoutId: number ): Observable<any> {
-    const url = `${this.apiUrl}/UpdateMyWorkout/${MyWorkoutId}`;
-    const requestBody = { defaultColor: data }; // Tạo một đối tượng JSON
-  console.log(requestBody);
-    
-    return this.http.put<any>(url, requestBody);
-  }
+  updateMyWorkout( data : IUpdateColor): Observable<any> {
+    const requestBody = { defaultColor: data.color };
+  return this.http.post<any>(`${this.apiUrl}/UpdateMyWorkout/${data.id}`, requestBody);
+}
 
 }

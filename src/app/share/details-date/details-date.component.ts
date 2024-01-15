@@ -16,20 +16,19 @@ import { IPracticeTime } from '../../../service/practice-time/practice-time-inte
 })
 export class DetailsDateComponent {
   @Input() selectedDate!: IDayDetails;
+
   userInfo: IUser | null = null;
   practiceTimes: IPracticeTime[] = [];
   currentDate: Date = new Date();
   currentYear: number;
   currentMonth: number;
+
   constructor(
     private router: Router,
-
     private myWorkoutService: MyWorkoutService,
     private userService: UserService,
-    // private colorPreferenceService: ColorPreferenceService,
     private workoutScheduleService: WorkoutScheduleService,
   ) {
-    // this.currentDate = new Date();
     this.currentYear = this.currentDate.getFullYear();
     this.currentMonth = this.currentDate.getMonth() + 1;
   }
