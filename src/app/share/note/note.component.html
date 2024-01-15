@@ -1,11 +1,11 @@
 <div class="note">
     <ul>
-      <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickNote(uniqueIdsWithColor.id)">
-        <div class="flex">
+      <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickNote(uniqueIdsWithColor.id)" [class.selected_annotation]="color.id ==uniqueIdsWithColor.id">
+        <div class="flex"  >
           <div class="block_ex" [style.background-color]="uniqueIdsWithColor.color"></div>
           {{uniqueIdsWithColor.content}}
         </div>
-        <div (click)="dataupdateColor(uniqueIdsWithColor.id , uniqueIdsWithColor.color)">
+        <div (click)="dataupdateColor(uniqueIdsWithColor.id , uniqueIdsWithColor.color)" >
           <img src="../../../assets/svg/icon_svg/pencil-square.svg" alt="">
 
         </div>

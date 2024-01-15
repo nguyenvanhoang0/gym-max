@@ -14,6 +14,7 @@
     /* margin-top: 10PX; */
     gap: 10px;
     justify-content: space-between;
+    border-radius: 4px;
 }
 
 .note li:hover {
@@ -40,4 +41,9 @@
     width: 10px;
     height: 10px;
     /* background-color: red; */
+  }
+
+  .selected_annotation{
+    background-color: #107ddca9 ;
+    color:white;
   }

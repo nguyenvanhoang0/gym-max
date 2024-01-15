@@ -27,7 +27,7 @@ export class MyWorkoutService {
 
   updateMyWorkout( data : IUpdateColor): Observable<any> {
     const requestBody = { defaultColor: data.color };
-  return this.http.post<any>(`${this.apiUrl}/UpdateMyWorkout/${data.id}`, requestBody);
+  return this.http.put<any>(`${this.apiUrl}/UpdateMyWorkout/${data.id}`, requestBody);
 }
 
 }
