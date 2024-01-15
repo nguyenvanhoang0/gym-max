@@ -37,7 +37,6 @@ export class DetailsDateComponent {
   ngOnInit(): void {
     this.UserInfo()
     this.selectedDate = this.workoutScheduleService.getTodayDetails();
-    this.clickDay(this.selectedDate)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -54,6 +53,7 @@ export class DetailsDateComponent {
     this.userService.getUserInfo().subscribe(
       (userInfo) => {
         this.userInfo = userInfo;
+        this.clickDay(this.selectedDate)
 
       },
       (error) => {
@@ -63,10 +63,10 @@ export class DetailsDateComponent {
   }
 
   clickDay(day: IDayDetails) {
-    this.UserInfo()
+
     this.practiceTimes = [];
 
-    console.log(1);
+    console.log(this.userInfo );
 
     if (this.userInfo) {
       console.log(2);

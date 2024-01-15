@@ -1,0 +1,16 @@
+<div class="note">
+    <ul>
+      <li *ngFor="let uniqueIdsWithColor of getUniqueColors()" (click)="clickNote(uniqueIdsWithColor.id)">
+        <div class="flex">
+          <div class="block_ex" [style.background-color]="uniqueIdsWithColor.color"></div>
+          {{uniqueIdsWithColor.content}}
+        </div>
+        <!-- <div (click)="dataupdateColor(uniqueIdsWithColor.id , uniqueIdsWithColor.color)"> -->
+          <div>
+          <img src="../../../assets/svg/icon_svg/pencil-square.svg" alt="">
+
+        </div>
+      </li>
+      <li (click)="clickNote(0)">default</li>
+    </ul>
+  </div>

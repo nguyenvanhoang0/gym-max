@@ -49,6 +49,8 @@ import { CategoryDetailsComponent } from './user/category-details/category-detai
 import { DetailsDateComponent } from './share/details-date/details-date.component';
 import { CalendarComponent } from './share/calendar/calendar.component';
 import { SelectMonthComponent } from './share/select-month/select-month.component';
+import { NoteComponent } from './share/note/note.component';
+import { ViewTypeMenuComponent } from './share/view-type-menu/view-type-menu.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import { SelectMonthComponent } from './share/select-month/select-month.componen
     CategoryDetailsComponent,
     DetailsDateComponent,
     CalendarComponent,
-    SelectMonthComponent
+    SelectMonthComponent,
+    NoteComponent,
+    ViewTypeMenuComponent
   ],
   imports: [
     BrowserModule,

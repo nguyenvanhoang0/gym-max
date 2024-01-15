@@ -1,0 +1,43 @@
+.note {
+    padding: 20px;
+}
+
+.note ul {
+    flex-wrap: wrap;
+}
+
+.note ul li {
+    display: flex;
+    align-items: center;
+    width: 24%;
+    padding: 5px 10px;
+    /* margin-top: 10PX; */
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.note li:hover {
+    background-color: #C4CCF8;
+    color: #3A57E8;
+}
+
+.flex {
+    gap: 10px;
+    align-items: center;
+}
+
+.note img {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+}
+
+.note img:hover {
+    filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
+
+}
+
+.block_ex {
+    width: 10px;
+    height: 10px;
+    /* background-color: red; */
+  }

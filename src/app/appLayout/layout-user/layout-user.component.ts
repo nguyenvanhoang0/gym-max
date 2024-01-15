@@ -87,7 +87,7 @@ export class LayoutUserComponent {
   @HostListener('window:resize', ['$event'])
   onResizes(): void {
     this.screenWidth = window.innerWidth;
-    console.log(this.screenWidth);
+    // console.log(this.screenWidth);
   }
 
   toggleSidebar() {

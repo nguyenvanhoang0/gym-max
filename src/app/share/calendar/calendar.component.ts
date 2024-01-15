@@ -19,7 +19,10 @@ import { WorkoutScheduleService } from '../../../service/workout-schedule/workou
 export class CalendarComponent {
 
   @Output() dateSelected = new EventEmitter<IDayDetails>();
+  @Output() exerciseData = new EventEmitter<IPracticeTime[]>();
   @Input() monthDetails!: IMonthDetails;
+  @Input() viewType: number = 0;
+  @Input() colorId: number = 0;
 
   currentYear: number;
   currentMonth: number;
@@ -40,8 +43,8 @@ export class CalendarComponent {
   // months: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
   // Today = new Date();
 
-  colorId: number = 0;
-  viewType: number = 0;
+  // colorId: number = 0;
+  // viewType: number = 1;
 
   // dataColor: any = {
   //   id: 0,
@@ -75,6 +78,7 @@ export class CalendarComponent {
     console.log('currentMonth changed:', this.currentMonth);
     this.currentMonth = this.monthDetails.currentMonth;
     this.currentYear = this.monthDetails.currentYear;
+    // this.UserInfo();
 
     if (this.currentMonth) {
       this.calculateDaysInMonth();
@@ -121,6 +125,7 @@ export class CalendarComponent {
         next: (response) => {
           // Xử lý dữ liệu sau khi nhận được từ API
           this.practiceTimes = response.$values;
+          this.exerciseData.emit(response.$values);
           console.log(this.practiceTimes);
         },
         error: (error) => {

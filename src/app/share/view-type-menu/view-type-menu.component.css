@@ -1,0 +1,21 @@
+.view_type ul{
+    gap: 10px;
+  }
+  
+  .view_type ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px;
+    border-radius: 4px;
+  }
+  
+  .view_type ul li:hover{
+    background-color: #c4ccf8;
+    color:#3A57E8 ;
+  
+  }
+  
+  .view_type ul li:hover img{
+    filter: invert(62%) sepia(92%) saturate(6803%) hue-rotate(224deg) brightness(92%) contrast(98%);
+  }

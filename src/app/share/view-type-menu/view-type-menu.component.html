@@ -1,0 +1,12 @@
+<div class="flex view_type title_icon_svg">
+    <ul>
+      <li ><img src="../../../assets/svg/icon_svg/list-task.svg" alt=""> list</li>
+      <li (click)="clickviewType(0)" [class.click_color]="viewType == 0 " [class.click_img]="viewType == 0 ">
+        <img src="../../../assets/svg/icon_svg/target-line-icon.svg" alt="">target
+      </li>
+      <li (click)="clickviewType(1)" [class.click_color]="viewType == 1 " [class.click_img]="viewType == 1 ">
+        <img src="../../../assets/svg/icon_svg/tags-line-icon.svg" alt="">category
+      </li>
+    </ul>
+
+  </div>
