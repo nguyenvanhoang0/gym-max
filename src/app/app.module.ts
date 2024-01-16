@@ -52,6 +52,8 @@ import { SelectMonthComponent } from './share/select-month/select-month.componen
 import { NoteComponent } from './share/note/note.component';
 import { ViewTypeMenuComponent } from './share/view-type-menu/view-type-menu.component';
 import { ColorUpdateFormComponent } from './share/color-update-form/color-update-form.component';
+import { NoExercisesComponent } from './share/no-exercises/no-exercises.component';
+import { NoTargetComponent } from './share/no-target/no-target.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { ColorUpdateFormComponent } from './share/color-update-form/color-update
     SelectMonthComponent,
     NoteComponent,
     ViewTypeMenuComponent,
-    ColorUpdateFormComponent
+    ColorUpdateFormComponent,
+    NoExercisesComponent,
+    NoTargetComponent
   ],
   imports: [
     BrowserModule,

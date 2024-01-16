@@ -59,6 +59,7 @@
             <p>Status: {{ target.status }}</p>
           </div>
         </div>
+        <app-no-target *ngIf="exerciseData.target.$values.length == 0"></app-no-target>
       </div>
 
     </div>

@@ -173,6 +173,14 @@ form input[type="radio"]{
   height: 16px;
 }
 
+.icon_24 img {
+  width: 24px;
+  height: 24px;
+}
+.icon_32 img {
+  width: 32px;
+  height: 32px;
+}
 
 .text_13 {
   color: var(--8A92A6-Text-Color-2, #8A92A6);
@@ -180,6 +188,18 @@ form input[type="radio"]{
   /* Small Texts 13px Regular Inter */
   font-family: Inter;
   font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  /* 16.9px */
+}
+
+.text_16 {
+  color: var(--8A92A6-Text-Color-2, #8A92A6);
+
+  /* Small Texts 13px Regular Inter */
+  font-family: Inter;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
@@ -195,6 +215,8 @@ form input[type="radio"]{
   line-height: 130%;
   /* 20.8px */
 }
+
+
 
 .text_16_title {
   color: #232D42;
