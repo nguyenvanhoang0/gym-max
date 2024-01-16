@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges ,Output ,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IDayDetails } from '../../../service/workout-schedule/day-details-interface';
@@ -15,6 +15,8 @@ import { IPracticeTime } from '../../../service/practice-time/practice-time-inte
   styleUrls: ['./details-date.component.css']
 })
 export class DetailsDateComponent {
+  @Output() viewingDate = new EventEmitter<IDayDetails>();
+
   @Input() selectedDate!: IDayDetails;
 
   userInfo: IUser | null = null;
@@ -121,7 +123,8 @@ export class DetailsDateComponent {
     };
 
     // this.calculateDaysInMonth(); 
-    console.log(this.selectedDate);
+    // console.log(this.selectedDate);
+    this.viewingDate.emit(this.selectedDate);
 
     this.clickDay(this.selectedDate);
   }

@@ -68,6 +68,12 @@ export class MyWorkoutComponent {
 
   onDateSelected(date: IDayDetails) {
     this.selectedDate = date;
+    console.log(this.selectedDate);
+    
+  }
+
+  changeTheSelectedDate(date: IDayDetails) {
+    this.selectedDate = date;
   }
 
   updateCurrentMonthAndYear_2(month: IMonthDetails) {

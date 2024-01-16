@@ -20,10 +20,12 @@ export class CalendarComponent {
 
   @Output() dateSelected = new EventEmitter<IDayDetails>();
   @Output() exerciseData = new EventEmitter<IPracticeTime[]>();
-  @Input() monthDetails!: IMonthDetails;
+
+  @Input() monthDetails!: IMonthDetails ;
+  @Input() viewingDate: IDayDetails = this.workoutScheduleService.getTodayDetails();
   @Input() viewType: number = 0;
   @Input() colorId: number = 0;
-
+  
   currentYear: number;
   currentMonth: number;
 
@@ -33,7 +35,6 @@ export class CalendarComponent {
   daysOfWeek: string[] = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
   currentDate: Date = new Date();
 
-  // day: number = 0;
   weeks: IDayDetails[][];
 
   constructor(
@@ -62,6 +63,7 @@ export class CalendarComponent {
     console.log('currentMonth changed:', this.currentMonth);
     this.currentMonth = this.monthDetails.currentMonth;
     this.currentYear = this.monthDetails.currentYear;
+console.log(this.viewingDate);
 
     if (this.currentMonth) {
       this.calculateDaysInMonth();
@@ -96,6 +98,7 @@ export class CalendarComponent {
   }
 
   selectDate(date: IDayDetails) {
+    this.viewingDate = date
     this.dateSelected.emit(date);
     console.log(date);
 
@@ -172,7 +175,10 @@ export class CalendarComponent {
     return filteredExercise;
   }
 
-  // onDateSelected(date: IDayDetails[]) {
-  //   this.selectedDate = date;
-  // }
+  areDatesEqual(date1: IDayDetails, date2: IDayDetails): boolean {
+    if(date1){
+      return date1.day === date2.day && date1.month === date2.month && date1.year === date2.year;
+
+    } return false
+  }
 }

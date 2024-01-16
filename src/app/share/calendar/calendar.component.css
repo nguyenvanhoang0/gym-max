@@ -102,4 +102,6 @@ td:hover .group_edit {
     height: 10px;
     /* background-color: red; */
   }
-  
+.viewing_date{
+    border-color: #3A57E8;
+}  

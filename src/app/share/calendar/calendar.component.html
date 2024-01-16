@@ -12,6 +12,7 @@
                 <td (click)="selectDate(days)"
                 [ngClass]="days.status + '_day'"
                 [class.currentMonth]="currentMonth == days.month " 
+                [class.viewing_date]="areDatesEqual(viewingDate, days)" 
                 >
                 <!-- <td 
                 (click)="clickDay(days.day , days.month, days.year)"

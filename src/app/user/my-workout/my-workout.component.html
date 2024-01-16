@@ -9,11 +9,11 @@
   <div class="flex main">
     <div class="calendar">
       <app-calendar (dateSelected)="onDateSelected($event)" (exerciseData)="getExerciseData($event)"
-        [viewType]="viewType" [colorId]="dataColor.id" [monthDetails]="selectedMonth">
+        [viewType]="viewType" [colorId]="dataColor.id" [monthDetails]="selectedMonth" [viewingDate]="selectedDate">
       </app-calendar>
     </div>
     <div class="details_date">
-      <app-details-date [selectedDate]="selectedDate"></app-details-date>
+      <app-details-date [selectedDate]="selectedDate " (viewingDate)="onDateSelected($event)"></app-details-date>
     </div>
   </div>
   <app-note (colorIdData)="colorIDChange($event)" [exerciseData]="practiceTimes" [viewType]="viewType"></app-note>

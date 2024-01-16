@@ -64,4 +64,5 @@ form button:hover {
 
 .main{
   gap: 20px;
+  min-height: 100%;
 }
