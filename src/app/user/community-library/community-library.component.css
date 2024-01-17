@@ -1,11 +1,11 @@
-.community_library{
+.community_library {
     padding: 40px;
     width: 100%;
-    
+
 }
 
-.public_big_exercises{
-    display:flex;
+.public_big_exercises {
+    display: flex;
     flex-direction: column;
 }
 
@@ -14,21 +14,21 @@
     margin-top: 20px;
 }
 
-.big_exercises{
+.big_exercises {
     justify-content: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 18px;
-    
+
 }
 
-.big_exercise{
+.big_exercise {
     flex: 0 25%;
     /* min-width: 23%; */
 }
 
-.exercise{
+.exercise {
     padding: 20px;
     border: 1px solid #e6e6e6;
     border-radius: 8px;
@@ -37,22 +37,37 @@
     gap: 8px;
 }
 
-.target{
+.target {
     color: black;
 }
 
-.author{
+.author {
     margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.avatar{
+.avatar {
     width: 32px;
     height: auto;
     border-radius: 50%;
     background-color: rgb(200, 200, 200);
+}
+
+.hover_avatar{
+    position: relative;
+}
+
+.hover_avatar:hover .information {
+    display: block;
+}
+
+.information {
+    display: none;
+    position: absolute;
+    top: -100px;
+    left: -24px;
 }
 
 
@@ -69,7 +84,7 @@
     transition: 1s;
 }
 
-.group_genre{
+.group_genre {
     display: flex;
     gap: 4px;
 }
@@ -96,4 +111,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
+}
