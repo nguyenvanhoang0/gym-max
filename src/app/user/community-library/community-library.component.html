@@ -25,11 +25,11 @@
                 </div>
 
                 <div class="author">
-                    <img *ngIf="exercise.avatarPath" class="avatar" src="{{ exercise.avatarPath }}" alt="">
-                    <img *ngIf="!exercise.avatarPath" class="avatar" src="../../../assets/svg/person.svg" alt="">
+                    <img *ngIf="exercise.author.avatarPath" class="avatar" src="{{ exercise.author.avatarPath }}" alt="">
+                    <img *ngIf="!exercise.author.avatarPath" class="avatar" src="../../../assets/svg/person.svg" alt="">
                     <div>
-                        <div>{{ exercise.username }}/{{ exercise.role }}</div>
-                        <div>{{ exercise.email }}</div>
+                        <div>{{ exercise.author.username }}/{{ exercise.author.role }}</div>
+                        <div>{{ exercise.author.email }}</div>
                     </div>
                 </div>
                 

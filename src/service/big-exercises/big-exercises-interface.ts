@@ -58,10 +58,14 @@ export interface IbigExercisesByAuthor {
       generalGenre: IGeneralGenre
     }[];
   }
+
+  export interface Itarget {
+    $id: string;
+    $values: ItargetData[];
+}
   
 
   export interface ItargetData {
-    $id: string;
     id: number;
     target: string;
     point: number;

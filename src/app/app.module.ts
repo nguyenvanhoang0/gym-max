@@ -47,6 +47,7 @@ import { TargetDetailsComponent } from './user/target-details/target-details.com
 import { CategoryListComponent } from './user/category-list/category-list.component';
 import { CategoryDetailsComponent } from './user/category-details/category-details.component';
 import { DetailsDateComponent } from './share/details-date/details-date.component';
+
 import { CalendarComponent } from './share/calendar/calendar.component';
 import { SelectMonthComponent } from './share/select-month/select-month.component';
 import { NoteComponent } from './share/note/note.component';
@@ -54,6 +55,7 @@ import { ViewTypeMenuComponent } from './share/view-type-menu/view-type-menu.com
 import { ColorUpdateFormComponent } from './share/color-update-form/color-update-form.component';
 import { NoExercisesComponent } from './share/no-exercises/no-exercises.component';
 import { NoTargetComponent } from './share/no-target/no-target.component';
+import { UserInformationComponent } from './share/user-information/user-information.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +99,8 @@ import { NoTargetComponent } from './share/no-target/no-target.component';
     ViewTypeMenuComponent,
     ColorUpdateFormComponent,
     NoExercisesComponent,
-    NoTargetComponent
+    NoTargetComponent,
+    UserInformationComponent
   ],
   imports: [
     BrowserModule,
