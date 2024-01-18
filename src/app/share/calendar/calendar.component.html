@@ -14,24 +14,21 @@
                 [class.currentMonth]="currentMonth == days.month " 
                 [class.viewing_date]="areDatesEqual(viewingDate, days)" 
                 >
-                <!-- <td 
-                (click)="clickDay(days.day , days.month, days.year)"
-                [class.currentMonth]="currentMonth == days.month " 
-                [ngClass]="getDayClass(days.status)"
-                > -->
+                
                 {{ days.day }}-
-                {{ days.month }}-
-                {{ days.year }}
+                {{ days.month }}
+                <!-- {{ days.year }} -->
                 <div class="flex exercises_day">
 
                   <ng-container *ngFor="let time of exercise(days)">
-                    <div class="block_ex" [style.background-color]="time.defaultColor" *ngIf="viewType == 0"></div>
+                    <div class="block_ex" [style.background-color]="time.defaultColor" *ngIf="viewType == 0">
+                    </div>
                     <div class="block_ex" [style.background-color]="time.categoryColor" *ngIf="viewType == 1">
                     </div>
                   </ng-container>
 
                 </div>
-                <div class="group_edit">
+                <div class="group_edit" *ngIf="days.status != 'past'  ">
                   <ul>
                     <li><img src="../../../assets/svg/plus-square.svg" alt=""></li>
                     <li><img src="../../../assets/svg/icon_svg/pencil-square.svg" alt=""></li>

@@ -3,7 +3,7 @@
         <app-sidebar-user></app-sidebar-user>
     </div>
     <!-- <div [class.content]="isSidebarOpen"  > -->
-        <div [class.content]="isSidebarOpen" [style.marginLeft.px]="mainContentStyle.marginLeft" [style.marginRight.px]="mainContentStyle.marginRight" >
+        <div [class.content]="isSidebarOpen" [style.marginLeft.px]="SidebarLeftWidth" [style.marginRight.px]="SidebarRightWidth" >
 
         <div class="group_header">
             <div class="open_and_close" (click)="toggleSidebar()">
@@ -20,41 +20,9 @@
         <router-outlet></router-outlet>
     </div>
 
+    <!-- <app-sidebar-left-user (sidebarWidth)="changeTheWidthOfTheLeftBar($event)"></app-sidebar-left-user>
+    <app-sidebar-right-user (sidebarWidth)="changeTheWidthOfTheRightBar($event)"></app-sidebar-right-user> -->
     
-    <div [class.hidden_left]="isSidebarOpen">
-        <div class="sidebar_left">
-            <div [style.width.px]="leftSideBarStyle.width">
-                <div class="sidebar_left_content" >
-                    <app-sidebar-left-user></app-sidebar-left-user>
-                </div>
-            </div>
-        </div>
-        <div [style.zIndex]="leftSideBarStyle2.zIndex" [style.borderRight]="leftSideBarStyle2.borderRight" (mousemove)="onResizeLeft($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeLeftEnd($event)" class="sidebar_left_2">
-            <div [style.width.px]="leftSideBarStyle2.width" >
-                <div class="sidebar_left_content" (mousemove)="blocKonResize($event)">
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-    <div [class.hidden_right]="isSidebarOpen">
-        <div class="sidebar_right">
-            <div [style.width.px]="rightSideBarStyle.width" >
-                <div class="sidebar_right_content" >
-                    <app-sidebar-left-user></app-sidebar-left-user>
-                </div>
-            </div>
-        </div>
-        <div [style.zIndex]="rightSideBarStyle2.zIndex" [style.borderLeft]="rightSideBarStyle2.borderLeft" (mousemove)="onResizeRight($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeRightEnd($event)" class="sidebar_right_2">
-            <div [style.width.px]="rightSideBarStyle2.width"  (mousemove)="blocKonResize($event)">
-                <div class="sidebar_right_content" >
-                </div>
-                
-            </div>
-        </div>
-    </div>
 </div>
 <div class="background_layout"></div>
 
-<!-- <div class="testssss"></div> -->

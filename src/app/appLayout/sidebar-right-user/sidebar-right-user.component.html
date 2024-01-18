@@ -1,1 +1,17 @@
-<p>sidebar-right-user works!</p>
+<div >
+    <div class="sidebar_right">
+        <div [style.width.px]="rightSideBarStyle.width" >
+            <div class="sidebar_right_content" >
+                <!-- <app-sidebar-left-user></app-sidebar-left-user> -->
+                hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            </div>
+        </div>
+    </div>
+    <div [style.zIndex]="rightSideBarStyle2.zIndex" [style.borderLeft]="rightSideBarStyle2.borderLeft" (mousemove)="onResizeRight($event)" (mousedown)="onResizeStart()" (mouseup)="onResizeRightEnd($event)" class="sidebar_right_2">
+        <div [style.width.px]="rightSideBarStyle2.width"  >
+            <div class="sidebar_right_content" >
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@ export interface PracticeTimes {
 
 export interface IPracticeTime {
   id: number;
-  timeStart: string;
+  timeStart: Date;
   myWorkoutId:number,
   exerciseId: number;
   bigExerciseId: number;
