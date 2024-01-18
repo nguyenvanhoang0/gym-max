@@ -2,7 +2,7 @@
   <div *ngIf="exerciseData">
     <div class="title_exercise">
       <div class="flex group_author">
-        <img class="avatar" [src]="exerciseData.author.avatarPath" alt="{{ exerciseData.author.username }}'s Avatar">
+        <app-user-information [user]="exerciseData.author"></app-user-information>
         <p>{{ exerciseData.author.username }}</p>/
         <p>{{ exerciseData.author.educationLevel }}</p>
       </div>
@@ -53,7 +53,8 @@
         </div>
         <div class="content flex" *ngFor="let target of exerciseData.target.$values"  (click)="navigateToTargetDetails(target.id)">
           <div class="flex">
-            <img class="avatar" [src]="target.author.avatarPath" alt="{{ target.author.username }}'s Avatar">
+            <app-user-information [user]="target.author"></app-user-information>
+
             <p>{{ target.target }}</p>
             <p>Point: {{ target.point }}</p>
             <p>Status: {{ target.status }}</p>

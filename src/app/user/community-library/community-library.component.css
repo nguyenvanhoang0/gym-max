@@ -55,21 +55,6 @@
     background-color: rgb(200, 200, 200);
 }
 
-.hover_avatar{
-    position: relative;
-}
-
-.hover_avatar:hover .information {
-    display: block;
-}
-
-.information {
-    display: none;
-    position: absolute;
-    top: -100px;
-    left: -24px;
-}
-
 
 .all_generalGenre {
     display: none;

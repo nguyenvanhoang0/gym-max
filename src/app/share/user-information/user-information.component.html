@@ -1,10 +1,19 @@
-<div class="user_information">
-    <div class="main flex" >
-        <div class="information">
-            <img class="avatar" src="{{user.avatarPath}}" alt="">
-            <P>{{user.username}}</P>
+<div class="hover_avatar">
+
+    <div>
+        <div class="user_information">
+            <div class="main flex">
+                <div class="information">
+                    <img class="avatar" src="{{user.avatarPath}}" alt="">
+                    <P>{{user.username}}</P>
+                </div>
+                <button>view</button>
+            </div>
+            <div class="arrow"></div>
         </div>
-        <button>view</button>
     </div>
-    <div class="arrow"></div>
+
+    <img *ngIf="user.avatarPath" class="avatar" src="{{ user.avatarPath }}" alt="">
+    <img *ngIf="!user.avatarPath" class="avatar" src="../../../assets/svg/person.svg" alt="">
+
 </div>

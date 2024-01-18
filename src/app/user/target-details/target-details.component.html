@@ -3,7 +3,7 @@
         <div class="">
             <div class="title_target flex">
                 <div class="flex target">
-                    <img class="avatar" src="{{ targetData.author.avatarPath }}" alt="">
+                    <app-user-information [user]="targetData.author"></app-user-information>
                     <p>{{ targetData.target }}</p>
                 </div>
                 <div class="flex">

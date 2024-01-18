@@ -36,8 +36,8 @@
 }
 
 .main .target {
-    overflow: hidden;
-    border-radius: 6px;
+    /* overflow: hidden; */
+    border-radius: 6px ;
     border: 1px solid #ccc;
 }
 
@@ -47,6 +47,7 @@
 
 .title_target{
     padding: 20px;
+    border-radius: 6px 6px 0px 0px;
     background-color: #ecf3fa;
     justify-content: space-between;
 }

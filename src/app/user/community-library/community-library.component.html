@@ -25,12 +25,7 @@
                 </div>
 
                 <div class="author">
-                    <div class="hover_avatar">
-                        <div class="information"><app-user-information [user]="exercise.author"></app-user-information></div>
-                        <img *ngIf="exercise.author.avatarPath" class="avatar" src="{{ exercise.author.avatarPath }}" alt="">
-                        <img *ngIf="!exercise.author.avatarPath" class="avatar" src="../../../assets/svg/person.svg" alt="">
-                       
-                    </div>
+                    <app-user-information [user]="exercise.author"></app-user-information>
                      <div>
                         <div>{{ exercise.author.username }}/{{ exercise.author.role }}</div>
                         <div>{{ exercise.author.email }}</div>

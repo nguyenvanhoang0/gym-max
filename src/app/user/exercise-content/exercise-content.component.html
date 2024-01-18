@@ -27,8 +27,7 @@
                     <div class="big_exercise">
                         <div class="exercise flex" *ngFor="let exercise of monthData.value" (click)="navigateToTargetDetails(exercise.bigExercise.id)">
                             <div class="flex">
-                                <div class="avatar"><img src="{{exercise?.bigExercise?.author?.avatarPath}}" alt="">
-                                </div>
+                                <app-user-information [user]="exercise.bigExercise.author"></app-user-information>
                                 <div>{{ exercise?.bigExercise?.target }}</div>
                             </div>
                             <div class="flex">
