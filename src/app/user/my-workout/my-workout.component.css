@@ -5,6 +5,7 @@
 
 .my_workout > * {
   margin-top: 20px;
+  transition: 0.2s;
 }
 
 form {
@@ -54,12 +55,14 @@ form button:hover {
 /* _________________________________________________ */
 
 .details_date{
-  width: 30%;
   height: 100%;
+  flex: 1;
+
 }
 
 .calendar{
-  flex: 1;
+  width: 65%;
+
 }
 
 .main{

@@ -1,5 +1,11 @@
 .today {
   height: 100%;
+  transition: 0.2s;
+
+}
+
+.today * {
+  transition: 0.2s;
 }
 
 .today .workout {

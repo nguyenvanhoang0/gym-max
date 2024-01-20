@@ -40,6 +40,8 @@ export class MyWorkoutComponent {
     color: "",
   }
 
+  fullscreenMode : string = '';
+
   selectedDate!: IDayDetails ;
   selectedMonth!: IMonthDetails;
 
@@ -96,6 +98,11 @@ export class MyWorkoutComponent {
     
     console.log(colorID + "colorID");
     
+  }
+
+  ChangeToFullScreenMode(mode: string) {
+    
+      this.fullscreenMode =mode
   }
 
   

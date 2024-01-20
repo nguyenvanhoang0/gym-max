@@ -1,22 +1,23 @@
 <div class="my_workout text">
 
-  <div>
+  <div *ngIf="fullscreenMode != 'detailsDate'">
     <app-select-month (monthDetails)="updateCurrentMonthAndYear_2($event)"></app-select-month>
   </div>
-  <div>
+  <div *ngIf="fullscreenMode != 'detailsDate'">
     <app-view-type-menu (viewTypeChange)="viewTypeChange($event)"></app-view-type-menu>
   </div>
   <div class="flex main">
-    <div class="calendar">
+    <div class="calendar" *ngIf="fullscreenMode != 'detailsDate'">
       <app-calendar (dateSelected)="onDateSelected($event)" (exerciseData)="getExerciseData($event)"
         [viewType]="viewType" [colorId]="dataColor.id" [monthDetails]="selectedMonth" [viewingDate]="selectedDate">
       </app-calendar>
+      <app-note (colorIdData)="colorIDChange($event)" [exerciseData]="practiceTimes" [viewType]="viewType"></app-note>
+
     </div>
     <div class="details_date">
-      <app-details-date [selectedDate]="selectedDate " (viewingDate)="onDateSelected($event)"></app-details-date>
+      <app-details-date [selectedDate]="selectedDate " (viewingDate)="onDateSelected($event)" (fullscreenMode)="ChangeToFullScreenMode($event)"></app-details-date>
     </div>
   </div>
-  <app-note (colorIdData)="colorIDChange($event)" [exerciseData]="practiceTimes" [viewType]="viewType"></app-note>
 
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges ,Output ,EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IDayDetails } from '../../../service/workout-schedule/day-details-interface';
@@ -16,14 +16,18 @@ import { IPracticeTime } from '../../../service/practice-time/practice-time-inte
 })
 export class DetailsDateComponent {
   @Output() viewingDate = new EventEmitter<IDayDetails>();
+  @Output() fullscreenMode = new EventEmitter<string>();
 
   @Input() selectedDate!: IDayDetails;
 
   userInfo: IUser | null = null;
   practiceTimes: IPracticeTime[] = [];
+
   currentDate: Date = new Date();
   currentYear: number;
   currentMonth: number;
+
+  fullscreen: string = "";
 
   constructor(
     private router: Router,
@@ -67,7 +71,7 @@ export class DetailsDateComponent {
 
     this.practiceTimes = [];
 
-    console.log(this.userInfo );
+    console.log(this.userInfo);
 
     if (this.userInfo) {
       console.log(2);
@@ -122,15 +126,22 @@ export class DetailsDateComponent {
       status
     };
 
-    // this.calculateDaysInMonth(); 
-    // console.log(this.selectedDate);
     this.viewingDate.emit(this.selectedDate);
-
     this.clickDay(this.selectedDate);
   }
 
   getDaysInMonth(year: number, month: number): number {
     return new Date(year, month, 0).getDate();
+  }
+
+  ChangeToFullScreenMode(mode: string) {
+    if (this.fullscreen == mode) {
+      this.fullscreen = ""
+      this.fullscreenMode.emit(this.fullscreen);
+    }else{
+      this.fullscreen = mode,
+      this.fullscreenMode.emit(this.fullscreen);
+    }
   }
 
   navigateToExerciseDetails(exerciseId: number) {
