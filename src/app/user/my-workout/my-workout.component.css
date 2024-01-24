@@ -5,6 +5,9 @@
 
 .my_workout > * {
   margin-top: 20px;
+}
+
+.my_workout *{
   transition: 0.2s;
 }
 

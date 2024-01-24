@@ -24,7 +24,7 @@ export class ColorUpdateFormComponent {
 
   @Input() dataColor: IUpdateColor = {
     id: 0,
-    color: "#fffffff",
+    color: "",
   }
 
   userInfo: IUser | null = null;
@@ -45,9 +45,7 @@ export class ColorUpdateFormComponent {
       (userInfo) => {
         this.userInfo = userInfo;
         if (this.userInfo?.id !== undefined) {
-          // console.log(this.userInfo?.id);
-          // this.getpracticeTimesUserById(this.userInfo.id , this.currentMonth);
-          // console.log(this.practiceTimes);
+         
         }
       },
       (error) => {
@@ -61,10 +59,8 @@ export class ColorUpdateFormComponent {
       this.myWorkoutService.updateMyWorkout(this.dataColor).subscribe(
         () => {
           console.log('Color updated successfully');
-          // this.dataColor.color = ""
           this.dataColor.color = ""
           console.log(this.dataColor);
-          // this.UserInfo()
         },
         (response) => {
           console.error('Error updating color:', response);
@@ -78,7 +74,6 @@ export class ColorUpdateFormComponent {
           this.dataColor.color = ""
           console.log(this.dataColor);
           // this.UserInfo()
-          // Thêm bất kỳ logic hoặc chuyển hướng bổ sung nào ở đây
         },
         (response) => {
           console.error('Error updating color:', response);
@@ -92,7 +87,6 @@ export class ColorUpdateFormComponent {
     this.dataColor.id = id,
       this.dataColor.color = color
     console.log(6);
-    // this.updateColor()
   }
 
   closeTheForm() {

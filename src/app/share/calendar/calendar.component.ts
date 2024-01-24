@@ -8,7 +8,6 @@ import { IPracticeTime } from '../../../service/practice-time/practice-time-inte
 import { IDayDetails, IMonthDetails } from '../../../service/workout-schedule/day-details-interface';
 
 import { UserService } from '../../../service/user/user-service.service';
-import { ColorPreferenceService } from '../../../service/color-preference/color-preference.service';
 import { WorkoutScheduleService } from '../../../service/workout-schedule/workout-schedule.service';
 
 @Component({
@@ -21,11 +20,11 @@ export class CalendarComponent {
   @Output() dateSelected = new EventEmitter<IDayDetails>();
   @Output() exerciseData = new EventEmitter<IPracticeTime[]>();
 
-  @Input() monthDetails!: IMonthDetails ;
+  @Input() monthDetails!: IMonthDetails;
   @Input() viewingDate: IDayDetails = this.workoutScheduleService.getTodayDetails();
   @Input() viewType: number = 0;
   @Input() colorId: number = 0;
-  
+
   currentYear: number;
   currentMonth: number;
 
@@ -63,7 +62,7 @@ export class CalendarComponent {
     console.log('currentMonth changed:', this.currentMonth);
     this.currentMonth = this.monthDetails.currentMonth;
     this.currentYear = this.monthDetails.currentYear;
-console.log(this.viewingDate);
+    console.log(this.viewingDate);
 
     if (this.currentMonth) {
       this.calculateDaysInMonth();
@@ -78,9 +77,7 @@ console.log(this.viewingDate);
       (userInfo) => {
         this.userInfo = userInfo;
         if (this.userInfo?.id !== undefined) {
-          // console.log(this.userInfo?.id);
           this.getpracticeTimesUserById(this.userInfo.id, this.currentMonth);
-          // console.log(this.practiceTimes);
         }
       },
       (error) => {
@@ -169,14 +166,14 @@ console.log(this.viewingDate);
 
     });
 
-    // Kết quả sau khi lọc được lưu trong filteredExercise
+
     // console.log(filteredExercise);
-    // console.log(0);
+
     return filteredExercise;
   }
 
   areDatesEqual(date1: IDayDetails, date2: IDayDetails): boolean {
-    if(date1){
+    if (date1) {
       return date1.day === date2.day && date1.month === date2.month && date1.year === date2.year;
 
     } return false

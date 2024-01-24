@@ -114,10 +114,7 @@ export class SidebarRightUserComponent {
       borderLeft: "none"
     };
     this.sidebarWidth.emit( this.screenWidth - clientX);
-    // this.mainContentStyle = {
-    //   ...this._mainContentStyle,
-    //   marginRight: this.screenWidth - clientX
-    // };
+    
   }
 
   blocKonResize(event: Event) {

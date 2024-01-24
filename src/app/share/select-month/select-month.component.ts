@@ -58,10 +58,6 @@ export class SelectMonthComponent {
     }
     this.emitMonthDetails(this.currentMonth, this.currentYear)
     console.log(4);
-
-    // this.weeks = [];
-    // this.calculateDaysInMonth();
-    // this.UserInfo()
   }
 
   updateCurrentMonth(selectedMonth: number) {
@@ -80,8 +76,8 @@ export class SelectMonthComponent {
 
   generateYears(yearsAhead: number): number[] {
     const currentYear = this.currentDate.getFullYear();
-    const startYear = currentYear - (yearsAhead - 1); // Năm bắt đầu, ví dụ: 2013 nếu yearsAhead = 10
-    const endYear = currentYear + yearsAhead; // Năm kết thúc, ví dụ: 2033 nếu yearsAhead = 10
+    const startYear = currentYear - (yearsAhead - 1); 
+    const endYear = currentYear + yearsAhead; 
 
     const yearArray: number[] = [];
     for (let year = startYear; year <= endYear; year++) {
