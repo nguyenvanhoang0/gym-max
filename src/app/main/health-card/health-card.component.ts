@@ -176,15 +176,11 @@ updatedUserInfo: IAddUserInformation = {
 
 
   handleChange(attribute: InputFormAttribute) {
-    // Xử lý sự kiện khi giá trị của trường input thay đổi
-    // console.log(`Value of ${attribute.label} changed to: ${attribute.value}`);
-    // Cập nhật giá trị vào updatedUserInfo hoặc nơi bạn muốn lưu trữ thay đổi
+    
   }
 
   handleBlur(attribute: InputFormAttribute) {
-    // Xử lý sự kiện khi trường input mất focus
-    // console.log(`${attribute.label} lost focus. Current value: ${attribute.value}`);
-    // Cập nhật giá trị vào updatedUserInfo hoặc nơi bạn muốn lưu trữ thay đổi
+   
   }
 
   nextBackFormQuestions(value: number){

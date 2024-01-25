@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { enableProdMode } from '@angular/core';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 
 @Component({
   selector: 'app-index',
